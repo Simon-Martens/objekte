@@ -1,0 +1,148 @@
+{
+  "type": "object",
+  "required": [
+    "title"
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "Title"
+    },
+    "notes": {
+      "type": "array",
+      "title": "Notes",
+      "items": {
+        "type": "string",
+        "title": "Note",
+        "x-content": "markdown",
+        "x-editor": "markdown"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "title": "Tags",
+      "items": {
+        "type": "string"
+      }
+    },
+    "matrix": {
+      "type": "array",
+      "title": "Nested numbers",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        }
+      }
+    },
+    "summary": {
+      "type": "string",
+      "title": "Summary",
+      "x-presentation": {
+        "mode": "multiline"
+      }
+    },
+    "count": {
+      "type": "integer",
+      "title": "Count"
+    },
+    "amount": {
+      "type": "number",
+      "title": "Amount"
+    },
+    "enabled": {
+      "type": "boolean",
+      "title": "Enabled"
+    },
+    "choice": {
+      "enum": [
+        0,
+        false,
+        "ready",
+        null
+      ],
+      "title": "Choice"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "title": "Date"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Date and time"
+    },
+    "inline": {
+      "type": "string",
+      "title": "Inline Markdown",
+      "x-editor": "markdown",
+      "x-presentation": {
+        "mode": "inline"
+      }
+    },
+    "html": {
+      "type": "string",
+      "title": "HTML",
+      "x-editor": "html"
+    },
+    "reference": {
+      "type": "string",
+      "title": "Related record",
+      "x-relation": {
+        "collection": "notes"
+      }
+    },
+    "media": {
+      "type": "string",
+      "title": "Image",
+      "x-editor": "media",
+      "x-media": {
+        "collection": "media"
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "title": "JSON",
+      "properties": {
+        "literal": {
+          "type": "string"
+        }
+      }
+    },
+    "nullable": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "title": "Nullable"
+    },
+    "empty": {
+      "type": "array",
+      "title": "Empty list",
+      "items": {
+        "type": "boolean"
+      }
+    },
+    "locked": {
+      "type": "string",
+      "title": "Read only",
+      "x-ownership": {
+        "kind": "imported",
+        "editable": false
+      }
+    },
+    "optional": {
+      "type": "string",
+      "title": "Optional text"
+    },
+    "optional_list": {
+      "type": "array",
+      "title": "Optional list",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

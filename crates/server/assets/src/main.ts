@@ -9,7 +9,9 @@ import './controls/theme-switch';
 import './controls/live-validation';
 import './controls/server-picker';
 import './controls/action-menu';
+import './controls/list-columns';
 import './controls/request-feedback';
+import './controls/tooltips';
 import './controls/code-input';
 import { confirmNavigation } from './controls/navigation-dialog';
 

@@ -1,1 +1,14 @@
-<div class="array-items">{% for item in items %}<div class="array-item"><div class="array-item-heading"><span class="mono">ITEM {{ loop.index }}</span><div class="actions"><button class="icon-button small" formaction="{{ item.up }}" {% if item.first %}disabled{% endif %} aria-label="Move item {{ loop.index }} up" title="Move up"><i class="ri-arrow-up-line" aria-hidden="true"></i></button><button class="icon-button small" formaction="{{ item.down }}" {% if item.last %}disabled{% endif %} aria-label="Move item {{ loop.index }} down" title="Move down"><i class="ri-arrow-down-line" aria-hidden="true"></i></button><button class="icon-button small danger" formaction="{{ item.remove }}" aria-label="Remove item {{ loop.index }}" title="Remove item"><i class="ri-close-line" aria-hidden="true"></i></button></div></div>{{ item.html|safe }}</div>{% endfor %}<button class="small" formaction="{{ add }}"><i class="ri-add-line" aria-hidden="true"></i>Add item</button></div>
+<div class="array-items">
+  {% if items.is_empty() %}<p class="array-empty muted">No items</p>{% endif %}
+  {% for item in items %}
+  <div class="array-item" role="group" aria-label="Item {{ loop.index }}">
+    {{ item.html|safe }}
+    <div class="array-item-actions">
+      <button class="icon-button small" formaction="{{ item.up }}" {% if item.first %}disabled{% endif %} aria-label="Move item {{ loop.index }} up" data-tooltip="Move up"><i class="ri-arrow-up-line" aria-hidden="true"></i></button>
+      <button class="icon-button small" formaction="{{ item.down }}" {% if item.last %}disabled{% endif %} aria-label="Move item {{ loop.index }} down" data-tooltip="Move down"><i class="ri-arrow-down-line" aria-hidden="true"></i></button>
+      <button class="icon-button small danger" formaction="{{ item.remove }}" aria-label="Remove item {{ loop.index }}" data-tooltip="Remove item"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+  </div>
+  {% endfor %}
+  <button class="small quiet" formaction="{{ add }}"><i class="ri-add-line" aria-hidden="true"></i>Add item</button>
+</div>

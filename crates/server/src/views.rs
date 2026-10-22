@@ -1,4 +1,5 @@
 pub mod list;
+mod preview;
 pub mod validation;
 use crate::{
     assets::Assets,
@@ -342,48 +343,7 @@ pub fn record(editor: &Editor, name: &str, id: &str, actor: &Actor) -> Result<St
             "<section class=\"preview-field\"><h3>{}</h3><div>",
             escape(label)
         );
-        if let (Some(target), Some(id)) = (
-            f.schema
-                .pointer("/x-relation/collection")
-                .and_then(|v| v.as_str()),
-            value.as_str(),
-        ) {
-            let label = editor
-                .get(target, id)
-                .ok()
-                .and_then(|d| editor.label(target, &d.value, id, "reference").ok())
-                .unwrap_or(id.into());
-            content += &format!(
-                "<a data-nav href=\"{}\">{}</a>",
-                record_url(target, id),
-                escape(&label)
-            );
-        } else if f.schema["x-content"] == "media" && value.is_string() {
-            let collection = f
-                .schema
-                .pointer("/x-media/collection")
-                .and_then(|v| v.as_str())
-                .unwrap_or("media");
-            let path = value.as_str().unwrap();
-            content += &format!(
-                "<a href=\"/media/{}/file?path={}\">{}</a>",
-                encode(collection),
-                encode(path),
-                escape(path)
-            );
-        } else if matches!(
-            f.schema["x-content"].as_str(),
-            Some("markdown" | "inline-markdown")
-        ) {
-            content += &markdown(value.as_str().unwrap_or(""));
-        } else {
-            content += &format!(
-                "<pre>{}</pre>",
-                escape(&value.as_str().map(str::to_owned).unwrap_or_else(|| {
-                    serde_json::to_string_pretty(value).unwrap_or_default()
-                }))
-            );
-        }
+        content += &preview::value(editor, f, value);
         content += "</div></section>";
     }
     let url = record_url(name, id);
@@ -470,11 +430,16 @@ pub fn edit(
     for field in &session.draft.fields {
         if !field.present && !field.hidden && !field.read_only && field.key != "_editor" {
             available_fields += &format!(
-                "<button class=\"add-field-option\" formaction=\"/edit-sessions/{}/fields/{}/actions/include\"><i class=\"ri-add-line\" aria-hidden=\"true\"></i>{} <span class=\"mono\">{}</span></button>",
+                "<button class=\"menu-action add-field-option\" formaction=\"/edit-sessions/{}/fields/{}/actions/include\"><i class=\"ri-add-line\" aria-hidden=\"true\"></i><span>{}</span><small>{}</small></button>",
                 session.id,
                 field.id,
                 escape(field.schema["title"].as_str().unwrap_or(&field.key)),
-                escape(field.schema["type"].as_str().unwrap_or("value"))
+                escape(
+                    field.schema["x-editor"]
+                        .as_str()
+                        .or_else(|| field.schema["type"].as_str())
+                        .unwrap_or("value")
+                )
             );
         }
         let destination = if field.key == "_editor" {

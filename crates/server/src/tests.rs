@@ -1846,3 +1846,252 @@ async fn fragment_errors_are_delivered_as_visible_patches() {
         StatusCode::FORBIDDEN
     );
 }
+
+async fn field_types_fixture() -> (tempfile::TempDir, Arc<AppState>, String, auth::Actor) {
+    let (temp, mut state, cookie, actor) = fixture().await;
+    let root = temp.path().join("project");
+    let mut schema: serde_json::Value =
+        serde_json::from_str(include_str!("../tests/fixtures/field-types.schema.json")).unwrap();
+    schema["x-collection"] = json!("notes");
+    std::fs::write(
+        root.join(".editor/objects.schema.json"),
+        json!({"anyOf":[schema]}).to_string(),
+    )
+    .unwrap();
+    std::fs::write(root.join(".editor/ui.json"), json!({"collections":{"notes":{"label":"Notes","display":"title","list":{"columns":["title","count"],"filters":["enabled"]}}}}).to_string()).unwrap();
+    std::fs::write(
+        root.join("data/notes/one.json"),
+        include_str!("../tests/fixtures/field-types.json"),
+    )
+    .unwrap();
+    std::fs::copy(
+        root.join("data/notes/one.json"),
+        root.join("data/notes/two.json"),
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("settings.json"),
+        json!({"pageSize":1}).to_string(),
+    )
+    .unwrap();
+    Arc::get_mut(&mut state).unwrap().editor = Editor::open(&root).unwrap();
+    (temp, state, cookie, actor)
+}
+
+#[tokio::test]
+async fn record_view_renders_typed_array_items_and_escapes_source() {
+    let (_temp, state, cookie, _) = field_types_fixture().await;
+    let (status, html) = request(
+        state,
+        "GET",
+        "/collections/notes/records/one",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert_eq!(status, StatusCode::OK);
+    assert!(
+        html.contains("<ol class=\"preview-array\"><li><p>First <strong>bold</strong> note</p>"),
+        "{html}"
+    );
+    assert!(html.contains("Second <em>italic</em> note"));
+    assert!(html.contains("<li><ol class=\"preview-array\"><li><span class=\"mono\">1</span>"));
+    assert!(html.contains("<span class=\"preview-text\">Line one\nLine two</span>"));
+    assert!(html.contains("<span>No</span>"));
+    assert!(html.contains("<span class=\"mono\">0</span>"));
+    assert!(html.contains("<pre class=\"preview-source\">null</pre>"));
+    assert!(html.contains("No items"));
+    assert!(html.contains("2026-10-23T14:30:00+02:00"));
+    assert!(html.contains("href=\"/collections/notes/records/one\">Field review</a>"));
+    assert!(html.contains("/media/media/file?path=sample%2Ejpg"));
+    assert!(html.contains("&lt;script&gt;alert(&quot;source only&quot;)&lt;/script&gt;"));
+    assert!(!html.contains("<script>alert"));
+    assert!(!html.contains("<strong>plain JSON</strong>"));
+}
+
+#[tokio::test]
+async fn all_field_controls_round_trip_and_markdown_arrays_keep_order() {
+    let (_temp, state, cookie, actor) = field_types_fixture().await;
+    let original = state.editor.get("notes", "one").unwrap().value;
+    let session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start(&state.editor, &actor, "notes", Some("one"))
+        .unwrap();
+    let fields = session
+        .draft
+        .fields
+        .iter()
+        .map(|f| (f.key.clone(), f.id.clone()))
+        .collect::<HashMap<_, _>>();
+    let (_, html) = request(
+        state.clone(),
+        "GET",
+        &format!("/edit-sessions/{}", session.id),
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert!(html.contains("inputmode=\"numeric\""));
+    assert!(html.contains("inputmode=\"decimal\""));
+    assert!(html.contains("class=\"text-multiline\""));
+    assert!(html.contains("aria-describedby=\"errors-"));
+    assert!(html.contains("aria-label=\"Move item 1 down\""));
+    assert!(!html.contains("ITEM 1"));
+    assert!(session.draft.field(&fields["locked"]).unwrap().read_only);
+    let array = session.draft.field(&fields["notes"]).unwrap();
+    let (status, _) = request(
+        state.clone(),
+        "POST",
+        &format!(
+            "/edit-sessions/{}/fields/{}/actions/down?item={}",
+            session.id, array.id, array.items[0].id
+        ),
+        &cookie,
+        &form(&session, &actor),
+        true,
+    )
+    .await;
+    assert_eq!(status, StatusCode::OK);
+    let session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .get(&session.id, &actor)
+        .unwrap()
+        .clone();
+    let (status, _) = request(
+        state.clone(),
+        "POST",
+        &format!("/edit-sessions/{}/save", session.id),
+        &cookie,
+        &form(&session, &actor),
+        true,
+    )
+    .await;
+    assert_eq!(status, StatusCode::OK);
+    let saved = state.editor.get("notes", "one").unwrap().value;
+    for (key, value) in original.as_object().unwrap() {
+        if key != "notes" {
+            assert_eq!(&saved[key], value, "field {key} changed");
+        }
+    }
+    assert_eq!(
+        saved["notes"],
+        json!([original["notes"][1], original["notes"][0]])
+    );
+    assert!(saved.get("optional").is_none());
+}
+
+#[tokio::test]
+async fn custom_list_columns_survive_search_sort_filters_and_pagination() {
+    let (_temp, state, cookie, _) = field_types_fixture().await;
+    let url = "/collections/notes?columns=custom&column.title=1&column.enabled=1&q=Field&filter.enabled=false";
+    let (status, html) = request(state.clone(), "GET", url, &cookie, &HashMap::new(), true).await;
+    assert_eq!(status, StatusCode::OK);
+    let headings = html
+        .split("<thead>")
+        .nth(1)
+        .unwrap()
+        .split("</thead>")
+        .next()
+        .unwrap();
+    assert!(headings.contains("Title"));
+    assert!(headings.contains("Enabled"));
+    assert!(!headings.contains("Count"));
+    assert!(html.contains("data-on:change=\"el.requestSubmit()\""));
+    assert!(html.contains("column%2Eenabled=1"));
+    assert!(html.contains("columns=custom"));
+    assert!(html.contains("filter%2Eenabled=false"));
+    assert!(html.contains("offset=1"));
+    let (_, second) = request(
+        state,
+        "GET",
+        &format!("{url}&offset=1&sort=title&direction=desc"),
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert!(second.contains("aria-sort=\"descending\""));
+    assert!(second.contains("data-label=\"Enabled\""));
+    assert!(!second.contains("data-label=\"Count\""));
+}
+
+#[tokio::test]
+async fn added_array_slots_render_without_defaults_and_accept_typed_input() {
+    let (_temp, state, cookie, actor) = field_types_fixture().await;
+    let mut session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start(&state.editor, &actor, "notes", Some("one"))
+        .unwrap();
+    for (key, raw, expected) in [
+        ("notes", "Added **note**", json!("Added **note**")),
+        ("empty", "false", json!(false)),
+    ] {
+        let array = session
+            .draft
+            .fields
+            .iter()
+            .find(|f| f.key == key)
+            .unwrap()
+            .id
+            .clone();
+        let (status, html) = request(
+            state.clone(),
+            "POST",
+            &format!("/edit-sessions/{}/fields/{array}/actions/add", session.id),
+            &cookie,
+            &form(&session, &actor),
+            true,
+        )
+        .await;
+        assert_eq!(status, StatusCode::OK);
+        session = state
+            .sessions
+            .lock()
+            .unwrap()
+            .get(&session.id, &actor)
+            .unwrap()
+            .clone();
+        let item = session.draft.field(&array).unwrap().items.last().unwrap();
+        assert!(!item.present, "No default should be invented in the draft");
+        assert!(
+            html.contains(&format!("name=\"value.{}\"", item.id)),
+            "New item has no editable control"
+        );
+        assert!(html.contains(&format!("name=\"present.{}\"", item.id)));
+        if key == "empty" {
+            assert!(html.contains("Choose a value"));
+        }
+        let mut values = form(&session, &actor);
+        values.insert(format!("present.{}", item.id), "1".into());
+        values.insert(format!("value.{}", item.id), raw.into());
+        let (status, _) = request(
+            state.clone(),
+            "POST",
+            &format!("/edit-sessions/{}/validate", session.id),
+            &cookie,
+            &values,
+            true,
+        )
+        .await;
+        assert_eq!(status, StatusCode::OK);
+        session = state
+            .sessions
+            .lock()
+            .unwrap()
+            .get(&session.id, &actor)
+            .unwrap()
+            .clone();
+        assert_eq!(
+            session.value().unwrap()[key].as_array().unwrap().last(),
+            Some(&expected)
+        );
+    }
+}

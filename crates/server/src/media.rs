@@ -162,7 +162,7 @@ pub fn render(
                 || editor.allows(name, "copy"))
         {
             body += &format!(
-                "<details class=\"action-menu\"><summary class=\"icon-button\" aria-label=\"Actions for {}\" title=\"File actions\"><i class=\"ri-more-2-line\" aria-hidden=\"true\"></i></summary><div class=\"menu-panel\">",
+                "<details class=\"action-menu\"><summary class=\"icon-button\" aria-label=\"Actions for {}\" data-tooltip=\"File actions\"><i class=\"ri-more-2-line\" aria-hidden=\"true\"></i></summary><div class=\"menu-panel\">",
                 views::escape(&entry.name)
             );
             if !folder {

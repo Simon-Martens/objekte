@@ -84,14 +84,14 @@ pub fn navigation_tree(
                     String::new()
                 };
                 html += &format!(
-                    "<details class=\"tree-node\" id=\"nav-{key}\" data-active-branch=\"{active}\" {}><summary><a data-nav href=\"{url}\"{selected} title=\"{}\">{label}<small>{}</small></a><i class=\"ri-arrow-right-s-line tree-chevron\" aria-hidden=\"true\"></i></summary><div class=\"tree-children\">{all_link}{children}</div></details>",
+                    "<details class=\"tree-node\" id=\"nav-{key}\" data-active-branch=\"{active}\" {}><summary><a data-nav href=\"{url}\"{selected} data-tooltip=\"{}\">{label}<small>{}</small></a><i class=\"ri-arrow-right-s-line tree-chevron\" aria-hidden=\"true\"></i></summary><div class=\"tree-children\">{all_link}{children}</div></details>",
                     if active { "open" } else { "" },
                     escape(&n.label),
                     n.children.len()
                 );
             } else {
                 html += &format!(
-                    "<a class=\"tree-leaf\" data-nav href=\"{url}\"{selected} title=\"{}\">{label}<small>{}</small></a>",
+                    "<a class=\"tree-leaf\" data-nav href=\"{url}\"{selected} data-tooltip=\"{}\">{label}<small>{}</small></a>",
                     escape(&n.label),
                     n.children.len()
                 );
@@ -270,9 +270,8 @@ pub fn sections(editor: &Editor, parent: &str, id: &str, actor: &Actor) -> Resul
                 html += "<td class=\"row-actions\"><div class=\"row-action-buttons\">";
                 if actor.editable() && editor.allows(&child.collection, "update") {
                     html += &format!(
-                        "<form method=\"post\" action=\"{record}/edit-sessions\" {SUBMIT}>{}<button class=\"icon-button\" title=\"Edit {}\" aria-label=\"Edit {}\"><i class=\"ri-edit-line\" aria-hidden=\"true\"></i></button></form>",
+                        "<form method=\"post\" action=\"{record}/edit-sessions\" {SUBMIT}>{}<button class=\"icon-button\" data-tooltip=\"Edit\" aria-label=\"Edit {}\"><i class=\"ri-edit-line\" aria-hidden=\"true\"></i></button></form>",
                         hidden("csrf", &actor.csrf),
-                        escape(&row.label),
                         escape(&row.label)
                     );
                 }

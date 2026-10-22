@@ -29,6 +29,20 @@ pub trait Control: Send + Sync {
 pub struct Registry {
     controls: Vec<Box<dyn Control>>,
 }
+fn title(field: &DraftField) -> String {
+    if let Ok(index) = field.key.parse::<usize>() {
+        format!(
+            "{} {}",
+            field.schema["title"].as_str().unwrap_or("Item"),
+            index + 1
+        )
+    } else {
+        field.schema["title"]
+            .as_str()
+            .unwrap_or(&field.key)
+            .to_owned()
+    }
+}
 impl Default for Registry {
     fn default() -> Self {
         Self {
@@ -50,7 +64,7 @@ impl Registry {
         context: &Context<'_>,
         item: bool,
     ) -> Result<String> {
-        if field.hidden || (!field.present && field.key != "_editor") {
+        if field.hidden || (!field.present && !item && field.key != "_editor") {
             return Ok(String::new());
         }
         let control = self
@@ -59,11 +73,7 @@ impl Registry {
             .find(|c| c.accepts(field))
             .expect("fallback control");
         let content = control.render(field, path, context, self)?;
-        let title = field
-            .schema
-            .get("title")
-            .and_then(|v| v.as_str())
-            .unwrap_or(&field.key);
+        let title = title(field);
         let errors: Vec<&str> = context
             .issues
             .iter()
@@ -72,10 +82,11 @@ impl Registry {
             .collect();
         Ok(Field {
             id: &field.id,
-            present: field.present,
+            // An explicit Add item action creates an editable slot, even without a default.
+            present: field.present || item,
             deletable: field.key != "_editor",
             session: context.session,
-            title,
+            title: &title,
             kind: field.schema["x-editor"]
                 .as_str()
                 .or_else(|| field.schema["type"].as_str())

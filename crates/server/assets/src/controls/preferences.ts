@@ -12,7 +12,7 @@ queueMicrotask(apply);
 document.addEventListener('click', async event => {
   const button = (event.target as Element)?.closest<HTMLButtonElement>('[data-copy]');
   if (!button) return;
-  try { await navigator.clipboard.writeText(button.dataset.copy || ''); button.setAttribute('aria-label','Copied'); button.title='Copied'; } catch { button.title='Select and copy the value manually'; }
+  try { await navigator.clipboard.writeText(button.dataset.copy || ''); button.setAttribute('aria-label','Copied'); button.dataset.tooltip='Copied'; } catch { button.dataset.tooltip='Select and copy the value manually'; }
 });
 // Disclosure menus share predictable outside-click and Escape behavior.
 document.addEventListener('click', event => {

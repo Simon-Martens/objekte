@@ -48,7 +48,8 @@ impl Control for Scalar {
                 "select"
             }
             InputKind::Json => "json",
-            InputKind::Integer | InputKind::Number => "numeric",
+            InputKind::Integer => "integer",
+            InputKind::Number => "numeric",
             InputKind::Text
                 if field.schema["format"] == "date" || field.schema["x-editor"] == "date" =>
             {

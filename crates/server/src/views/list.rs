@@ -371,7 +371,7 @@ pub fn render(
         );
     }
     body += &format!(
-        "<section class=\"surface table-panel\" aria-label=\"Records\"><div class=\"list-toolbar\"><form class=\"search-form\" action=\"{base}\" {get}>{}<label class=\"search-input\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i><span class=\"sr-only\">Search</span><input type=\"search\" name=\"q\" value=\"{}\" placeholder=\"Search all indexed fields…\"></label><button>Search</button></form><details class=\"action-menu column-picker\"><summary class=\"button\"><i class=\"ri-layout-column-line\" aria-hidden=\"true\"></i>Columns</summary><form class=\"menu-panel\" action=\"{base}\" {get}>{}<input type=\"hidden\" name=\"columns\" value=\"custom\"><p class=\"eyebrow\">Visible columns</p>",
+        "<section class=\"surface table-panel\" aria-label=\"Records\"><div class=\"list-toolbar\"><form class=\"search-form\" action=\"{base}\" {get}>{}<label class=\"search-input\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i><span class=\"sr-only\">Search</span><input type=\"search\" name=\"q\" value=\"{}\" placeholder=\"Search all indexed fields…\"></label><button>Search</button></form><details class=\"action-menu column-picker\"><summary class=\"button\"><i class=\"ri-layout-column-line\" aria-hidden=\"true\"></i>Columns</summary><form class=\"menu-panel\" action=\"{base}\" {get} data-on:change=\"el.requestSubmit()\" data-indicator:_columns-pending>{}<input type=\"hidden\" name=\"columns\" value=\"custom\"><p class=\"eyebrow\">Visible columns</p><fieldset data-attr:inert=\"$_columnsPending\">",
         hidden(params, &["q", "offset"]),
         escape(&q),
         hidden(params, &["column.", "columns", "offset"])
@@ -388,7 +388,7 @@ pub fn render(
             escape(label)
         );
     }
-    body += "<button class=\"primary\">Apply columns</button></form></details></div>";
+    body += "</fieldset><div class=\"menu-footer\"><span class=\"help\" role=\"status\" hidden data-attr:hidden=\"!$_columnsPending\">Updating…</span><button type=\"button\" class=\"small quiet\" data-close-menu>Done</button><noscript><button class=\"primary\">Apply columns</button></noscript></div></form></details></div>";
     body += &format!(
         "<div class=\"result-summary\"><span><strong>{}</strong> {} {}</span><span class=\"mono\">{}–{}</span></div><div class=\"table-scroll\"><table class=\"data-table\"><thead><tr>",
         page.matched,
@@ -482,7 +482,7 @@ pub fn render(
         );
         if actor.editable() && editor.allows(name, "update") {
             body += &format!(
-                "<form method=\"post\" action=\"{link}/edit-sessions\" data-on:submit__prevent=\"@post(el.getAttribute('action'),{{contentType:'form',retry:'never',retryMaxCount:0}})\"><input type=\"hidden\" name=\"csrf\" value=\"{}\"><button class=\"icon-button\" aria-label=\"Edit record\"><i class=\"ri-edit-line\" aria-hidden=\"true\"></i></button></form>",
+                "<form method=\"post\" action=\"{link}/edit-sessions\" data-on:submit__prevent=\"@post(el.getAttribute('action'),{{contentType:'form',retry:'never',retryMaxCount:0}})\"><input type=\"hidden\" name=\"csrf\" value=\"{}\"><button class=\"icon-button\" aria-label=\"Edit\"><i class=\"ri-edit-line\" aria-hidden=\"true\"></i></button></form>",
                 escape(&actor.csrf)
             );
         }

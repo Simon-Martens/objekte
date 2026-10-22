@@ -121,7 +121,7 @@ class CodeInput extends HTMLElement {
       if (selection) this.view.setSelection(selection);
       this.syncing = false;
     }
-    this.view.updateOptions({ readOnly: this.isReadOnly(), domReadOnly: this.isReadOnly() });
+    this.view.updateOptions({ readOnly: this.isReadOnly(), domReadOnly: this.isReadOnly(), ariaLabel: this.dataset.label || 'Source editor' });
     input.value = value;
     input.hidden = true;
     this.syncSelection();

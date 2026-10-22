@@ -5,7 +5,7 @@ pub struct Code;
 struct Input<'a> {
     id: &'a str,
     raw: &'a str,
-    label: &'a str,
+    label: String,
     language: &'a str,
     version: u64,
     inline: bool,
@@ -32,7 +32,7 @@ impl Control for Code {
         Ok(Input {
             id: &field.id,
             raw: &field.raw,
-            label: field.schema["title"].as_str().unwrap_or(&field.key),
+            label: title(field),
             language: if editor == "html" { "html" } else { "markdown" },
             version: context.version,
             inline: editor == "inline-markdown"

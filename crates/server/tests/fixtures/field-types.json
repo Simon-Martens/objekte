@@ -1,0 +1,37 @@
+{
+  "title": "Field review",
+  "notes": [
+    "First **bold** note",
+    "Second *italic* note with [a link](https://example.com)."
+  ],
+  "tags": [
+    "alpha",
+    "beta"
+  ],
+  "matrix": [
+    [
+      1,
+      2
+    ],
+    [
+      3
+    ]
+  ],
+  "summary": "Line one\nLine two",
+  "count": 0,
+  "amount": 1.25,
+  "enabled": false,
+  "choice": 0,
+  "date": "2026-10-23",
+  "timestamp": "2026-10-23T14:30:00+02:00",
+  "inline": "A **short** description",
+  "html": "<script>alert(\"source only\")</script>",
+  "reference": "one",
+  "media": "sample.jpg",
+  "metadata": {
+    "literal": "<strong>plain JSON</strong>"
+  },
+  "nullable": null,
+  "empty": [],
+  "locked": "Imported value"
+}

@@ -27,16 +27,15 @@ function position() {
   const upward = panel.scrollHeight > below && above > below;
   panel.style.maxHeight = `${Math.max(0, upward ? above : below)}px`;
   const bounds = panel.getBoundingClientRect();
-  panel.style.left = `${Math.max(margin, Math.min(anchor.right - bounds.width, width - bounds.width - margin))}px`;
+  const left = active.classList.contains('add-field-picker') ? anchor.left : anchor.right - bounds.width;
+  panel.style.left = `${Math.max(margin, Math.min(left, width - bounds.width - margin))}px`;
   panel.style.top = `${upward ? Math.max(margin, anchor.top - bounds.height - gap) : anchor.bottom + gap}px`;
 }
 
-document.addEventListener('toggle', event => {
-  const menu = event.target;
-  if (!(menu instanceof HTMLDetailsElement) || !menu.matches(selector)) return;
-  if (!menu.open) { if (active === menu) close(); return; }
-  if (active === menu) return;
+export function openMenu(menu: HTMLDetailsElement) {
+  if (active === menu && panel?.matches(':popover-open')) return;
   close();
+  menu.open = true;
   active = menu;
   panel = menu.querySelector<HTMLElement>(':scope > .menu-panel, :scope > div') ?? undefined;
   if (!panel) return;
@@ -45,6 +44,13 @@ document.addEventListener('toggle', event => {
   panel.showPopover();
   position();
   resize.observe(panel);
+}
+
+document.addEventListener('toggle', event => {
+  const menu = event.target;
+  if (!(menu instanceof HTMLDetailsElement) || !menu.matches(selector)) return;
+  if (!menu.open) { if (active === menu) close(); return; }
+  openMenu(menu);
 }, true);
 
 document.addEventListener('pointerdown', event => {
@@ -61,6 +67,7 @@ document.addEventListener('focusin', event => {
 });
 document.addEventListener('click', event => {
   if ((event.target as Element).closest('[data-copy]')) close();
+  if ((event.target as Element).closest('[data-close-menu]')) close(true);
 });
 window.addEventListener('navigate', () => close());
 window.addEventListener('resize', () => { if (active) position(); });

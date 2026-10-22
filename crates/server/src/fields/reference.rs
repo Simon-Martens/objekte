@@ -29,10 +29,11 @@ impl Control for Reference {
             })
             .unwrap_or_else(|| value.clone());
         let mut html = format!(
-            "<div class=\"reference-control\"><input id=\"input-{}\" name=\"value.{}\" value=\"{}\"><button formaction=\"/edit-sessions/{}/fields/{}/actions/picker\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i>{}</button></div>",
+            "<div class=\"reference-control\"><input id=\"input-{}\" name=\"value.{}\" value=\"{}\" aria-describedby=\"errors-{}\" autocomplete=\"off\"><button formaction=\"/edit-sessions/{}/fields/{}/actions/picker\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i>{}</button></div>",
             f.id,
             f.id,
             escape(&f.raw),
+            f.id,
             c.session,
             f.id,
             if target.is_some() {
