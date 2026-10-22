@@ -14,10 +14,10 @@ pub fn render(editor: &Editor, session: &EditSession) -> Result<String> {
     editor.require_operation(&p.collection, "read")?;
     let base = format!("/edit-sessions/{}/fields/{}/actions", session.id, p.field);
     let mut html = format!(
-        "<server-picker class=\"picker\" id=\"picker-region\" data-return-field=\"{}\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"picker-title\"><div class=\"picker-heading\"><h2 id=\"picker-title\">{}</h2><button class=\"icon-button\" aria-label=\"Close picker\" data-close-picker formaction=\"{base}/close-picker\"><i class=\"ri-close-line\" aria-hidden=\"true\"></i></button></div><label>Find<input name=\"picker_query\" value=\"{}\"></label>",
+        "<server-picker id=\"picker-region\" data-return-field=\"{}\"><section class=\"picker\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"picker-title\"><div class=\"picker-heading\"><h2 id=\"picker-title\">{}</h2><button class=\"icon-button\" aria-label=\"Close picker\" data-close-picker formaction=\"{base}/close-picker\"><i class=\"ri-close-line\" aria-hidden=\"true\"></i></button></div><div class=\"picker-search\"><label>Find<input name=\"picker_query\" type=\"search\" placeholder=\"Search records or files…\" value=\"{}\"></label>",
         views::escape(&p.field),
         if p.kind == "links" {
-            "Insert or edit Markdown link"
+            "Insert or edit a link"
         } else {
             "Choose a reference"
         },
@@ -55,13 +55,19 @@ pub fn render(editor: &Editor, session: &EditSession) -> Result<String> {
                 views::escape(&c.label)
             );
         }
-        html += "</select></label><label>Link label<input name=\"link_label\"></label><label>URL (optional when choosing a target)<input name=\"link_url\"></label><label><input type=\"checkbox\" name=\"link_image\">Image</label>";
+        html += "</select></label>";
+    }
+    html += &format!(
+        "<button data-picker-search formaction=\"{base}/search-picker\">Search</button></div>"
+    );
+    if p.kind == "links" {
+        html += "<details class=\"picker-link-options\"><summary>Link label, image or external URL</summary><div class=\"picker-link-fields\"><label>Link label (optional)<input name=\"link_label\" placeholder=\"Use the selected record’s label\"></label><label>External URL<input name=\"link_url\" placeholder=\"https://…\"></label><label class=\"checkbox-label\"><input type=\"checkbox\" name=\"link_image\">Insert as an image</label>";
         html += &format!(
-            "<button formaction=\"{base}/insert-link\">Insert URL / replace selected link</button>"
+            "<button formaction=\"{base}/insert-link\">Insert URL</button></div></details>"
         );
     }
-    html +=
-        &format!("<button data-picker-search formaction=\"{base}/search-picker\">Search</button>");
+    html += "<div class=\"picker-results\" aria-label=\"Search results\">";
+    let mut footer = String::new();
     if editor
         .config()
         .media_collections
@@ -80,9 +86,12 @@ pub fn render(editor: &Editor, session: &EditSession) -> Result<String> {
                 views::escape(parent)
             );
         }
+        if entries.is_empty() {
+            html += "<p class=\"empty-state compact\">No files match this search.</p>";
+        }
         for e in entries.iter().take(50) {
             html += &format!(
-                "<p><button name=\"choice\" value=\"{}\" formaction=\"{base}/{}\">{}</button></p>",
+                "<button class=\"picker-result\" name=\"choice\" value=\"{}\" formaction=\"{base}/{}\"><span>{}</span><i class=\"ri-arrow-right-line\" aria-hidden=\"true\"></i></button>",
                 views::escape(&e.path),
                 if matches!(e.kind, MediaKind::Directory) {
                     "folder"
@@ -93,21 +102,24 @@ pub fn render(editor: &Editor, session: &EditSession) -> Result<String> {
             );
         }
         if entries.len() > 50 {
-            html += &format!("<button formaction=\"{base}/next-picker\">Next</button>");
+            footer += &format!("<button formaction=\"{base}/next-picker\">Next</button>");
         }
     } else if editor.config().collections.contains_key(&p.collection) {
         let records = editor.list(&p.collection, &p.query, p.offset, 51)?;
+        if records.is_empty() {
+            html += "<p class=\"empty-state compact\">No records match this search.</p>";
+        }
         for r in records.iter().take(50) {
             let doc = editor.get(&p.collection, &r.id)?;
             let label = editor.label(&p.collection, &doc.value, &r.id, "reference")?;
             html += &format!(
-                "<p><button name=\"choice\" value=\"{}\" formaction=\"{base}/select\">{}</button></p>",
+                "<button class=\"picker-result\" name=\"choice\" value=\"{}\" formaction=\"{base}/select\"><span>{}</span><i class=\"ri-arrow-right-line\" aria-hidden=\"true\"></i></button>",
                 views::escape(&r.id),
                 views::escape(&label)
             );
         }
         if records.len() > 50 {
-            html += &format!("<button formaction=\"{base}/next-picker\">Next</button>");
+            footer += &format!("<button formaction=\"{base}/next-picker\">Next</button>");
         }
         if session
             .draft
@@ -115,15 +127,19 @@ pub fn render(editor: &Editor, session: &EditSession) -> Result<String> {
             .is_some_and(|f| f.schema.pointer("/x-relation/create").is_some())
             && editor.allows(&p.collection, "create")
         {
-            html += &format!(
+            footer += &format!(
                 "<button formaction=\"{base}/create-related\">Create a new record in this collection</button>"
             );
         }
     }
     if p.offset > 0 {
-        html += &format!("<button formaction=\"{base}/previous-picker\">Previous</button>");
+        footer += &format!("<button formaction=\"{base}/previous-picker\">Previous</button>");
     }
-    html += "</server-picker>";
+    html += "</div>";
+    if !footer.is_empty() {
+        html += &format!("<div class=\"dialog-footer\">{footer}</div>");
+    }
+    html += "</section></server-picker>";
     Ok(html)
 }
 pub fn action(

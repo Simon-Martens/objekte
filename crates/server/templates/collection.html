@@ -1,6 +1,6 @@
 <main id="workspace" class="collection-workspace" data-url="{{ url }}" data-section="{{ search }}" tabindex="-1">
   <div class="page-heading"><div><p class="eyebrow">Content / Collection</p><h1>{{ title }}</h1></div>
-    {% if editable %}<form method="post" action="{{ create }}" data-indicator:_pending data-on:submit__prevent="@post(el.getAttribute('action'),{contentType:'form',retry:'never'})"><input type="hidden" name="context" value="{{ tree }}"><input type="hidden" name="csrf" value="{{ csrf }}"><button class="primary"><i class="ri-add-line" aria-hidden="true"></i>New record</button></form>{% endif %}
+    {% if editable %}<form method="post" action="{{ create }}" data-indicator:_pending data-on:submit__prevent="@post(el.getAttribute('action'),{contentType:'form',retry:'never',retryMaxCount:0})"><input type="hidden" name="context" value="{{ tree }}"><input type="hidden" name="csrf" value="{{ csrf }}"><button class="primary"><i class="ri-add-line" aria-hidden="true"></i>New record</button></form>{% endif %}
   </div>
   {% if !context.is_empty() %}<section class="collection-context">{{ context|safe }}</section>{% endif %}
   <section class="surface record-list" aria-label="Records">

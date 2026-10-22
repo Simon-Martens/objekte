@@ -67,6 +67,13 @@ pub(crate) fn load(root: &Path, manifest: Value) -> Result<Loaded> {
                 .unwrap()
                 .extend(placement.clone());
         }
+        if let Some(mode) = presentation.get("sidebarAllLinks")
+            && !matches!(mode.as_str(), Some("none" | "root" | "all"))
+        {
+            return Err(Error::Config(format!(
+                "{name}: sidebarAllLinks must be none, root, or all"
+            )));
+        }
         let label = presentation["label"].as_str().unwrap_or(name).to_owned();
         let operations = settings
             .get("operations")

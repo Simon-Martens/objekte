@@ -6,6 +6,7 @@ class ServerPicker extends HTMLElement {
   private background: HTMLElement[] = [];
   connectedCallback() {
     this.addEventListener('keydown', this.keydown);
+    this.addEventListener('click', this.backdrop);
     queueMicrotask(() => {
       if (!this.isConnected) return;
       this.previous = document.activeElement instanceof HTMLElement ? document.activeElement : undefined;
@@ -18,7 +19,9 @@ class ServerPicker extends HTMLElement {
       this.backgroundObserver.observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['inert']});
       const focus = () => {
         if (this.closest('fieldset[inert]')) return;
-        this.querySelector<HTMLInputElement>('input[name="picker_query"], input[type="search"]')?.focus();
+        const target = this.querySelector<HTMLElement>('input[name="picker_query"], input[type="search"]')
+          ?? this.querySelector<HTMLElement>('[data-close-picker], [role="dialog"]');
+        target?.focus({preventScroll: true});
         this.ready?.disconnect();
       };
       this.ready = new MutationObserver(focus);
@@ -27,6 +30,11 @@ class ServerPicker extends HTMLElement {
       focus();
     });
   }
+  private backdrop = (event: MouseEvent) => {
+    if (event.target === this && !this.closest('fieldset[inert]')) {
+      this.querySelector<HTMLElement>('[data-close-picker]')?.click();
+    }
+  };
   private keydown = (event: KeyboardEvent) => {
     if (event.key === 'Enter' && (event.target as HTMLInputElement).name === 'picker_query') {
       event.preventDefault();
@@ -34,6 +42,7 @@ class ServerPicker extends HTMLElement {
     }
     if (event.key === 'Escape') {
       event.preventDefault();
+      event.stopPropagation();
       this.querySelector<HTMLElement>('[data-close-picker]')?.click();
     }
     if (event.key !== 'Tab') return;
@@ -48,11 +57,13 @@ class ServerPicker extends HTMLElement {
       this.ready?.disconnect();
       this.backgroundObserver?.disconnect();
       this.removeEventListener('keydown', this.keydown);
+      this.removeEventListener('click', this.backdrop);
       if(document.querySelector('server-picker')) return;
       this.background.forEach(element => { element.inert = false; });
       const field = document.getElementById(`field-${this.dataset.returnField}`);
       const control = field?.querySelector<HTMLElement>('code-input, input:not([type="checkbox"]):not([type="hidden"]), select, textarea');
-      const target = control ?? this.previous;
+      const target = control ?? (this.dataset.returnSelector
+        ? document.querySelector<HTMLElement>(this.dataset.returnSelector) : this.previous);
       if (!target?.isConnected) return;
       // The response can remove the picker before Datastar clears its pending
       // fieldset. Restoring focus while that ancestor is inert has no effect.

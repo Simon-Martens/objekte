@@ -23,6 +23,7 @@ pub fn router(state: Arc<AppState>) -> Router {
         .merge(crate::documents::router())
         .merge(crate::accounts::router())
         .merge(crate::hierarchy::router())
+        .merge(crate::deletion::router())
         .route("/", get(index))
         .route("/health", get(|| async { "ok" }))
         .route("/auth/login", get(login_page).post(login))
@@ -35,7 +36,6 @@ pub fn router(state: Arc<AppState>) -> Router {
             "/collections/{name}/records/{id}/edit-sessions",
             post(start),
         )
-        .route("/collections/{name}/records/{id}/delete", post(delete))
         .route("/edit-sessions/{id}", get(edit))
         .route("/edit-sessions/{id}/live-validation", post(live_validation))
         .route("/edit-sessions/{id}/{action}", post(command))
@@ -59,7 +59,35 @@ async fn response_headers(
     request: axum::extract::Request,
     next: axum::middleware::Next,
 ) -> Response {
+    let partial = fragment(request.headers());
     let mut response = next.run(request).await;
+    if partial && (response.status().is_client_error() || response.status().is_server_error()) {
+        let status = response.status();
+        let message = response
+            .extensions_mut()
+            .remove::<crate::error::ErrorNotice>()
+            .map(|notice| notice.0)
+            .unwrap_or_else(|| match status {
+                StatusCode::PAYLOAD_TOO_LARGE => {
+                    "This upload is too large for the server's request limit.".into()
+                }
+                StatusCode::NOT_FOUND => {
+                    "This page or action is no longer available. Refresh the page and try again."
+                        .into()
+                }
+                _ => format!(
+                    "The request could not be completed ({}). Refresh the page and try again.",
+                    status.as_str()
+                ),
+            });
+        response = stream(vec![format!(
+            "<div id=\"notification-region\" role=\"alert\" aria-live=\"assertive\">{}</div>",
+            views::escape(&message)
+        )]);
+        response
+            .headers_mut()
+            .insert("x-editor-error-status", status.as_str().parse().unwrap());
+    }
     response
         .headers_mut()
         .insert(header::CACHE_CONTROL, "no-store".parse().unwrap());
@@ -626,33 +654,6 @@ fn related_session(
     child.return_to = Some((parent.id.clone(), field.into()));
     sessions.insert(child.clone());
     Ok(child)
-}
-
-async fn delete(
-    State(state): App,
-    Path((name, id)): Path<(String, String)>,
-    headers: HeaderMap,
-    Form(form): Form<HashMap<String, String>>,
-) -> Result<Response> {
-    let actor = mutation_actor(&state, &headers, &form).await?;
-    let revision = form
-        .get("revision")
-        .cloned()
-        .ok_or_else(|| WebError::bad("Revision required"))?;
-    blocking(move || {
-        state.editor.delete(&name, &id, &revision)?;
-        let html = views::collection(&state.editor, &name, "", 0, &actor)?;
-        if fragment(&headers) {
-            Ok(stream(vec![
-                views::navigation(&state.editor, &html)?,
-                html,
-                views::notice("Record deleted."),
-            ]))
-        } else {
-            Ok(Redirect::to(&format!("/collections/{}", views::encode(&name))).into_response())
-        }
-    })
-    .await
 }
 
 async fn export(

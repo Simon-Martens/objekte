@@ -234,7 +234,7 @@ pub fn render(
         && (request.ids.is_none() || editor.allows(&params["parent_collection"], "update"))
     {
         body += &format!(
-            "<form action=\"{base}/edit-sessions\" method=\"post\" data-on:submit__prevent=\"@post(el.getAttribute('action'),{{contentType:'form',retry:'never'}})\"><input type=\"hidden\" name=\"csrf\" value=\"{}\"><input type=\"hidden\" name=\"context\" value=\"{}\"><button class=\"primary\"><i class=\"ri-add-line\" aria-hidden=\"true\"></i>New {}</button></form>",
+            "<form action=\"{base}/edit-sessions\" method=\"post\" data-on:submit__prevent=\"@post(el.getAttribute('action'),{{contentType:'form',retry:'never',retryMaxCount:0}})\"><input type=\"hidden\" name=\"csrf\" value=\"{}\"><input type=\"hidden\" name=\"context\" value=\"{}\"><button class=\"primary\"><i class=\"ri-add-line\" aria-hidden=\"true\"></i>New {}</button></form>",
             escape(&actor.csrf),
             escape(&tree),
             escape(c.ui["singularLabel"].as_str().unwrap_or("record"))
@@ -478,15 +478,15 @@ pub fn render(
             );
         }
         body += &format!(
-            "<td class=\"row-actions\"><a class=\"icon-button\" data-nav href=\"{link}\" aria-label=\"Open record\"><i class=\"ri-arrow-right-up-line\" aria-hidden=\"true\"></i></a>"
+            "<td class=\"row-actions\"><div class=\"row-action-buttons\"><a class=\"icon-button\" data-nav href=\"{link}\" aria-label=\"Open record\"><i class=\"ri-arrow-right-up-line\" aria-hidden=\"true\"></i></a>"
         );
         if actor.editable() && editor.allows(name, "update") {
             body += &format!(
-                "<form method=\"post\" action=\"{link}/edit-sessions\" data-on:submit__prevent=\"@post(el.getAttribute('action'),{{contentType:'form',retry:'never'}})\"><input type=\"hidden\" name=\"csrf\" value=\"{}\"><button class=\"icon-button\" aria-label=\"Edit record\"><i class=\"ri-edit-line\" aria-hidden=\"true\"></i></button></form>",
+                "<form method=\"post\" action=\"{link}/edit-sessions\" data-on:submit__prevent=\"@post(el.getAttribute('action'),{{contentType:'form',retry:'never',retryMaxCount:0}})\"><input type=\"hidden\" name=\"csrf\" value=\"{}\"><button class=\"icon-button\" aria-label=\"Edit record\"><i class=\"ri-edit-line\" aria-hidden=\"true\"></i></button></form>",
                 escape(&actor.csrf)
             );
         }
-        body += "</td></tr>";
+        body += "</div></td></tr>";
         let extra_matches: Vec<_> = row
             .matches
             .iter()

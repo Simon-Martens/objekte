@@ -34,9 +34,10 @@ Collection `ui.json` controls:
 - `singularLabel`: contextual creation label.
 - `sidebarLabel` and optional `sidebarIcon`: root navigation presentation.
 - `allCollection`: optional collection opened by the special root *All* entry.
+- `sidebarAllLinks`: `none` (default), `root`, or `all`. The Lenz sidebar uses `none`: Ort and Sammlung labels open their records directly. Only containers appear in the sidebar; individual Handschriften appear in the main lists. Containers without subcontainers have no expansion arrow.
 - `list.columns`, `list.defaultSort`, and `list.filters`: existing table settings, also used for child lists.
 
-The example exposes Orte as the **Handschriften** root. Clicking its label opens Orte; the chevron expands/collapses the tree. Its *All* entry opens every manuscript, including unattached ones. Clicking an Ort or Sammlung opens its record and expands its children; each branch's *All* opens that parent overview. Labels and chevrons are separate targets, and branch and leaf labels use identical indentation at a given depth. Alphabetic lists, trees, facets, suggestions, and media names use Unicode collation (case-insensitive, accents at secondary strength; canonically equivalent strings compare equally). Numeric fields and child counts sort numerically. Stable IDs break collation ties.
+The example exposes Orte as the **Handschriften** root. Clicking its label opens Orte; the chevron expands/collapses the tree. If enabled through `sidebarAllLinks`, the root *All* entry opens every manuscript, including unattached ones. Clicking an Ort or Sammlung opens its record and child lists. Labels and chevrons are separate targets, and branch and leaf labels use identical indentation at a given depth. Alphabetic lists, trees, facets, suggestions, and media names use Unicode collation (case-insensitive, accents at secondary strength; canonically equivalent strings compare equally). Numeric fields and child counts sort numerically. Stable IDs break collation ties.
 
 ## Lenz migration
 

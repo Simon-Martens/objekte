@@ -93,7 +93,12 @@ async fn request(
         )
         .await
         .unwrap();
-    let status = response.status();
+    // Fragment failures use a successful SSE transport so Datastar can show them.
+    let status = response
+        .headers()
+        .get("x-editor-error-status")
+        .and_then(|value| StatusCode::from_bytes(value.as_bytes()).ok())
+        .unwrap_or(response.status());
     let body = String::from_utf8(
         response
             .into_body()
@@ -1412,7 +1417,15 @@ async fn media_replacement_http_preserves_the_path_and_checks_revision_and_forma
             )
             .await
             .unwrap();
-        assert_eq!(response.status(), expected);
+        assert_eq!(response.status(), StatusCode::OK);
+        assert_eq!(
+            response
+                .headers()
+                .get("x-editor-error-status")
+                .and_then(|value| StatusCode::from_bytes(value.as_bytes()).ok())
+                .unwrap_or(StatusCode::OK),
+            expected
+        );
         assert_eq!(
             state.editor.media_read("scan.txt").unwrap(),
             if expected == StatusCode::OK {
@@ -1425,8 +1438,7 @@ async fn media_replacement_http_preserves_the_path_and_checks_revision_and_forma
     }
 }
 
-#[tokio::test]
-async fn hierarchy_routes_render_scope_create_attach_and_reject_stale_changes() {
+async fn hierarchy_fixture() -> (tempfile::TempDir, Arc<AppState>, String, auth::Actor) {
     let (temp, mut state, cookie, actor) = fixture().await;
     let root = temp.path().join("project");
     let load = |path: &str| {
@@ -1444,14 +1456,18 @@ async fn hierarchy_routes_render_scope_create_attach_and_reject_stale_changes() 
         config["collections"][name] =
             json!({"path":format!("data/{name}"),"format":"json","id":"filename"});
         schemas["anyOf"].as_array_mut().unwrap().push(json!({"x-collection":name,"type":"object","required":["name"],"properties":{"name":{"type":"string"},"children":{"type":"array","uniqueItems":true,"x-children":true,"items":{"type":"string","x-relation":{"collection":target}}}},"additionalProperties":false}));
-        ui["collections"][name] =
-            json!({"label":name,"display":"name","showInSidebar":name=="places"});
+        ui["collections"][name] = json!({
+            "label": name,
+            "display": "name",
+            "showInSidebar": name == "places",
+            "sidebarAllLinks": "root"
+        });
     }
     write(".editor/repository.json", &config);
     write(".editor/objects.schema.json", &schemas);
     write(".editor/ui.json", &ui);
     Arc::get_mut(&mut state).unwrap().editor = Editor::open(&root).unwrap();
-    let g = state
+    state
         .editor
         .save(
             "groups",
@@ -1469,6 +1485,13 @@ async fn hierarchy_routes_render_scope_create_attach_and_reject_stale_changes() 
             None,
         )
         .unwrap();
+    (temp, state, cookie, actor)
+}
+
+#[tokio::test]
+async fn hierarchy_routes_render_scope_create_attach_and_reject_stale_changes() {
+    let (_temp, state, cookie, actor) = hierarchy_fixture().await;
+    let g = state.editor.get("groups", "g").unwrap();
     let (_, html) = request(
         state.clone(),
         "GET",
@@ -1482,7 +1505,28 @@ async fn hierarchy_routes_render_scope_create_attach_and_reject_stale_changes() 
     assert!(html.contains("New record"));
     assert!(html.contains("Link existing"));
     assert!(html.contains("data-active-branch=\"true\""));
+    assert!(html.contains("<a class=\"tree-all\" data-nav href=\"/collections/places\""));
+    assert!(!html.contains("data-nav class=\"tree-all\" href=\"/collections/places/records/p\""));
+    assert!(!html.contains("data-nav class=\"tree-all\" href=\"/collections/groups/records/g\""));
+    assert!(
+        hierarchy::navigation_tree(&state.editor, "places", "", true)
+            .unwrap()
+            .contains("data-nav class=\"tree-all\" href=\"/collections/groups/records/g\"")
+    );
     assert!(!html.contains("All in "));
+    let containers = hierarchy::navigation_tree(
+        &state.editor,
+        "places",
+        "data-record-url=\"/collections/notes/records/one\"",
+        false,
+    )
+    .unwrap();
+    assert!(!containers.contains("tree-all"));
+    assert!(!containers.contains("href=\"/collections/notes/records/one\""));
+    assert!(containers.contains("href=\"/collections/groups/records/g\" aria-current=\"page\""));
+    assert!(
+        !containers.contains("<details class=\"tree-node\" id=\"nav-places-places-p-groups-g\"")
+    );
     let base = "/collections/groups/records/g/children/children";
     let mut mutation = HashMap::from([
         ("csrf".into(), actor.csrf.clone()),
@@ -1630,4 +1674,175 @@ async fn hierarchy_routes_render_scope_create_attach_and_reject_stale_changes() 
         2
     );
     assert!(state.editor.get("notes", "created-child").is_ok());
+}
+
+#[tokio::test]
+async fn deletion_review_resolves_placements_but_preserves_other_references_and_revisions() {
+    let (_temp, state, cookie, actor) = hierarchy_fixture().await;
+    let target = state.editor.get("notes", "one").unwrap();
+    state.editor.save("notes", "referrer", json!({"name":"Linked note","count":0,"body":"[First](/collections/notes/records/one)"}), None).unwrap();
+    let url = "/collections/notes/records/one/delete";
+    let (_, html) = request(state.clone(), "GET", url, &cookie, &HashMap::new(), true).await;
+    assert!(
+        html.contains("List placements")
+            && html.contains("Group")
+            && html.contains("Other references")
+    );
+    assert!(html.contains("Linked note") && html.contains("Remove from list"));
+    assert!(html.contains("class=\"danger\" disabled"));
+    let delete = HashMap::from([
+        ("csrf".into(), actor.csrf.clone()),
+        ("revision".into(), target.revision.clone()),
+    ]);
+    let (status, html) = request(state.clone(), "POST", url, &cookie, &delete, true).await;
+    assert_eq!(status, StatusCode::CONFLICT);
+    assert!(html.contains("delete-review"));
+    assert_eq!(
+        state.editor.get("notes", "one").unwrap().revision,
+        target.revision
+    );
+
+    let group = state.editor.get("groups", "g").unwrap();
+    let unlink_url = format!("{url}/unlink");
+    let mut unlink = HashMap::from([
+        ("csrf".into(), "invalid".into()),
+        ("revision".into(), group.revision.clone()),
+        ("parent_collection".into(), "groups".into()),
+        ("parent_id".into(), "g".into()),
+        ("parent_field".into(), "children".into()),
+    ]);
+    assert_eq!(
+        request(state.clone(), "POST", &unlink_url, &cookie, &unlink, true)
+            .await
+            .0,
+        StatusCode::FORBIDDEN
+    );
+    unlink.insert("csrf".into(), actor.csrf.clone());
+    unlink.insert("parent_collection".into(), "places".into());
+    unlink.insert("parent_id".into(), "p".into());
+    assert_eq!(
+        request(state.clone(), "POST", &unlink_url, &cookie, &unlink, true)
+            .await
+            .0,
+        StatusCode::BAD_REQUEST
+    );
+    unlink.insert("parent_collection".into(), "groups".into());
+    unlink.insert("parent_id".into(), "g".into());
+    unlink.insert("revision".into(), "stale".into());
+    assert_eq!(
+        request(state.clone(), "POST", &unlink_url, &cookie, &unlink, true)
+            .await
+            .0,
+        StatusCode::CONFLICT
+    );
+    assert_eq!(
+        state.editor.get("groups", "g").unwrap().revision,
+        group.revision
+    );
+    unlink.insert("revision".into(), group.revision);
+    let (status, html) = request(state.clone(), "POST", &unlink_url, &cookie, &unlink, true).await;
+    assert_eq!(status, StatusCode::OK);
+    assert!(html.contains("Other references") && !html.contains("List placements"));
+    assert!(html.contains("class=\"danger\" disabled"));
+    assert!(
+        state
+            .editor
+            .child_ids("groups", "g", "children")
+            .unwrap()
+            .is_empty()
+    );
+    assert_eq!(
+        state.editor.get("notes", "one").unwrap().revision,
+        target.revision
+    );
+
+    let other = state.editor.get("notes", "referrer").unwrap();
+    state
+        .editor
+        .save(
+            "notes",
+            "referrer",
+            json!({"name":"Linked note","count":0}),
+            Some(&other.revision),
+        )
+        .unwrap();
+    let (_, html) = request(state.clone(), "GET", url, &cookie, &HashMap::new(), true).await;
+    assert!(html.contains("No incoming references remain"));
+    assert!(!html.contains("class=\"danger\" disabled"));
+    let (status, html) = request(state.clone(), "POST", url, &cookie, &delete, true).await;
+    assert_eq!(status, StatusCode::OK);
+    assert!(html.contains("Record deleted"));
+    assert!(state.editor.get("notes", "one").is_err());
+    assert!(state.editor.get("notes", "referrer").is_ok());
+}
+
+#[tokio::test]
+async fn fragment_errors_are_delivered_as_visible_patches() {
+    let (_temp, state, cookie, _) = fixture().await;
+    let response = router(state.clone())
+        .oneshot(
+            Request::builder()
+                .method("POST")
+                .uri("/collections/notes/records/one/delete")
+                .header("cookie", &cookie)
+                .header("datastar-request", "true")
+                .header("content-type", "application/x-www-form-urlencoded")
+                .body(Body::from("csrf=invalid&revision=stale"))
+                .unwrap(),
+        )
+        .await
+        .unwrap();
+    assert_eq!(response.status(), StatusCode::OK);
+    assert_eq!(response.headers()["x-editor-error-status"], "403");
+    assert_eq!(response.headers()["content-type"], "text/event-stream");
+    let body = String::from_utf8(
+        response
+            .into_body()
+            .collect()
+            .await
+            .unwrap()
+            .to_bytes()
+            .to_vec(),
+    )
+    .unwrap();
+    assert!(body.contains("event: datastar-patch-elements"));
+    assert!(body.contains("id=\"notification-region\" role=\"alert\""));
+    // Router/extractor rejections have no typed WebError, but must still be visible.
+    let response = router(state.clone())
+        .oneshot(
+            Request::builder()
+                .uri("/unavailable-action")
+                .header("cookie", &cookie)
+                .header("datastar-request", "true")
+                .body(Body::empty())
+                .unwrap(),
+        )
+        .await
+        .unwrap();
+    assert_eq!(response.status(), StatusCode::OK);
+    assert_eq!(response.headers()["x-editor-error-status"], "404");
+    let body = String::from_utf8(
+        response
+            .into_body()
+            .collect()
+            .await
+            .unwrap()
+            .to_bytes()
+            .to_vec(),
+    )
+    .unwrap();
+    assert!(body.contains("This page or action is no longer available"));
+    assert_eq!(
+        request(
+            state,
+            "POST",
+            "/collections/notes/records/one/delete",
+            &cookie,
+            &HashMap::new(),
+            false
+        )
+        .await
+        .0,
+        StatusCode::FORBIDDEN
+    );
 }

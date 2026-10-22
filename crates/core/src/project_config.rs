@@ -200,6 +200,13 @@ pub(crate) fn load(root: &Path) -> Result<Loaded> {
             let presentation = presentation
                 .as_object()
                 .ok_or_else(|| invalid("collection UI must be an object"))?;
+            if let Some(mode) = presentation.get("sidebarAllLinks")
+                && !matches!(mode.as_str(), Some("none" | "root" | "all"))
+            {
+                return Err(invalid(format!(
+                    "{name}: sidebarAllLinks must be none, root, or all"
+                )));
+            }
             for (key, value) in presentation {
                 if key == "fields" {
                     continue;
@@ -210,6 +217,7 @@ pub(crate) fn load(root: &Path) -> Result<Loaded> {
                     "displayFields",
                     "displayFallback",
                     "showInSidebar",
+                    "sidebarAllLinks",
                     "categories",
                     "categoryEntries",
                     "fieldOrder",

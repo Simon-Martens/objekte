@@ -17,7 +17,7 @@ use axum::{
 use std::{collections::HashMap, sync::Arc};
 use structured_editor_core::{Editor, HierarchyNode, ListRequest};
 
-const SUBMIT: &str = "data-on:submit__prevent=\"@post(el.getAttribute('action'),{contentType:'form',retry:'never'})\"";
+const SUBMIT: &str = "data-on:submit__prevent=\"@post(el.getAttribute('action'),{contentType:'form',retry:'never',retryMaxCount:0})\"";
 fn hidden(key: &str, value: &str) -> String {
     format!(
         "<input type=\"hidden\" name=\"{}\" value=\"{}\">",
@@ -32,26 +32,25 @@ fn active_url(workspace: &str) -> &str {
         .and_then(|(_, v)| v.split('"').next())
         .unwrap_or("")
 }
-pub fn navigation_tree(editor: &Editor, root: &str, workspace: &str) -> Result<String> {
+pub fn navigation_tree(
+    editor: &Editor,
+    root: &str,
+    workspace: &str,
+    show_all_links: bool,
+) -> Result<String> {
     fn nodes(
         editor: &Editor,
         items: &[HierarchyNode],
         current: &str,
         path: &str,
+        show_all_links: bool,
     ) -> Result<String> {
         let mut html = String::new();
-        for n in items {
+        for n in items.iter().filter(|n| n.branch) {
             let url = record_url(&n.collection, &n.id);
             let key = format!("{path}-{}-{}", encode(&n.collection), encode(&n.id));
             let c = editor.config().collection(&n.collection)?;
-            let icon = views::icon_class(
-                c.ui["icon"].as_str(),
-                if n.branch {
-                    "ri-folder-line"
-                } else {
-                    "ri-file-text-line"
-                },
-            );
+            let icon = views::icon_class(c.ui["icon"].as_str(), "ri-folder-line");
             let selected = if url == current {
                 " aria-current=\"page\""
             } else {
@@ -61,19 +60,40 @@ pub fn navigation_tree(editor: &Editor, root: &str, workspace: &str) -> Result<S
                 "<i class=\"{icon}\" aria-hidden=\"true\"></i><span>{}</span>",
                 escape(&n.label)
             );
-            if n.branch {
-                let children = nodes(editor, &n.children, current, &key)?;
-                let active = url == current || children.contains("aria-current=\"page\"");
+            fn contains_current(node: &HierarchyNode, current: &str) -> bool {
+                record_url(&node.collection, &node.id) == current
+                    || node
+                        .children
+                        .iter()
+                        .any(|child| contains_current(child, current))
+            }
+            let active = contains_current(n, current);
+            let selected =
+                if n.children.iter().any(|child| {
+                    !child.branch && record_url(&child.collection, &child.id) == current
+                }) {
+                    " aria-current=\"page\""
+                } else {
+                    selected
+                };
+            if show_all_links || n.children.iter().any(|child| child.branch) {
+                let children = nodes(editor, &n.children, current, &key, show_all_links)?;
+                let all_link = if show_all_links {
+                    format!("<a data-nav class=\"tree-all\" href=\"{url}\">All</a>")
+                } else {
+                    String::new()
+                };
                 html += &format!(
-                    "<details class=\"tree-node\" id=\"nav-{key}\" data-active-branch=\"{active}\" {}><summary><a data-nav href=\"{url}\"{selected} title=\"{}\">{label}<small>{}</small></a><i class=\"ri-arrow-right-s-line tree-chevron\" aria-hidden=\"true\"></i></summary><div class=\"tree-children\"><a data-nav class=\"tree-all\" href=\"{url}\">All</a>{children}</div></details>",
+                    "<details class=\"tree-node\" id=\"nav-{key}\" data-active-branch=\"{active}\" {}><summary><a data-nav href=\"{url}\"{selected} title=\"{}\">{label}<small>{}</small></a><i class=\"ri-arrow-right-s-line tree-chevron\" aria-hidden=\"true\"></i></summary><div class=\"tree-children\">{all_link}{children}</div></details>",
                     if active { "open" } else { "" },
                     escape(&n.label),
                     n.children.len()
                 );
             } else {
                 html += &format!(
-                    "<a class=\"tree-leaf\" data-nav href=\"{url}\"{selected} title=\"{}\">{label}</a>",
-                    escape(&n.label)
+                    "<a class=\"tree-leaf\" data-nav href=\"{url}\"{selected} title=\"{}\">{label}<small>{}</small></a>",
+                    escape(&n.label),
+                    n.children.len()
                 );
             }
         }
@@ -84,6 +104,7 @@ pub fn navigation_tree(editor: &Editor, root: &str, workspace: &str) -> Result<S
         &editor.hierarchy(root)?,
         active_url(workspace),
         root,
+        show_all_links,
     )
 }
 pub fn parents(editor: &Editor, name: &str, id: &str) -> Result<String> {
@@ -246,7 +267,7 @@ pub fn sections(editor: &Editor, parent: &str, id: &str, actor: &Actor) -> Resul
                     }
                     html += "</td>";
                 }
-                html += "<td class=\"row-actions\">";
+                html += "<td class=\"row-actions\"><div class=\"row-action-buttons\">";
                 if actor.editable() && editor.allows(&child.collection, "update") {
                     html += &format!(
                         "<form method=\"post\" action=\"{record}/edit-sessions\" {SUBMIT}>{}<button class=\"icon-button\" title=\"Edit {}\" aria-label=\"Edit {}\"><i class=\"ri-edit-line\" aria-hidden=\"true\"></i></button></form>",
@@ -264,7 +285,7 @@ pub fn sections(editor: &Editor, parent: &str, id: &str, actor: &Actor) -> Resul
                         hidden("child_id", &row.id)
                     );
                 }
-                html += "</td></tr>";
+                html += "</div></td></tr>";
             }
             html += "</tbody></table></div>";
             if rows.total > 10 {
@@ -310,12 +331,12 @@ async fn picker(
         let back=record_url(&name,&id);let url=format!("{back}/children/{}/picker",encode(&field));
         let mut html=views::record(e,&name,&id,&actor)?;
         html=html.replacen(&format!("data-url=\"{back}\""),&format!("data-url=\"{}?q={}\"",url,encode(&q)),1);
-        let mut modal=format!("<server-picker><div class=\"picker-backdrop\"><section class=\"picker\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"child-picker-title\"><div class=\"picker-heading\"><h2 id=\"child-picker-title\">Link existing {}</h2><a class=\"icon-button\" data-nav data-close-picker href=\"{back}\" aria-label=\"Close picker\"><i class=\"ri-close-line\" aria-hidden=\"true\"></i></a></div><p class=\"help\">Choose an existing record to include in this list. Its other placements stay intact.</p><form action=\"{url}\" data-on:submit__prevent=\"@get(el.getAttribute('action')+'?'+new URLSearchParams(new FormData(el)),{{filterSignals:{{include:/^$/}}}})\"><div class=\"search\"><input type=\"search\" name=\"q\" value=\"{}\" placeholder=\"Search records…\" aria-label=\"Search records\"><button>Search</button></div></form><div class=\"picker-results\">",escape(&child.label),escape(&q));
+        let mut modal=format!("<server-picker><section class=\"picker\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"child-picker-title\"><div class=\"picker-heading\"><h2 id=\"child-picker-title\">Link existing {}</h2><a class=\"icon-button\" data-nav data-close-picker href=\"{back}\" aria-label=\"Close picker\"><i class=\"ri-close-line\" aria-hidden=\"true\"></i></a></div><p class=\"help\">Choose an existing record to include in this list. Its other placements stay intact.</p><form action=\"{url}\" data-on:submit__prevent=\"@get(el.getAttribute('action')+'?'+new URLSearchParams(new FormData(el)),{{filterSignals:{{include:/^$/}}}})\"><div class=\"search\"><input type=\"search\" name=\"q\" value=\"{}\" placeholder=\"Search records…\" aria-label=\"Search records\"><button>Search</button></div></form><div class=\"picker-results\">",escape(&child.label),escape(&q));
         let mut count=0;
         for row in rows.rows.into_iter().filter(|r|!ids.contains(&r.id)) {count+=1;modal+=&format!("<form method=\"post\" action=\"{back}/children/{}/link\" {SUBMIT}>{}{}{}<button class=\"picker-result\"><span><strong>{}</strong><small class=\"mono\">{}</small></span><i class=\"ri-add-line\" aria-hidden=\"true\"></i></button></form>",encode(&field),hidden("csrf",&actor.csrf),hidden("revision",&doc.revision),hidden("child_id",&row.id),escape(&row.label),escape(&row.id));}
         if count==0 {modal+="<p class=\"empty-state\">No available records match this search.</p>";}
         if rows.matched>200 {modal+="<p class=\"help\">Showing the first 200 matches. Refine your search to find more.</p>";}
-        modal+="</div></section></div></server-picker>";
+        modal+="</div></section></server-picker>";
         html.insert_str(html.rfind("</main>").unwrap(),&modal);page(&state,&actor,&headers,html)
     }).await
 }

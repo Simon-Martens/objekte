@@ -89,6 +89,7 @@ A collection UI file can contain:
   "sidebarGroup": "Content",
   "position": 0,
   "showInSidebar": true,
+  "sidebarAllLinks": "none",
   "display": "name",
   "labels": { "list": ["name"], "search": ["name"], "record": ["name"], "reference": ["name"] },
   "search": ["name"],
@@ -100,6 +101,8 @@ A collection UI file can contain:
 ```
 
 Global UI supports `groups: [{"name":"Content","label":"Content","position":0}]`, `defaults: {...}` and `collections: {"people":{"position":1}}`. Collection UI overlays defaults, then global collection overrides apply. All sidebar configuration comes from these files. There are no browser-local navigation preferences.
+
+`sidebarAllLinks` controls the extra **All** links in a collection tree: `"none"` hides them (the default), `"root"` shows only the root link, and `"all"` shows the root and every nested link. The category and container labels remain clickable and open their own views. Parent-owned trees show containers only; individual child records stay in the main lists. `allCollection` can route the root **All** link to a different collection.
 
 ### Shared field behavior
 

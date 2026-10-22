@@ -86,13 +86,13 @@ pub fn render(
     if actor.editable() {
         if editor.allows(name, "mkdir") {
             body += &format!(
-                "<details class=\"action-menu\"><summary class=\"button\"><i class=\"ri-folder-add-line\" aria-hidden=\"true\"></i>New folder</summary><div class=\"menu-panel\"><form method=\"post\" action=\"{base}/actions/mkdir\" data-indicator:_pending data-on:submit__prevent=\"@post(el.getAttribute('action'),{{contentType:'form',retry:'never'}})\">{}<label>Folder name<input name=\"name\" required placeholder=\"folder-name\"></label><button class=\"primary\">Create folder</button></form></div></details>",
+                "<details class=\"action-menu\"><summary class=\"button\"><i class=\"ri-folder-add-line\" aria-hidden=\"true\"></i>New folder</summary><div class=\"menu-panel\"><form method=\"post\" action=\"{base}/actions/mkdir\" data-indicator:_pending data-on:submit__prevent=\"@post(el.getAttribute('action'),{{contentType:'form',retry:'never',retryMaxCount:0}})\">{}<label>Folder name<input name=\"name\" required placeholder=\"folder-name\"></label><button class=\"primary\">Create folder</button></form></div></details>",
                 hidden(actor, path)
             );
         }
         if editor.allows(name, "upload") {
             body += &format!(
-                "<details class=\"action-menu\"><summary class=\"button primary\"><i class=\"ri-upload-2-line\" aria-hidden=\"true\"></i>Upload file</summary><div class=\"menu-panel\"><form method=\"post\" enctype=\"multipart/form-data\" action=\"{base}/upload\" data-indicator:_pending data-on:submit__prevent=\"@post(el.getAttribute('action'),{{contentType:'form',retry:'never'}})\">{}<label>Choose file<input type=\"file\" name=\"file\" required></label><p class=\"help\">Up to 50 MiB. Existing files are preserved.</p><button class=\"primary\"><i class=\"ri-upload-2-line\" aria-hidden=\"true\"></i>Upload</button></form></div></details>",
+                "<details class=\"action-menu\"><summary class=\"button primary\"><i class=\"ri-upload-2-line\" aria-hidden=\"true\"></i>Upload file</summary><div class=\"menu-panel\"><form method=\"post\" enctype=\"multipart/form-data\" action=\"{base}/upload\" data-indicator:_pending data-on:submit__prevent=\"@post(el.getAttribute('action'),{{contentType:'form',retry:'never',retryMaxCount:0}})\">{}<label>Choose file<input type=\"file\" name=\"file\" required></label><p class=\"help\">Up to 50 MiB. Existing files are preserved.</p><button class=\"primary\"><i class=\"ri-upload-2-line\" aria-hidden=\"true\"></i>Upload</button></form></div></details>",
                 hidden(actor, path)
             );
         }
@@ -183,7 +183,7 @@ pub fn render(
             ] {
                 if editor.allows(name, action) && (action != "copy" || !folder) {
                     body += &format!(
-                        "<form method=\"post\" action=\"{base}/actions/{action}\" data-indicator:_pending data-on:submit__prevent=\"{}@post(el.getAttribute('action'),{{contentType:'form',retry:'never'}})\">{}<input type=\"hidden\" name=\"source\" value=\"{}\">{}<button class=\"{}\"><i class=\"{icon}\" aria-hidden=\"true\"></i>{label}</button></form>",
+                        "<form method=\"post\" action=\"{base}/actions/{action}\" data-indicator:_pending data-on:submit__prevent=\"{}@post(el.getAttribute('action'),{{contentType:'form',retry:'never',retryMaxCount:0}})\">{}<input type=\"hidden\" name=\"source\" value=\"{}\">{}<button class=\"{}\"><i class=\"{icon}\" aria-hidden=\"true\"></i>{label}</button></form>",
                         if action == "delete" {
                             "if(confirm('Delete this file or empty folder?')) "
                         } else {
@@ -210,7 +210,7 @@ pub fn render(
         if !folder {
             let target = reference_id(&entry.path);
             body += &format!(
-                "<details class=\"media-references\" data-on:toggle=\"if(el.open) @get('{base}/references?path={p}',{{filterSignals:{{include:/^$/}},retry:'never'}})\"><summary><i class=\"ri-links-line\" aria-hidden=\"true\"></i>References</summary><div id=\"{target}\"><p class=\"help\">Loading references…</p></div></details>"
+                "<details class=\"media-references\" data-on:toggle=\"if(el.open) @get('{base}/references?path={p}',{{filterSignals:{{include:/^$/}},retry:'never',retryMaxCount:0}})\"><summary><i class=\"ri-links-line\" aria-hidden=\"true\"></i>References</summary><div id=\"{target}\" data-preserve-attr=\"popover style\"><p class=\"help\">Loading references…</p></div></details>"
             );
         }
         body += "</section>";
@@ -261,7 +261,10 @@ async fn references(
         state.editor.require_operation(&name, "read")?;
         let path = query.get("path").map(String::as_str).unwrap_or("");
         let references = state.editor.for_media(&name)?.media_references(path)?;
-        let mut body = format!("<div id=\"{}\">", reference_id(path));
+        let mut body = format!(
+            "<div id=\"{}\" data-preserve-attr=\"popover style\">",
+            reference_id(path)
+        );
         if references.is_empty() {
             body += "<p>No explicit field references.</p>";
         }
@@ -525,7 +528,7 @@ async fn replace_page(
         let media=state.editor.for_media(&name)?;media.require_operation(&name,"replace")?;
         let revision=media.media_revision(path)?;
         let parent=path.rsplit_once('/').map(|(p,_)|p).unwrap_or("");let base=format!("/media/{}",views::encode(&name));
-        let body=format!("<section class=\"surface replace-panel\"><div class=\"section-heading\"><h2><i class=\"ri-file-upload-line\" aria-hidden=\"true\"></i>{}</h2></div><form method=\"post\" enctype=\"multipart/form-data\" action=\"{base}/upload\" data-on:submit__prevent=\"@post(el.getAttribute('action'),{{contentType:'form',retry:'never'}})\">{}<input type=\"hidden\" name=\"replacement\" value=\"{}\"><input type=\"hidden\" name=\"revision\" value=\"{revision}\"><p>The replacement keeps this filename and every existing reference. Select a file of the same format.</p><label>Replacement file<input type=\"file\" name=\"file\" required></label><div class=\"actions\"><a class=\"button\" data-nav href=\"{base}?path={}\">Cancel</a><button class=\"primary\"><i class=\"ri-upload-2-line\" aria-hidden=\"true\"></i>Replace file</button></div></form></section>",views::escape(path),hidden(&actor,parent),views::escape(path),views::encode(parent));
+        let body=format!("<section class=\"surface replace-panel\"><div class=\"section-heading\"><h2><i class=\"ri-file-upload-line\" aria-hidden=\"true\"></i>{}</h2></div><form method=\"post\" enctype=\"multipart/form-data\" action=\"{base}/upload\" data-on:submit__prevent=\"@post(el.getAttribute('action'),{{contentType:'form',retry:'never',retryMaxCount:0}})\">{}<input type=\"hidden\" name=\"replacement\" value=\"{}\"><input type=\"hidden\" name=\"revision\" value=\"{revision}\"><p>The replacement keeps this filename and every existing reference. Select a file of the same format.</p><label>Replacement file<input type=\"file\" name=\"file\" required></label><div class=\"actions\"><a class=\"button\" data-nav href=\"{base}?path={}\">Cancel</a><button class=\"primary\"><i class=\"ri-upload-2-line\" aria-hidden=\"true\"></i>Replace file</button></div></form></section>",views::escape(path),hidden(&actor,parent),views::escape(path),views::encode(parent));
         routes::page(&state,&actor,&headers,views::panel(&format!("{base}/replace?path={}",views::encode(path)),"Replace media file",&body)?)
     }).await
 }

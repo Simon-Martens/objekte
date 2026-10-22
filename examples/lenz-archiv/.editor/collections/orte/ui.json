@@ -73,6 +73,7 @@
   },
   "singularLabel": "Ort",
   "sidebarLabel": "Handschriften",
+  "sidebarAllLinks": "none",
   "sidebarIcon": "ri-quill-pen-line",
   "fieldOrder": [
     "short",

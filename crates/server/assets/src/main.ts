@@ -8,6 +8,8 @@ import './style.css';
 import './controls/theme-switch';
 import './controls/live-validation';
 import './controls/server-picker';
+import './controls/action-menu';
+import './controls/request-feedback';
 import './controls/code-input';
 import { confirmNavigation } from './controls/navigation-dialog';
 

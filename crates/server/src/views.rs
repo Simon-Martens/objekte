@@ -58,7 +58,17 @@ pub fn navigation(editor: &Editor, workspace: &str) -> Result<String> {
             ""
         }
     };
-    let mut items: Vec<(i64, i64, String, String, String, String, String, String)> = Vec::new();
+    let mut items: Vec<(
+        i64,
+        i64,
+        String,
+        String,
+        String,
+        String,
+        String,
+        String,
+        bool,
+    )> = Vec::new();
     for (name, c) in &editor.config().collections {
         if !c.show_in_sidebar || !editor.allows(name, "read") {
             continue;
@@ -74,10 +84,11 @@ pub fn navigation(editor: &Editor, workspace: &str) -> Result<String> {
             .and_then(|v| v.iter().find(|g| g["name"] == group))
             .and_then(|g| g["position"].as_i64())
             .unwrap_or(0);
+        let all_links = ui["sidebarAllLinks"].as_str().unwrap_or("none");
         let tree = if !c.child_collections().is_empty() {
-            crate::hierarchy::navigation_tree(editor, name, workspace)?
+            crate::hierarchy::navigation_tree(editor, name, workspace, all_links == "all")?
         } else {
-            tree_navigation(editor, name)?
+            tree_navigation(editor, name, all_links == "all")?
         };
         items.push((
             group_order,
@@ -97,6 +108,7 @@ pub fn navigation(editor: &Editor, workspace: &str) -> Result<String> {
                 ui["sidebarIcon"].as_str().or_else(|| ui["icon"].as_str()),
                 "ri-stack-line",
             ),
+            all_links != "none",
         ));
     }
     for (name, c) in &editor.config().media_collections {
@@ -117,6 +129,7 @@ pub fn navigation(editor: &Editor, workspace: &str) -> Result<String> {
             String::new(),
             String::new(),
             icon_class(c.ui["icon"].as_str(), "ri-folder-image-line"),
+            false,
         ));
     }
     items.sort_by(|a, b| {
@@ -136,7 +149,7 @@ pub fn navigation(editor: &Editor, workspace: &str) -> Result<String> {
         escape(&repository)
     );
     let mut last = String::new();
-    for (_, _, group, label, url, tree, all_url, icon) in items {
+    for (_, _, group, label, url, tree, all_url, icon, show_root_all) in items {
         if group != last {
             html += &format!(
                 "<p class=\"eyebrow\">{}</p>",
@@ -157,8 +170,16 @@ pub fn navigation(editor: &Editor, workspace: &str) -> Result<String> {
                 escape(&label)
             );
         } else {
+            let all_link = if show_root_all {
+                format!(
+                    "<a class=\"tree-all\" data-nav href=\"{all_url}\"{}>All</a>",
+                    overview_current(&all_url)
+                )
+            } else {
+                String::new()
+            };
             html += &format!(
-                "<details class=\"tree-root\" id=\"nav-tree-{}\" {}><summary><a data-nav href=\"{url}\"{}><i class=\"{icon}\" aria-hidden=\"true\"></i><span>{}</span></a><i class=\"ri-arrow-right-s-line tree-chevron\" aria-hidden=\"true\"></i></summary><div class=\"tree-children\"><a class=\"tree-all\" data-nav href=\"{all_url}\"{}>All</a>{tree}</div></details>",
+                "<details class=\"tree-root\" id=\"nav-tree-{}\" {}><summary><a data-nav href=\"{url}\"{}><i class=\"{icon}\" aria-hidden=\"true\"></i><span>{}</span></a><i class=\"ri-arrow-right-s-line tree-chevron\" aria-hidden=\"true\"></i></summary><div class=\"tree-children\">{all_link}{tree}</div></details>",
                 encode(&url),
                 if !current(&url).is_empty()
                     || !overview_current(&all_url).is_empty()
@@ -170,7 +191,6 @@ pub fn navigation(editor: &Editor, workspace: &str) -> Result<String> {
                 },
                 overview_current(&url),
                 escape(&label),
-                overview_current(&all_url)
             );
         }
     }
@@ -181,12 +201,13 @@ pub fn navigation(editor: &Editor, workspace: &str) -> Result<String> {
     );
     Ok(html)
 }
-fn tree_navigation(editor: &Editor, name: &str) -> Result<String> {
+fn tree_navigation(editor: &Editor, name: &str, show_all_links: bool) -> Result<String> {
     fn nodes(
         name: &str,
         items: &[structured_editor_core::CategoryNode],
         path: &mut Vec<String>,
         html: &mut String,
+        show_all_links: bool,
     ) {
         for n in items {
             path.push(n.value.clone());
@@ -200,11 +221,16 @@ fn tree_navigation(editor: &Editor, name: &str) -> Result<String> {
             if n.children.is_empty() {
                 *html += &format!("<a class=\"tree-leaf\" data-nav href=\"{url}\">{label}</a>");
             } else {
+                let all_link = if show_all_links {
+                    format!("<a class=\"tree-all\" data-nav href=\"{url}\">All</a>")
+                } else {
+                    String::new()
+                };
                 *html += &format!(
-                    "<details class=\"tree-node\" id=\"tree-{}-{tree}\"><summary><a data-nav href=\"{url}\">{label}</a><i class=\"ri-arrow-right-s-line tree-chevron\" aria-hidden=\"true\"></i></summary><div class=\"tree-children\"><a class=\"tree-all\" data-nav href=\"{url}\">All</a>",
+                    "<details class=\"tree-node\" id=\"tree-{}-{tree}\"><summary><a data-nav href=\"{url}\">{label}</a><i class=\"ri-arrow-right-s-line tree-chevron\" aria-hidden=\"true\"></i></summary><div class=\"tree-children\">{all_link}",
                     encode(name),
                 );
-                nodes(name, &n.children, path, html);
+                nodes(name, &n.children, path, html, show_all_links);
                 *html += "</div></details>";
             }
             path.pop();
@@ -215,7 +241,13 @@ fn tree_navigation(editor: &Editor, name: &str) -> Result<String> {
         return Ok(String::new());
     };
     let mut html = String::new();
-    nodes(name, &categories, &mut Vec::new(), &mut html);
+    nodes(
+        name,
+        &categories,
+        &mut Vec::new(),
+        &mut html,
+        show_all_links,
+    );
     Ok(html)
 }
 pub fn shell(editor: &Editor, actor: &Actor, content: &str, assets: &Assets) -> Result<String> {
@@ -278,7 +310,6 @@ struct RecordView<'a> {
     content: String,
     edit: String,
     delete: String,
-    revision: String,
     actor: &'a Actor,
     references: Vec<String>,
     children: String,
@@ -368,7 +399,6 @@ pub fn record(editor: &Editor, name: &str, id: &str, actor: &Actor) -> Result<St
         parents: crate::hierarchy::parents(editor, name, id)?,
         edit: format!("{url}/edit-sessions"),
         delete: format!("{url}/delete"),
-        revision: doc.revision,
         actor,
         references: editor
             .references_to(name, id)?

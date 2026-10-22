@@ -59,7 +59,7 @@ pub fn render(
     };
     let value: Value = serde_json::from_str(raw).unwrap_or(json!({}));
     let mut body = format!(
-        "<form id=\"document-form\" class=\"preferences-form\" action=\"/settings\" method=\"post\" data-live-validation=\"/settings/validation\" data-indicator:_pending data-on:submit__prevent=\"@post(el.getAttribute('action'),{{contentType:'form',retry:'never'}})\"><span data-validation-request data-on:validate-draft=\"@post(el.closest('form').dataset.liveValidation,{{contentType:'form',requestCancellation:evt.detail.controller,retry:'never'}})\"></span><input type=\"hidden\" name=\"settings_form\" value=\"1\"><input type=\"hidden\" name=\"csrf\" value=\"{}\"><input type=\"hidden\" name=\"revision\" value=\"{}\"><div class=\"preferences-grid\">",
+        "<form id=\"document-form\" class=\"preferences-form\" action=\"/settings\" method=\"post\" data-live-validation=\"/settings/validation\" data-indicator:_pending data-on:submit__prevent=\"@post(el.getAttribute('action'),{{contentType:'form',retry:'never',retryMaxCount:0}})\"><span data-validation-request data-on:validate-draft=\"@post(el.closest('form').dataset.liveValidation,{{contentType:'form',requestCancellation:evt.detail.controller,retry:'never',retryMaxCount:0}})\"></span><input type=\"hidden\" name=\"settings_form\" value=\"1\"><input type=\"hidden\" name=\"csrf\" value=\"{}\"><input type=\"hidden\" name=\"revision\" value=\"{}\"><div class=\"preferences-grid\">",
         views::escape(&actor.csrf),
         views::escape(revision)
     );

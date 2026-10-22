@@ -1,6 +1,6 @@
 {% if !message.is_empty() %}<p class="notice" role="status">{{ message }}</p>{% endif %}
-<form id="document-form" class="surface" method="post" action="{{ url }}" data-live-validation="{{ validation_url }}" data-indicator:_pending data-on:submit__prevent="@post(el.getAttribute('action'),{contentType:'form',retry:'never'})">
-  <span data-validation-request data-on:validate-draft="@post(el.closest('form').dataset.liveValidation,{contentType:'form',requestCancellation:evt.detail.controller,retry:'never'})"></span>
+<form id="document-form" class="surface" method="post" action="{{ url }}" data-live-validation="{{ validation_url }}" data-indicator:_pending data-on:submit__prevent="@post(el.getAttribute('action'),{contentType:'form',retry:'never',retryMaxCount:0})">
+  <span data-validation-request data-on:validate-draft="@post(el.closest('form').dataset.liveValidation,{contentType:'form',requestCancellation:evt.detail.controller,retry:'never',retryMaxCount:0})"></span>
   <input type="hidden" name="csrf" value="{{ csrf }}"><input type="hidden" name="revision" value="{{ revision }}"><input type="hidden" name="file" value="{{ file }}">
   <div class="section-heading"><h2><i class="ri-braces-line" aria-hidden="true"></i>JSON document</h2><span class="badge">Schema validated</span></div>
   <div class="document-content"><label class="sr-only" for="document-source">JSON document</label><textarea id="document-source" class="source" name="raw" rows="24" {% if !editable %}readonly{% endif %} spellcheck="false" aria-describedby="document-validation">

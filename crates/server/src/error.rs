@@ -19,16 +19,22 @@ impl WebError {
 }
 impl IntoResponse for WebError {
     fn into_response(self) -> Response {
-        (
+        let mut response = (
             self.0,
             Html(format!(
                 "<div id=\"notification-region\" role=\"alert\">{}</div>",
                 crate::views::escape(&self.1)
             )),
         )
-            .into_response()
+            .into_response();
+        // The router turns typed errors into a DOM patch for Datastar requests.
+        // Datastar ignores response bodies with a non-200 status.
+        response.extensions_mut().insert(ErrorNotice(self.1));
+        response
     }
 }
+#[derive(Clone)]
+pub(crate) struct ErrorNotice(pub String);
 impl From<structured_editor_core::Error> for WebError {
     fn from(value: structured_editor_core::Error) -> Self {
         use structured_editor_core::Error::*;

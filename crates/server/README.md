@@ -72,12 +72,18 @@ Live validation is debounced (400 ms by default, configurable in instance settin
 
 Browser components under `assets/src/controls/` keep editor lifecycle, theme choice, picker focus and validation scheduling separate. The server owns field values, picker choices, list content and every CRUD patch. Media reference disclosures request their fragments on demand instead of scanning the repository for every file in a list.
 
+Record actions open a deletion review showing parent list placements and other incoming references. Editable placements can be removed directly in the review with a parent revision check. This saves the list immediately; deleting the record is a separate, explicit action. Other references still block deletion and link to their source records. The core rechecks all references and the record revision on the final delete.
+
+Request errors are sent as notification patches for Datastar requests, with HTTP 200 for delivery and the original status in `X-Editor-Error-Status`. Normal HTTP requests retain the original error status. This matters because Datastar does not process non-200 response bodies. Connection failures show a shell notification. Form commands explicitly set both `retry:'never'` and `retryMaxCount:0`, so a lost connection cannot silently resubmit a write later.
+
 ## URL and command contract
 
 | Request | Result |
 | --- | --- |
 | `GET /collections/{collection}?q=…&offset=…` | Searchable, paginated list; `tree` contains a JSON array of tree values |
 | `GET /collections/{collection}/records/{id}` | Record preview |
+| `GET /collections/{collection}/records/{id}/delete` | Review deletion, list placements and incoming references |
+| `POST /collections/{collection}/records/{id}/delete/unlink` | Remove one placement with the parent revision; return to deletion review |
 | `POST /collections/{collection}/edit-sessions` | Start a new-record draft |
 | `POST /collections/{collection}/records/{id}/edit-sessions` | Start an existing-record draft |
 | `GET /edit-sessions/{session}` | Render the draft owned by this login |

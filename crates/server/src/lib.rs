@@ -1,6 +1,7 @@
 mod accounts;
 pub mod assets;
 pub mod auth;
+mod deletion;
 mod documents;
 pub mod error;
 pub mod fields;
