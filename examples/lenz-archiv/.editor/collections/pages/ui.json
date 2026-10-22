@@ -1,0 +1,96 @@
+{
+  "label": "Pages",
+  "display": "title",
+  "fields": {
+    "": {
+      "title": "Pages"
+    },
+    "/properties/source": {
+      "title": "Source",
+      "x-editor": "hidden"
+    },
+    "/properties/body": {
+      "title": "HTML",
+      "x-editor": "html"
+    },
+    "/properties/assets": {
+      "title": "Media",
+      "x-editor": "hidden"
+    },
+    "/properties/assets/items": {
+      "x-editor": "media"
+    },
+    "/properties/description": {
+      "title": "Description"
+    },
+    "/properties/eleventyNavigation": {
+      "title": "Navigation",
+      "x-editor": "json"
+    },
+    "/properties/layout": {
+      "title": "Layout"
+    },
+    "/properties/permalink": {
+      "title": "Permalink"
+    },
+    "/properties/showinnav": {
+      "title": "Show in navigation"
+    },
+    "/properties/title": {
+      "title": "Title"
+    }
+  },
+  "search": [
+    "body",
+    "description",
+    "eleventyNavigation",
+    "layout",
+    "permalink",
+    "showinnav",
+    "title"
+  ],
+  "sidebarGroup": "Content",
+  "position": 0,
+  "labels": {
+    "list": [
+      "title"
+    ],
+    "search": [
+      "title"
+    ],
+    "record": [
+      "title"
+    ],
+    "reference": [
+      "title"
+    ]
+  },
+  "ordering": {
+    "by": "manual",
+    "unordered": "last"
+  },
+  "icon": "ri-pages-line",
+  "list": {
+    "columns": [
+      "title",
+      "description",
+      "showinnav"
+    ],
+    "defaultSort": {
+      "field": "_label",
+      "direction": "asc"
+    },
+    "filters": [
+      "showinnav",
+      "layout"
+    ],
+    "autoFilters": false
+  },
+  "edit": {
+    "sidebarFields": [
+      "showinnav",
+      "permalink",
+      "layout"
+    ]
+  }
+}

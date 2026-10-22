@@ -1,5 +1,7 @@
 {
-  "Ort": "leipzig-universitatsbibliothek--31b160fff7",
   "name": "3",
-  "order": 3
+  "order": 3,
+  "handschriften": [
+    "leipzig-universitatsbibliothek--slg-hirzel-b-523--979def2193"
+  ]
 }

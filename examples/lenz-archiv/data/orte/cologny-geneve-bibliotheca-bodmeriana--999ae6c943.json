@@ -1,4 +1,8 @@
 {
   "name": "Cologny-Genève, Bibliotheca Bodmeriana",
-  "short": "Cologny-Genève"
+  "short": "Cologny-Genève",
+  "sammlungen": [],
+  "handschriften": [
+    "cologny-geneve-bibliotheca-bodmeriana--slg-stefan-zweig--5e15a8b085"
+  ]
 }

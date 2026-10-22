@@ -1,0 +1,74 @@
+mod accounts;
+pub mod assets;
+pub mod auth;
+mod documents;
+pub mod error;
+pub mod fields;
+mod media;
+mod pickers;
+mod routes;
+pub mod sessions;
+pub mod views;
+use crate::{
+    assets::Assets,
+    auth::Auth,
+    error::{Result, WebError},
+    fields::Registry,
+    sessions::Sessions,
+};
+use std::{
+    path::Path,
+    sync::{Arc, Mutex},
+};
+use structured_editor_core::Editor;
+
+pub struct AppState {
+    pub editor: Editor,
+    pub auth: Auth,
+    pub assets: Assets,
+    pub sessions: Mutex<Sessions>,
+    pub fields: Registry,
+}
+impl AppState {
+    pub async fn open(
+        project: &Path,
+        state: &Path,
+        assets: Assets,
+        insecure: bool,
+    ) -> Result<Arc<Self>> {
+        let root = project.canonicalize().map_err(WebError::internal)?;
+        std::fs::create_dir_all(state).map_err(WebError::internal)?;
+        let state = state.canonicalize().map_err(WebError::internal)?;
+        if state.starts_with(&root) || root.starts_with(&state) {
+            return Err(WebError::bad(
+                "Administrative storage and project content must be separate.",
+            ));
+        }
+        let editor = tokio::task::spawn_blocking(move || Editor::open(root))
+            .await
+            .map_err(WebError::internal)??;
+        let auth = Auth::open(&state.join("server.sqlite"), insecure).await?;
+        Ok(Arc::new(Self {
+            editor,
+            auth,
+            assets,
+            sessions: Mutex::new(Sessions::default()),
+            fields: Registry::default(),
+        }))
+    }
+}
+pub fn router(state: Arc<AppState>) -> axum::Router {
+    routes::router(state)
+}
+pub async fn blocking<T: Send + 'static>(
+    work: impl FnOnce() -> Result<T> + Send + 'static,
+) -> Result<T> {
+    tokio::task::spawn_blocking(work)
+        .await
+        .map_err(WebError::internal)?
+}
+#[cfg(test)]
+mod tests;
+
+mod hierarchy;
+mod preferences;

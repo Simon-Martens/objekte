@@ -1,4 +1,8 @@
 {
   "name": "Freiburg, Universitätsbibliothek",
-  "short": "Freiburg"
+  "short": "Freiburg",
+  "sammlungen": [],
+  "handschriften": [
+    "freiburg-universitatsbibliothek--nachlass-johann-georg-jacobi-vi-a--cb34095ef4"
+  ]
 }

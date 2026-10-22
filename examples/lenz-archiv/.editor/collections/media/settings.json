@@ -1,0 +1,14 @@
+{
+  "type": "media",
+  "path": "media",
+  "ui": ".editor/collections/media/ui.json",
+  "operations": [
+    "read",
+    "upload",
+    "mkdir",
+    "move",
+    "delete",
+    "replace",
+    "copy"
+  ]
+}

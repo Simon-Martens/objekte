@@ -1,5 +1,15 @@
 {
-  "Ort": "weimar-goethe-und-schiller-archiv--24086bb54b",
   "name": "7",
-  "order": 7
+  "order": 7,
+  "handschriften": [
+    "weimar-goethe-und-schiller-archiv--gsa-56-i-6-1--8f4f5d43db",
+    "weimar-goethe-und-schiller-archiv--gsa-56-i-6-1-bl-1r-2r--a25c05c85f",
+    "weimar-goethe-und-schiller-archiv--gsa-56-i-6-1-bl-2r-2v--ecc71c1439",
+    "weimar-goethe-und-schiller-archiv--gsa-56-i-6-1-bl-2v-3v--b858038058",
+    "weimar-goethe-und-schiller-archiv--gsa-56-i-6-1-bl-3v-5r--2bfb4d4a2b",
+    "weimar-goethe-und-schiller-archiv--gsa-56-i-6-1-bl-5r-6r--ab4ea16b6a",
+    "weimar-goethe-und-schiller-archiv--gsa-56-i-6-1-bl-6r-7r--af0ce1f643",
+    "weimar-goethe-und-schiller-archiv--gsa-56-i-6-1-bl-7r-8v--23283401f2",
+    "weimar-goethe-und-schiller-archiv--gsa-56-i-6-1-bl-8v-9r--f6cbdd006b"
+  ]
 }

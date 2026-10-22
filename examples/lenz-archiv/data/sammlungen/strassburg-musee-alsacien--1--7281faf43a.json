@@ -1,5 +1,7 @@
 {
-  "Ort": "strassburg-musee-alsacien--51ffed6249",
   "name": "1",
-  "order": 1
+  "order": 1,
+  "handschriften": [
+    "strassburg-musee-alsacien--n-inv-n-66-990-0-99-depot-au-musee-oberlin-waldersbach--55e7eb7ed7"
+  ]
 }

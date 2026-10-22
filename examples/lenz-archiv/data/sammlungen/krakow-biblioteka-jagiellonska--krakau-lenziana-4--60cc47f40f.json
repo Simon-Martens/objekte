@@ -1,5 +1,17 @@
 {
-  "Ort": "krakow-biblioteka-jagiellonska--1c8ffbab28",
   "name": "Krakau, Lenziana 4",
-  "order": 4
+  "order": 4,
+  "handschriften": [
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-4-nr-1a--635a7f6ba3",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-4-nr-1b--0b3fcabe2f",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-4-nr-1c--9c334f1c4a",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-4-nr-2--fae640634e",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-4-nr-3--d01e954241",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-4-nr-4--e52eb14742",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-4-nr-5--273b069d52",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-4-nr-6--5402d32204",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-4-nr-7--1f84c11ccc",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-4-nr-8--27b65bf959",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-4-nr-9--9c90c8966e"
+  ]
 }

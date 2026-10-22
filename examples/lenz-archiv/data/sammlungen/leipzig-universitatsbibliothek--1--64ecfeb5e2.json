@@ -1,5 +1,8 @@
 {
-  "Ort": "leipzig-universitatsbibliothek--31b160fff7",
   "name": "1",
-  "order": 1
+  "order": 1,
+  "handschriften": [
+    "leipzig-universitatsbibliothek--portratstichsammlung-inventar-nr-29-45--bb42e8eb63",
+    "leipzig-universitatsbibliothek--slg-hirzel-b-80--eaf52de28d"
+  ]
 }

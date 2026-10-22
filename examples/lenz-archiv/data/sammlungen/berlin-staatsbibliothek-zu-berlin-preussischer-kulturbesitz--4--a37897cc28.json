@@ -1,5 +1,7 @@
 {
-  "Ort": "berlin-staatsbibliothek-zu-berlin-preussischer-kulturbesitz--108a75d9d4",
   "name": "4",
-  "order": 4
+  "order": 4,
+  "handschriften": [
+    "berlin-staatsbibliothek-zu-berlin-preussischer-kulturbesitz--nl-tieck-35-mappe-6-bl-10--802e92aea1"
+  ]
 }

@@ -1,0 +1,680 @@
+use crate::{
+    AppState,
+    auth::Actor,
+    blocking,
+    error::{Result, WebError},
+    views,
+};
+use axum::{
+    Router,
+    extract::{DefaultBodyLimit, Form, Path, Query, State},
+    http::{HeaderMap, StatusCode, header},
+    response::{Html, IntoResponse, Redirect, Response},
+    routing::{get, post},
+};
+use serde::Deserialize;
+use std::{collections::HashMap, sync::Arc};
+use tower_http::services::ServeDir;
+
+type App = State<Arc<AppState>>;
+pub fn router(state: Arc<AppState>) -> Router {
+    Router::new()
+        .merge(crate::media::router())
+        .merge(crate::documents::router())
+        .merge(crate::accounts::router())
+        .merge(crate::hierarchy::router())
+        .route("/", get(index))
+        .route("/health", get(|| async { "ok" }))
+        .route("/auth/login", get(login_page).post(login))
+        .route("/auth/logout", post(logout))
+        .route("/collections/{name}", get(collection))
+        .route("/collections/{name}/records/{id}", get(record))
+        .route("/collections/{name}/records/{id}/export", get(export))
+        .route("/collections/{name}/edit-sessions", post(create))
+        .route(
+            "/collections/{name}/records/{id}/edit-sessions",
+            post(start),
+        )
+        .route("/collections/{name}/records/{id}/delete", post(delete))
+        .route("/edit-sessions/{id}", get(edit))
+        .route("/edit-sessions/{id}/live-validation", post(live_validation))
+        .route("/edit-sessions/{id}/{action}", post(command))
+        .route(
+            "/edit-sessions/{id}/fields/{field}/suggestions",
+            post(suggestions),
+        )
+        .route(
+            "/edit-sessions/{id}/fields/{field}/actions/{action}",
+            post(array_command),
+        )
+        .nest_service(
+            "/assets",
+            ServeDir::new(&state.assets.root).append_index_html_on_directories(false),
+        )
+        .layer(DefaultBodyLimit::max(4 * 1024 * 1024))
+        .layer(axum::middleware::from_fn(response_headers))
+        .with_state(state)
+}
+async fn response_headers(
+    request: axum::extract::Request,
+    next: axum::middleware::Next,
+) -> Response {
+    let mut response = next.run(request).await;
+    response
+        .headers_mut()
+        .insert(header::CACHE_CONTROL, "no-store".parse().unwrap());
+    response
+        .headers_mut()
+        .insert("x-content-type-options", "nosniff".parse().unwrap());
+    response
+        .headers_mut()
+        .insert("x-frame-options", "DENY".parse().unwrap());
+    response
+        .headers_mut()
+        .insert("referrer-policy", "same-origin".parse().unwrap());
+    response
+}
+pub(crate) fn fragment(headers: &HeaderMap) -> bool {
+    headers
+        .get("datastar-request")
+        .and_then(|v| v.to_str().ok())
+        == Some("true")
+}
+pub(crate) fn stream(fragments: Vec<String>) -> Response {
+    stream_mode(fragments, "outer")
+}
+fn stream_mode(fragments: Vec<String>, mode: &str) -> Response {
+    (
+        [
+            (header::CONTENT_TYPE, "text/event-stream"),
+            (header::CACHE_CONTROL, "no-store"),
+            (header::HeaderName::from_static("x-accel-buffering"), "no"),
+        ],
+        views::patches_mode(&fragments, mode),
+    )
+        .into_response()
+}
+pub(crate) fn page(
+    state: &AppState,
+    actor: &Actor,
+    headers: &HeaderMap,
+    html: String,
+) -> Result<Response> {
+    if fragment(headers) {
+        Ok(stream(vec![
+            crate::preferences::fragment(&state.editor),
+            views::navigation(&state.editor, &html)?,
+            html,
+            views::notice(""),
+        ]))
+    } else {
+        Ok(Html(views::shell(&state.editor, actor, &html, &state.assets)?).into_response())
+    }
+}
+pub(crate) async fn page_actor(
+    state: &AppState,
+    headers: &HeaderMap,
+) -> std::result::Result<Actor, Response> {
+    match state.auth.actor(headers).await {
+        Ok(actor) => Ok(actor),
+        Err(error) if error.0 == StatusCode::UNAUTHORIZED => {
+            if fragment(headers) {
+                Err(stream(vec!["<main id=\"workspace\" data-url=\"/auth/login\"><h1>Session expired</h1><a href=\"/auth/login\">Sign in again</a></main>".into()]))
+            } else {
+                Err(Redirect::to("/auth/login").into_response())
+            }
+        }
+        Err(error) => Err(error.into_response()),
+    }
+}
+async fn index(State(state): App, headers: HeaderMap) -> Result<Response> {
+    let actor = match page_actor(&state, &headers).await {
+        Ok(a) => a,
+        Err(r) => return Ok(r),
+    };
+    blocking(move || {
+        let html = if let Some(name) = state.editor.config().collections.keys().find(|n| state.editor.allows(n, "read")) {
+            views::collection(&state.editor, name, "", 0, &actor)?
+        } else if let Some(name) = state.editor.config().media_collections.keys().find(|n| state.editor.allows(n, "read")) {
+            crate::media::render(&state, &actor, name, "", "", 0, "")?
+        } else { views::panel("/", "Repository", "<p>No readable collections configured. Open editor settings or an assigned JSON document from the sidebar.</p>")? };
+        page(&state, &actor, &headers, html)
+    })
+    .await
+}
+async fn login_page(State(state): App) -> Result<Html<String>> {
+    Ok(Html(views::login(&state.assets, "")?))
+}
+#[derive(Deserialize)]
+struct Login {
+    email: String,
+    password: String,
+}
+async fn login(
+    State(state): App,
+    headers: HeaderMap,
+    Form(input): Form<Login>,
+) -> Result<Response> {
+    if headers.get("sec-fetch-site").and_then(|h| h.to_str().ok()) == Some("cross-site") {
+        return Err(WebError(
+            StatusCode::FORBIDDEN,
+            "Cross-site login refused.".into(),
+        ));
+    }
+    match state.auth.login(&input.email, input.password).await {
+        Ok(token) => {
+            let mut response = Redirect::to("/").into_response();
+            response.headers_mut().insert(
+                header::SET_COOKIE,
+                state
+                    .auth
+                    .cookie(&token)
+                    .parse()
+                    .map_err(WebError::internal)?,
+            );
+            Ok(response)
+        }
+        Err(error) if error.0 == StatusCode::UNAUTHORIZED => Ok((
+            StatusCode::UNAUTHORIZED,
+            Html(views::login(
+                &state.assets,
+                "Email or password was not recognized.",
+            )?),
+        )
+            .into_response()),
+        Err(e) => Err(e),
+    }
+}
+async fn logout(
+    State(state): App,
+    headers: HeaderMap,
+    Form(form): Form<HashMap<String, String>>,
+) -> Result<Response> {
+    let actor = state.auth.actor(&headers).await?;
+    state.auth.mutation(
+        &actor,
+        form.get("csrf").map(String::as_str).unwrap_or(""),
+        false,
+    )?;
+    state.auth.logout(&actor).await?;
+    state.sessions.lock().unwrap().logout(&actor);
+    let mut response = Redirect::to("/auth/login").into_response();
+    response.headers_mut().insert(
+        header::SET_COOKIE,
+        state.auth.cookie("").parse().map_err(WebError::internal)?,
+    );
+    Ok(response)
+}
+async fn collection(
+    State(state): App,
+    Path(name): Path<String>,
+    Query(mut query): Query<HashMap<String, String>>,
+    headers: HeaderMap,
+) -> Result<Response> {
+    query.remove("datastar");
+    let actor = match page_actor(&state, &headers).await {
+        Ok(a) => a,
+        Err(r) => return Ok(r),
+    };
+    blocking(move || {
+        let html = views::list::render(&state.editor, &name, &query, &actor)?;
+        page(&state, &actor, &headers, html)
+    })
+    .await
+}
+async fn record(
+    State(state): App,
+    Path((name, id)): Path<(String, String)>,
+    headers: HeaderMap,
+) -> Result<Response> {
+    let actor = match page_actor(&state, &headers).await {
+        Ok(a) => a,
+        Err(r) => return Ok(r),
+    };
+    blocking(move || {
+        let html = views::record(&state.editor, &name, &id, &actor)?;
+        page(&state, &actor, &headers, html)
+    })
+    .await
+}
+pub(crate) async fn mutation_actor(
+    state: &AppState,
+    headers: &HeaderMap,
+    form: &HashMap<String, String>,
+) -> Result<Actor> {
+    let actor = state.auth.actor(headers).await?;
+    state.auth.mutation(
+        &actor,
+        form.get("csrf").map(String::as_str).unwrap_or(""),
+        true,
+    )?;
+    Ok(actor)
+}
+async fn start(
+    State(state): App,
+    Path((name, id)): Path<(String, String)>,
+    headers: HeaderMap,
+    Form(form): Form<HashMap<String, String>>,
+) -> Result<Response> {
+    start_edit(state, name, Some(id), headers, form).await
+}
+async fn create(
+    State(state): App,
+    Path(name): Path<String>,
+    headers: HeaderMap,
+    Form(form): Form<HashMap<String, String>>,
+) -> Result<Response> {
+    start_edit(state, name, None, headers, form).await
+}
+async fn start_edit(
+    state: Arc<AppState>,
+    name: String,
+    id: Option<String>,
+    headers: HeaderMap,
+    form: HashMap<String, String>,
+) -> Result<Response> {
+    let actor = mutation_actor(&state, &headers, &form).await?;
+    blocking(move || {
+        let context_count = [
+            "parent_collection",
+            "parent_id",
+            "parent_field",
+            "parent_revision",
+        ]
+        .iter()
+        .filter(|k| form.contains_key(**k))
+        .count();
+        if context_count != 0 && (context_count != 4 || id.is_some()) {
+            return Err(WebError::bad("Incomplete or invalid parent context"));
+        }
+        let mut session =
+            state
+                .sessions
+                .lock()
+                .unwrap()
+                .start(&state.editor, &actor, &name, id.as_deref())?;
+        if id.is_none() {
+            if let (Some(parent), Some(parent_id), Some(field), Some(revision)) = (
+                form.get("parent_collection"),
+                form.get("parent_id"),
+                form.get("parent_field"),
+                form.get("parent_revision"),
+            ) {
+                if state.editor.child_collection(parent, field)?.collection != name {
+                    return Err(WebError::bad("Child collection mismatch"));
+                }
+                state.editor.require_operation(parent, "update")?;
+                state.editor.require_operation(parent, "read")?;
+                if state.editor.get(parent, parent_id)?.revision != *revision {
+                    return Err(WebError(
+                        axum::http::StatusCode::CONFLICT,
+                        "Parent changed; reload its overview before adding a child".into(),
+                    ));
+                }
+                session.parent = Some(crate::sessions::ParentContext {
+                    collection: parent.clone(),
+                    id: parent_id.clone(),
+                    field: field.clone(),
+                    revision: revision.clone(),
+                });
+                state.sessions.lock().unwrap().insert(session.clone());
+            }
+            if let Some(context) = form.get("context") {
+                let path: Vec<String> =
+                    serde_json::from_str(context).map_err(WebError::internal)?;
+                session.draft = state
+                    .editor
+                    .create_draft(&name, &state.editor.contextual_values(&name, &path)?)?;
+                state.sessions.lock().unwrap().insert(session.clone());
+            }
+        }
+
+        if fragment(&headers) {
+            page(
+                &state,
+                &actor,
+                &headers,
+                views::edit(&state.editor, &session, &actor, &state.fields, &[], "")?,
+            )
+        } else {
+            Ok(Redirect::to(&format!("/edit-sessions/{}", session.id)).into_response())
+        }
+    })
+    .await
+}
+async fn edit(State(state): App, Path(id): Path<String>, headers: HeaderMap) -> Result<Response> {
+    let actor = match page_actor(&state, &headers).await {
+        Ok(a) => a,
+        Err(r) => return Ok(r),
+    };
+    if !actor.editable() {
+        return Err(WebError(StatusCode::FORBIDDEN, "Read-only account.".into()));
+    }
+    blocking(move || {
+        let session = state.sessions.lock().unwrap().get(&id, &actor)?.clone();
+        let html = views::edit(&state.editor, &session, &actor, &state.fields, &[], "")?;
+        page(&state, &actor, &headers, html)
+    })
+    .await
+}
+async fn command(
+    State(state): App,
+    Path((id, action)): Path<(String, String)>,
+    headers: HeaderMap,
+    Form(form): Form<HashMap<String, String>>,
+) -> Result<Response> {
+    perform(state, id, action, None, None, headers, form).await
+}
+async fn array_command(
+    State(state): App,
+    Path((id, field, action)): Path<(String, String, String)>,
+    Query(query): Query<HashMap<String, String>>,
+    headers: HeaderMap,
+    Form(form): Form<HashMap<String, String>>,
+) -> Result<Response> {
+    perform(
+        state,
+        id,
+        action,
+        Some(field),
+        query.get("item").cloned(),
+        headers,
+        form,
+    )
+    .await
+}
+async fn suggestions(
+    State(state): App,
+    Path((id, field)): Path<(String, String)>,
+    headers: HeaderMap,
+    Form(form): Form<HashMap<String, String>>,
+) -> Result<Response> {
+    let actor = mutation_actor(&state, &headers, &form).await?;
+    blocking(move || {
+        // Decode current input on a clone: a lookup never changes draft/version or disk.
+        let mut session = state.sessions.lock().unwrap().get(&id, &actor)?.clone();
+        session.apply(&form)?;
+        let input = session
+            .draft
+            .field(&field)
+            .filter(|f| !f.hidden && !f.read_only)
+            .ok_or_else(|| WebError::bad("Unknown editable field"))?;
+        let context = session.value().unwrap_or(serde_json::json!({}));
+        let mut values = state.editor.suggestions_query(
+            &session.collection,
+            &input.key,
+            &context,
+            &input.raw,
+        )?;
+        if let Some(options) = input.schema["x-options"].as_array() {
+            values.extend(
+                options
+                    .iter()
+                    .filter_map(|v| v.as_str())
+                    .filter(|s| s.to_lowercase().contains(&input.raw.to_lowercase()))
+                    .map(str::to_owned),
+            );
+        }
+        values.sort_by(|a, b| structured_editor_core::alphabetic_cmp(a, b).then(a.cmp(b)));
+        values.dedup();
+        let mut html = format!("<datalist id=\"suggestions-{}\">", views::escape(&field));
+        for value in values {
+            html += &format!("<option value=\"{}\"></option>", views::escape(&value));
+        }
+        html += "</datalist>";
+        if fragment(&headers) {
+            Ok(stream(vec![html]))
+        } else {
+            Ok(Html(html).into_response())
+        }
+    })
+    .await
+}
+
+/// Validates a snapshot only; it never advances the stored draft or replaces inputs.
+async fn live_validation(
+    State(state): App,
+    Path(id): Path<String>,
+    headers: HeaderMap,
+    Form(form): Form<HashMap<String, String>>,
+) -> Result<Response> {
+    let actor = mutation_actor(&state, &headers, &form).await?;
+    blocking(move || {
+        let mut session = state.sessions.lock().unwrap().get(&id, &actor)?.clone();
+        // A command may have completed while this advisory request was in flight.
+        if form.get("version").and_then(|v| v.parse::<u64>().ok()) != Some(session.version) {
+            return Ok(StatusCode::NO_CONTENT.into_response());
+        }
+        session.apply(&form)?;
+        let mut issues = session.validate(&state.editor)?;
+        if session.proposed_id != session.record_id || session.revision.is_none() {
+            issues.extend(
+                state
+                    .editor
+                    .validate_new_id(&session.collection, &session.proposed_id)?,
+            );
+        }
+        issues.sort_by(|a, b| a.path.cmp(&b.path).then(a.message.cmp(&b.message)));
+        issues.dedup_by(|a, b| a.path == b.path && a.message == b.message);
+        let mut fragments = views::validation::fragments(&session, &issues);
+        for id in &session.preview {if let Some(field)=session.draft.field(id).filter(|f|f.present&&!f.hidden){fragments.push(format!("<section id=\"preview-{}\" class=\"markdown-preview\"><p class=\"eyebrow\">Live preview</p>{}</section>",field.id,views::markdown(&field.raw)));}}
+        Ok(stream(fragments))
+    })
+    .await
+}
+
+async fn perform(
+    state: Arc<AppState>,
+    id: String,
+    action: String,
+    field: Option<String>,
+    item: Option<String>,
+    headers: HeaderMap,
+    form: HashMap<String, String>,
+) -> Result<Response> {
+    let actor = mutation_actor(&state, &headers, &form).await?;
+    blocking(move || {
+        let mut sessions = state.sessions.lock().unwrap();
+        let mut session = sessions.get(&id, &actor)?.clone();
+        let before_input=session.snapshot();
+        session.apply(&form)?;
+        session.history.record(before_input,&session.snapshot());
+        let before_command=session.snapshot();
+        let mut issues = Vec::new();
+        let mut message = String::new();
+        if let Some(field) = field {
+            if action == "create-related" {
+                // Persist the parent before opening the child, including incomplete input.
+                sessions.insert(session.clone());
+                let child = related_session(&state.editor, &mut sessions, &actor, &session, &field, &form);
+                match child {
+                    Ok(child) => return page(&state, &actor, &headers, views::edit(&state.editor, &child, &actor, &state.fields, &[], "")?),
+                    Err(error) => message = error.1,
+                }
+            } else {
+                let result = if action == "include" || action == "omit" {
+                    session.draft.set_presence(&field,action == "include").map_err(WebError::bad)
+                } else if ["add", "remove", "up", "down"].contains(&action.as_str()) {
+                    session.draft.array_action(&session.schema, &field, &action, item.as_deref()).map_err(WebError::bad)
+                } else {
+                    crate::pickers::action(&state.editor, &mut session, &field, &action, &form)
+                };
+                if let Err(error) = result { message = error.1; }
+            }
+        } else {
+            match action.as_str() {
+                "undo" => {if let Some(previous)=session.history.undo(session.snapshot()){session.restore(previous);message="Change undone.".into();}},
+                "redo" => {if let Some(next)=session.history.redo(session.snapshot()){session.restore(next);message="Change restored.".into();}},
+                "raw" => match session.value() {
+                    Ok(value) => session.raw = Some(serde_json::to_string_pretty(&value).unwrap()),
+                    Err(errors) => issues = errors,
+                },
+                "form" => match session.value() {
+                    Ok(value) if value.is_object() => {
+                        session.draft = state.editor.draft_for_id(&session.collection, &session.proposed_id, &value)?;
+                        session.raw = None;
+                    },
+                    Ok(_) => message = "A record must be a JSON object.".into(),
+                    Err(errors) => issues = errors,
+                },
+                "save" => match session.save(&state.editor) {
+                    Ok(()) => {
+                        message = "Saved to disk.".into();
+                        if let Some(parent)=session.parent.take() {
+                            sessions.insert(session);
+                            return page(&state,&actor,&headers,views::record(&state.editor,&parent.collection,&parent.id,&actor)?);
+                        }
+                        if let Some((parent_id, field)) = &session.return_to {
+                            let parent = sessions.get(parent_id, &actor).map(|s| s.clone());
+                            // A related record stays successfully saved even if its parent expired.
+                            if let Ok(mut parent) = parent {
+                                parent.draft.set_field(field, serde_json::json!(session.record_id)).map_err(WebError::bad)?;
+                                parent.version += 1;
+                                parent.picker = None;
+                                parent.refresh_derived(&state.editor)?;
+                                sessions.insert(session);
+                                sessions.insert(parent.clone());
+                                let html = views::edit(&state.editor, &parent, &actor, &state.fields, &[], "Related record created and selected. Save this record to retain the reference.")?;
+                                return page(&state, &actor, &headers, html);
+                            }
+                            message = "Saved. The parent draft has expired; select this record from a new draft.".into();
+                            session.return_to = None;
+                        }
+                    },
+                    Err(structured_editor_core::Error::Validation(errors)) => issues = errors,
+                    Err(error) => message = error.to_string(),
+                },
+                "validate" => match session.validate(&state.editor) {
+                    Ok(errors) => { issues = errors; if issues.is_empty() { message = "The draft is valid.".into(); } },
+                    Err(error) => message = error.1,
+                },
+                "generate-id" => match session.value() {
+                    Ok(value) => match state.editor.generate_id(&session.collection, &value) {
+                        Ok(id) => session.proposed_id = id,
+                        Err(error) => message = error.to_string(),
+                    },
+                    Err(errors) => issues = errors,
+                },
+                "check-id" => {
+                    if session.proposed_id == session.record_id && session.revision.is_some() {
+                        message = "This is the current record ID.".into();
+                    } else {
+                        issues = state.editor.validate_new_id(&session.collection, &session.proposed_id)?;
+                        if issues.is_empty() { message = "This ID is available.".into(); }
+                    }
+                },
+                _ => return Err(WebError::bad("Unknown operation")),
+            }
+        }
+        session.refresh_derived(&state.editor)?;
+        if !["undo","redo","save"].contains(&action.as_str()) { session.history.record(before_command,&session.snapshot()); }
+        let html = views::edit(&state.editor, &session, &actor, &state.fields, &issues, &message)?;
+        sessions.insert(session);
+        // Undo can restore the same HTML attributes a locally changed control already
+        // has. Replacement resets dirty browser properties as well as markup; ordinary
+        // commands and live validation retain morphing and Monaco's typing history.
+        if ["undo", "redo"].contains(&action.as_str()) && fragment(&headers) {
+            return Ok(stream_mode(vec![html], "replace"));
+        }
+        page(&state, &actor, &headers, html)
+    }).await
+}
+
+fn related_session(
+    editor: &structured_editor_core::Editor,
+    sessions: &mut crate::sessions::Sessions,
+    actor: &Actor,
+    parent: &crate::sessions::EditSession,
+    field: &str,
+    form: &HashMap<String, String>,
+) -> Result<crate::sessions::EditSession> {
+    let picker = parent
+        .picker
+        .as_ref()
+        .filter(|p| p.field == field)
+        .ok_or_else(|| WebError::bad("Open the picker first"))?;
+    let config = parent
+        .draft
+        .field(field)
+        .filter(|f| !f.hidden && !f.read_only)
+        .and_then(|f| f.schema.pointer("/x-relation/create"))
+        .ok_or_else(|| WebError::bad("Related creation is not configured"))?;
+    let value = parent.value().unwrap_or(serde_json::json!({}));
+    let mut context = serde_json::json!({});
+    let name = config["nameField"].as_str().unwrap_or("name");
+    let query = form.get("picker_query").unwrap_or(&picker.query);
+    if !query.is_empty() {
+        context[name] = serde_json::json!(query);
+        if let Some(copy) = config["copyTo"].as_str() {
+            context[copy] = context[name].clone();
+        }
+    }
+    if let (Some(target), Some(source)) = (
+        config["parentField"].as_str(),
+        config["sourceField"].as_str(),
+    ) {
+        if let Some(value) = value.get(source) {
+            context[target] = value.clone();
+        }
+    }
+    let mut child = sessions.start(editor, actor, &picker.collection, None)?;
+    child.draft = editor.draft_for_id(
+        &picker.collection,
+        "",
+        &editor.initial_value(&picker.collection, &context)?,
+    )?;
+    child.return_to = Some((parent.id.clone(), field.into()));
+    sessions.insert(child.clone());
+    Ok(child)
+}
+
+async fn delete(
+    State(state): App,
+    Path((name, id)): Path<(String, String)>,
+    headers: HeaderMap,
+    Form(form): Form<HashMap<String, String>>,
+) -> Result<Response> {
+    let actor = mutation_actor(&state, &headers, &form).await?;
+    let revision = form
+        .get("revision")
+        .cloned()
+        .ok_or_else(|| WebError::bad("Revision required"))?;
+    blocking(move || {
+        state.editor.delete(&name, &id, &revision)?;
+        let html = views::collection(&state.editor, &name, "", 0, &actor)?;
+        if fragment(&headers) {
+            Ok(stream(vec![
+                views::navigation(&state.editor, &html)?,
+                html,
+                views::notice("Record deleted."),
+            ]))
+        } else {
+            Ok(Redirect::to(&format!("/collections/{}", views::encode(&name))).into_response())
+        }
+    })
+    .await
+}
+
+async fn export(
+    State(state): App,
+    Path((name, id)): Path<(String, String)>,
+    headers: HeaderMap,
+) -> Result<Response> {
+    state.auth.actor(&headers).await?;
+    blocking(move || {
+        state.editor.require_operation(&name, "read")?;
+        let d = state.editor.get(&name, &id)?;
+        Ok((
+            [
+                (header::CONTENT_TYPE, "application/json".to_owned()),
+                (
+                    header::CONTENT_DISPOSITION,
+                    format!("attachment; filename*=UTF-8''{}.json", views::encode(&id)),
+                ),
+            ],
+            serde_json::to_string_pretty(&d.value).map_err(WebError::internal)?,
+        )
+            .into_response())
+    })
+    .await
+}

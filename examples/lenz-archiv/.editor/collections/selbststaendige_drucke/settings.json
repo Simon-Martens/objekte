@@ -1,0 +1,15 @@
+{
+  "type": "data",
+  "path": "data/selbststaendige_drucke",
+  "format": "json",
+  "id": "filename",
+  "schema": ".editor/collections/selbststaendige_drucke/schema.json",
+  "ui": ".editor/collections/selbststaendige_drucke/ui.json",
+  "operations": [
+    "read",
+    "create",
+    "update",
+    "rename",
+    "delete"
+  ]
+}

@@ -1,9 +1,19 @@
+mod collation;
+mod collection_config;
 mod config;
 mod documents;
+pub mod draft;
+mod json_documents;
 mod media;
+mod policy;
+mod project_config;
+pub use collation::alphabetic_cmp;
 
-pub use config::{CategoryEntry, CategoryLevel, Collection, Config, IdStrategy};
-pub use documents::{CategoryNode, Document, Editor, RecordSummary, Reference, ValidationIssue};
+pub use config::{CategoryEntry, CategoryLevel, Collection, Config, IdStrategy, MediaCollection};
+pub use documents::{
+    CategoryNode, ChildCollection, Document, Editor, HierarchyNode, ListFacet, ListMatch, ListPage,
+    ListRequest, ListRow, ParentLink, RecordSummary, Reference, ValidationIssue, display_text,
+};
 pub use media::{MediaEntry, MediaKind};
 
 use std::path::{Path, PathBuf};
@@ -60,3 +70,6 @@ pub(crate) fn contained(root: &Path, relative: &str) -> Result<PathBuf> {
 
 #[cfg(test)]
 mod tests;
+pub use policy::insert_markdown_link;
+#[cfg(test)]
+mod mvp_tests;

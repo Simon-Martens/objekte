@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "required": [
+    "name"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "x-content": "markdown"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "handschriften": {
+      "type": "array",
+      "uniqueItems": true,
+      "default": [],
+      "x-children": true,
+      "items": {
+        "type": "string",
+        "x-relation": {
+          "collection": "handschriften"
+        }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

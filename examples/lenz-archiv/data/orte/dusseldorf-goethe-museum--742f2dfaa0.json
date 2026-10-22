@@ -1,4 +1,16 @@
 {
   "name": "Düsseldorf, Goethe-Museum",
-  "short": "Düsseldorf"
+  "short": "Düsseldorf",
+  "sammlungen": [],
+  "handschriften": [
+    "dusseldorf-goethe-museum--0--b25437c544--cd88b397",
+    "dusseldorf-goethe-museum--0--b25437c544",
+    "dusseldorf-goethe-museum--4356--6fa547a2bf",
+    "dusseldorf-goethe-museum--nw-1472-1975--aff42af6b2",
+    "dusseldorf-goethe-museum--nw-1647-1979--d777b8ac96",
+    "dusseldorf-goethe-museum--nw-1994-1987--590174a789",
+    "dusseldorf-goethe-museum--nw-2008-1988--8c968660ca",
+    "dusseldorf-goethe-museum--nw-992-1967--4fc1937058",
+    "dusseldorf-goethe-museum--sk-22873--53f9bedf16"
+  ]
 }

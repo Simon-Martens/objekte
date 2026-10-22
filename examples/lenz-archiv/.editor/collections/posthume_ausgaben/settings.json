@@ -1,0 +1,15 @@
+{
+  "type": "data",
+  "path": "data/posthume_ausgaben",
+  "format": "json",
+  "id": "filename",
+  "schema": ".editor/collections/posthume_ausgaben/schema.json",
+  "ui": ".editor/collections/posthume_ausgaben/ui.json",
+  "operations": [
+    "read",
+    "create",
+    "update",
+    "rename",
+    "delete"
+  ]
+}

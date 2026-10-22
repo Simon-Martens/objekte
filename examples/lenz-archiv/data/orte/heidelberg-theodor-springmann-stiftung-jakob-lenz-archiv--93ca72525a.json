@@ -1,4 +1,9 @@
 {
   "name": "Heidelberg, Theodor Springmann Stiftung (Jakob Lenz Archiv)",
-  "short": "Heidelberg"
+  "short": "Heidelberg",
+  "sammlungen": [],
+  "handschriften": [
+    "heidelberg-theodor-springmann-stiftung-jakob-lenz-archiv--lenziana-hi--eeb008cf1f",
+    "heidelberg-theodor-springmann-stiftung-jakob-lenz-archiv--lenziana-hii--191b1ee4c8"
+  ]
 }

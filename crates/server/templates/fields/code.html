@@ -1,0 +1,10 @@
+<div class="source-control{% if inline %} source-inline{% endif %}">
+  <div class="source-toolbar"><span class="mono"><i class="ri-code-s-slash-line" aria-hidden="true"></i>{{ language }}</span><div class="actions">{% if language != "html" %}<button class="small quiet preview-toggle" aria-pressed="{{ preview_open }}" formaction="{{ actions }}/preview"><i class="ri-eye-line" aria-hidden="true"></i>Preview</button><button class="small quiet" formaction="{{ actions }}/links" data-insert-link title="Insert or edit link (Ctrl/Cmd+K)"><i class="ri-link" aria-hidden="true"></i>Link</button>{% else %}<span class="help">Source</span>{% endif %}</div></div>
+  <code-input id="code-{{ id }}" data-version="{{ version }}" data-language="{{ language }}" data-label="{{ label }} source" {% if inline %}data-inline="true"{% endif %}>
+    <textarea id="input-{{ id }}" name="value.{{ id }}" class="source" rows="{% if inline %}2{% else %}8{% endif %}" spellcheck="false" aria-describedby="errors-{{ id }}">
+{{ raw }}</textarea>
+    <div id="editor-{{ id }}" class="code-host" data-ignore-morph></div>
+  </code-input>
+</div>
+<input type="hidden" name="selection_from.{{ id }}" value="0"><input type="hidden" name="selection_to.{{ id }}" value="0">
+{% if preview_open %}<section id="preview-{{ id }}" class="markdown-preview"><p class="eyebrow">Live preview</p>{{ preview|safe }}</section>{% endif %}

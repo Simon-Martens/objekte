@@ -1,5 +1,23 @@
 {
-  "Ort": "weimar-goethe-und-schiller-archiv--24086bb54b",
   "name": "5",
-  "order": 5
+  "order": 5,
+  "handschriften": [
+    "weimar-goethe-und-schiller-archiv--gsa-44-69-bl-1-2--4d19109fb9",
+    "weimar-goethe-und-schiller-archiv--gsa-44-69-bl-10-11--1008017a9c",
+    "weimar-goethe-und-schiller-archiv--gsa-44-69-bl-12-13--5f0c4e688b",
+    "weimar-goethe-und-schiller-archiv--gsa-44-69-bl-14-15--7413a71b2f",
+    "weimar-goethe-und-schiller-archiv--gsa-44-69-bl-16-17--b7925bd113",
+    "weimar-goethe-und-schiller-archiv--gsa-44-69-bl-18-19--d3e8c8ccfb",
+    "weimar-goethe-und-schiller-archiv--gsa-44-69-bl-20-21--373f8bd302",
+    "weimar-goethe-und-schiller-archiv--gsa-44-69-bl-22-23--e40ed4c0f5",
+    "weimar-goethe-und-schiller-archiv--gsa-44-69-bl-24--facbff5252",
+    "weimar-goethe-und-schiller-archiv--gsa-44-69-bl-25--e13a6f7975",
+    "weimar-goethe-und-schiller-archiv--gsa-44-69-bl-26--754b7cd795",
+    "weimar-goethe-und-schiller-archiv--gsa-44-69-bl-27-bestand-herder--b289c8c914",
+    "weimar-goethe-und-schiller-archiv--gsa-44-69-bl-3-4--cd24c9e5d5",
+    "weimar-goethe-und-schiller-archiv--gsa-44-69-bl-5--a929537b8f",
+    "weimar-goethe-und-schiller-archiv--gsa-44-69-bl-6-7--72bd2e7797",
+    "weimar-goethe-und-schiller-archiv--gsa-44-69-bl-8--490f8b15e3",
+    "weimar-goethe-und-schiller-archiv--gsa-44-69-bl-9--9adf737ada"
+  ]
 }

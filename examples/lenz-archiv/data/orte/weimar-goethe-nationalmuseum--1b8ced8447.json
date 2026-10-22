@@ -1,4 +1,9 @@
 {
   "name": "Weimar, Goethe-Nationalmuseum",
-  "short": "Weimar, Nationalmuseum"
+  "short": "Weimar, Nationalmuseum",
+  "sammlungen": [],
+  "handschriften": [
+    "weimar-goethe-nationalmuseum--ak-nr-2253--5b776ab29f",
+    "weimar-goethe-nationalmuseum--kgr-02164-208-166--12b7c8e47f"
+  ]
 }

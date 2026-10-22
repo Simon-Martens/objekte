@@ -1,5 +1,7 @@
 {
-  "Ort": "krakow-biblioteka-jagiellonska--1c8ffbab28",
   "name": "Nachlaßteile in der Sammlung Autographa: Tieck",
-  "order": 9
+  "order": 9,
+  "handschriften": [
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-tieck--8541391509"
+  ]
 }

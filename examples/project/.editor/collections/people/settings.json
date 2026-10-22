@@ -1,0 +1,15 @@
+{
+  "type": "data",
+  "path": "data/people",
+  "format": "json",
+  "id": "filename",
+  "schema": ".editor/collections/people/schema.json",
+  "ui": ".editor/collections/people/ui.json",
+  "operations": [
+    "read",
+    "create",
+    "update",
+    "rename",
+    "delete"
+  ]
+}

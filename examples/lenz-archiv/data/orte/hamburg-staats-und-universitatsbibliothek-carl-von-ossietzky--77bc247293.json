@@ -1,4 +1,9 @@
 {
   "name": "Hamburg, Staats- und Universitätsbibliothek Carl von Ossietzky",
-  "short": "Hamburg"
+  "short": "Hamburg",
+  "sammlungen": [],
+  "handschriften": [
+    "hamburg-staats-und-universitatsbibliothek-carl-von-ossietzky--cs-2-klinger-friedrich-maximilian--5616a6cc6d",
+    "hamburg-staats-und-universitatsbibliothek-carl-von-ossietzky--theater-bibliothek-nr-234--aec5ba39e1"
+  ]
 }

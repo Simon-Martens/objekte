@@ -1,4 +1,8 @@
 {
   "name": "Wien, Österreichische Nationalbibliothek",
-  "short": "Österreichische Nationalbibliothek Wien"
+  "short": "Österreichische Nationalbibliothek Wien",
+  "sammlungen": [
+    "wien-osterreichische-nationalbibliothek--1--71c9d0f74f"
+  ],
+  "handschriften": []
 }

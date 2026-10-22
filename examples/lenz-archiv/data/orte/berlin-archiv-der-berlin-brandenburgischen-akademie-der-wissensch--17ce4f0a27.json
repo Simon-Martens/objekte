@@ -1,4 +1,10 @@
 {
   "name": "Berlin, Archiv der Berlin-Brandenburgischen Akademie der Wissenschaften",
-  "short": "Berlin, Akademie"
+  "short": "Berlin, Akademie",
+  "sammlungen": [],
+  "handschriften": [
+    "berlin-archiv-der-berlin-brandenburgischen-akademie-der-wissensch--slg-weinhold-nr-1179--cbf029e02c",
+    "berlin-archiv-der-berlin-brandenburgischen-akademie-der-wissensch--slg-weinhold-nr-422--284a1c34cf",
+    "berlin-archiv-der-berlin-brandenburgischen-akademie-der-wissensch--slg-weinhold-nr-792--00e21c87f3"
+  ]
 }

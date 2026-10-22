@@ -1,5 +1,32 @@
 {
-  "Ort": "zurich-zentralbibliothek--62ebd87e10",
   "name": "6",
-  "order": 6
+  "order": 6,
+  "handschriften": [
+    "zurich-zentralbibliothek--rp-20-nr-1--3ebf41cae2",
+    "zurich-zentralbibliothek--rp-20-nr-10--63bfeaf776",
+    "zurich-zentralbibliothek--rp-20-nr-11--f297a05240",
+    "zurich-zentralbibliothek--rp-20-nr-12--c56ed3997d",
+    "zurich-zentralbibliothek--rp-20-nr-13--9d982cd2c5",
+    "zurich-zentralbibliothek--rp-20-nr-14--91c9de055c",
+    "zurich-zentralbibliothek--rp-20-nr-15--1c832341aa",
+    "zurich-zentralbibliothek--rp-20-nr-16--14759e64d5",
+    "zurich-zentralbibliothek--rp-20-nr-17--4145c5e469",
+    "zurich-zentralbibliothek--rp-20-nr-18--d8e91b1bee",
+    "zurich-zentralbibliothek--rp-20-nr-19--72c3dd777d",
+    "zurich-zentralbibliothek--rp-20-nr-2--32a46a90e5",
+    "zurich-zentralbibliothek--rp-20-nr-20--e255b0e22f",
+    "zurich-zentralbibliothek--rp-20-nr-21--dc0d927e11",
+    "zurich-zentralbibliothek--rp-20-nr-22--21bb5322ed",
+    "zurich-zentralbibliothek--rp-20-nr-23--e465b8ab55",
+    "zurich-zentralbibliothek--rp-20-nr-24--7560498d71",
+    "zurich-zentralbibliothek--rp-20-nr-25--f52bac6725",
+    "zurich-zentralbibliothek--rp-20-nr-26--0cec06bf6c",
+    "zurich-zentralbibliothek--rp-20-nr-3--3f71662522",
+    "zurich-zentralbibliothek--rp-20-nr-4--8a88861358",
+    "zurich-zentralbibliothek--rp-20-nr-5--8a3cce429a",
+    "zurich-zentralbibliothek--rp-20-nr-6--dc1dc4fd7b",
+    "zurich-zentralbibliothek--rp-20-nr-7--ce6ac1f62e",
+    "zurich-zentralbibliothek--rp-20-nr-8--de70f755c0",
+    "zurich-zentralbibliothek--rp-20-nr-9--d2bc59b331"
+  ]
 }

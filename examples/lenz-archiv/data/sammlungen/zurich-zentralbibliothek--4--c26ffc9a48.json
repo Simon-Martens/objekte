@@ -1,5 +1,10 @@
 {
-  "Ort": "zurich-zentralbibliothek--62ebd87e10",
   "name": "4",
-  "order": 4
+  "order": 4,
+  "handschriften": [
+    "zurich-zentralbibliothek--ms-m-1-183-nr-1--19ed99c43d",
+    "zurich-zentralbibliothek--ms-m-1-183-nr-2--889c99b39f",
+    "zurich-zentralbibliothek--ms-m-1-183-nr-3--4027e616ea",
+    "zurich-zentralbibliothek--ms-m-1-183-nr-4--81ed1e9985"
+  ]
 }

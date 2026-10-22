@@ -1,5 +1,7 @@
 {
-  "Ort": "weimar-thuringisches-hauptstaatsarchiv--adaa60c09b",
   "name": "1",
-  "order": 1
+  "order": 1,
+  "handschriften": [
+    "weimar-thuringisches-hauptstaatsarchiv--ha-a-xix-nr-149-2--1d24b00d36"
+  ]
 }

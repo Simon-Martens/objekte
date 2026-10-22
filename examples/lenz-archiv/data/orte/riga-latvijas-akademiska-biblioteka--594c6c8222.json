@@ -1,5 +1,16 @@
 {
   "name": "Riga, Latvijas Akadēmiskā Bibliotekā",
   "short": "Riga, Universitätsbib.",
-  "description": "Der Nachlaß von J. M. R. Lenz wird in insgesamt acht Mappen bzw. Bänden aufbewahrt: Ms. 1113, F. 25, V. 31-38. Verzeichnet sind in der Regel nur die in den Mappen 31, 32, 33 und 37 enthaltenen Lenz-Handschriften sowie die Autographen der an Lenz gerichteten Briefe; von den übrigen Dokumenten und Materialien in 34, 35, 36 und 38 wird jeweils eine kurze Beschreibung des Inhalts gegeben."
+  "description": "Der Nachlaß von J. M. R. Lenz wird in insgesamt acht Mappen bzw. Bänden aufbewahrt: Ms. 1113, F. 25, V. 31-38. Verzeichnet sind in der Regel nur die in den Mappen 31, 32, 33 und 37 enthaltenen Lenz-Handschriften sowie die Autographen der an Lenz gerichteten Briefe; von den übrigen Dokumenten und Materialien in 34, 35, 36 und 38 wird jeweils eine kurze Beschreibung des Inhalts gegeben.",
+  "sammlungen": [
+    "riga-latvijas-akademiska-biblioteka--1-nachlass-j-m-r-lenz-ms-1113-f-25-v-31--75c30cb518",
+    "riga-latvijas-akademiska-biblioteka--2-nachlass-j-m-r-lenz-ms-1113-f-25-v-32--c6a54c21e7",
+    "riga-latvijas-akademiska-biblioteka--3-nachlass-j-m-r-lenz-ms-1113-f-25-v-33--35f823d6ca",
+    "riga-latvijas-akademiska-biblioteka--4-nachlass-j-m-r-lenz-ms-1113-f-25-v-34--a422a30b25",
+    "riga-latvijas-akademiska-biblioteka--5-nachlass-j-m-r-lenz-ms-1113-f-25-v-35--1b4d780cb6",
+    "riga-latvijas-akademiska-biblioteka--6-nachlass-j-m-r-lenz-ms-1113-f-25-v-36--040c83802b",
+    "riga-latvijas-akademiska-biblioteka--7-nachlass-j-m-r-lenz-ms-1113-f-25-v-37--329f9d51c1",
+    "riga-latvijas-akademiska-biblioteka--8-nachlass-j-m-r-lenz-ms-1113-f-25-v-38--8d02753a7a"
+  ],
+  "handschriften": []
 }

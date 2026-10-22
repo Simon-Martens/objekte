@@ -1,0 +1,7 @@
+<section class="field{% if item %} item-field{% endif %}" id="field-{{ id }}">
+  {% if present %}<input type="hidden" name="present.{{ id }}" value="1">{% endif %}
+  <fieldset {% if read_only %}disabled{% endif %}>
+    <div class="field-label"><label for="input-{{ id }}">{{ title }}{% if required %}<span class="required-mark" title="Required" aria-label="required">*</span>{% endif %}</label><span class="field-kind mono">{{ kind }}</span>{% if !description.is_empty() %}<p class="help">{{ description }}</p>{% endif %}{% if read_only %}<span class="help"><i class="ri-lock-line" aria-hidden="true"></i>Read-only / derived</span>{% else if !item && deletable %}<button class="icon-button remove-field" formaction="/edit-sessions/{{ session }}/fields/{{ id }}/actions/omit" aria-label="Remove {{ title }} field" title="Remove field · Ctrl/Cmd+Z to undo"><i class="ri-delete-bin-line" aria-hidden="true"></i></button>{% endif %}</div>
+    <div class="field-control">{{ content|safe }}<div id="errors-{{ id }}" class="field-errors" aria-live="polite">{% for error in errors %}<p>{{ error }}</p>{% endfor %}</div></div>
+  </fieldset>
+</section>

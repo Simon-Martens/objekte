@@ -2,6 +2,15 @@ import { createRequire } from 'node:module';
 import { resolve } from 'node:path';
 
 export interface NativeProject {
+  documentMappings(): string;
+  documentSchema(name: string): string;
+  documentFiles(name: string): string;
+  jsonDocument(name: string, path: string): string;
+  saveJsonDocument(name: string, path: string, value: string, revision: string): string;
+  uiConfig(): string;
+  settingsSchema(): string;
+  settings(): string;
+  saveSettings(value: string, revision: string): string;
   collections(): string;
   projectSchema(): string;
   schema(collection: string): string;

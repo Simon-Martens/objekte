@@ -1,5 +1,7 @@
 {
-  "Ort": "weimar-goethe-und-schiller-archiv--24086bb54b",
   "name": "10",
-  "order": 10
+  "order": 10,
+  "handschriften": [
+    "weimar-goethe-und-schiller-archiv--gsa-25-xxxv-3-1--897da60673"
+  ]
 }

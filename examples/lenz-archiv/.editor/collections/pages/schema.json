@@ -1,0 +1,72 @@
+{
+  "type": "object",
+  "required": [
+    "body",
+    "title"
+  ],
+  "properties": {
+    "source": {
+      "type": "string",
+      "x-ownership": {
+        "kind": "imported",
+        "editable": false,
+        "onCreate": "omit"
+      }
+    },
+    "body": {
+      "type": "string",
+      "x-content": "html"
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "x-content": "media"
+      }
+    },
+    "description": {
+      "type": "string"
+    },
+    "eleventyNavigation": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "link": {
+          "type": "boolean"
+        },
+        "order": {
+          "type": "integer"
+        },
+        "parent": {
+          "type": "string"
+        },
+        "pdf": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "additionalProperties": false
+    },
+    "layout": {
+      "type": "string"
+    },
+    "permalink": {
+      "type": "boolean"
+    },
+    "showinnav": {
+      "type": "boolean"
+    },
+    "title": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

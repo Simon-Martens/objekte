@@ -1,11 +1,12 @@
-import { existsSync, mkdirSync, readFileSync, renameSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { readProjectDefinition, writeProjectDefinition } from './project-config.mjs';
+import { existsSync, mkdirSync, renameSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { convertHandschriften } from './handschriften.mjs';
 
 const source = resolve(process.argv[2] ?? '../../lenz-archiv');
 const project = resolve(process.argv[3] ?? '../examples/lenz-archiv');
 const replace = process.argv.includes('--replace');
-const schemaPath = join(project, '.editor/schema.json');
+const schemaPath = join(project, '.editor/repository.json');
 if (!existsSync(schemaPath)) throw new Error(`Not an editor project: ${project}`);
 
 const converted = convertHandschriften(source);
@@ -14,7 +15,7 @@ const updates = [
   ['orte', converted.places, converted.placeSchema],
   ['sammlungen', converted.subcollections, converted.subcollectionSchema],
 ];
-const schema = JSON.parse(readFileSync(schemaPath, 'utf8'));
+const schema = readProjectDefinition(project);
 const variants = schema.anyOf ?? schema.oneOf;
 if (!Array.isArray(variants)) throw new Error('Project schema needs a top-level anyOf or oneOf');
 for (const [name, , branch] of updates) {
@@ -32,19 +33,18 @@ const stages = updates.map(([name, records]) => ({
   staging: join(project, 'data', `.${name}-${suffix}`),
   backup: join(project, 'data', `.${name}-backup-${suffix}`),
 }));
-const schemaTemp = `${schemaPath}.tmp-${suffix}`;
+
 try {
   for (const item of stages) {
     mkdirSync(item.staging, { recursive: true });
     for (const { id, value } of item.records) writeFileSync(join(item.staging, `${id}.json`), `${JSON.stringify(value, null, 2)}\n`);
     if (readdirSync(item.staging).length !== item.records.length) throw new Error(`Staging ${item.name} count mismatch`);
   }
-  writeFileSync(schemaTemp, `${JSON.stringify(schema, null, 2)}\n`);
   for (const item of stages) {
     if (existsSync(item.target)) renameSync(item.target, item.backup);
     renameSync(item.staging, item.target);
   }
-  renameSync(schemaTemp, schemaPath);
+  writeProjectDefinition(project, schema);
   for (const item of stages) rmSync(item.backup, { recursive: true, force: true });
   console.log(JSON.stringify({ ...converted.stats, places: converted.places.length, subcollections: converted.subcollections.length }, null, 2));
 } catch (error) {
@@ -57,6 +57,5 @@ try {
     }
     rmSync(item.staging, { recursive: true, force: true });
   }
-  rmSync(schemaTemp, { force: true });
   throw error;
 }

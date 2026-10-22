@@ -1,5 +1,8 @@
 {
-  "Ort": "weimar-thuringisches-hauptstaatsarchiv--adaa60c09b",
   "name": "5",
-  "order": 5
+  "order": 5,
+  "handschriften": [
+    "weimar-thuringisches-hauptstaatsarchiv--ha-a-xxii-nr-582a2--ad3e457081",
+    "weimar-thuringisches-hauptstaatsarchiv--ha-a-xxii-nr-582a2-bl-55v-56r--f97c11300b"
+  ]
 }

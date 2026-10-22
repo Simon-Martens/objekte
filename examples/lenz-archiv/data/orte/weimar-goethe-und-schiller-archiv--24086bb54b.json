@@ -1,4 +1,21 @@
 {
   "name": "Weimar, Goethe- und Schiller-Archiv",
-  "short": "Weimar, Goethe-Archiv"
+  "short": "Weimar, Goethe-Archiv",
+  "sammlungen": [
+    "weimar-goethe-und-schiller-archiv--1--4dbfb90d1c",
+    "weimar-goethe-und-schiller-archiv--10--6c068afee7",
+    "weimar-goethe-und-schiller-archiv--11--c0cca75d8d",
+    "weimar-goethe-und-schiller-archiv--12--d2ffa592d2",
+    "weimar-goethe-und-schiller-archiv--13--41d9346f7b",
+    "weimar-goethe-und-schiller-archiv--14--da984a0ed4",
+    "weimar-goethe-und-schiller-archiv--2--b025e307a2",
+    "weimar-goethe-und-schiller-archiv--3--c995b86890",
+    "weimar-goethe-und-schiller-archiv--4--afe62b83f5",
+    "weimar-goethe-und-schiller-archiv--5--5ffa532682",
+    "weimar-goethe-und-schiller-archiv--6--5dcffd7d90",
+    "weimar-goethe-und-schiller-archiv--7--5ba7e63505",
+    "weimar-goethe-und-schiller-archiv--8--86dc2c094f",
+    "weimar-goethe-und-schiller-archiv--9--ad91502e69"
+  ],
+  "handschriften": []
 }

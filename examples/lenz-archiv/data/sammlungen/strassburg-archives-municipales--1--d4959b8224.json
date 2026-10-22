@@ -1,5 +1,7 @@
 {
-  "Ort": "strassburg-archives-municipales--578bc339e7",
   "name": "1",
-  "order": 1
+  "order": 1,
+  "handschriften": [
+    "strassburg-archives-municipales--oberlin-ms-92-2--842ccdaa72"
+  ]
 }

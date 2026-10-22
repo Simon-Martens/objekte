@@ -363,7 +363,7 @@ fn field_values_are_distinct_scoped_and_refreshed_after_writes() {
 }
 
 #[test]
-fn categories_filter_records_and_inline_markdown_is_one_line() {
+fn categories_filter_records_and_inline_presentation_does_not_constrain_data() {
     let (temp, _) = fixture();
     let schema_path = temp.path().join(".editor/schema.json");
     let mut schema: serde_json::Value =
@@ -446,15 +446,9 @@ fn categories_filter_records_and_inline_markdown_is_one_line() {
             .label,
         "short"
     );
-    let mut bad = editor.get("records", "one").unwrap().value;
-    bad["note"] = json!("first\nsecond");
-    assert!(
-        editor
-            .validate("records", &bad)
-            .unwrap()
-            .iter()
-            .any(|issue| issue.path == "/note")
-    );
+    let mut multiline = editor.get("records", "one").unwrap().value;
+    multiline["note"] = json!("first\nsecond");
+    assert!(editor.validate("records", &multiline).unwrap().is_empty());
 }
 
 #[test]
@@ -657,7 +651,7 @@ fn media_operations_and_paths() {
 }
 
 #[test]
-fn media_search_and_markdown_references() {
+fn media_search_tracks_explicit_references_only() {
     let (_temp, editor) = fixture();
     editor.media_mkdir("images").unwrap();
     editor.media_upload("images/a b.png", b"image", 10).unwrap();
@@ -674,13 +668,8 @@ fn media_search_and_markdown_references() {
     assert_eq!(found.len(), 1);
     assert_eq!(found[0].path, "images/a b.png");
     let references = editor.media_references("images/a b.png").unwrap();
-    assert_eq!(references.len(), 1);
-    assert_eq!(references[0].record_id, "linked");
-    assert_eq!(references[0].path, "/comments/0");
-    assert!(matches!(
-        editor.media_delete("images/a b.png"),
-        Err(Error::Conflict(_))
-    ));
+    assert!(references.is_empty());
+    editor.media_delete("images/a b.png").unwrap();
     assert!(matches!(
         editor.media_move("images", "renamed"),
         Err(Error::Conflict(_))
@@ -735,4 +724,341 @@ fn symlinks_cannot_escape_collection_or_media() {
         Err(Error::InvalidPath(_))
     ));
     fs::remove_file(outside).unwrap();
+}
+
+fn split_fixture() -> TempDir {
+    let temp = tempfile::tempdir().unwrap();
+    let root = temp.path();
+    for dir in [".editor", "data/people", "data/notes", "media"] {
+        fs::create_dir_all(root.join(dir)).unwrap();
+    }
+    let files = [
+        (
+            ".editor/repository.json",
+            json!({"objects":".editor/objects.schema.json","ui":".editor/ui.json","media":"media","collections":{
+            "people":{"path":"data/people","format":"json","id":"filename"},
+            "notes":{"path":"data/notes","format":"json","id":"filename"}},
+            "settings":"settings.json","documents":{"editor-settings":{"schema":".editor/settings.schema.json","files":["settings.json"]}}}),
+        ),
+        (
+            ".editor/objects.schema.json",
+            json!({"anyOf":[
+                {"x-collection":"people","type":"object","required":["name"],"properties":{"name":{"type":"string"}}},
+                {"x-collection":"notes","type":"object","required":["text"],"properties":{
+                    "text":{"type":"string","x-content":"inline-markdown"},
+                    "owner":{"type":"string","x-relation":{"collection":"people"}}}}
+            ]}),
+        ),
+        (
+            ".editor/ui.json",
+            json!({"collections":{"notes":{"label":"Notes","display":"text","fields":{"/properties/text":{"title":"Text","x-editor":"inline-markdown"}}},"people":{"display":"name"}}}),
+        ),
+        (
+            ".editor/settings.schema.json",
+            json!({"type":"object","required":["title"],"properties":{"title":{"type":"string"}},"additionalProperties":false}),
+        ),
+        ("settings.json", json!({"title":"Example"})),
+    ];
+    for (path, value) in files {
+        fs::write(root.join(path), serde_json::to_vec(&value).unwrap()).unwrap();
+    }
+    temp
+}
+
+#[test]
+fn split_configuration_keeps_data_rules_independent_of_ui() {
+    let temp = split_fixture();
+    let editor = Editor::open(temp.path()).unwrap();
+    let collection = editor.config().collection("notes").unwrap();
+    assert!(
+        collection
+            .schema_value
+            .pointer("/properties/text/x-editor")
+            .is_none()
+    );
+    assert_eq!(
+        collection
+            .editor_schema
+            .pointer("/properties/text/title")
+            .unwrap(),
+        "Text"
+    );
+    assert!(
+        !editor
+            .validate("notes", &json!({"text":"two\nlines"}))
+            .unwrap()
+            .is_empty()
+    );
+    assert!(
+        !editor
+            .validate("notes", &json!({"text":"ok","owner":"missing"}))
+            .unwrap()
+            .is_empty()
+    );
+    fs::write(temp.path().join(".editor/ui.json"), r#"{"collections":{}}"#).unwrap();
+    let headless = Editor::open(temp.path()).unwrap();
+    assert!(
+        !headless
+            .validate("notes", &json!({"text":"two\nlines"}))
+            .unwrap()
+            .is_empty()
+    );
+    assert!(
+        !headless
+            .validate("notes", &json!({"text":"ok","owner":"missing"}))
+            .unwrap()
+            .is_empty()
+    );
+}
+
+#[test]
+fn split_configuration_rejects_invalid_ui_and_storage() {
+    let temp = split_fixture();
+    let ui = temp.path().join(".editor/ui.json");
+    for value in [
+        json!({"collections":{"missing":{}}}),
+        json!({"collections":{"notes":{"fields":{"/properties/missing":{"title":"Missing"}}}}}),
+        json!({"collections":{"notes":{"fields":{"/properties/text":{"type":"number"}}}}}),
+    ] {
+        fs::write(&ui, serde_json::to_vec(&value).unwrap()).unwrap();
+        assert!(Editor::open(temp.path()).is_err());
+    }
+    fs::write(&ui, r#"{"collections":{}}"#).unwrap();
+    let path = temp.path().join(".editor/repository.json");
+    let mut repo: serde_json::Value = serde_json::from_slice(&fs::read(&path).unwrap()).unwrap();
+    repo["settings"] = json!(".editor/objects.schema.json");
+    fs::write(&path, serde_json::to_vec(&repo).unwrap()).unwrap();
+    assert!(Editor::open(temp.path()).is_err());
+}
+
+#[test]
+fn editor_instance_settings_validate_and_detect_stale_writes() {
+    let temp = split_fixture();
+    let editor = Editor::open(temp.path()).unwrap();
+    let original = editor.settings().unwrap();
+    assert!(matches!(
+        editor.save_settings(json!({"title":42}), &original.revision),
+        Err(Error::Validation(_))
+    ));
+    assert_eq!(editor.settings().unwrap().revision, original.revision);
+    let saved = editor
+        .save_settings(json!({"title":"New title"}), &original.revision)
+        .unwrap();
+    assert_eq!(editor.settings().unwrap().value, saved.value);
+    assert!(matches!(
+        editor.save_settings(json!({"title":"Stale"}), &original.revision),
+        Err(Error::Conflict(_))
+    ));
+    fs::write(
+        temp.path().join("settings.json"),
+        r#"{"title":"External edit"}"#,
+    )
+    .unwrap();
+    assert!(matches!(
+        editor.save_settings(json!({"title":"Overwrite"}), &saved.revision),
+        Err(Error::Conflict(_))
+    ));
+}
+
+#[test]
+fn bundled_projects_load_split_configuration() {
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../examples");
+    for name in ["project", "lenz-archiv"] {
+        let editor = Editor::open(root.join(name)).unwrap();
+        assert!(editor.settings_schema().is_ok());
+        assert!(
+            editor
+                .validate_settings(&editor.settings().unwrap().value)
+                .unwrap()
+                .is_empty()
+        );
+        for name in editor.config().collections.keys() {
+            assert!(editor.list(name, "", 0, 1).is_ok());
+        }
+    }
+}
+
+#[test]
+fn split_hierarchy_constraints_survive_removing_sidebar_tree() {
+    let temp = split_fixture();
+    let root = temp.path();
+    fs::create_dir(root.join("data/groups")).unwrap();
+    let manifest = root.join(".editor/repository.json");
+    let mut repo: serde_json::Value =
+        serde_json::from_slice(&fs::read(&manifest).unwrap()).unwrap();
+    repo["collections"]["groups"] = json!({"path":"data/groups","format":"json","id":"filename"});
+    fs::write(manifest, serde_json::to_vec(&repo).unwrap()).unwrap();
+    let schema_path = root.join(".editor/objects.schema.json");
+    let mut schema: serde_json::Value =
+        serde_json::from_slice(&fs::read(&schema_path).unwrap()).unwrap();
+    schema["anyOf"].as_array_mut().unwrap().push(
+        json!({"x-collection":"groups","type":"object","properties":{
+            "parent":{"type":"string","x-relation":{"collection":"people"}}
+        }}),
+    );
+    schema["anyOf"][1]["properties"]["group"] =
+        json!({"type":"string","x-relation":{"collection":"groups"}});
+    schema["anyOf"][1]["x-categoryConstraints"] = json!([
+        {"field":"owner","label":"Owner","collection":"people"},
+        {"field":"group","label":"Group","collection":"groups","parentField":"parent"}
+    ]);
+    fs::write(schema_path, serde_json::to_vec(&schema).unwrap()).unwrap();
+    fs::write(root.join(".editor/ui.json"), r#"{"collections":{}}"#).unwrap();
+    let editor = Editor::open(root).unwrap();
+    editor
+        .save("people", "a", json!({"name":"A"}), None)
+        .unwrap();
+    editor
+        .save("people", "b", json!({"name":"B"}), None)
+        .unwrap();
+    let group = editor
+        .save("groups", "g", json!({"parent":"a"}), None)
+        .unwrap();
+    assert!(
+        !editor
+            .validate("notes", &json!({"text":"Note","owner":"b","group":"g"}))
+            .unwrap()
+            .is_empty()
+    );
+    editor
+        .save(
+            "notes",
+            "n",
+            json!({"text":"Note","owner":"a","group":"g"}),
+            None,
+        )
+        .unwrap();
+    assert!(matches!(
+        editor.save("groups", "g", json!({"parent":"b"}), Some(&group.revision)),
+        Err(Error::Conflict(_))
+    ));
+}
+
+fn add_document_mapping(
+    root: &std::path::Path,
+    name: &str,
+    schema: serde_json::Value,
+    files: &[&str],
+) {
+    let schema_path = format!(".editor/{name}.schema.json");
+    fs::write(
+        root.join(&schema_path),
+        serde_json::to_vec(&schema).unwrap(),
+    )
+    .unwrap();
+    let manifest = root.join(".editor/repository.json");
+    let mut repo: serde_json::Value =
+        serde_json::from_slice(&fs::read(&manifest).unwrap()).unwrap();
+    repo["documents"][name] = json!({"schema":schema_path,"files":files});
+    fs::write(manifest, serde_json::to_vec(&repo).unwrap()).unwrap();
+}
+
+#[test]
+fn schemas_apply_to_one_or_multiple_json_files_at_arbitrary_locations() {
+    let temp = split_fixture();
+    let root = temp.path();
+    fs::create_dir_all(root.join("config/nested")).unwrap();
+    fs::write(root.join("config/nested/a.json"), "[1,2]").unwrap();
+    fs::write(root.join(".editor/b.json"), "[3]").unwrap();
+    add_document_mapping(
+        root,
+        "lists",
+        json!({"type":"array","items":{"$ref":"#/$defs/item"},"$defs":{"item":{"type":"integer","minimum":0}}}),
+        &["config/nested/a.json", ".editor/b.json"],
+    );
+    let editor = Editor::open(root).unwrap();
+    assert_eq!(editor.document_files("lists").unwrap().len(), 2);
+    for file in editor.document_files("lists").unwrap() {
+        let original = editor.json_document("lists", file).unwrap();
+        assert!(matches!(
+            editor.save_json_document("lists", file, json!([-1]), &original.revision),
+            Err(Error::Validation(_))
+        ));
+        let saved = editor
+            .save_json_document("lists", file, json!([4]), &original.revision)
+            .unwrap();
+        assert_eq!(saved.value, json!([4]));
+        assert!(matches!(
+            editor.save_json_document("lists", file, json!([5]), &original.revision),
+            Err(Error::Conflict(_))
+        ));
+    }
+    assert!(editor.json_document("lists", "settings.json").is_err());
+    assert!(editor.json_document("lists", "../outside.json").is_err());
+    let current = editor
+        .json_document("editor-settings", "settings.json")
+        .unwrap();
+    editor
+        .save_json_document(
+            "editor-settings",
+            "settings.json",
+            json!({"title":"Editor name"}),
+            &current.revision,
+        )
+        .unwrap();
+    assert_eq!(
+        editor.settings().unwrap().value,
+        json!({"title":"Editor name"})
+    );
+}
+
+#[test]
+fn document_mappings_reject_duplicate_protected_and_escaping_paths() {
+    for file in [
+        "settings.json",
+        ".editor/repository.json",
+        "../outside.json",
+    ] {
+        let temp = split_fixture();
+        add_document_mapping(temp.path(), "invalid", json!({}), &[file]);
+        assert!(Editor::open(temp.path()).is_err());
+    }
+}
+
+#[test]
+fn mapped_collection_files_keep_record_validation_and_reference_guards() {
+    let temp = split_fixture();
+    let root = temp.path();
+    fs::write(root.join("data/people/a.json"), r#"{"name":"Alice"}"#).unwrap();
+    add_document_mapping(
+        root,
+        "person",
+        json!({"properties":{"name":{"minLength":3}}}),
+        &["data/people/a.json"],
+    );
+    let editor = Editor::open(root).unwrap();
+    let original = editor
+        .json_document("person", "data/people/a.json")
+        .unwrap();
+    assert!(matches!(
+        editor.save_json_document(
+            "person",
+            "data/people/a.json",
+            json!({}),
+            &original.revision
+        ),
+        Err(Error::Validation(_))
+    ));
+    assert!(matches!(
+        editor.save("people", "a", json!({"name":"A"}), Some(&original.revision)),
+        Err(Error::Validation(_))
+    ));
+    editor
+        .save_json_document(
+            "person",
+            "data/people/a.json",
+            json!({"name":"Anne"}),
+            &original.revision,
+        )
+        .unwrap();
+    let current = editor.get("people", "a").unwrap();
+    assert_eq!(current.value, json!({"name":"Anne"}));
+    assert!(matches!(
+        editor.delete("people", "a", &current.revision),
+        Err(Error::Conflict(_))
+    ));
+    assert!(matches!(
+        editor.rename("people", "a", "b", current.value, &current.revision),
+        Err(Error::Conflict(_))
+    ));
 }

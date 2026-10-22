@@ -1,0 +1,15 @@
+{
+  "type": "data",
+  "path": "data/sekundaerliteratur",
+  "format": "json",
+  "id": "filename",
+  "schema": ".editor/collections/sekundaerliteratur/schema.json",
+  "ui": ".editor/collections/sekundaerliteratur/ui.json",
+  "operations": [
+    "read",
+    "create",
+    "update",
+    "rename",
+    "delete"
+  ]
+}

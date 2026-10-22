@@ -1,4 +1,11 @@
 {
   "name": "Leipzig, Universitätsbibliothek",
-  "short": "Leipzig"
+  "short": "Leipzig",
+  "sammlungen": [
+    "leipzig-universitatsbibliothek--1--64ecfeb5e2",
+    "leipzig-universitatsbibliothek--2--59954358e6",
+    "leipzig-universitatsbibliothek--3--3e0e19ac4d",
+    "leipzig-universitatsbibliothek--4--8f2ea39b80"
+  ],
+  "handschriften": []
 }

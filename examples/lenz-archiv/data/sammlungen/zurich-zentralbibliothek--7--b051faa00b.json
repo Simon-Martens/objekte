@@ -1,5 +1,8 @@
 {
-  "Ort": "zurich-zentralbibliothek--62ebd87e10",
   "name": "7",
-  "order": 7
+  "order": 7,
+  "handschriften": [
+    "zurich-zentralbibliothek--fa-lav-ms-594-12-1--52034e335f",
+    "zurich-zentralbibliothek--fa-lav-ms-594-12-2--4dff7f5c3d"
+  ]
 }

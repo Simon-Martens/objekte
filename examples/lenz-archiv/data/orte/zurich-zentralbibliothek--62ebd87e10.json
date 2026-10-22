@@ -1,4 +1,17 @@
 {
   "name": "Zürich, Zentralbibliothek",
-  "short": "Zürich"
+  "short": "Zürich",
+  "sammlungen": [
+    "zurich-zentralbibliothek--1--6a07ae4cec",
+    "zurich-zentralbibliothek--10--b112e8fa6e",
+    "zurich-zentralbibliothek--2--edec2b8b69",
+    "zurich-zentralbibliothek--3--816f72e1f6",
+    "zurich-zentralbibliothek--4--c26ffc9a48",
+    "zurich-zentralbibliothek--5--060999a551",
+    "zurich-zentralbibliothek--6--a5a24a629f",
+    "zurich-zentralbibliothek--7--b051faa00b",
+    "zurich-zentralbibliothek--8--d21dc1e07a",
+    "zurich-zentralbibliothek--9--fe2dd2cd24"
+  ],
+  "handschriften": []
 }

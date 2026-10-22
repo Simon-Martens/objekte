@@ -1,5 +1,7 @@
 {
-  "Ort": "zurich-zentralbibliothek--62ebd87e10",
   "name": "5",
-  "order": 5
+  "order": 5,
+  "handschriften": [
+    "zurich-zentralbibliothek--fa-hirzel-232-nr-186--e0384755f3"
+  ]
 }

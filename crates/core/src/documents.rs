@@ -1,4 +1,10 @@
+#[path = "hierarchy.rs"]
+mod hierarchy;
+#[path = "listing.rs"]
+mod listing;
 use crate::{Collection, Config, Error, IdStrategy, Result, safe_name};
+pub use hierarchy::*;
+pub use listing::*;
 use pulldown_cmark::{Event, Parser, Tag};
 use serde::{Deserialize, Serialize};
 use serde_json::{Map, Value};
@@ -72,12 +78,14 @@ impl Editor {
     pub fn new(config: Config) -> Result<Self> {
         let project = jsonschema::draft202012::options()
             .offline()
+            .should_validate_formats(true)
             .build(&config.schema_value)
             .map_err(|e| Error::Config(e.to_string()))?;
         let mut collections = HashMap::new();
         for (name, collection) in &config.collections {
             let validator = jsonschema::draft202012::options()
                 .offline()
+                .should_validate_formats(true)
                 .build(&collection.schema_value)
                 .map_err(|e| Error::Config(format!("{name}: {e}")))?;
             collections.insert(name.clone(), validator);
@@ -92,6 +100,89 @@ impl Editor {
             write_guard: Arc::new(Mutex::new(())),
             field_value_cache: Arc::new(Mutex::new(HashMap::new())),
         })
+    }
+    pub fn settings_schema(&self) -> Result<&Value> {
+        Ok(&self
+            .config
+            .settings
+            .as_ref()
+            .ok_or_else(|| Error::Config("settings are not configured".into()))?
+            .schema)
+    }
+
+    pub fn settings(&self) -> Result<Document> {
+        let config = self
+            .config
+            .settings
+            .as_ref()
+            .ok_or_else(|| Error::Config("settings are not configured".into()))?;
+        let path = crate::contained(&self.config.root, &config.path)?;
+        reject_symlink(&self.config.root.join(&config.path))?;
+        let bytes = fs::read(path)?;
+        let value =
+            serde_json::from_slice(&bytes).map_err(|e| Error::Data(format!("settings: {e}")))?;
+        Ok(Document {
+            id: "settings".into(),
+            value,
+            revision: hash(&bytes),
+        })
+    }
+
+    pub fn validate_settings(&self, value: &Value) -> Result<Vec<ValidationIssue>> {
+        if !value.is_object() {
+            return Ok(vec![ValidationIssue {
+                path: "".into(),
+                message: "editor settings must be an object".into(),
+            }]);
+        }
+        let validator = jsonschema::draft202012::options()
+            .offline()
+            .should_validate_formats(true)
+            .build(self.settings_schema()?)
+            .map_err(|e| Error::Config(format!("settings schema: {e}")))?;
+        Ok(validator
+            .iter_errors(value)
+            .map(|e| ValidationIssue {
+                path: e.instance_path().to_string(),
+                message: e.to_string(),
+            })
+            .collect())
+    }
+
+    pub fn save_settings(&self, value: Value, expected: &str) -> Result<Document> {
+        let _guard = self.write_guard.lock().unwrap();
+        let issues = self.validate_settings(&value)?;
+        if !issues.is_empty() {
+            return Err(Error::Validation(issues));
+        }
+        let current = self.settings()?;
+        if current.revision != expected {
+            return Err(Error::Conflict("settings changed on disk".into()));
+        }
+        let config = self.config.settings.as_ref().unwrap();
+        let path = crate::contained(&self.config.root, &config.path)?;
+        let mut bytes =
+            serde_json::to_vec_pretty(&value).map_err(|e| Error::Data(e.to_string()))?;
+        bytes.push(b'\n');
+        atomic_write(&path, &bytes)?;
+        Ok(Document {
+            id: "settings".into(),
+            value,
+            revision: hash(&bytes),
+        })
+    }
+
+    pub fn for_media(&self, name: &str) -> Result<Self> {
+        let media = self
+            .config
+            .media_collections
+            .get(name)
+            .ok_or_else(|| Error::NotFound(format!("media collection {name}")))?;
+        let mut config = (*self.config).clone();
+        config.media.path = media.path.clone();
+        let mut editor = self.clone();
+        editor.config = Arc::new(config);
+        Ok(editor)
     }
     pub fn config(&self) -> &Config {
         &self.config
@@ -180,7 +271,7 @@ impl Editor {
             }
         }
         for path in self.files(collection)? {
-            let value = parse(c, &fs::read(path)?)?;
+            let value = self.view_value(collection, &parse(c, &fs::read(path)?)?)?;
             let mut nodes = &mut roots;
             for level in &c.categories {
                 let Some(key) = field(&value, &level.field)
@@ -252,9 +343,7 @@ impl Editor {
         matches.sort_by(|a, b| {
             let a_prefix = a.to_lowercase().starts_with(&needle);
             let b_prefix = b.to_lowercase().starts_with(&needle);
-            b_prefix
-                .cmp(&a_prefix)
-                .then(a.to_lowercase().cmp(&b.to_lowercase()))
+            b_prefix.cmp(&a_prefix).then(crate::alphabetic_cmp(a, b))
         });
         matches.truncate(limit.min(100));
         Ok(matches)
@@ -270,7 +359,7 @@ impl Editor {
     ) -> Result<Vec<String>> {
         let mut values = BTreeSet::new();
         for path in self.files(collection)? {
-            let value = parse(c, &fs::read(path)?)?;
+            let value = self.view_value(collection, &parse(c, &fs::read(path)?)?)?;
             if !scope.iter().all(|(name, expected)| {
                 field(&value, name).and_then(Value::as_str) == Some(expected)
             }) {
@@ -291,11 +380,8 @@ impl Editor {
         Ok(values)
     }
 
-    fn clear_field_values(&self, collection: &str) {
-        self.field_value_cache
-            .lock()
-            .unwrap()
-            .retain(|key, _| key.0 != collection);
+    fn clear_field_values(&self, _collection: &str) {
+        self.field_value_cache.lock().unwrap().clear();
     }
 
     pub fn search_relation(
@@ -329,9 +415,10 @@ impl Editor {
         let q = query.to_lowercase();
         let mut result = Vec::new();
         let mut ids = HashSet::new();
+        let mut orders = HashMap::new();
         for path in self.files(collection)? {
             let bytes = fs::read(&path)?;
-            let value = parse(c, &bytes)?;
+            let value = self.view_value(collection, &parse(c, &bytes)?)?;
             let id = record_id(c, &path, &value)?;
             if !ids.insert(id.clone()) {
                 return Err(Error::Data(format!("duplicate ID {id} in {collection}")));
@@ -350,10 +437,56 @@ impl Editor {
                         .unwrap_or(false)
                 })
             {
+                orders.insert(
+                    id.clone(),
+                    value
+                        .pointer("/_editor/manual_order")
+                        .and_then(Value::as_i64),
+                );
+                let label = if display == c.display {
+                    self.label(
+                        collection,
+                        &value,
+                        &id,
+                        if query.is_empty() { "list" } else { "search" },
+                    )?
+                } else {
+                    label
+                };
                 result.push(RecordSummary { id, label });
             }
         }
-        result.sort_by(|a, b| a.label.cmp(&b.label).then(a.id.cmp(&b.id)));
+        result.sort_by(|a, b| {
+            let manual = if c.ui.pointer("/ordering/by").and_then(Value::as_str) == Some("manual") {
+                let a = orders[&a.id];
+                let b = orders[&b.id];
+                let missing_first =
+                    c.ui.pointer("/ordering/unordered").and_then(Value::as_str) == Some("first");
+                match (a, b) {
+                    (Some(a), Some(b)) => a.cmp(&b),
+                    (None, Some(_)) => {
+                        if missing_first {
+                            std::cmp::Ordering::Less
+                        } else {
+                            std::cmp::Ordering::Greater
+                        }
+                    }
+                    (Some(_), None) => {
+                        if missing_first {
+                            std::cmp::Ordering::Greater
+                        } else {
+                            std::cmp::Ordering::Less
+                        }
+                    }
+                    _ => std::cmp::Ordering::Equal,
+                }
+            } else {
+                std::cmp::Ordering::Equal
+            };
+            manual
+                .then(crate::alphabetic_cmp(&a.label, &b.label))
+                .then(a.id.cmp(&b.id))
+        });
         Ok(result
             .into_iter()
             .skip(offset)
@@ -374,7 +507,20 @@ impl Editor {
     }
 
     pub fn validate_new_id(&self, collection: &str, id: &str) -> Result<Vec<ValidationIssue>> {
-        self.config.collection(collection)?;
+        let c = self.config.collection(collection)?;
+        if let Some(pattern) = &c.id_pattern {
+            let schema = serde_json::json!({"type":"string","pattern":pattern});
+            let v = jsonschema::draft202012::options()
+                .offline()
+                .build(&schema)
+                .map_err(|e| Error::Config(e.to_string()))?;
+            if !v.is_valid(&serde_json::json!(id)) {
+                return Ok(vec![ValidationIssue {
+                    path: "/id".into(),
+                    message: "ID does not match the configured pattern".into(),
+                }]);
+            }
+        }
         if safe_name(id).is_err() {
             return Ok(vec![ValidationIssue {
                 path: "/id".into(),
@@ -407,7 +553,7 @@ impl Editor {
         }
         let stem = stem.trim_end_matches('-');
         let stem = if stem.is_empty() { "record" } else { stem };
-        for number in 1..=u32::MAX {
+        for number in 1..=10000 {
             let candidate = if number == 1 {
                 stem.to_string()
             } else {
@@ -441,7 +587,7 @@ impl Editor {
         let mut references = Vec::new();
         for (source_name, source) in &self.config.collections {
             for file in self.files(source_name)? {
-                let value = parse(source, &fs::read(&file)?)?;
+                let value = self.view_value(source_name, &parse(source, &fs::read(&file)?)?)?;
                 let source_id = record_id(source, &file, &value)?;
                 visit_relations(
                     &source.schema_value,
@@ -493,24 +639,16 @@ impl Editor {
             for file in self.files(source_name)? {
                 let value = parse(source, &fs::read(&file)?)?;
                 let source_id = record_id(source, &file, &value)?;
-                visit_markdown_links(&value, "", &mut |destination, field_path| {
-                    if let Some(linked_path) = media_link_target(destination)
-                        && (linked_path == path || linked_path.starts_with(&child_prefix))
-                    {
-                        references.push(Reference {
-                            collection: source_name.clone(),
-                            record_id: source_id.clone(),
-                            path: field_path.into(),
-                        });
-                    }
-                });
                 visit_media_fields(
                     &source.schema_value,
                     &source.schema_value,
                     &value,
                     "",
                     0,
-                    &mut |linked_path, field_path| {
+                    &mut |media, linked_path, field_path| {
+                        if media != self.media_collection_name() {
+                            return Ok(());
+                        }
                         if linked_path == path || linked_path.starts_with(&child_prefix) {
                             references.push(Reference {
                                 collection: source_name.clone(),
@@ -572,7 +710,7 @@ impl Editor {
                 Ok(())
             },
         )?;
-        for (index, level) in c.categories.iter().enumerate() {
+        for (index, level) in c.constraints.iter().enumerate() {
             let (Some(target), Some(parent_field)) = (&level.collection, &level.parent_field)
             else {
                 continue;
@@ -581,7 +719,7 @@ impl Editor {
                 continue;
             };
             let Some(parent_id) =
-                field(value, &c.categories[index - 1].field).and_then(Value::as_str)
+                field(value, &c.constraints[index - 1].field).and_then(Value::as_str)
             else {
                 continue;
             };
@@ -592,7 +730,7 @@ impl Editor {
                     path: format!("/{}", pointer_escape(&level.field)),
                     message: format!(
                         "{target}/{child_id} belongs to another {}",
-                        c.categories[index - 1].label
+                        c.constraints[index - 1].label
                     ),
                 });
             }
@@ -609,6 +747,30 @@ impl Editor {
         expected: Option<&str>,
     ) -> Result<Document> {
         let _write_guard = self.write_guard.lock().unwrap();
+        self.save_unlocked(collection, id, value, expected)
+    }
+
+    pub(crate) fn save_unlocked(
+        &self,
+        collection: &str,
+        id: &str,
+        value: Value,
+        expected: Option<&str>,
+    ) -> Result<Document> {
+        self.require_operation(
+            collection,
+            if expected.is_some() {
+                "update"
+            } else {
+                "create"
+            },
+        )?;
+        let previous = if expected.is_some() {
+            Some(self.get(collection, id)?.value)
+        } else {
+            None
+        };
+        let value = self.prepare_save(collection, id, value, previous.as_ref())?;
         if expected.is_none() {
             let id_issues = self.validate_new_id(collection, id)?;
             if !id_issues.is_empty() {
@@ -627,7 +789,7 @@ impl Editor {
                 .config
                 .collections
                 .values()
-                .flat_map(|source| source.categories.iter())
+                .flat_map(|source| source.constraints.iter())
                 .filter(|level| level.collection.as_deref() == Some(collection))
                 .filter_map(|level| level.parent_field.as_deref())
             {
@@ -676,6 +838,20 @@ impl Editor {
             }
             _ => {}
         }
+        if let Some(name) = self.mapped_document_name(&path) {
+            let issues = self.validate_document(name, &value)?;
+            if !issues.is_empty() {
+                return Err(Error::Validation(issues));
+            }
+        }
+        if self.config.settings.as_ref().is_some_and(|s| {
+            crate::contained(&self.config.root, &s.path).ok().as_deref() == Some(path.as_path())
+        }) {
+            let issues = self.validate_settings(&value)?;
+            if !issues.is_empty() {
+                return Err(Error::Validation(issues));
+            }
+        }
         let bytes = serialize(c, &value)?;
         atomic_write(&path, &bytes)?;
         self.clear_field_values(collection);
@@ -698,12 +874,21 @@ impl Editor {
             return self.save(collection, old_id, value, Some(expected));
         }
         let _write_guard = self.write_guard.lock().unwrap();
+        self.require_operation(collection, "rename")?;
+        self.require_operation(collection, "update")?;
+        value = self.prepare_save(
+            collection,
+            new_id,
+            value,
+            Some(&self.get(collection, old_id)?.value),
+        )?;
         let id_issues = self.validate_new_id(collection, new_id)?;
         if !id_issues.is_empty() {
             return Err(Error::Validation(id_issues));
         }
         let collection_config = self.config.collection(collection)?;
         let old_path = self.find_path(collection, old_id)?;
+        self.guard_document_location(&old_path)?;
         let old_bytes = fs::read(&old_path)?;
         if hash(&old_bytes) != expected {
             return Err(Error::Conflict("record changed on disk".into()));
@@ -757,6 +942,7 @@ impl Editor {
     }
 
     pub fn delete(&self, collection: &str, id: &str, expected: &str) -> Result<()> {
+        self.require_operation(collection, "delete")?;
         let _write_guard = self.write_guard.lock().unwrap();
         let references = self.references_to(collection, id)?;
         if let Some(reference) = references.first() {
@@ -772,6 +958,7 @@ impl Editor {
         if hash(&fs::read(&path)?) != expected {
             return Err(Error::Conflict("record changed on disk".into()));
         }
+        self.guard_document_location(&path)?;
         fs::remove_file(path)?;
         self.clear_field_values(collection);
         Ok(())
@@ -872,7 +1059,7 @@ fn sort_categories(nodes: &mut [CategoryNode]) {
             .is_none()
             .cmp(&b.order.is_none())
             .then(a.order.cmp(&b.order))
-            .then(a.label.cmp(&b.label))
+            .then(crate::alphabetic_cmp(&a.label, &b.label))
             .then(a.value.cmp(&b.value))
     });
     for node in nodes {
@@ -906,7 +1093,7 @@ fn visit_relations(
             }
         }
     }
-    if resolved.get("x-editor").and_then(Value::as_str) == Some("relation")
+    if resolved.get("x-relation").is_some()
         && let Some(id) = value.as_str()
     {
         let relation = &resolved["x-relation"];
@@ -975,7 +1162,7 @@ fn validate_inline_fields(
         return Err(Error::Data("field nesting too deep".into()));
     }
     let resolved = resolve_ref(root, schema, depth)?;
-    if resolved.get("x-editor").and_then(Value::as_str) == Some("inline-markdown")
+    if resolved.get("x-content").and_then(Value::as_str) == Some("inline-markdown")
         && value
             .as_str()
             .is_some_and(|text| text.contains(['\n', '\r']))
@@ -1064,7 +1251,12 @@ fn resolve_ref<'a>(root: &'a Value, schema: &'a Value, depth: usize) -> Result<&
 fn field<'a>(v: &'a Value, path: &str) -> Option<&'a Value> {
     path.split('.').try_fold(v, |v, key| v.get(key))
 }
-fn display_label(value: &Value, collection: &Collection, primary: &str, id: &str) -> String {
+pub(crate) fn display_label(
+    value: &Value,
+    collection: &Collection,
+    primary: &str,
+    id: &str,
+) -> String {
     let composite = if primary == collection.display && !collection.display_fields.is_empty() {
         collection
             .display_fields
@@ -1092,7 +1284,7 @@ fn display_label(value: &Value, collection: &Collection, primary: &str, id: &str
         .map(|text| plain_markdown(text).chars().take(150).collect())
         .unwrap_or_else(|| id.into())
 }
-fn plain_markdown(text: &str) -> String {
+pub(crate) fn plain_markdown(text: &str) -> String {
     let mut plain = String::new();
     for event in Parser::new(text) {
         match event {
@@ -1152,7 +1344,7 @@ fn visit_media_fields(
     value: &Value,
     path: &str,
     depth: usize,
-    visit: &mut impl FnMut(&str, &str) -> Result<()>,
+    visit: &mut impl FnMut(&str, &str, &str) -> Result<()>,
 ) -> Result<()> {
     if depth > 64 {
         return Err(Error::Data("media field nesting too deep".into()));
@@ -1172,10 +1364,18 @@ fn visit_media_fields(
             }
         }
     }
-    if resolved.get("x-editor").and_then(Value::as_str) == Some("media")
+    if (resolved.get("x-content").and_then(Value::as_str) == Some("media")
+        || resolved.get("x-editor").and_then(Value::as_str) == Some("media"))
         && let Some(linked_path) = value.as_str()
     {
-        visit(linked_path, path)?;
+        visit(
+            resolved
+                .pointer("/x-media/collection")
+                .and_then(Value::as_str)
+                .unwrap_or("media"),
+            linked_path,
+            path,
+        )?;
     }
     if let Some(object) = value.as_object() {
         for (key, child) in object {
@@ -1219,27 +1419,22 @@ fn visit_media_fields(
     Ok(())
 }
 
-fn media_link_target(destination: &str) -> Option<String> {
-    let query = destination.strip_prefix("/api/media/file?")?;
-    let raw = query
-        .split('#')
-        .next()?
-        .split('&')
-        .find_map(|part| part.strip_prefix("path="))?;
-    percent_encoding::percent_decode_str(raw)
-        .decode_utf8()
-        .ok()
-        .map(|path| path.into_owned())
-}
-
 fn record_link_target(destination: &str) -> Option<(String, String)> {
-    let route = destination.strip_prefix("#/collections/")?;
+    let route = destination
+        .strip_prefix("#/collections/")
+        .or_else(|| destination.strip_prefix("/collections/"))?;
     let mut parts = route.split('/');
     let collection = percent_encoding::percent_decode_str(parts.next()?)
         .decode_utf8()
         .ok()?
         .into_owned();
-    let id = percent_encoding::percent_decode_str(parts.next()?)
+    let next = parts.next()?;
+    let next = if next == "records" {
+        parts.next()?
+    } else {
+        next
+    };
+    let id = percent_encoding::percent_decode_str(next)
         .decode_utf8()
         .ok()?
         .into_owned();
@@ -1252,10 +1447,10 @@ fn record_link_target(destination: &str) -> Option<(String, String)> {
 fn extension(c: &Collection) -> &'static str {
     if c.format == "json" { "json" } else { "md" }
 }
-fn hash(bytes: &[u8]) -> String {
+pub(crate) fn hash(bytes: &[u8]) -> String {
     hex::encode(Sha256::digest(bytes))
 }
-fn reject_symlink(path: &Path) -> Result<()> {
+pub(crate) fn reject_symlink(path: &Path) -> Result<()> {
     if let Ok(meta) = fs::symlink_metadata(path)
         && meta.file_type().is_symlink()
     {
@@ -1264,7 +1459,7 @@ fn reject_symlink(path: &Path) -> Result<()> {
     Ok(())
 }
 
-fn record_id(c: &Collection, path: &Path, value: &Value) -> Result<String> {
+pub(crate) fn record_id(c: &Collection, path: &Path, value: &Value) -> Result<String> {
     let id = match &c.id {
         IdStrategy::Filename => path.file_stem().and_then(|s| s.to_str()),
         IdStrategy::Frontmatter(field) => value.get(field).and_then(Value::as_str),
@@ -1281,7 +1476,15 @@ fn parse(c: &Collection, bytes: &[u8]) -> Result<Value> {
     let text = std::str::from_utf8(bytes).map_err(|e| Error::Data(e.to_string()))?;
     if !text.starts_with("---\n") {
         let mut map = Map::new();
-        map.insert("body".into(), Value::String(text.into()));
+        map.insert(
+            if c.body_field.is_empty() {
+                "body"
+            } else {
+                &c.body_field
+            }
+            .into(),
+            Value::String(text.into()),
+        );
         return Ok(Value::Object(map));
     }
     let end = text[4..]
@@ -1294,10 +1497,22 @@ fn parse(c: &Collection, bytes: &[u8]) -> Result<Value> {
         .as_object()
         .cloned()
         .ok_or_else(|| Error::Data("frontmatter must be an object".into()))?;
-    if map.contains_key("body") {
+    if map.contains_key(if c.body_field.is_empty() {
+        "body"
+    } else {
+        &c.body_field
+    }) {
         return Err(Error::Data("frontmatter key 'body' is reserved".into()));
     }
-    map.insert("body".into(), Value::String(text[end + 5..].into()));
+    map.insert(
+        if c.body_field.is_empty() {
+            "body"
+        } else {
+            &c.body_field
+        }
+        .into(),
+        Value::String(text[end + 5..].into()),
+    );
     Ok(Value::Object(map))
 }
 
@@ -1312,7 +1527,11 @@ fn serialize(c: &Collection, value: &Value) -> Result<Vec<u8>> {
         .cloned()
         .ok_or_else(|| Error::Data("Markdown document must be an object".into()))?;
     let body = map
-        .remove("body")
+        .remove(if c.body_field.is_empty() {
+            "body"
+        } else {
+            &c.body_field
+        })
         .and_then(|v| v.as_str().map(str::to_owned))
         .ok_or_else(|| Error::Data("body must be a string".into()))?;
     if map.is_empty() {

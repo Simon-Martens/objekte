@@ -1,4 +1,9 @@
 {
   "name": "Basel, Staatsarchiv",
-  "short": "Basel, Staatsarchiv"
+  "short": "Basel, Staatsarchiv",
+  "sammlungen": [
+    "basel-staatsarchiv--1--2435837791",
+    "basel-staatsarchiv--2--84cdc6dec1"
+  ],
+  "handschriften": []
 }

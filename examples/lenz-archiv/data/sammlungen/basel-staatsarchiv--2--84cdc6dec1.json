@@ -1,5 +1,7 @@
 {
-  "Ort": "basel-staatsarchiv--cce2855085",
   "name": "2",
-  "order": 2
+  "order": 2,
+  "handschriften": [
+    "basel-staatsarchiv--pa-98-37-s-221-224--f7bb10b408"
+  ]
 }

@@ -1,4 +1,9 @@
 {
   "name": "Nürnberg, Germanisches Nationalmuseum",
-  "short": "Nürnberg"
+  "short": "Nürnberg",
+  "sammlungen": [],
+  "handschriften": [
+    "nurnberg-germanisches-nationalmuseum--autographen-bottiger-k-29-lenz--50be029f15",
+    "nurnberg-germanisches-nationalmuseum--autographen-k-21-lenz--fec301dca0"
+  ]
 }

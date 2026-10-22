@@ -1,5 +1,8 @@
 {
-  "Ort": "zurich-zentralbibliothek--62ebd87e10",
   "name": "8",
-  "order": 8
+  "order": 8,
+  "handschriften": [
+    "zurich-zentralbibliothek--fa-lav-ms-526-nr-4--dc9b6a8f0e",
+    "zurich-zentralbibliothek--fa-lav-ms-586-nr-94--3aa8780d80"
+  ]
 }

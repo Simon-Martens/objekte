@@ -1,5 +1,7 @@
 {
-  "Ort": "leipzig-universitatsbibliothek--31b160fff7",
   "name": "2",
-  "order": 2
+  "order": 2,
+  "handschriften": [
+    "leipzig-universitatsbibliothek--slg-nebauer-l-397--50c0377e02"
+  ]
 }

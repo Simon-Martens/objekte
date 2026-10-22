@@ -1,4 +1,14 @@
 {
   "name": "Riga, Latvijas Valsts Vēstures Arhīvs",
-  "short": "Riga, Staatsarchiv"
+  "short": "Riga, Staatsarchiv",
+  "sammlungen": [],
+  "handschriften": [
+    "riga-latvijas-valsts-vestures-arhivs--fonda-4038-aprakst-2-lietas-1639-nr-103-s-377-378--cdfcf0d9c6",
+    "riga-latvijas-valsts-vestures-arhivs--fonda-4038-aprakst-2-lietas-1642-nr-185-s-703-704-die-beiden-folgenden-leerseiten-des-briefs-sind-nicht-paginiert--0383ae172b",
+    "riga-latvijas-valsts-vestures-arhivs--fonda-4038-aprakst-2-lietas-1642-nr-199-s-749-752--bdaddac222",
+    "riga-latvijas-valsts-vestures-arhivs--fonda-4038-aprakst-2-lietas-1642-nr-209-s-779-782--da91b11662",
+    "riga-latvijas-valsts-vestures-arhivs--fonda-4038-aprakst-2-lietas-1642-nr-216-s-797-800--228316ba61",
+    "riga-latvijas-valsts-vestures-arhivs--fonda-4038-aprakst-2-lietas-1643-nr-80-s-305-308--0e1098eea0",
+    "riga-latvijas-valsts-vestures-arhivs--fonda-7363-aprakst-1-lietas-734-bl-3--589cef437c"
+  ]
 }

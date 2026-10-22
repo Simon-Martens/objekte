@@ -1,0 +1,19 @@
+{
+  "type": "data",
+  "path": "data/articles",
+  "format": "markdown",
+  "id": "frontmatter.id",
+  "schema": ".editor/collections/articles/schema.json",
+  "ui": ".editor/collections/articles/ui.json",
+  "operations": [
+    "read",
+    "create",
+    "update",
+    "rename",
+    "delete"
+  ],
+  "content": {
+    "body": "body",
+    "frontmatter": "*"
+  }
+}

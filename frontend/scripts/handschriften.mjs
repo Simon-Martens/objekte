@@ -52,32 +52,35 @@ export function categoryId(...parts) {
   return `${prefix}--${createHash('sha256').update(text).digest('hex').slice(0, 10)}`;
 }
 
+const children = (collection, title) => ({ type: 'array', uniqueItems: true, default: [], 'x-children': true, title, items: { type: 'string', 'x-relation': { collection } } });
+
 export function ortSchema() {
   return {
     title: 'Ort', type: 'object', required: ['name', 'short'],
     properties: {
       name: { type: 'string', minLength: 1, title: 'Name' },
       short: { type: 'string', minLength: 1, title: 'Kurzform' },
+      sammlungen: children('sammlungen', 'Sammlungen'),
+      handschriften: children('handschriften', 'Handschriften'),
       description: { type: 'string', title: 'Beschreibung', 'x-editor': 'markdown' },
       order: { type: 'integer', title: 'Reihenfolge' },
     },
     additionalProperties: false,
-    'x-collection': { name: 'orte', label: 'Orte', path: 'data/orte', format: 'json', id: 'filename', display: 'short', displayFallback: ['name'], search: ['name', 'short', 'description'], showInSidebar: false },
+    'x-collection': { name: 'orte', label: 'Orte', path: 'data/orte', format: 'json', id: 'filename', display: 'short', displayFallback: ['name'], search: ['name', 'short', 'description'], showInSidebar: true, sidebarLabel: 'Handschriften', allCollection: 'handschriften', position: 1, icon: 'ri-map-pin-line', sidebarIcon: 'ri-quill-pen-line', singularLabel: 'Ort', fieldOrder: ['short','name','description','order','sammlungen','handschriften'] },
   };
 }
 
 export function sammlungSchema() {
   return {
-    title: 'Sammlung', type: 'object', required: ['Ort', 'name'],
+    title: 'Sammlung', type: 'object', required: ['name'],
     properties: {
-      Ort: { type: 'string', title: 'Ort', 'x-editor': 'relation', 'x-relation': { collection: 'orte' } },
+      handschriften: children('handschriften', 'Handschriften'),
       name: { type: 'string', minLength: 1, title: 'Name' },
       description: { type: 'string', title: 'Beschreibung', 'x-editor': 'markdown' },
       order: { type: 'integer', title: 'Reihenfolge' },
     },
     additionalProperties: false,
-    'x-collection': { name: 'sammlungen', label: 'Sammlungen', path: 'data/sammlungen', format: 'json', id: 'filename', display: 'name', search: ['name', 'description'], showInSidebar: false,
-      categories: [{ field: 'Ort', label: 'Orte', itemLabel: 'Ort', collection: 'orte', display: 'short' }] },
+    'x-collection': { name: 'sammlungen', label: 'Sammlungen', path: 'data/sammlungen', format: 'json', id: 'filename', display: 'name', search: ['name', 'description'], showInSidebar: false, singularLabel: 'Sammlung', icon: 'ri-archive-line' },
   };
 }
 
@@ -85,10 +88,8 @@ export function handschriftenSchema() {
   const inline = (title) => ({ type: 'string', title, 'x-editor': 'inline-markdown' });
   return {
     title: 'Handschriften', type: 'object',
-    required: ['Ort'],
+    required: [],
     properties: {
-      Ort: { type: 'string', title: 'Ort', 'x-editor': 'relation', 'x-relation': { collection: 'orte', create: { nameField: 'name', copyTo: 'short' } } },
-      Sammlung: { type: 'string', title: 'Sammlung', 'x-editor': 'relation', 'x-relation': { collection: 'sammlungen', scope: { field: 'Ort', source: 'Ort' }, create: { nameField: 'name', parentField: 'Ort', sourceField: 'Ort' } } },
       Signatur: inline('Signatur'), Titel: inline('Titel'), Incipit: inline('Incipit'),
       Umfang: inline('Umfang'), Druck: { type: 'string', title: 'Druck', 'x-editor': 'markdown' },
       Anmerkung: { type: 'string', title: 'Anmerkung', 'x-editor': 'markdown' },
@@ -101,12 +102,9 @@ export function handschriftenSchema() {
     'x-collection': {
       name: 'handschriften', label: 'Handschriften', path: 'data/handschriften',
       format: 'json', id: 'filename', display: 'Titel', displayFallback: ['Signatur', 'Anmerkung'],
-      search: ['Ort', 'Sammlung', 'Signatur', 'Titel', 'Incipit', 'Umfang', 'Druck', 'Anmerkung'],
-      fieldOrder: ['Ort', 'Sammlung', 'Signatur', 'Titel', 'Incipit', 'Umfang', 'Druck', 'Anmerkung', 'Datei', 'Verschollen'],
-      categories: [
-        { field: 'Ort', label: 'Orte', itemLabel: 'Ort', collection: 'orte', display: 'short', descriptionField: 'description', orderField: 'order' },
-        { field: 'Sammlung', label: 'Sammlungen', itemLabel: 'Sammlung', collection: 'sammlungen', parentField: 'Ort', descriptionField: 'description', orderField: 'order' },
-      ],
+      search: [ 'Signatur', 'Titel', 'Incipit', 'Umfang', 'Druck', 'Anmerkung'],
+      fieldOrder: [ 'Signatur', 'Titel', 'Incipit', 'Umfang', 'Druck', 'Anmerkung', 'Datei', 'Verschollen'],
+      showInSidebar: false, singularLabel: 'Handschrift', icon: 'ri-quill-pen-line',
     },
   };
 }
@@ -217,6 +215,17 @@ export function convertHandschriften(sourceRoot) {
       record.value.Sammlung = id;
     }
     if (!record.value.Ort) throw new Error(`Missing Ort record for ${place}`);
+  }
+  const placeById = new Map(places.map(p => [p.id,p.value]));
+  const groupById = new Map(subcollections.map(g => [g.id,g.value]));
+  for (const { value } of places) { value.sammlungen=[]; value.handschriften=[]; }
+  for (const { id,value } of subcollections) {
+    placeById.get(value.Ort).sammlungen.push(id);
+    delete value.Ort; value.handschriften=[];
+  }
+  for (const { id,value } of records) {
+    const parent=value.Sammlung ? groupById.get(value.Sammlung) : placeById.get(value.Ort);
+    parent.handschriften.push(id); delete value.Ort; delete value.Sammlung;
   }
   return { records, places, subcollections, schema: handschriftenSchema(), placeSchema: ortSchema(), subcollectionSchema: sammlungSchema(), stats };
 }

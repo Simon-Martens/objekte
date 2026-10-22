@@ -1,4 +1,12 @@
 {
   "name": "Weimar, Thüringisches Hauptstaatsarchiv",
-  "short": "Weimar, Staatsarchiv"
+  "short": "Weimar, Staatsarchiv",
+  "sammlungen": [
+    "weimar-thuringisches-hauptstaatsarchiv--1--d14862a4d8",
+    "weimar-thuringisches-hauptstaatsarchiv--2--0385c4e34f",
+    "weimar-thuringisches-hauptstaatsarchiv--3--67f32f506c",
+    "weimar-thuringisches-hauptstaatsarchiv--4--2fc5d37d5e",
+    "weimar-thuringisches-hauptstaatsarchiv--5--478c570f9d"
+  ],
+  "handschriften": []
 }

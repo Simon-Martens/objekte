@@ -1,5 +1,7 @@
 {
-  "Ort": "zurich-zentralbibliothek--62ebd87e10",
   "name": "10",
-  "order": 10
+  "order": 10,
+  "handschriften": [
+    "zurich-zentralbibliothek--fa-lav-ms-590-anh-ii--bcfb4a8c9a"
+  ]
 }

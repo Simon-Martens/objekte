@@ -1,4 +1,11 @@
 {
   "name": "Marbach, Deutsches Literaturarchiv",
-  "short": "Marbach"
+  "short": "Marbach",
+  "sammlungen": [],
+  "handschriften": [
+    "marbach-deutsches-literaturarchiv--a-pfeffel-gottlieb-konrad-zugangsnummer-hs-2005-0001-00073-mediennummer-hs001731331--6bc42d1294--fd3ed102",
+    "marbach-deutsches-literaturarchiv--a-pfeffel-gottlieb-konrad-zugangsnummer-hs-2005-0001-00073-mediennummer-hs001731331--6bc42d1294",
+    "marbach-deutsches-literaturarchiv--a-pfeffel-gottlieb-konrad-zugangsnummer-hs-2005-0037-00004-mediennummer-hs001727339--3514aebbcf",
+    "marbach-deutsches-literaturarchiv--nachlass-hauff-kolle-nr-35658-s-43-54--03f37e3943"
+  ]
 }

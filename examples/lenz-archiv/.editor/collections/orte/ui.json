@@ -1,0 +1,86 @@
+{
+  "label": "Orte",
+  "display": "short",
+  "displayFallback": [
+    "name"
+  ],
+  "showInSidebar": true,
+  "fields": {
+    "": {
+      "title": "Ort"
+    },
+    "/properties/name": {
+      "title": "Name"
+    },
+    "/properties/short": {
+      "title": "Kurzform"
+    },
+    "/properties/description": {
+      "title": "Beschreibung",
+      "x-editor": "markdown"
+    },
+    "/properties/order": {
+      "title": "Reihenfolge"
+    },
+    "/properties/sammlungen": {
+      "title": "Sammlungen"
+    },
+    "/properties/handschriften": {
+      "title": "Handschriften"
+    }
+  },
+  "search": [
+    "name",
+    "short",
+    "description"
+  ],
+  "sidebarGroup": "Content",
+  "position": 1,
+  "labels": {
+    "list": [
+      "short"
+    ],
+    "search": [
+      "short"
+    ],
+    "record": [
+      "short"
+    ],
+    "reference": [
+      "short"
+    ]
+  },
+  "ordering": {
+    "by": "manual",
+    "unordered": "last"
+  },
+  "icon": "ri-map-pin-line",
+  "list": {
+    "columns": [
+      "short",
+      "name",
+      "sammlungen",
+      "handschriften"
+    ],
+    "defaultSort": {
+      "field": "_label",
+      "direction": "asc"
+    },
+    "filters": [
+      "name"
+    ],
+    "autoFilters": false
+  },
+  "singularLabel": "Ort",
+  "sidebarLabel": "Handschriften",
+  "sidebarIcon": "ri-quill-pen-line",
+  "fieldOrder": [
+    "short",
+    "name",
+    "description",
+    "order",
+    "sammlungen",
+    "handschriften"
+  ],
+  "allCollection": "handschriften"
+}

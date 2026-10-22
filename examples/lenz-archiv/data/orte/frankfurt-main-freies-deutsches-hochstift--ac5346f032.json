@@ -1,4 +1,14 @@
 {
   "name": "Frankfurt/Main, Freies Deutsches Hochstift",
-  "short": "Frankfurt"
+  "short": "Frankfurt",
+  "sammlungen": [],
+  "handschriften": [
+    "frankfurt-main-freies-deutsches-hochstift--hs-12229--6654dd529f",
+    "frankfurt-main-freies-deutsches-hochstift--hs-2467--8cae3514c3",
+    "frankfurt-main-freies-deutsches-hochstift--hs-25470--22c190d6cc",
+    "frankfurt-main-freies-deutsches-hochstift--hs-25663--ba160888a9",
+    "frankfurt-main-freies-deutsches-hochstift--hs-30943-leihgabe-aus-privatbesitz--15d9749075",
+    "frankfurt-main-freies-deutsches-hochstift--hs-559--c99137dabe",
+    "frankfurt-main-freies-deutsches-hochstift--hs-569--9966bc6568"
+  ]
 }

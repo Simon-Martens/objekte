@@ -1,0 +1,15 @@
+{
+  "type": "data",
+  "path": "data/theaterauffuehrungen",
+  "format": "json",
+  "id": "filename",
+  "schema": ".editor/collections/theaterauffuehrungen/schema.json",
+  "ui": ".editor/collections/theaterauffuehrungen/ui.json",
+  "operations": [
+    "read",
+    "create",
+    "update",
+    "rename",
+    "delete"
+  ]
+}

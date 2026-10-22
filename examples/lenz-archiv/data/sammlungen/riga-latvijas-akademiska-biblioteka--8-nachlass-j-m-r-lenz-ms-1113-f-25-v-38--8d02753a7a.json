@@ -1,6 +1,8 @@
 {
-  "Ort": "riga-latvijas-akademiska-biblioteka--594c6c8222",
   "name": "[8] Nachlaß J. M. R. Lenz, Ms. 1113, F. 25, V. 38",
   "description": "Enthält Briefe von Pastor J. Müthel an Jegór von Sivers, Artikel über Lenz aus Zeitungen und Zeitschriften des 19. Jahrhunderts, eine Lenz betreffende Abschrift aus dem Stadtarchiv Dorpat, den Erstdruck von Lenz’ Gedicht „Als Sr. Hochedelgebohrnen der Herr Professor Kant“, Photos von Lenz-Portraits sowie das Photo eines verschollenen Lenz-Autographen:",
-  "order": 8
+  "order": 8,
+  "handschriften": [
+    "riga-latvijas-akademiska-biblioteka--ms-1113-f-25-v-38-nr-15c--b800c19713"
+  ]
 }

@@ -1,0 +1,51 @@
+{
+  "label": "People",
+  "display": "name",
+  "fields": {
+    "": {
+      "title": "Person"
+    },
+    "/properties/name": {
+      "title": "Name"
+    },
+    "/properties/birthplace": {
+      "title": "Birthplace"
+    },
+    "/properties/birthYear": {
+      "title": "Birth year"
+    },
+    "/properties/tags": {
+      "title": "Tags"
+    },
+    "/properties/links": {
+      "title": "Links"
+    },
+    "/$defs/personReference": {
+      "x-editor": "relation"
+    }
+  },
+  "search": [
+    "name",
+    "birthplace"
+  ],
+  "sidebarGroup": "Content",
+  "position": 0,
+  "labels": {
+    "list": [
+      "name"
+    ],
+    "search": [
+      "name"
+    ],
+    "record": [
+      "name"
+    ],
+    "reference": [
+      "name"
+    ]
+  },
+  "ordering": {
+    "by": "manual",
+    "unordered": "last"
+  }
+}

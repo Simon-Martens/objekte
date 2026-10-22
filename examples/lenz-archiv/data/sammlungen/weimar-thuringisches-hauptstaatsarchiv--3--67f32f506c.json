@@ -1,5 +1,11 @@
 {
-  "Ort": "weimar-thuringisches-hauptstaatsarchiv--adaa60c09b",
   "name": "3",
-  "order": 3
+  "order": 3,
+  "handschriften": [
+    "weimar-thuringisches-hauptstaatsarchiv--ha-a-xxii-nr-582a-bd-1--5e8c2004d5",
+    "weimar-thuringisches-hauptstaatsarchiv--ha-a-xxii-nr-582a-bd-1-bl-128--c32b42588d",
+    "weimar-thuringisches-hauptstaatsarchiv--ha-a-xxii-nr-582a-bd-1-bl-159r--0fbdfbd7d5",
+    "weimar-thuringisches-hauptstaatsarchiv--ha-a-xxii-nr-582a-bd-1-bl-160-161r--3ee7fc6ded",
+    "weimar-thuringisches-hauptstaatsarchiv--ha-a-xxii-nr-582a-bd-1-bl-194-195r--0d97dd1b27"
+  ]
 }

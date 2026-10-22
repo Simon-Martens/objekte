@@ -1,5 +1,12 @@
 {
-  "Ort": "weimar-goethe-und-schiller-archiv--24086bb54b",
   "name": "12",
-  "order": 12
+  "order": 12,
+  "handschriften": [
+    "weimar-goethe-und-schiller-archiv--gsa-24-i-1--c987359935",
+    "weimar-goethe-und-schiller-archiv--gsa-24-i-1-bl-196r--484860e5d2",
+    "weimar-goethe-und-schiller-archiv--gsa-24-i-1-bl-205-206r--8aa2a3e83c",
+    "weimar-goethe-und-schiller-archiv--gsa-24-i-1-bl-206r--8f8cbe1079",
+    "weimar-goethe-und-schiller-archiv--gsa-24-i-1-bl-206v--b71df0944b",
+    "weimar-goethe-und-schiller-archiv--gsa-24-i-1-bl-225-226r--ecd024752f"
+  ]
 }

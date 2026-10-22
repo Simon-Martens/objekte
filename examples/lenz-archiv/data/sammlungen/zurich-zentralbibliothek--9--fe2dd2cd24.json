@@ -1,5 +1,16 @@
 {
-  "Ort": "zurich-zentralbibliothek--62ebd87e10",
   "name": "9",
-  "order": 9
+  "order": 9,
+  "handschriften": [
+    "zurich-zentralbibliothek--fa-lav-ms-572-nr-18--45ed08ec3f",
+    "zurich-zentralbibliothek--fa-lav-ms-572-nr-19--c37fb854c5",
+    "zurich-zentralbibliothek--fa-lav-ms-572-nr-20--c2c033be8c",
+    "zurich-zentralbibliothek--fa-lav-ms-572-nr-21--a57bdd2cca",
+    "zurich-zentralbibliothek--fa-lav-ms-572-nr-22--5941a23109",
+    "zurich-zentralbibliothek--fa-lav-ms-572-nr-23--aff60be8e8",
+    "zurich-zentralbibliothek--fa-lav-ms-572-nr-24--3c205e6e96",
+    "zurich-zentralbibliothek--fa-lav-ms-572-nr-25--6ce37a7c62",
+    "zurich-zentralbibliothek--fa-lav-ms-572-nr-26--8116f965d7",
+    "zurich-zentralbibliothek--fa-lav-ms-572-nr-27--34f674e7ec"
+  ]
 }

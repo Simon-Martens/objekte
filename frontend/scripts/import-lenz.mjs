@@ -1,3 +1,4 @@
+import { writeProjectDefinition } from './project-config.mjs';
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, renameSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { basename, join, relative, resolve, sep } from 'node:path';
 import YAML from 'yaml';
@@ -159,7 +160,7 @@ try {
     'x-project': { media: 'media' },
     anyOf: [...groups].map(([name, records]) => collectionSchema(name, records)),
   };
-  writeFileSync(join(staging, '.editor/schema.json'), `${JSON.stringify(schema, null, 2)}\n`);
+  writeProjectDefinition(staging, schema);
   cpSync(staticDir, join(staging, 'media'), { recursive: true });
   if (!statSync(join(staging, 'media')).isDirectory()) throw new Error('Media copy failed');
   renameSync(staging, destination);

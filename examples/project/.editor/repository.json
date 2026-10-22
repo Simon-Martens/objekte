@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "ui": ".editor/ui.json",
+  "settings": "settings.json",
+  "collections": {
+    "people": ".editor/collections/people/settings.json",
+    "articles": ".editor/collections/articles/settings.json",
+    "media": ".editor/collections/media/settings.json"
+  },
+  "documents": {
+    "editor-settings": {
+      "schema": ".editor/settings.schema.json",
+      "files": [
+        "settings.json"
+      ]
+    }
+  }
+}

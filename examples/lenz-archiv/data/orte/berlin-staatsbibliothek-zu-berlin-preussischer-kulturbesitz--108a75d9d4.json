@@ -1,4 +1,12 @@
 {
   "name": "Berlin, Staatsbibliothek zu Berlin – Preußischer Kulturbesitz",
-  "short": "Berlin, Staatsbib."
+  "short": "Berlin, Staatsbib.",
+  "sammlungen": [
+    "berlin-staatsbibliothek-zu-berlin-preussischer-kulturbesitz--1-nachlass-j-m-r-lenz-bd-1--96a3e815e2",
+    "berlin-staatsbibliothek-zu-berlin-preussischer-kulturbesitz--2-nachlass-j-m-r-lenz-bd-2--f83060e8df",
+    "berlin-staatsbibliothek-zu-berlin-preussischer-kulturbesitz--3-nachlass-j-m-r-lenz-bd-3--f67fa15be0",
+    "berlin-staatsbibliothek-zu-berlin-preussischer-kulturbesitz--4--a37897cc28",
+    "berlin-staatsbibliothek-zu-berlin-preussischer-kulturbesitz--5--4d07fc311b"
+  ],
+  "handschriften": []
 }

@@ -1,0 +1,59 @@
+{
+  "label": "Articles",
+  "display": "title",
+  "fields": {
+    "": {
+      "title": "Article"
+    },
+    "/properties/id": {
+      "title": "ID"
+    },
+    "/properties/title": {
+      "title": "Title"
+    },
+    "/properties/author": {
+      "title": "Author",
+      "x-editor": "relation"
+    },
+    "/properties/contributors": {
+      "title": "Contributors"
+    },
+    "/properties/published": {
+      "title": "Published"
+    },
+    "/properties/image": {
+      "title": "Image",
+      "x-editor": "media"
+    },
+    "/properties/body": {
+      "title": "Body",
+      "x-editor": "markdown"
+    },
+    "/$defs/personReference": {
+      "x-editor": "relation"
+    }
+  },
+  "search": [
+    "title"
+  ],
+  "sidebarGroup": "Content",
+  "position": 1,
+  "labels": {
+    "list": [
+      "title"
+    ],
+    "search": [
+      "title"
+    ],
+    "record": [
+      "title"
+    ],
+    "reference": [
+      "title"
+    ]
+  },
+  "ordering": {
+    "by": "manual",
+    "unordered": "last"
+  }
+}

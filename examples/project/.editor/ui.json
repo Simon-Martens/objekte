@@ -1,0 +1,16 @@
+{
+  "groups": [
+    {
+      "name": "Content",
+      "label": "Content",
+      "position": 0
+    },
+    {
+      "name": "Files",
+      "label": "Files",
+      "position": 1
+    }
+  ],
+  "collections": {},
+  "defaults": {}
+}

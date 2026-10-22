@@ -1,5 +1,9 @@
 {
-  "Ort": "berlin-staatsbibliothek-zu-berlin-preussischer-kulturbesitz--108a75d9d4",
   "name": "[3] Nachlaß J. M. R. Lenz, Bd. 3",
-  "order": 3
+  "order": 3,
+  "handschriften": [
+    "berlin-staatsbibliothek-zu-berlin-preussischer-kulturbesitz--nl-lenz-bd-3-nr-182-bl-1-43--4cef52ffd0",
+    "berlin-staatsbibliothek-zu-berlin-preussischer-kulturbesitz--nl-lenz-bd-3-nr-183-bl-44-59--5804e7b7f4",
+    "berlin-staatsbibliothek-zu-berlin-preussischer-kulturbesitz--nl-lenz-bd-3-nr-218-bl-60-91--60b855ac20"
+  ]
 }

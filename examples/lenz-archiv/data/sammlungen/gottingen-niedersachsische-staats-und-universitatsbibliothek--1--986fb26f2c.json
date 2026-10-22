@@ -1,5 +1,7 @@
 {
-  "Ort": "gottingen-niedersachsische-staats-und-universitatsbibliothek--a028647ae7",
   "name": "1",
-  "order": 1
+  "order": 1,
+  "handschriften": [
+    "gottingen-niedersachsische-staats-und-universitatsbibliothek--8-cod-ms-hist-lit-103-cim--9ac8c1a694"
+  ]
 }

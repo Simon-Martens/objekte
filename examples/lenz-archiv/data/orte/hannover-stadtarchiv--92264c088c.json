@@ -1,4 +1,9 @@
 {
   "name": "Hannover, Stadtarchiv",
-  "short": "Hannover"
+  "short": "Hannover",
+  "sammlungen": [],
+  "handschriften": [
+    "hannover-stadtarchiv--autographen-slg-culemann-nr-1415--d15db119c0",
+    "hannover-stadtarchiv--autographen-slg-culemann-nr-1416--42d4221eab"
+  ]
 }

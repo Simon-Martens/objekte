@@ -16,7 +16,7 @@ thiserror = "2"
 pulldown-cmark = "0.13.4"
 deunicode = "1.6"
 percent-encoding = "2.3"
+icu_collator = "2.4"
 
 [dev-dependencies]
 tempfile = "3"
-

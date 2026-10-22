@@ -28,12 +28,13 @@ impl Editor {
         offset: usize,
         limit: usize,
     ) -> Result<Vec<MediaEntry>> {
+        self.require_operation(self.media_collection_name(), "read")?;
         let root = self.config().media_dir()?;
         let mut entries = Vec::new();
         collect_media_files(&root, "", &mut entries)?;
         let query = query.to_lowercase();
         entries.retain(|entry| entry.path.to_lowercase().contains(&query));
-        entries.sort_by(|a, b| a.path.cmp(&b.path));
+        entries.sort_by(|a, b| crate::alphabetic_cmp(&a.path, &b.path).then(a.path.cmp(&b.path)));
         Ok(entries
             .into_iter()
             .skip(offset)
@@ -42,6 +43,7 @@ impl Editor {
     }
 
     pub fn media_list(&self, dir: &str, offset: usize, limit: usize) -> Result<Vec<MediaEntry>> {
+        self.require_operation(self.media_collection_name(), "read")?;
         let path = self.media_path(dir, true)?;
         if !path.is_dir() {
             return Err(Error::InvalidPath(dir.into()));
@@ -73,7 +75,7 @@ impl Editor {
                 size: meta.len(),
             });
         }
-        entries.sort_by(|a, b| a.name.cmp(&b.name));
+        entries.sort_by(|a, b| crate::alphabetic_cmp(&a.name, &b.name).then(a.name.cmp(&b.name)));
         Ok(entries
             .into_iter()
             .skip(offset)
@@ -82,6 +84,7 @@ impl Editor {
     }
 
     pub fn media_read(&self, path: &str) -> Result<Vec<u8>> {
+        self.require_operation(self.media_collection_name(), "read")?;
         let path = self.media_path(path, true)?;
         if !path.is_file() {
             return Err(Error::NotFound(path.display().to_string()));
@@ -90,6 +93,7 @@ impl Editor {
     }
 
     pub fn media_mkdir(&self, path: &str) -> Result<()> {
+        self.require_operation(self.media_collection_name(), "mkdir")?;
         let path = self.media_path(path, false)?;
         fs::create_dir(path).map_err(|e| {
             if e.kind() == std::io::ErrorKind::AlreadyExists {
@@ -102,6 +106,7 @@ impl Editor {
     }
 
     pub fn media_upload(&self, path: &str, bytes: &[u8], max_bytes: usize) -> Result<()> {
+        self.require_operation(self.media_collection_name(), "upload")?;
         if bytes.len() > max_bytes {
             return Err(Error::Data("upload exceeds configured limit".into()));
         }
@@ -134,7 +139,40 @@ impl Editor {
         result
     }
 
+    pub fn media_revision(&self, path: &str) -> Result<String> {
+        Ok(crate::documents::hash(&self.media_read(path)?))
+    }
+    pub fn media_replace(
+        &self,
+        path: &str,
+        bytes: &[u8],
+        expected: &str,
+        max_bytes: usize,
+    ) -> Result<()> {
+        self.require_operation(self.media_collection_name(), "replace")?;
+        let _guard = self.write_guard.lock().unwrap();
+        if bytes.len() > max_bytes {
+            return Err(Error::Data("upload exceeds configured limit".into()));
+        }
+        let target = self.media_path(path, true)?;
+        self.guard_document_location(&target)?;
+        if !target.is_file() {
+            return Err(Error::InvalidPath("Only files can be replaced".into()));
+        }
+        if crate::documents::hash(&fs::read(&target)?) != expected {
+            return Err(Error::Conflict(
+                "File changed since replacement was opened".into(),
+            ));
+        }
+        crate::documents::atomic_write(&target, bytes)
+    }
+    pub fn media_copy(&self, source: &str, target: &str) -> Result<()> {
+        self.require_operation(self.media_collection_name(), "copy")?;
+        let bytes = self.media_read(source)?;
+        self.media_upload(target, &bytes, 50 * 1024 * 1024)
+    }
     pub fn media_move(&self, source: &str, target: &str) -> Result<()> {
+        self.require_operation(self.media_collection_name(), "move")?;
         let _write_guard = self.write_guard.lock().unwrap();
         let source_path = self.media_path(source, true)?;
         let target_path = self.media_path(target, false)?;
@@ -154,11 +192,13 @@ impl Editor {
                 "cannot move directory into itself".into(),
             ));
         }
+        self.guard_document_location(&source_path)?;
         fs::rename(source_path, target_path)?;
         Ok(())
     }
 
     pub fn media_delete(&self, path: &str) -> Result<()> {
+        self.require_operation(self.media_collection_name(), "delete")?;
         let _write_guard = self.write_guard.lock().unwrap();
         let target_path = self.media_path(path, true)?;
         if target_path == self.config().media_dir()? {
@@ -169,6 +209,7 @@ impl Editor {
                 "media path is referenced by a record".into(),
             ));
         }
+        self.guard_document_location(&target_path)?;
         if target_path.is_dir() {
             fs::remove_dir(target_path)?;
         } else {

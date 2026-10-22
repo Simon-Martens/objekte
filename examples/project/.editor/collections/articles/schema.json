@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "body"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "author": {
+      "type": "string",
+      "x-relation": {
+        "collection": "people"
+      }
+    },
+    "contributors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/personReference"
+      }
+    },
+    "published": {
+      "type": "boolean"
+    },
+    "image": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-content": "media"
+    },
+    "body": {
+      "type": "string",
+      "x-content": "markdown"
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "personReference": {
+      "type": "string",
+      "x-relation": {
+        "collection": "people"
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

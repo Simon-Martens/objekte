@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "required": [],
+  "properties": {
+    "Signatur": {
+      "type": "string",
+      "x-content": "markdown"
+    },
+    "Titel": {
+      "type": "string",
+      "x-content": "markdown"
+    },
+    "Incipit": {
+      "type": "string",
+      "x-content": "markdown"
+    },
+    "Umfang": {
+      "type": "string",
+      "x-content": "markdown"
+    },
+    "Druck": {
+      "type": "string",
+      "x-content": "markdown"
+    },
+    "Anmerkung": {
+      "type": "string",
+      "x-content": "markdown"
+    },
+    "Datei": {
+      "type": "string",
+      "x-content": "markdown"
+    },
+    "Verschollen": {
+      "type": "boolean"
+    },
+    "source": {
+      "type": "string",
+      "x-ownership": {
+        "kind": "imported",
+        "editable": false,
+        "onCreate": "omit"
+      }
+    },
+    "source_index": {
+      "type": "integer",
+      "minimum": 1,
+      "x-ownership": {
+        "kind": "imported",
+        "editable": false,
+        "onCreate": "omit"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

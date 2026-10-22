@@ -1,0 +1,33 @@
+[package]
+name = "structured-editor-server"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+structured-editor-core = { path = "../core" }
+axum = { version = "0.8", features = ["form", "query", "multipart"] }
+askama = "0.14"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "net", "signal"] }
+tower-http = { version = "0.6", features = ["fs"] }
+turso = { version = "=0.8.3", default-features = false }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+uuid = { version = "1", features = ["v4"] }
+argon2 = "0.5"
+rand_core = { version = "0.6", features = ["getrandom"] }
+sha2 = "0.10"
+hex = "0.4"
+percent-encoding = "2"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+pulldown-cmark = "0.13"
+ammonia = "4"
+rpassword = "7"
+qrcode = { version = "0.14.1", default-features = false, features = ["svg"] }
+
+[dev-dependencies]
+serde_urlencoded = "0.7"
+tempfile = "3"
+tower = { version = "0.5", features = ["util"] }
+http-body-util = "0.1"

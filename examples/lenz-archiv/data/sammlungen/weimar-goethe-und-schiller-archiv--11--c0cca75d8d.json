@@ -1,5 +1,10 @@
 {
-  "Ort": "weimar-goethe-und-schiller-archiv--24086bb54b",
   "name": "11",
-  "order": 11
+  "order": 11,
+  "handschriften": [
+    "weimar-goethe-und-schiller-archiv--gsa-06-2730--a1cb4852ec",
+    "weimar-goethe-und-schiller-archiv--gsa-06-2730-26-stuck-s-12-13--cae9d63c5b",
+    "weimar-goethe-und-schiller-archiv--gsa-06-2730-29-stuck-s-1-3--63954a5ffa",
+    "weimar-goethe-und-schiller-archiv--gsa-06-2730-31-stuck-s-13-15--7b32c23d4c"
+  ]
 }

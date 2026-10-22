@@ -1,5 +1,35 @@
 {
-  "Ort": "krakow-biblioteka-jagiellonska--1c8ffbab28",
   "name": "Krakau, Lenziana, Sammlung Autographa",
-  "order": 8
+  "order": 8,
+  "handschriften": [
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-1-nr-1--c554e86eb6",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-1-nr-10--642709d5db",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-1-nr-11--4518a6bd1f",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-1-nr-12--099ee9b472",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-1-nr-13--50b44b0108",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-1-nr-14--6cc28096b6",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-1-nr-15--2fd5393aa2",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-1-nr-16--335ddc533a",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-1-nr-17--6617a98adc",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-1-nr-18--6296effb19",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-1-nr-19--45f3dea85f",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-1-nr-2--a4fc396d0d",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-1-nr-3--a4fbc201e6",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-1-nr-4--249d98e1dc",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-1-nr-5--76f3287064",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-1-nr-6--c952630321",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-1-nr-7--2cbc835b3e",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-1-nr-8--349f337b15",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-1-nr-9--0888b20024",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-10--1614e3d3ac",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-11--1913d5fbbd",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-2--1b02832b10",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-3--a57281de4e",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-4--da8af47d5a",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-5--07ab90df12",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-6--c5db21bd1c",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-7--f83661834d",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-8--86dce07f49",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa-9--483e15e1e3"
+  ]
 }

@@ -39,6 +39,23 @@ async function handle(request:Request,path:string):Promise<Response> {
     if (method==='POST' && parts[1]==='logout') { auth.checked(request,'user',true); auth.logout(request); return json(ok,200,{'Set-Cookie':auth.clearCookie()}); }
     if (method==='POST' && parts[1]==='password') { const actor=auth.checked(request,'user',true),input=await body(request); required(input,'old_password','new_password'); await auth.changePassword(actor.user.id,input.old_password,input.new_password); return json(ok,200,{'Set-Cookie':auth.clearCookie()}); }
   }
+  if (parts[0]==='documents') {
+    if (method==='GET' && parts.length===1) { auth.checked(request,'user'); return json(parse(getProject().documentMappings())); }
+    if (method==='GET' && parts.length===3 && parts[2]==='schema') { auth.checked(request,'user'); return json(parse(getProject().documentSchema(parts[1]))); }
+    if (method==='GET' && parts.length===3 && parts[2]==='files') { auth.checked(request,'user'); return json(parse(getProject().documentFiles(parts[1]))); }
+    if (parts.length===3 && parts[2]==='file') {
+      auth.checked(request,method==='PUT'?'editor':'user',method==='PUT');
+      const file=query.get('path'); if (!file) throw new HttpError(400,'path required');
+      if (method==='GET') return json(parse(getProject().jsonDocument(parts[1],file)));
+      if (method==='PUT') { const input=await body(request); required(input,'revision'); if (input.value===undefined) throw new HttpError(400,'value required'); return json(parse(getProject().saveJsonDocument(parts[1],file,JSON.stringify(input.value),input.revision))); }
+    }
+  }
+  if (path==='ui'  && method==='GET') { auth.checked(request,'user'); return json(parse(getProject().uiConfig())); }
+  if (path==='settings/schema' && method==='GET') { auth.checked(request,'user'); return json(parse(getProject().settingsSchema())); }
+  if (path==='settings') {
+    if (method==='GET') { auth.checked(request,'user'); return json(parse(getProject().settings())); }
+    if (method==='PUT') { auth.checked(request,'editor',true); const input=await body(request); required(input,'revision'); if (input.value===undefined) throw new HttpError(400,'value required'); return json(parse(getProject().saveSettings(JSON.stringify(input.value),input.revision))); }
+  }
   if (parts[0]==='collections') {
     if (method==='GET' && parts.length===1) { auth.checked(request,'user'); return json(parse(getProject().collections())); }
     if (method==='GET' && parts.length===3 && parts[2]==='schema') { auth.checked(request,'user'); return json(parse(getProject().schema(parts[1]))); }

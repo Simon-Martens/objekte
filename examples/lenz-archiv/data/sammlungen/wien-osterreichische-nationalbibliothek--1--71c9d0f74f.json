@@ -1,5 +1,7 @@
 {
-  "Ort": "wien-osterreichische-nationalbibliothek--9157e03292",
   "name": "1",
-  "order": 1
+  "order": 1,
+  "handschriften": [
+    "wien-osterreichische-nationalbibliothek--bildarchiv-und-grafiksammlung-por-lav-xi-667-8516-sammlung-lavater--ba84b76e10"
+  ]
 }

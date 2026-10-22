@@ -1,4 +1,8 @@
 {
   "name": "Kopenhagen, Rigsarkivet",
-  "short": "Kopenhagen"
+  "short": "Kopenhagen",
+  "sammlungen": [],
+  "handschriften": [
+    "kopenhagen-rigsarkivet--priv-ark-6198-reventlow-altenhof-pk-41--727054b027"
+  ]
 }

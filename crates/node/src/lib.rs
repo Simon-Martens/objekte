@@ -37,6 +37,57 @@ impl Project {
     }
 
     #[napi]
+    pub fn ui_config(&self) -> napi::Result<String> {
+        output(Ok(&self.editor.config().ui))
+    }
+    #[napi]
+    pub fn document_mappings(&self) -> napi::Result<String> {
+        output(Ok(&self.editor.config().documents))
+    }
+    #[napi]
+    pub fn document_schema(&self, name: String) -> napi::Result<String> {
+        output(self.editor.document_schema(&name))
+    }
+    #[napi]
+    pub fn document_files(&self, name: String) -> napi::Result<String> {
+        output(self.editor.document_files(&name))
+    }
+    #[napi]
+    pub fn json_document(&self, name: String, path: String) -> napi::Result<String> {
+        output(self.editor.json_document(&name, &path))
+    }
+    #[napi]
+    pub fn save_json_document(
+        &self,
+        name: String,
+        path: String,
+        value: String,
+        revision: String,
+    ) -> napi::Result<String> {
+        let value = serde_json::from_str(&value)
+            .map_err(|e| error(CoreError::Data(format!("document: {e}"))))?;
+        output(
+            self.editor
+                .save_json_document(&name, &path, value, &revision),
+        )
+    }
+
+    #[napi]
+    pub fn settings_schema(&self) -> napi::Result<String> {
+        output(self.editor.settings_schema())
+    }
+    #[napi]
+    pub fn settings(&self) -> napi::Result<String> {
+        output(self.editor.settings())
+    }
+    #[napi]
+    pub fn save_settings(&self, value: String, revision: String) -> napi::Result<String> {
+        let value = serde_json::from_str(&value)
+            .map_err(|e| error(CoreError::Data(format!("settings: {e}"))))?;
+        output(self.editor.save_settings(value, &revision))
+    }
+
+    #[napi]
     pub fn collections(&self) -> napi::Result<String> {
         let items: Vec<_> = self
             .editor
@@ -61,7 +112,7 @@ impl Project {
             self.editor
                 .config()
                 .collection(&collection)
-                .map(|c| &c.schema_value),
+                .map(|c| &c.editor_schema),
         )
     }
     #[napi]

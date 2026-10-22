@@ -1,5 +1,7 @@
 {
-  "Ort": "zurich-zentralbibliothek--62ebd87e10",
   "name": "1",
-  "order": 1
+  "order": 1,
+  "handschriften": [
+    "zurich-zentralbibliothek--autogr-zb-lenz-jakob-michael-reinhold--7475b3334d"
+  ]
 }

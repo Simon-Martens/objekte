@@ -1,5 +1,17 @@
 {
-  "Ort": "berlin-staatsbibliothek-zu-berlin-preussischer-kulturbesitz--108a75d9d4",
   "name": "[1] Nachlaß J. M. R. Lenz, Bd. 1",
-  "order": 1
+  "order": 1,
+  "handschriften": [
+    "berlin-staatsbibliothek-zu-berlin-preussischer-kulturbesitz--nl-lenz-bd-1-nr-179-bl-1-14--379dcd3a62",
+    "berlin-staatsbibliothek-zu-berlin-preussischer-kulturbesitz--nl-lenz-bd-1-nr-180-bl-15-24--8b83bb5cf1",
+    "berlin-staatsbibliothek-zu-berlin-preussischer-kulturbesitz--nl-lenz-bd-1-nr-181-bl-25-43--f93fa8a773",
+    "berlin-staatsbibliothek-zu-berlin-preussischer-kulturbesitz--nl-lenz-bd-1-nr-215-bl-44-45--5f8796fd20",
+    "berlin-staatsbibliothek-zu-berlin-preussischer-kulturbesitz--nl-lenz-bd-1-nr-221-bl-46-48--f4944683b9",
+    "berlin-staatsbibliothek-zu-berlin-preussischer-kulturbesitz--nl-lenz-bd-1-nr-222-bl-49-50--1c78198d5c",
+    "berlin-staatsbibliothek-zu-berlin-preussischer-kulturbesitz--nl-lenz-bd-1-nr-224-bl-51-56--b297c89db2",
+    "berlin-staatsbibliothek-zu-berlin-preussischer-kulturbesitz--nl-lenz-bd-1-nr-225-bl-57-58--e11fbbc033",
+    "berlin-staatsbibliothek-zu-berlin-preussischer-kulturbesitz--nl-lenz-bd-1-nr-226-bl-59-60--892370d224",
+    "berlin-staatsbibliothek-zu-berlin-preussischer-kulturbesitz--nl-lenz-bd-1-nr-227-bl-61-70--1ba7ceada2",
+    "berlin-staatsbibliothek-zu-berlin-preussischer-kulturbesitz--nl-lenz-bd-1-nr-229-bl-71-74--b02eeae125"
+  ]
 }

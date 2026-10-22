@@ -3,7 +3,6 @@ use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::{
     collections::BTreeMap,
-    fs,
     path::{Path, PathBuf},
 };
 
@@ -13,6 +12,10 @@ pub struct Config {
     pub media: MediaConfig,
     pub root: PathBuf,
     pub schema_value: Value,
+    pub ui: Value,
+    pub settings: Option<SettingsConfig>,
+    pub documents: BTreeMap<String, JsonDocumentConfig>,
+    pub media_collections: BTreeMap<String, MediaCollection>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -38,6 +41,30 @@ pub struct Collection {
     pub field_order: Vec<String>,
     #[serde(skip)]
     pub schema_value: Value,
+    #[serde(skip)]
+    pub editor_schema: Value,
+    #[serde(skip)]
+    pub constraints: Vec<CategoryLevel>,
+    #[serde(default)]
+    pub operations: Option<Vec<String>>,
+    #[serde(default, rename = "bodyField")]
+    pub body_field: String,
+    #[serde(default, rename = "schemaPath")]
+    pub schema_path: Option<String>,
+    #[serde(default)]
+    pub ui: Value,
+    #[serde(default, rename = "idPattern")]
+    pub id_pattern: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct MediaCollection {
+    pub path: String,
+    pub label: String,
+    #[serde(default)]
+    pub operations: Option<Vec<String>>,
+    #[serde(default)]
+    pub ui: Value,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -113,18 +140,21 @@ impl From<IdStrategy> for String {
 impl Config {
     pub fn load(root: impl AsRef<Path>) -> Result<Self> {
         let root = root.as_ref().canonicalize()?;
-        let schema_value: Value =
-            serde_json::from_slice(&fs::read(contained(&root, ".editor/schema.json")?)?)
-                .map_err(|e| Error::Config(format!("project schema: {e}")))?;
-        jsonschema::draft202012::options()
-            .offline()
-            .build(&schema_value)
-            .map_err(|e| Error::Config(format!("invalid project schema: {e}")))?;
+        let loaded = super::project_config::load(&root)?;
+        let schema_value = loaded.schema;
+        if loaded.data_schema != Some(serde_json::json!(true)) {
+            jsonschema::draft202012::options()
+                .offline()
+                .build(&schema_value)
+                .map_err(|e| Error::Config(format!("invalid project schema: {e}")))?;
+        }
         let branches = schema_value
             .get("oneOf")
             .or_else(|| schema_value.get("anyOf"))
             .and_then(Value::as_array)
-            .filter(|items| !items.is_empty())
+            .filter(|items| {
+                !items.is_empty() || loaded.data_schema == Some(serde_json::json!(true))
+            })
             .ok_or_else(|| {
                 Error::Config("project schema must have a nonempty top-level oneOf or anyOf".into())
             })?;
@@ -243,11 +273,18 @@ impl Config {
                 .offline()
                 .build(&effective)
                 .map_err(|e| Error::Config(format!("{name}: invalid variant schema: {e}")))?;
-            collection.schema_value = effective;
+            collection.editor_schema = effective.clone();
+            collection.schema_value = loaded.data_schemas.get(&name).cloned().unwrap_or(effective);
+            collection.constraints = loaded
+                .constraints
+                .get(&name)
+                .cloned()
+                .unwrap_or_else(|| collection.categories.clone());
             if collections.insert(name.clone(), collection).is_some() {
                 return Err(Error::Config(format!("duplicate collection {name}")));
             }
         }
+        crate::documents::validate_child_collections(&collections)?;
         let names = collections.keys().cloned().collect();
         let editor_dir = contained(&root, ".editor")?;
         let mut collection_dirs = Vec::new();
@@ -266,7 +303,7 @@ impl Config {
             }
             collection_dirs.push(dir);
             validate_relations(&collection.schema_value, &names)?;
-            validate_editors(&collection.schema_value)?;
+            validate_editors(&collection.editor_schema)?;
             for (index, level) in collection.categories.iter().enumerate() {
                 if let Some(target_name) = &level.collection {
                     let target = collections.get(target_name).ok_or_else(|| {
@@ -331,23 +368,47 @@ impl Config {
                 }
             }
         }
-        let media_dir = contained(&root, &media.path)?;
-        if !media_dir.is_dir()
-            || media_dir.starts_with(&editor_dir)
-            || editor_dir.starts_with(&media_dir)
-            || collection_dirs
-                .iter()
-                .any(|dir| media_dir.starts_with(dir) || dir.starts_with(&media_dir))
-        {
-            return Err(Error::Config(
-                "invalid or overlapping media directory".into(),
-            ));
+        let mut media_collections = loaded.media_collections;
+        if media_collections.is_empty() && !media.path.is_empty() {
+            media_collections.insert(
+                "media".into(),
+                MediaCollection {
+                    path: media.path.clone(),
+                    label: "Media".into(),
+                    operations: None,
+                    ui: serde_json::json!({}),
+                },
+            );
+        }
+        for (name, media) in &media_collections {
+            if collections.contains_key(name) {
+                return Err(Error::Config(
+                    "media and data collection names must be distinct".into(),
+                ));
+            }
+            let dir = contained(&root, &media.path)?;
+            if !dir.is_dir()
+                || dir.starts_with(&editor_dir)
+                || editor_dir.starts_with(&dir)
+                || collection_dirs
+                    .iter()
+                    .any(|other| dir.starts_with(other) || other.starts_with(&dir))
+            {
+                return Err(Error::Config(
+                    "invalid or overlapping media directory".into(),
+                ));
+            }
+            collection_dirs.push(dir);
         }
         Ok(Self {
             collections,
             media,
             root,
-            schema_value,
+            schema_value: loaded.data_schema.unwrap_or(schema_value),
+            ui: loaded.ui,
+            settings: loaded.settings,
+            documents: loaded.documents,
+            media_collections,
         })
     }
     pub fn collection(&self, name: &str) -> Result<&Collection> {
@@ -364,6 +425,15 @@ impl Config {
 }
 
 fn validate_editors(schema: &Value) -> Result<()> {
+    if let Some(policy) = schema.get("x-ownership") {
+        let kind = policy.as_str().or_else(|| policy["kind"].as_str());
+        if !matches!(kind, Some("user" | "generated" | "imported" | "immutable")) {
+            return Err(Error::Config("unknown field ownership policy".into()));
+        }
+        if policy.get("editable").is_some_and(|v| !v.is_boolean()) {
+            return Err(Error::Config("ownership editable must be a boolean".into()));
+        }
+    }
     let is_string_field = || match schema.get("type") {
         Some(Value::String(kind)) => kind == "string",
         Some(Value::Array(types)) => {
@@ -384,6 +454,10 @@ fn validate_editors(schema: &Value) -> Result<()> {
             "relation",
             "autocomplete",
             "autocomplete-select",
+            "text",
+            "date",
+            "datetime",
+            "system",
         ]
         .contains(&editor)
         {
@@ -442,8 +516,12 @@ fn validate_editors(schema: &Value) -> Result<()> {
             }
         }
         Value::Object(entries) => {
-            for item in entries.values() {
-                validate_editors(item)?;
+            for (key, item) in entries {
+                if !["x-collection", "default", "const", "enum", "examples", "ui"]
+                    .contains(&key.as_str())
+                {
+                    validate_editors(item)?;
+                }
             }
         }
         _ => {}
@@ -474,4 +552,17 @@ fn validate_relations(schema: &Value, names: &std::collections::BTreeSet<String>
         _ => {}
     }
     Ok(())
+}
+
+#[derive(Debug, Clone)]
+pub struct SettingsConfig {
+    pub path: String,
+    pub schema: Value,
+}
+
+/// A schema applied to explicitly named JSON files, independent of collections.
+#[derive(Debug, Clone, Serialize)]
+pub struct JsonDocumentConfig {
+    pub schema: Value,
+    pub files: Vec<String>,
 }

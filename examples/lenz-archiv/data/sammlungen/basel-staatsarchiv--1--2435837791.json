@@ -1,5 +1,33 @@
 {
-  "Ort": "basel-staatsarchiv--cce2855085",
   "name": "1",
-  "order": 1
+  "order": 1,
+  "handschriften": [
+    "basel-staatsarchiv--pa-212-f-11-27-10-b-1--727a1290a2",
+    "basel-staatsarchiv--pa-212-f-11-27-10-b-2--087bc5b54f",
+    "basel-staatsarchiv--pa-212-f-11-27-10-b-3--d58ae8b07d",
+    "basel-staatsarchiv--pa-212-f-11-27-10-nr-1--422881d948",
+    "basel-staatsarchiv--pa-212-f-11-27-10-nr-10--47a024287a",
+    "basel-staatsarchiv--pa-212-f-11-27-10-nr-11--a7ade690c3",
+    "basel-staatsarchiv--pa-212-f-11-27-10-nr-12--5e65e2b6e1",
+    "basel-staatsarchiv--pa-212-f-11-27-10-nr-13--bbe153c93c",
+    "basel-staatsarchiv--pa-212-f-11-27-10-nr-14--ecb48d3f5a",
+    "basel-staatsarchiv--pa-212-f-11-27-10-nr-15--973cdffd9e",
+    "basel-staatsarchiv--pa-212-f-11-27-10-nr-16--2c95485f63",
+    "basel-staatsarchiv--pa-212-f-11-27-10-nr-17--b5c27b977d",
+    "basel-staatsarchiv--pa-212-f-11-27-10-nr-18--30026f5e27",
+    "basel-staatsarchiv--pa-212-f-11-27-10-nr-19--5a97eec7e1",
+    "basel-staatsarchiv--pa-212-f-11-27-10-nr-19a--5c8b6ccbf9",
+    "basel-staatsarchiv--pa-212-f-11-27-10-nr-2--71318dc95f",
+    "basel-staatsarchiv--pa-212-f-11-27-10-nr-20--ed3db243e1",
+    "basel-staatsarchiv--pa-212-f-11-27-10-nr-3a--0268c50533",
+    "basel-staatsarchiv--pa-212-f-11-27-10-nr-3b--604f8f8d25",
+    "basel-staatsarchiv--pa-212-f-11-27-10-nr-4--5dcf8536a7",
+    "basel-staatsarchiv--pa-212-f-11-27-10-nr-5--dda45c464f",
+    "basel-staatsarchiv--pa-212-f-11-27-10-nr-5b--9d9a2f15e4",
+    "basel-staatsarchiv--pa-212-f-11-27-10-nr-6--56c039078e",
+    "basel-staatsarchiv--pa-212-f-11-27-10-nr-7--e7f919c40a",
+    "basel-staatsarchiv--pa-212-f-11-27-10-nr-8--933c4ed45c",
+    "basel-staatsarchiv--pa-212-f-11-27-10-nr-9--dbaf59fd0a",
+    "basel-staatsarchiv--pa-212a-f-11-27-10--2c58eaef6e"
+  ]
 }

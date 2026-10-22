@@ -1,5 +1,18 @@
 {
   "name": "Kraków, Biblioteka Jagiellońska",
   "short": "Kraków",
-  "description": "Dieses Verzeichnis orientiert sich am Verzeichnis der Lenziana in Kraków von Gesa Weinert, fächert den Nachlass aber kleinteiliger auf, weshalb die Signaturen teilweise abweichen \\[Weinert, Gesa: „Verzeichnis der Lenziana in Kraków: Nachlaßteile von Jacob Michael Reinhold Lenz in der ‚Sammlung Lenziana‘, in der ‚Sammlung Autographa‘ und in der ‚Sammlung Varnhagen‘ – Bestand der ehemaligen Preußischen Staatsbibliothek zu Berlin, gegenwärtig in der Biblioteka Jagiellonska, Kraków“. In: Stephan, Inge u. Hans-Gerd Winter (Hrsg.): „Die Wunde Lenz“. J. M. R. Lenz. Leben, Werk und Rezeption. Bern u. a. 2003, S. 467–486\\]."
+  "description": "Dieses Verzeichnis orientiert sich am Verzeichnis der Lenziana in Kraków von Gesa Weinert, fächert den Nachlass aber kleinteiliger auf, weshalb die Signaturen teilweise abweichen \\[Weinert, Gesa: „Verzeichnis der Lenziana in Kraków: Nachlaßteile von Jacob Michael Reinhold Lenz in der ‚Sammlung Lenziana‘, in der ‚Sammlung Autographa‘ und in der ‚Sammlung Varnhagen‘ – Bestand der ehemaligen Preußischen Staatsbibliothek zu Berlin, gegenwärtig in der Biblioteka Jagiellonska, Kraków“. In: Stephan, Inge u. Hans-Gerd Winter (Hrsg.): „Die Wunde Lenz“. J. M. R. Lenz. Leben, Werk und Rezeption. Bern u. a. 2003, S. 467–486\\].",
+  "sammlungen": [
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-1--41ca9ac786",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-2--2698a72e9a",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-3--4f487cfc9d",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-4--60cc47f40f",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-5--4db3a6698e",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-6--8b08838b86",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-7-26--9f6c300f93",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-autographa--06494f0cdc",
+    "krakow-biblioteka-jagiellonska--nachlassteile-in-der-sammlung-autographa-tieck--9d453de26c",
+    "krakow-biblioteka-jagiellonska--nachlassteile-in-der-sammlung-varnhagen-v-107--bebff432e6"
+  ],
+  "handschriften": []
 }

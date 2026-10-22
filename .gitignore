@@ -6,3 +6,6 @@
 
 
 /frontend/native/*.node
+
+/crates/server/assets/node_modules
+/crates/server/assets/dist

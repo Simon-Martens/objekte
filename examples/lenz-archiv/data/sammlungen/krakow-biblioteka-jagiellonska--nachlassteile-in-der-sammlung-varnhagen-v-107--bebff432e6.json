@@ -1,5 +1,10 @@
 {
-  "Ort": "krakow-biblioteka-jagiellonska--1c8ffbab28",
   "name": "Nachlaßteile in der Sammlung Varnhagen V 107",
-  "order": 10
+  "order": 10,
+  "handschriften": [
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-varnhagen-nr-1--ea8446dc0f",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-varnhagen-nr-2--4d367777bc",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-varnhagen-nr-3--83e8b9cbd9",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-sammlung-varnhagen-nr-4--ecb9b1c1ae"
+  ]
 }

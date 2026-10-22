@@ -1,5 +1,26 @@
 {
-  "Ort": "krakow-biblioteka-jagiellonska--1c8ffbab28",
   "name": "Krakau, Lenziana 3",
-  "order": 3
+  "order": 3,
+  "handschriften": [
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-3-nr-1--933ead8bd4",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-3-nr-10--26df484f26",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-3-nr-11--e601648bf3",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-3-nr-12--16548e4230",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-3-nr-13--dd2629d873",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-3-nr-14--22672b37dc",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-3-nr-15--6dc18faa97",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-3-nr-16--965129b372",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-3-nr-17--8b2e008285",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-3-nr-18--491c3d964a",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-3-nr-19--e592fc6017",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-3-nr-2--e0b818adbb",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-3-nr-20--4952b4bc23",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-3-nr-3--dcb55b8ea9",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-3-nr-4--8d37aec393",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-3-nr-5--f88c50ba78",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-3-nr-6--5fdece9a4d",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-3-nr-7--218dd322ff",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-3-nr-8--5959d493f9",
+    "krakow-biblioteka-jagiellonska--krakau-lenziana-3-nr-9--f614b48cad"
+  ]
 }

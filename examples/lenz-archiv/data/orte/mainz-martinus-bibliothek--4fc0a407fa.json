@@ -1,4 +1,12 @@
 {
   "name": "Mainz, Martinus-Bibliothek",
-  "short": "Mainz"
+  "short": "Mainz",
+  "sammlungen": [],
+  "handschriften": [
+    "mainz-martinus-bibliothek--hs-260-bd-1-2--e3a410149c",
+    "mainz-martinus-bibliothek--hs-260-bd-2-bl-54r--0ebd94846f",
+    "mainz-martinus-bibliothek--hs-260-bd-2-bl-55-56r--59a5fbf0a4",
+    "mainz-martinus-bibliothek--hs-260-bd-2-bl-87-88r--b9101cffc4",
+    "mainz-martinus-bibliothek--hs-260-bd-2-bl-8v-9r--3dd545afda"
+  ]
 }

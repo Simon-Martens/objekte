@@ -1,0 +1,93 @@
+{
+  "label": "Posthume Ausgaben",
+  "display": "Eintrag",
+  "displayFields": [
+    "Jahr",
+    "Eintrag"
+  ],
+  "displayFallback": [],
+  "fieldOrder": [
+    "Jahr",
+    "Sort",
+    "Eintrag",
+    "Kommentare"
+  ],
+  "fields": {
+    "": {
+      "title": "Posthume Ausgaben"
+    },
+    "/properties/source": {
+      "title": "Source",
+      "x-editor": "hidden"
+    },
+    "/properties/assets": {
+      "title": "Media",
+      "x-editor": "hidden"
+    },
+    "/properties/assets/items": {
+      "x-editor": "media"
+    },
+    "/properties/Jahr": {
+      "title": "Jahr"
+    },
+    "/properties/Sort": {
+      "title": "Sort"
+    },
+    "/properties/Eintrag": {
+      "title": "Eintrag",
+      "x-editor": "markdown"
+    },
+    "/properties/Kommentare": {
+      "title": "Kommentare"
+    },
+    "/properties/Kommentare/items": {
+      "title": "Text",
+      "x-editor": "markdown"
+    }
+  },
+  "search": [
+    "Jahr",
+    "Sort",
+    "Eintrag",
+    "Kommentare"
+  ],
+  "sidebarGroup": "Content",
+  "position": 2,
+  "labels": {
+    "list": [
+      "Jahr",
+      "Eintrag"
+    ],
+    "search": [
+      "Jahr",
+      "Eintrag"
+    ],
+    "record": [
+      "Jahr",
+      "Eintrag"
+    ],
+    "reference": [
+      "Jahr",
+      "Eintrag"
+    ]
+  },
+  "ordering": {
+    "by": "manual",
+    "unordered": "last"
+  },
+  "icon": "ri-book-open-line",
+  "list": {
+    "columns": [
+      "Jahr",
+      "Eintrag"
+    ],
+    "defaultSort": {
+      "field": "Jahr",
+      "direction": "desc"
+    },
+    "filters": [
+      "Jahr"
+    ],
+    "autoFilters": false
+  }
+}

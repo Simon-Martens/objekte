@@ -1,4 +1,8 @@
 {
   "name": "Göttingen, Niedersächsische Staats- und Universitätsbibliothek",
-  "short": "Niedersächsische Staats- und Universitätsbibliothek Göttingen"
+  "short": "Niedersächsische Staats- und Universitätsbibliothek Göttingen",
+  "sammlungen": [
+    "gottingen-niedersachsische-staats-und-universitatsbibliothek--1--986fb26f2c"
+  ],
+  "handschriften": []
 }
