@@ -7,7 +7,6 @@
     <fieldset data-attr:inert="$_pending">
       <div class="edit-grid">
         <section class="surface editor-fields" aria-label="Record fields">
-          <div class="section-heading"><h2><i class="ri-file-edit-line" aria-hidden="true"></i>{% if session.raw.is_some() %}Document source{% else %}Fields{% endif %}</h2><span class="badge">{% if session.raw.is_some() %}JSON{% else %}Structured{% endif %}</span></div>
           {% if let Some(raw) = session.raw %}<div class="raw-document"><label for="raw-document">Entire record JSON</label><textarea id="raw-document" name="raw" rows="28" class="source">
 {{ raw }}</textarea></div>{% else %}{{ fields|safe }}{% if !available_fields.is_empty() %}<details class="add-fields"><summary class="button"><i class="ri-add-line" aria-hidden="true"></i>Add field</summary><div class="add-field-grid">{{ available_fields|safe }}</div></details>{% endif %}{% endif %}
         </section>
