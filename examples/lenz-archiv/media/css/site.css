@@ -1,0 +1,417 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Regular woff-files for regular font variants curerently
+   Instead we can use the Graphite versions of the font   
+
+@font-face {
+    font-family: 'Biolinum';
+    src: url('/fonts/LinBiolinum_R_G.ttf') format('truetype');
+    font-display: swap;
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Libertine';
+    src: url('/fonts/LinLibertine_R_G.ttf') format('truetype');
+    font-display: swap;
+    font-weight: normal;
+    font-style: normal;
+}
+
+*/
+
+@font-face {
+    font-family: "Sofia Sans";
+    src: url("../fonts/SofiaSans-Regular.ttf") format("truetype");
+    font-display: swap;
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  
+  @font-face {
+    font-family: "Sofia Sans";
+    src: url("../fonts/SofiaSans-Italic.ttf") format("truetype");
+    font-display: swap;
+    font-weight: normal;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: "Sofia Sans";
+    src: url("../fonts/SofiaSans-Bold.ttf") format("truetype");
+    font-display: swap;
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Sofia Sans";
+    src: url("../fonts/SofiaSans-BoldItalic.ttf") format("truetype");
+    font-display: swap;
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: "Libertine";
+    src: url("../fonts/LinLibertine_Rah.ttf") format("truetype");
+    font-display: swap;
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "Libertine";
+    src: url("../fonts/LinLibertine_RIah.ttf") format("truetype");
+    font-display: swap;
+    font-weight: normal;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: "Libertine";
+    src: url("../fonts/LinLibertine_RZah.ttf") format("truetype");
+    font-display: swap;
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  /* @font-face {
+    font-family: "Playfair";
+    src: url("../fonts/PlayfairDisplay-VariableFont_wght.ttf") format("truetype");
+    font-display: swap;
+    font-weight: normal;
+    font-style: normal;
+  } */
+
+  body {
+    font-size: 17px;
+  }
+
+  .hover-hint {
+    position: relative;
+  }
+
+  .hover-hint img {
+    cursor: pointer;
+    transition: box-shadow 150ms ease, transform 150ms ease;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+  }
+
+  .hover-hint:hover img {
+    box-shadow: 0 0 0 3px rgba(201, 88, 115, 0.6);
+    transform: none;
+  }
+
+  .map-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 980px;
+  }
+
+  .map-card {
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .map-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .map-img {
+    border: 2px solid rgba(255, 255, 255, 0.85);
+  }
+
+  .map-caption {
+    margin-top: 0.4rem;
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+
+  .map-source {
+    margin-top: 2.5rem;
+    margin-bottom: 2rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e2e8f0;
+    background: rgba(248, 250, 252, 0.8);
+  }
+
+  .map-source p {
+    margin: 0;
+  }
+
+  .buechner-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 980px;
+  }
+
+  .buechner-grid figure {
+    margin: 0;
+  }
+
+  .buechner-grid figcaption {
+    margin-top: 0.4rem;
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+
+  .caption-source {
+    display: inline-block;
+    margin-top: 0.2rem;
+    font-size: 0.85rem;
+    color: #475569;
+  }
+
+  @media (min-width: 700px) {
+    .buechner-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+  }
+
+  .buechner-sources {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e2e8f0;
+    background: rgba(248, 250, 252, 0.8);
+  }
+
+  .buechner-sources p {
+    margin: 0 0 0.5rem 0;
+  }
+
+  .buechner-sources p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 700px) {
+    .map-grid-custom {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-areas:
+        "a b"
+        "c c"
+        "d d"
+        "e .";
+      gap: 1.25rem;
+      max-width: 1120px;
+    }
+
+    .map-a { grid-area: a; }
+    .map-b { grid-area: b; }
+    .map-c { grid-area: c; }
+    .map-d { grid-area: d; }
+    .map-e { grid-area: e; }
+  }
+
+
+  @layer components {
+    
+    h2 {
+      @apply text-3xl font-bold mb-4
+    }
+
+    h3 {
+      @apply text-xl font-bold mb-1.5
+    }
+
+    a {
+      @apply text-lenz-11-blue decoration-dotted underline decoration-lenz-4-rose underline-offset-[3px]
+    }
+
+    a:hover {
+      @apply text-lenz-10-darkblue decoration-solid
+    }
+
+    nav a {
+      @apply no-underline
+    }
+
+    mark {
+      @apply bg-lenz-2-lightred text-lenz-11-blue
+    }
+
+    .searchbar {
+      @apply sticky top-0 z-20 bg-slate-100 px-4 py-0.5 pt-1.5 self-start w-full sm:flex sm:flex-row items-baseline gap-x-3 border-b
+    }
+
+    .searchbar button {
+      @apply inline-block bg-white shrink py-0.5 px-1.5 border border-slate-300
+    }
+
+    .searchbar input {
+      @apply inline-block w-full sm:w-auto sm:grow p-0.5 px-1 my-1 mb-2 border border-slate-300
+    }
+
+    .hideifsearching {
+      @apply inline-block
+    }
+
+    .searchbar select {
+      @apply inline-block bg-white px-1.5 pt-1.5 pb-1 border border-slate-300
+    }
+
+    .sidebar-nav li li {
+      @apply ml-4
+    }
+
+    .active {
+      @apply font-bold
+    }
+
+    .sidebar-nav .active::before {
+      @apply text-lenz-6-highlight
+    }
+
+    .yearlist {
+      @apply mt-4 w-full
+    }
+
+    .yearlist .category .categorytitle {
+      @apply text-xl pr-1 pl-3 min-w-[4rem] font-bold self-start z-0 sticky top-14 sm:order-2 shrink-0 grow-0 basis-1/12
+    }
+
+    .yearlist .category .categorybody {
+      @apply sm:px-4 sm:border-r-2 grow md:border-lenz-12-lighterblue
+    }
+
+    .yearlist .category {
+      @apply flex flex-col sm:flex-row w-full mb-5
+    }
+
+    .yearlist .searchable {
+      @apply mt-3 px-4 pl-6 -indent-6 
+    }
+
+    .yearlist .searchable:first-of-type {
+      @apply mt-0
+    }
+
+    .maincolumn {
+      @apply basis-4/5 grow-0
+    }
+
+    .Kommentar {
+      @apply !indent-0 !pl-0
+    }
+
+    .handschrift-sammlung .handschrift {
+      @apply border sm:basis-[48%] xl:basis-[31.5%] shrink-0 bg-white py-2 px-3
+    }
+
+    .handschrift-sammlung .ueberschrift-gruppe {
+      @apply w-full
+    }
+
+    .handschrift-sammlung .information {
+      @apply bg-slate-50 border border-gray-400 px-4 py-1.5 mr-4
+    }
+
+    .handschrift-sammlung .handschrift-liste {
+      @apply w-full mr-4
+    }
+
+    .handschrift-sammlung .beschreibung {
+      @apply mt-1.5
+    }
+
+    .handschrift-sammlung .ueberschrift-gruppe {
+      @apply text-xl font-bold
+    }
+
+    .feld {
+      @apply rounded-md text-sm mr-1 bg-slate-200 font-bold px-1.5 mb-0.5 max-w-[90ch]
+    }
+
+    .handschrift-sammlung .wert {
+      @apply py-0.5 px-1
+    }
+
+    .literaturliste li {
+      @apply pl-6 -indent-6
+    }
+
+    .timeline {
+      @apply sm:grid sm:grid-cols-12 grid-flow-row max-w-[90ch]
+    }
+
+    .timeline .time {
+      @apply col-span-1 py-1.5 font-bold sm:text-right px-2 mt-2.5 sm:mt-0
+    }
+
+    .timeline .entry {
+      @apply col-span-11 sm:px-3 sm:py-1.5 px-2
+    }
+
+    .timeline>div:nth-child(4n+1),
+    .timeline>div:nth-child(4n+2)
+    {
+      @apply bg-slate-200
+    }
+
+    .legende table tr:nth-child(2n-1) {
+      @apply bg-slate-100
+    }
+
+    .legende table td:nth-child(1) {
+      @apply text-right px-1 border-r-2 border-slate-200
+    }
+
+    .legende table td {
+      @apply px-1.5
+    }
+
+    .maincolumn p {
+      @apply max-w-[85ch] hyphenation mb-4
+    }
+  }
+
+  #navigation-button {
+    width: 3.5rem;
+    height: 3.5rem;
+    stroke: #000;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: miter;
+    fill: none;
+    color: #000;
+  }
+
+  .handschrift-sammlung .handschrift-liste ol {
+    list-style-type: disc; 
+    list-style-position: outside; 
+  }
+
+  .hidden-important {
+    display: none !important;
+  }
+
+  .hyphenation {
+    hyphens: auto;
+  }
+
+  .sidebar-nav .active::before {
+    content: "· ";
+  }
+  
+
+  .twocolumns {
+    columns: 2;
+  }
+
+  .avoidbreak {
+    break-inside: avoid;
+  }
+
+  .Kommentar {
+
+  }

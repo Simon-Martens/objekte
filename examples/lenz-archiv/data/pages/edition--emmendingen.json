@@ -1,0 +1,15 @@
+{
+  "source": "src/dynamic/edition/emmendingen.njk",
+  "body": "<div class=\"maincolumn\">\n<img class=\"mx-4 h-[380px] sm:float-right mb-4\" src=\"/static/edition/hochburg.jpg\">\n<p>Im illustrierten Heft 137 [<a href=\"https://www.dla-marbach.de/shop/shop-einzelansicht/365/837/?cHash=754d58ee1a8aeac11991c24a3c07b677\">&rarr; DLA Marbach</a>] der bibliophilen Marbacher Reihe SPUREN geht es um die Aufenthalte von Lenz in Emmendingen. Immer wieder verschlug es ihn in den Jahren 1775 bis 1779 zu Johann Georg und Cornelia Schlosser nach Emmendingen, zunächst als hoffnungsvoller Schriftsteller gemeinsam mit Johann Wolfgang Goethe, Cornelia Schlossers Bruder.  \n<p>Nach dem Zerwürfnis mit Goethe fand Lenz dann im Jahr 1778 psychisch krank in Emmendingen und Umgebung Zuflucht. Von hier aus holte man ihn schließlich auch zurück in die baltische Heimat. Literarischen Niederschlag haben Emmendingen, die Ruine Hochburg, die Freundschaft mit Johann Georg und die unerfüllte Liebe zu Cornelia Schlosser u.a. in Gedichten, in „Das Hochburger Schloss“, in „Moralische Bekehrung eines Poeten“ und in „Der Landprediger“ gefunden. \n</div>\n",
+  "assets": [
+    "edition/hochburg.jpg"
+  ],
+  "title": "SPUREN 137: Lenz in Emmendingen",
+  "description": "Lenz in Emmendingen",
+  "eleventyNavigation": {
+    "key": "Lenz in Emmendingen",
+    "parent": "Edition",
+    "order": 2,
+    "status": "Abgeschlossen"
+  }
+}

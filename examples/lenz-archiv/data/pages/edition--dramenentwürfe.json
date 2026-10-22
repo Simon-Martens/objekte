@@ -1,0 +1,15 @@
+{
+  "source": "src/dynamic/edition/dramenentwürfe.njk",
+  "body": "<div class=\"maincolumn\">\n<img class=\"mx-4 h-[380px] sm:float-right mb-4\" src=\"/static/edition/bild_dramenentwuerfe.jpg\">\n<p>Die Dramenentwürfe zählen zu den eindrucksvollsten Zeugnissen Lenz’ literarischen Arbeitens. Die Kritische Ausgabe erschließt sie erstmals in einer Editionsform, die den Schreibprozess selbst zeigt. Farbige Faksimiles und diplomatische Umschriften bewahren die Dynamik der Manuskripte mit ihren Streichungen, Ergänzungen, Umstellungen und poetologischen Notaten. Die Edition eröffnet neue Perspektiven auf Lenz’ Poetik und macht einen zentralen Bestand des Nachlasses in seiner materiellen und konzeptuellen Komplexität erstmals zugänglich.\n\n<p>Insgesamt umfasst die Ausgabe drei Bände: Band 1 vereint die Entwürfe zu „Die Kleinen“ und „Der tugendhafte Taugenichts“ (Publikation geplant für 2026). Der zweite Band enthält „Catharina von Siena“, der dritte die weniger umfangreichen Dramenentwürfe. Erscheinen wird die Kritische Ausgabe der Dramenentwürfe beim Universitätsverlag Winter Heidelberg.\n\n</div>\n",
+  "assets": [
+    "edition/bild_dramenentwuerfe.jpg"
+  ],
+  "title": "Dramenentwürfe. Kritische Ausgabe",
+  "description": "Editionsvorhaben einer kritischen Briefausgabe der Briefe von Jakob Lenz",
+  "eleventyNavigation": {
+    "key": "Dramenentwürfe. Kritische Ausgabe",
+    "parent": "Edition",
+    "order": 4,
+    "status": "Laufend"
+  }
+}

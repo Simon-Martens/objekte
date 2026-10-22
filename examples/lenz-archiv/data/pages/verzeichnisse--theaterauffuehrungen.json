@@ -1,0 +1,11 @@
+{
+  "source": "src/dynamic/verzeichnisse/theaterauffuehrungen.njk",
+  "body": "<p class=\"mb-4 max-w-[80ch]\"> Unter Mitarbeit von Dr. Judith Schäfer \n\n<div class=\"mb-4 hyphenation w-full\">\n    <p class=\"mb-4 max-w-[80ch]\">Berücksichtigt sind nur Inszenierungen von Werken, von denen Lenz im engeren Sinne der Urheber ist (also nicht Opernbearbeitungen, biographische Annäherungen, Büchners „Lenz“ etc.). Ergänzungen sind jederzeit willkommen. \n</div>\n\n<div class=\"searchbar\">\n      <input type=\"text\" name=\"keyword\" class=\"form-control input-sm\" placeholder=\"Liste durchsuchen...\">\n      <button class=\"showifsearching\" onclick=\"searchreset();\" alt=\"Clear the search form\">Zurücksetzen</button>\n      <div class=\"hideifsearching\">\n        Jahr&nbsp;\n        <select onchange=\"window.location.href=this.value\" id=\"listselect\">\n          {% set jahr = \"\" %}\n          {% set count = 0 %}\n          {%- for post in collections.theater -%}\n            {% if count % 1 == 0 and jahr !== post.data.Jahr %}\n                <option value=\"#{{ post.data.Jahr }}\">{{ post.data.Jahr }}</option>\n                {% set jahr = post.data.Jahr %}\n            {% endif %}\n            {% set count = count + 1 %}\n          {%- endfor -%}\n        </select>\n      </div>\n      <button id=\"scrollbutton\" href=\"#top\">↑&nbsp;hoch</button>\n</div>\n\n<div class=\"yearlist\" id=\"list\">\n  {% set jahr = \"\" %}\n  {%- for post in collections.theater -%}\n    {% if post.data.Jahr !== jahr %}\n      {% if jahr !== \"\" %}\n        </div>\n        </div>\n      {% endif %}\n      {% set jahr = post.data.Jahr %}\n      <div class=\"category\" id=\"{{ jahr }}\">\n      <div class=\"categorytitle\" >{{ jahr }}</div>\n      <div class=\"categorybody\">\n    {% endif %}\n    <div class=\"searchable\">{{ post.content | safe }}</div>\n  {%- endfor -%}\n  </div>\n  </div>\n</div>",
+  "title": "Theateraufführungen",
+  "description": "Verzeichnis von Theateraufführungen von Jakob Michael Reinhold Lenz’ Stücken",
+  "eleventyNavigation": {
+    "key": "Theateraufführungen",
+    "parent": "Verzeichnisse",
+    "order": 7
+  }
+}

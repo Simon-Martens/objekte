@@ -1,0 +1,12 @@
+{
+  "source": "src/dynamic/verzeichnisse/posthume_ausgaben.njk",
+  "body": "<div class=\"searchbar\">\n      <input type=\"text\" name=\"keyword\" class=\"form-control input-sm\" placeholder=\"Liste durchsuchen...\">\n      <button class=\"showifsearching\" onclick=\"searchreset();\" alt=\"Clear the search form\">Zurücksetzen</button>\n      <div class=\"hideifsearching\">\n        Jahr&nbsp;\n        <select onchange=\"window.location.href=this.value\" id=\"listselect\">\n          {% set jahr = \"\" %}\n          {% set count = 0 %}\n          {%- for post in collections.posthumeausgaben -%}\n            {% if count % 1 == 0 and jahr !== post.data.Jahr %}\n                <option value=\"#{{ post.data.Jahr }}\">{{ post.data.Jahr }}</option>\n                {% set jahr = post.data.Jahr %}\n            {% endif %}\n            {% set count = count + 1 %}\n          {%- endfor -%}\n        </select>\n      </div>\n      <button id=\"scrollbutton\" href=\"#top\">↑&nbsp;oben</button>\n</div>\n\n<div class=\"yearlist\" id=\"list\">\n  {% set jahr = \"\" %}\n  {%- for post in collections.posthumeausgaben -%}\n    {% if post.data.Jahr !== jahr %}\n      {% if jahr !== \"\" %}\n        </div>\n        </div>\n      {% endif %}\n      {% set jahr = post.data.Jahr %}\n      <div class=\"category\" id=\"{{ jahr }}\">\n      <div class=\"categorytitle\" >{{ jahr }}</div>\n      <div class=\"categorybody\">\n    {% endif %}\n    <div class=\"searchable\">{{ post.content | safe }}</div>\n  {%- endfor -%}\n  </div>\n  </div>\n</div>",
+  "title": "Posthume Ausgaben und Editionen",
+  "description": "Überblick über posthume Ausgaben von Jakob Michael Reinhold Lenz",
+  "eleventyNavigation": {
+    "key": "Posthume Ausgaben",
+    "parent": "Verzeichnisse",
+    "order": 4,
+    "pdf": "no"
+  }
+}

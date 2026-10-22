@@ -1,0 +1,15 @@
+{
+  "source": "src/dynamic/edition/zeichnungen.njk",
+  "body": "<div class=\"maincolumn\">\n<img class=\"mx-4 h-[380px] sm:float-right mb-4\" src=\"/static/edition/bild_zeichnungen.jpg\">\n<p>Lenz hat in seinen Manuskripten einige Zeichnungen hinterlassen, die in dem Band, der 2021 beim\nWehrhahn Verlag erschienen ist, <a\nhref=\"https://www.wehrhahn-verlag.de/public/index.php?ID_Section=2&ID_Product=1458\">erstmals gesammelt vorgestellt werden &rarr;</a>. Die Faksimilierung der Zeichnungen schließt ihren handschriftlichen Kontext mit ein: Sie finden sich in Gedichten, Briefen, sozialreformerischen Schriften und kleinen Prosastücken. Schreiben und Skizzieren gehen bei Lenz eine dynamische Einheit ein. Erläuterungen betten die Zeichnungen biographisch ein und untersuchen deren Entstehung sowie die poetologischen Bezüge.\n\n<p>Neben diesen Skizzen aus dem Nachlass existieren auch einige Schattenrisse, Radierungen, Zeichnungen und Kupferstiche, die Lenz selbst zeigen. Diese Abbildungen zirkulieren vor allem in Briefen und prägen das Bild, das den Zeitgenossen von Lenz – und uns heute – vor Augen steht. Diese Darstellungen werden im Rahmen von Lenz’ Begeisterung für die Physiognomie eingeführt und vorgestellt. Diesen Skizzen und Porträts entlang seines Lebens folgend, wird Lenz als Schriftsteller sichtbar, der „auch zeichnen“ kann.\n\n</div>\n",
+  "assets": [
+    "edition/bild_zeichnungen.jpg"
+  ],
+  "title": "Zeichnungen",
+  "description": "Ausgabe der Zeichnungen von Jakob Lenz",
+  "eleventyNavigation": {
+    "key": "Zeichnungen",
+    "parent": "Edition",
+    "order": 1,
+    "status": "Abgeschlossen"
+  }
+}

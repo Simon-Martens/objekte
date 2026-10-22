@@ -1,0 +1,13 @@
+{
+  "source": "src/dynamic/kontakt.njk",
+  "body": "<div class>\n\n  <img src=\"/static/kontakt/bild kontakt.jpg\"  height=\"140\" width=\"240\" border=\"2\" align=\"right\" hspace=\"10\" vspace=\"00\">\n\n<p>Um das Lenzsche Werk zu bewahren und Impulse für die wissenschaftliche Beschäftigung zu setzen, versammelt das Jakob Lenz Archiv Heidelberg Nachlasskopien und die Forschungsliteratur. Daneben enthält das Archiv auch sonstiges für die Auseinandersetzung mit Lenz relevantes Material wie z.B. Rezeptionszeugnisse. Das Archiv steht Interessierten nach Anmeldung zur wissenschaftlichen Arbeit zur Verfügung. Anregungen, Korrekturen und Ergänzungen sind jederzeit willkommen.<br>\n\n\n<p><br><a href=\"https://www.germanistenverzeichnis.phil.uni-erlangen.de/institutslisten/files/gb/05400_gb/5478_gb.html\">&rarr; Dr. Gregor Babelotzky</a>  \n<p>lenz-archiv@tss-hd.de\n<p>+49 (0) 6221 5 99 68 10\n\n<p><br>Jakob Lenz Archiv \n<p>Theodor Springmann Stiftung\n<p>Hirschgasse 2\n<p>69120 Heidelberg \n</div>\n",
+  "assets": [
+    "kontakt/bild kontakt.jpg"
+  ],
+  "title": "Kontakt",
+  "description": "Kontakt, Jakob Michael Reinhold Lenz Archiv Heidelberg",
+  "eleventyNavigation": {
+    "key": "Kontakt",
+    "order": 4
+  }
+}

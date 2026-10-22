@@ -1,0 +1,11 @@
+{
+  "source": "src/dynamic/verzeichnisse/uebersetzungen.njk",
+  "body": "<div class=\"searchbar\">\n      <input type=\"text\" name=\"keyword\" class=\"form-control input-sm\" placeholder=\"Liste durchsuchen...\">\n      <button class=\"showifsearching\" onclick=\"searchreset();\" alt=\"Clear the search form\">Zurücksetzen</button>\n      <div class=\"hideifsearching\">\n        Sprache&nbsp;\n        <select onchange=\"window.location.href=this.value\" id=\"listselect\">\n          {% set sprache = \"\" %}\n          {% set count = 0 %}\n          {%- for post in collections.uebersetzungen -%}\n            {% if count % 1 == 0 and sprache !== post.data.Sprache %}\n                <option value=\"#{{ post.data.Sprache }}\">{{ post.data.Sprache }}</option>\n                {% set sprache = post.data.Sprache %}\n            {% endif %}\n            {% set count = count + 1 %}\n          {%- endfor -%}\n        </select>\n      </div>\n      <button id=\"scrollbutton\" href=\"#top\">↑&nbsp;hoch</button>\n</div>\n\n<div class=\"yearlist\" id=\"list\">\n  {% set sprache = \"\" %}\n  {%- for post in collections.uebersetzungen -%}\n    {% if post.data.Sprache !== sprache %}\n      {% if sprache !== \"\" %}\n        </div>\n        </div>\n      {% endif %}\n      {% set sprache = post.data.Sprache %}\n      <div class=\"category\" id=\"{{ sprache }}\">\n      <div class=\"categorytitle !basis-2/12\" >{{ sprache }}</div>\n      <div class=\"categorybody\">\n    {% endif %}\n    <div class=\"searchable\">{{ post.content | safe }}</div>\n  {%- endfor -%}\n  </div>\n  </div>\n</div>",
+  "title": "Übersetzungen",
+  "description": "Übersetzungen von Werken von Jakob Michael Reinhold Lenz",
+  "eleventyNavigation": {
+    "key": "Übersetzungen",
+    "parent": "Verzeichnisse",
+    "order": 5
+  }
+}

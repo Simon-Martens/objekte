@@ -1,0 +1,1370 @@
+use crate::{Collection, Config, Error, IdStrategy, Result, safe_name};
+use pulldown_cmark::{Event, Parser, Tag};
+use serde::{Deserialize, Serialize};
+use serde_json::{Map, Value};
+use sha2::{Digest, Sha256};
+use std::{
+    collections::{BTreeMap, BTreeSet, HashMap, HashSet},
+    fs::{self, OpenOptions},
+    io::Write,
+    path::{Path, PathBuf},
+    sync::{Arc, Mutex},
+    time::{Duration, Instant},
+};
+
+type FieldValueKey = (String, String, Vec<(String, String)>);
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct ValidationIssue {
+    pub path: String,
+    pub message: String,
+}
+
+#[derive(Debug, Clone, Serialize)]
+pub struct Document {
+    pub id: String,
+    pub value: Value,
+    pub revision: String,
+}
+
+#[derive(Debug, Clone, Serialize)]
+pub struct RecordSummary {
+    pub id: String,
+    pub label: String,
+}
+
+#[derive(Debug, Clone, Serialize)]
+pub struct CategoryNode {
+    pub value: String,
+    pub label: String,
+    pub count: usize,
+    pub description: Option<String>,
+    pub order: Option<i64>,
+    pub children: Vec<CategoryNode>,
+}
+
+#[derive(Debug, Clone, Serialize)]
+pub struct Reference {
+    pub collection: String,
+    pub record_id: String,
+    pub path: String,
+}
+
+#[derive(Clone)]
+pub struct Editor {
+    config: Arc<Config>,
+    validators: Arc<Validators>,
+    locks: Arc<Mutex<HashMap<PathBuf, Arc<Mutex<()>>>>>,
+    pub(crate) write_guard: Arc<Mutex<()>>,
+    field_value_cache: Arc<Mutex<HashMap<FieldValueKey, (Instant, Vec<String>)>>>,
+}
+
+struct Validators {
+    project: jsonschema::Validator,
+    collections: HashMap<String, jsonschema::Validator>,
+}
+
+impl Editor {
+    pub fn open(root: impl AsRef<Path>) -> Result<Self> {
+        Self::new(Config::load(root)?)
+    }
+
+    pub fn new(config: Config) -> Result<Self> {
+        let project = jsonschema::draft202012::options()
+            .offline()
+            .build(&config.schema_value)
+            .map_err(|e| Error::Config(e.to_string()))?;
+        let mut collections = HashMap::new();
+        for (name, collection) in &config.collections {
+            let validator = jsonschema::draft202012::options()
+                .offline()
+                .build(&collection.schema_value)
+                .map_err(|e| Error::Config(format!("{name}: {e}")))?;
+            collections.insert(name.clone(), validator);
+        }
+        Ok(Self {
+            config: Arc::new(config),
+            validators: Arc::new(Validators {
+                project,
+                collections,
+            }),
+            locks: Arc::new(Mutex::new(HashMap::new())),
+            write_guard: Arc::new(Mutex::new(())),
+            field_value_cache: Arc::new(Mutex::new(HashMap::new())),
+        })
+    }
+    pub fn config(&self) -> &Config {
+        &self.config
+    }
+
+    pub fn list(
+        &self,
+        collection: &str,
+        query: &str,
+        offset: usize,
+        limit: usize,
+    ) -> Result<Vec<RecordSummary>> {
+        self.search_with_category(collection, query, None, None, &[], offset, limit)
+    }
+
+    pub fn list_in_category(
+        &self,
+        collection: &str,
+        query: &str,
+        category: &[String],
+        offset: usize,
+        limit: usize,
+    ) -> Result<Vec<RecordSummary>> {
+        self.search_with_category(collection, query, None, None, category, offset, limit)
+    }
+
+    pub fn categories(&self, collection: &str) -> Result<Vec<CategoryNode>> {
+        let c = self.config.collection(collection)?;
+        let mut roots = Vec::new();
+        if c.categories.is_empty() {
+            return Ok(roots);
+        }
+        for (depth, level) in c.categories.iter().enumerate() {
+            let Some(target_name) = &level.collection else {
+                continue;
+            };
+            let target = self.config.collection(target_name)?;
+            for file_path in self.files(target_name)? {
+                let value = parse(target, &fs::read(&file_path)?)?;
+                let id = record_id(target, &file_path, &value)?;
+                let display = level.display.as_deref().unwrap_or(&target.display);
+                let label = display_label(&value, target, display, &id);
+                let nodes = if depth == 0 {
+                    &mut roots
+                } else {
+                    let parent_field = level.parent_field.as_deref().unwrap();
+                    let parent_id = field(&value, parent_field)
+                        .and_then(Value::as_str)
+                        .ok_or_else(|| {
+                            Error::Data(format!("{target_name}/{id}: missing {parent_field}"))
+                        })?;
+                    &mut find_category_at_depth(&mut roots, depth - 1, parent_id)
+                        .ok_or_else(|| {
+                            Error::Data(format!(
+                                "{target_name}/{id}: unknown category parent {parent_id}"
+                            ))
+                        })?
+                        .children
+                };
+                let node = category_node(nodes, &id, &label);
+                node.description = level
+                    .description_field
+                    .as_deref()
+                    .and_then(|name| field(&value, name))
+                    .and_then(Value::as_str)
+                    .map(str::to_owned);
+                node.order = level
+                    .order_field
+                    .as_deref()
+                    .and_then(|name| field(&value, name))
+                    .and_then(Value::as_i64);
+            }
+        }
+        for entry in &c.category_entries {
+            let mut nodes = &mut roots;
+            for (index, part) in entry.path.iter().enumerate() {
+                let node = category_node(nodes, part, part);
+                if index + 1 == entry.path.len() {
+                    if let Some(label) = &entry.label {
+                        node.label = label.clone();
+                    }
+                    node.description = entry.description.clone();
+                    node.order = entry.order;
+                }
+                nodes = &mut node.children;
+            }
+        }
+        for path in self.files(collection)? {
+            let value = parse(c, &fs::read(path)?)?;
+            let mut nodes = &mut roots;
+            for level in &c.categories {
+                let Some(key) = field(&value, &level.field)
+                    .and_then(Value::as_str)
+                    .filter(|s| !s.is_empty())
+                else {
+                    break;
+                };
+                let label = level
+                    .display
+                    .as_deref()
+                    .and_then(|name| field(&value, name))
+                    .and_then(Value::as_str)
+                    .unwrap_or(key);
+                let node = category_node(nodes, key, label);
+                node.count += 1;
+                nodes = &mut node.children;
+            }
+        }
+        sort_categories(&mut roots);
+        Ok(roots)
+    }
+
+    pub fn field_values(
+        &self,
+        collection: &str,
+        field_name: &str,
+        scope: &BTreeMap<String, String>,
+        query: &str,
+        limit: usize,
+    ) -> Result<Vec<String>> {
+        let c = self.config.collection(collection)?;
+        for name in std::iter::once(field_name).chain(scope.keys().map(String::as_str)) {
+            let mut property = &c.schema_value;
+            for part in name.split('.') {
+                property = resolve_ref(&c.schema_value, property, 0)?
+                    .get("properties")
+                    .and_then(|properties| properties.get(part))
+                    .ok_or_else(|| Error::Data(format!("unknown field {name}")))?;
+            }
+            let property = resolve_ref(&c.schema_value, property, 0)?;
+            if property.get("type").and_then(Value::as_str) != Some("string") {
+                return Err(Error::Data(format!("field {name} must be a string")));
+            }
+        }
+        let key = (
+            collection.to_owned(),
+            field_name.to_owned(),
+            scope
+                .iter()
+                .map(|(field, value)| (field.clone(), value.clone()))
+                .collect(),
+        );
+        let cached = self.field_value_cache.lock().unwrap().get(&key).cloned();
+        let values = if let Some((created, values)) = cached {
+            if created.elapsed() < Duration::from_secs(60) {
+                values
+            } else {
+                self.collect_field_values(c, collection, field_name, scope, &key)?
+            }
+        } else {
+            self.collect_field_values(c, collection, field_name, scope, &key)?
+        };
+        let needle = query.to_lowercase();
+        let mut matches: Vec<String> = values
+            .into_iter()
+            .filter(|value| value.to_lowercase().contains(&needle))
+            .collect();
+        matches.sort_by(|a, b| {
+            let a_prefix = a.to_lowercase().starts_with(&needle);
+            let b_prefix = b.to_lowercase().starts_with(&needle);
+            b_prefix
+                .cmp(&a_prefix)
+                .then(a.to_lowercase().cmp(&b.to_lowercase()))
+        });
+        matches.truncate(limit.min(100));
+        Ok(matches)
+    }
+
+    fn collect_field_values(
+        &self,
+        c: &Collection,
+        collection: &str,
+        field_name: &str,
+        scope: &BTreeMap<String, String>,
+        key: &FieldValueKey,
+    ) -> Result<Vec<String>> {
+        let mut values = BTreeSet::new();
+        for path in self.files(collection)? {
+            let value = parse(c, &fs::read(path)?)?;
+            if !scope.iter().all(|(name, expected)| {
+                field(&value, name).and_then(Value::as_str) == Some(expected)
+            }) {
+                continue;
+            }
+            if let Some(found) = field(&value, field_name)
+                .and_then(Value::as_str)
+                .filter(|s| !s.trim().is_empty())
+            {
+                values.insert(found.to_owned());
+            }
+        }
+        let values: Vec<String> = values.into_iter().collect();
+        self.field_value_cache
+            .lock()
+            .unwrap()
+            .insert(key.clone(), (Instant::now(), values.clone()));
+        Ok(values)
+    }
+
+    fn clear_field_values(&self, collection: &str) {
+        self.field_value_cache
+            .lock()
+            .unwrap()
+            .retain(|key, _| key.0 != collection);
+    }
+
+    pub fn search_relation(
+        &self,
+        collection: &str,
+        query: &str,
+        display: Option<&str>,
+        search: Option<&[String]>,
+        offset: usize,
+        limit: usize,
+    ) -> Result<Vec<RecordSummary>> {
+        self.search_with_category(collection, query, display, search, &[], offset, limit)
+    }
+
+    fn search_with_category(
+        &self,
+        collection: &str,
+        query: &str,
+        display: Option<&str>,
+        search: Option<&[String]>,
+        category: &[String],
+        offset: usize,
+        limit: usize,
+    ) -> Result<Vec<RecordSummary>> {
+        let c = self.config.collection(collection)?;
+        if category.len() > c.categories.len() {
+            return Err(Error::Data("category path is too deep".into()));
+        }
+        let display = display.unwrap_or(&c.display);
+        let search = search.unwrap_or(&c.search);
+        let q = query.to_lowercase();
+        let mut result = Vec::new();
+        let mut ids = HashSet::new();
+        for path in self.files(collection)? {
+            let bytes = fs::read(&path)?;
+            let value = parse(c, &bytes)?;
+            let id = record_id(c, &path, &value)?;
+            if !ids.insert(id.clone()) {
+                return Err(Error::Data(format!("duplicate ID {id} in {collection}")));
+            }
+            if !category.iter().zip(&c.categories).all(|(expected, level)| {
+                field(&value, &level.field).and_then(Value::as_str) == Some(expected.as_str())
+            }) {
+                continue;
+            }
+            let label = display_label(&value, c, display, &id);
+            if q.is_empty()
+                || id.to_lowercase().contains(&q)
+                || search.iter().any(|s| {
+                    field(&value, s)
+                        .map(|v| v.to_string().to_lowercase().contains(&q))
+                        .unwrap_or(false)
+                })
+            {
+                result.push(RecordSummary { id, label });
+            }
+        }
+        result.sort_by(|a, b| a.label.cmp(&b.label).then(a.id.cmp(&b.id)));
+        Ok(result
+            .into_iter()
+            .skip(offset)
+            .take(limit.min(100))
+            .collect())
+    }
+
+    pub fn get(&self, collection: &str, id: &str) -> Result<Document> {
+        let c = self.config.collection(collection)?;
+        let path = self.find_path(collection, id)?;
+        let bytes = fs::read(&path)?;
+        let value = parse(c, &bytes)?;
+        Ok(Document {
+            id: id.into(),
+            value,
+            revision: hash(&bytes),
+        })
+    }
+
+    pub fn validate_new_id(&self, collection: &str, id: &str) -> Result<Vec<ValidationIssue>> {
+        self.config.collection(collection)?;
+        if safe_name(id).is_err() {
+            return Ok(vec![ValidationIssue {
+                path: "/id".into(),
+                message: "ID must be 1–255 bytes and cannot contain slashes, backslashes, or control characters".into(),
+            }]);
+        }
+        match self.find_path(collection, id) {
+            Ok(_) => Ok(vec![ValidationIssue {
+                path: "/id".into(),
+                message: "ID already exists in this collection".into(),
+            }]),
+            Err(Error::NotFound(_)) => Ok(Vec::new()),
+            Err(error) => Err(error),
+        }
+    }
+
+    pub fn generate_id(&self, collection: &str, value: &Value) -> Result<String> {
+        let c = self.config.collection(collection)?;
+        let label = display_label(value, c, &c.display, "record");
+        let mut stem = String::new();
+        for ch in deunicode::deunicode(&label).chars() {
+            if ch.is_ascii_alphanumeric() {
+                stem.push(ch.to_ascii_lowercase());
+            } else if !stem.is_empty() && !stem.ends_with('-') {
+                stem.push('-');
+            }
+            if stem.len() >= 80 {
+                break;
+            }
+        }
+        let stem = stem.trim_end_matches('-');
+        let stem = if stem.is_empty() { "record" } else { stem };
+        for number in 1..=u32::MAX {
+            let candidate = if number == 1 {
+                stem.to_string()
+            } else {
+                format!("{stem}-{number}")
+            };
+            if self.validate_new_id(collection, &candidate)?.is_empty() {
+                return Ok(candidate);
+            }
+        }
+        Err(Error::Data("could not find a unique ID".into()))
+    }
+
+    pub fn resolve_relation(
+        &self,
+        collection: &str,
+        id: &str,
+        display: Option<&str>,
+    ) -> Result<RecordSummary> {
+        let c = self.config.collection(collection)?;
+        let doc = self.get(collection, id)?;
+        let label = display_label(&doc.value, c, display.unwrap_or(&c.display), id);
+        Ok(RecordSummary {
+            id: id.into(),
+            label,
+        })
+    }
+
+    pub fn references_to(&self, collection: &str, id: &str) -> Result<Vec<Reference>> {
+        self.config.collection(collection)?;
+        safe_name(id)?;
+        let mut references = Vec::new();
+        for (source_name, source) in &self.config.collections {
+            for file in self.files(source_name)? {
+                let value = parse(source, &fs::read(&file)?)?;
+                let source_id = record_id(source, &file, &value)?;
+                visit_relations(
+                    &source.schema_value,
+                    &source.schema_value,
+                    &value,
+                    "",
+                    0,
+                    &mut |target, referenced_id, allow_unresolved, path| {
+                        if !allow_unresolved && target == collection && referenced_id == id {
+                            references.push(Reference {
+                                collection: source_name.clone(),
+                                record_id: source_id.clone(),
+                                path: path.into(),
+                            });
+                        }
+                        Ok(())
+                    },
+                )?;
+                visit_markdown_links(&value, "", &mut |destination, field_path| {
+                    if let Some((target, referenced_id)) = record_link_target(destination)
+                        && target == collection
+                        && referenced_id == id
+                    {
+                        references.push(Reference {
+                            collection: source_name.clone(),
+                            record_id: source_id.clone(),
+                            path: field_path.into(),
+                        });
+                    }
+                });
+            }
+        }
+        unique_references(&mut references);
+        Ok(references)
+    }
+
+    pub fn media_references(&self, path: &str) -> Result<Vec<Reference>> {
+        if !self.media_path(path, true)?.is_file() {
+            return Err(Error::InvalidPath(path.into()));
+        }
+        self.media_references_under(path)
+    }
+
+    pub(crate) fn media_references_under(&self, path: &str) -> Result<Vec<Reference>> {
+        self.media_path(path, true)?;
+        let mut references = Vec::new();
+        let child_prefix = format!("{path}/");
+        for (source_name, source) in &self.config.collections {
+            for file in self.files(source_name)? {
+                let value = parse(source, &fs::read(&file)?)?;
+                let source_id = record_id(source, &file, &value)?;
+                visit_markdown_links(&value, "", &mut |destination, field_path| {
+                    if let Some(linked_path) = media_link_target(destination)
+                        && (linked_path == path || linked_path.starts_with(&child_prefix))
+                    {
+                        references.push(Reference {
+                            collection: source_name.clone(),
+                            record_id: source_id.clone(),
+                            path: field_path.into(),
+                        });
+                    }
+                });
+                visit_media_fields(
+                    &source.schema_value,
+                    &source.schema_value,
+                    &value,
+                    "",
+                    0,
+                    &mut |linked_path, field_path| {
+                        if linked_path == path || linked_path.starts_with(&child_prefix) {
+                            references.push(Reference {
+                                collection: source_name.clone(),
+                                record_id: source_id.clone(),
+                                path: field_path.into(),
+                            });
+                        }
+                        Ok(())
+                    },
+                )?;
+            }
+        }
+        unique_references(&mut references);
+        Ok(references)
+    }
+
+    pub fn validate(&self, collection: &str, value: &Value) -> Result<Vec<ValidationIssue>> {
+        let c = self.config.collection(collection)?;
+        let validator = self
+            .validators
+            .collections
+            .get(collection)
+            .ok_or_else(|| Error::Config("collection validator missing".into()))?;
+        let mut issues: Vec<ValidationIssue> = validator
+            .iter_errors(value)
+            .map(|e| ValidationIssue {
+                path: e.instance_path().to_string(),
+                message: e.to_string(),
+            })
+            .collect();
+        if issues.is_empty() {
+            issues.extend(
+                self.validators
+                    .project
+                    .iter_errors(value)
+                    .map(|e| ValidationIssue {
+                        path: e.instance_path().to_string(),
+                        message: e.to_string(),
+                    }),
+            );
+        }
+        visit_relations(
+            &c.schema_value,
+            &c.schema_value,
+            value,
+            "",
+            0,
+            &mut |target, id, allow, path| {
+                if !allow {
+                    match self.find_path(target, id) {
+                        Ok(_) => {}
+                        Err(Error::NotFound(_)) => issues.push(ValidationIssue {
+                            path: path.into(),
+                            message: format!("unresolved {target} reference: {id}"),
+                        }),
+                        Err(error) => return Err(error),
+                    }
+                }
+                Ok(())
+            },
+        )?;
+        for (index, level) in c.categories.iter().enumerate() {
+            let (Some(target), Some(parent_field)) = (&level.collection, &level.parent_field)
+            else {
+                continue;
+            };
+            let Some(child_id) = field(value, &level.field).and_then(Value::as_str) else {
+                continue;
+            };
+            let Some(parent_id) =
+                field(value, &c.categories[index - 1].field).and_then(Value::as_str)
+            else {
+                continue;
+            };
+            if let Ok(child) = self.get(target, child_id)
+                && field(&child.value, parent_field).and_then(Value::as_str) != Some(parent_id)
+            {
+                issues.push(ValidationIssue {
+                    path: format!("/{}", pointer_escape(&level.field)),
+                    message: format!(
+                        "{target}/{child_id} belongs to another {}",
+                        c.categories[index - 1].label
+                    ),
+                });
+            }
+        }
+        validate_inline_fields(&c.schema_value, &c.schema_value, value, "", 0, &mut issues)?;
+        Ok(issues)
+    }
+
+    pub fn save(
+        &self,
+        collection: &str,
+        id: &str,
+        value: Value,
+        expected: Option<&str>,
+    ) -> Result<Document> {
+        let _write_guard = self.write_guard.lock().unwrap();
+        if expected.is_none() {
+            let id_issues = self.validate_new_id(collection, id)?;
+            if !id_issues.is_empty() {
+                return Err(Error::Validation(id_issues));
+            }
+        } else {
+            safe_name(id)?;
+        }
+        let c = self.config.collection(collection)?;
+        let issues = self.validate(collection, &value)?;
+        if !issues.is_empty() {
+            return Err(Error::Validation(issues));
+        }
+        if expected.is_some() {
+            for parent_field in self
+                .config
+                .collections
+                .values()
+                .flat_map(|source| source.categories.iter())
+                .filter(|level| level.collection.as_deref() == Some(collection))
+                .filter_map(|level| level.parent_field.as_deref())
+            {
+                let previous = self.get(collection, id)?;
+                if field(&previous.value, parent_field) != field(&value, parent_field)
+                    && !self.references_to(collection, id)?.is_empty()
+                {
+                    return Err(Error::Conflict(format!(
+                        "change references to {collection}/{id} before changing {parent_field}"
+                    )));
+                }
+            }
+        }
+        if let IdStrategy::Frontmatter(field_name) = &c.id
+            && value.get(field_name).and_then(Value::as_str) != Some(id)
+        {
+            return Err(Error::Validation(vec![ValidationIssue {
+                path: format!("/{field_name}"),
+                message: "identifier must match record URL".into(),
+            }]));
+        }
+        let dir = self.config.collection_dir(collection)?;
+        let path = if expected.is_some() {
+            self.find_path(collection, id)?
+        } else {
+            match self.find_path(collection, id) {
+                Ok(_) => return Err(Error::Conflict("record already exists".into())),
+                Err(Error::NotFound(_)) => {}
+                Err(error) => return Err(error),
+            }
+            dir.join(format!("{id}.{}", extension(c)))
+        };
+        let file_lock = self.lock(&path);
+        let _guard = file_lock.lock().unwrap();
+        let current = if path.exists() {
+            reject_symlink(&path)?;
+            Some(fs::read(&path)?)
+        } else {
+            None
+        };
+        match (expected, &current) {
+            (None, Some(_)) => return Err(Error::Conflict("record already exists".into())),
+            (Some(_), None) => return Err(Error::Conflict("record was removed".into())),
+            (Some(rev), Some(bytes)) if hash(bytes) != rev => {
+                return Err(Error::Conflict("record changed on disk".into()));
+            }
+            _ => {}
+        }
+        let bytes = serialize(c, &value)?;
+        atomic_write(&path, &bytes)?;
+        self.clear_field_values(collection);
+        Ok(Document {
+            id: id.into(),
+            value,
+            revision: hash(&bytes),
+        })
+    }
+
+    pub fn rename(
+        &self,
+        collection: &str,
+        old_id: &str,
+        new_id: &str,
+        mut value: Value,
+        expected: &str,
+    ) -> Result<Document> {
+        if old_id == new_id {
+            return self.save(collection, old_id, value, Some(expected));
+        }
+        let _write_guard = self.write_guard.lock().unwrap();
+        let id_issues = self.validate_new_id(collection, new_id)?;
+        if !id_issues.is_empty() {
+            return Err(Error::Validation(id_issues));
+        }
+        let collection_config = self.config.collection(collection)?;
+        let old_path = self.find_path(collection, old_id)?;
+        let old_bytes = fs::read(&old_path)?;
+        if hash(&old_bytes) != expected {
+            return Err(Error::Conflict("record changed on disk".into()));
+        }
+        if let Some(reference) = self.references_to(collection, old_id)?.first() {
+            return Err(Error::Conflict(format!(
+                "record is referenced by {}/{} at {}; update that reference before changing the ID",
+                reference.collection, reference.record_id, reference.path
+            )));
+        }
+        if let IdStrategy::Frontmatter(field_name) = &collection_config.id {
+            let object = value.as_object_mut().ok_or_else(|| {
+                Error::Validation(vec![ValidationIssue {
+                    path: "".into(),
+                    message: "record must be an object".into(),
+                }])
+            })?;
+            object.insert(field_name.clone(), Value::String(new_id.into()));
+        }
+        let issues = self.validate(collection, &value)?;
+        if !issues.is_empty() {
+            return Err(Error::Validation(issues));
+        }
+        let new_path = self
+            .config
+            .collection_dir(collection)?
+            .join(format!("{new_id}.{}", extension(collection_config)));
+        if new_path != old_path {
+            reject_symlink(&new_path)?;
+            if new_path.exists() {
+                return Err(Error::Conflict("target filename already exists".into()));
+            }
+        }
+        let bytes = serialize(collection_config, &value)?;
+        if new_path == old_path {
+            atomic_write(&old_path, &bytes)?;
+        } else {
+            atomic_create(&new_path, &bytes)?;
+            if let Err(error) = fs::remove_file(&old_path) {
+                let _ = fs::remove_file(&new_path);
+                return Err(error.into());
+            }
+            fs::File::open(self.config.collection_dir(collection)?)?.sync_all()?;
+        }
+        self.clear_field_values(collection);
+        Ok(Document {
+            id: new_id.into(),
+            value,
+            revision: hash(&bytes),
+        })
+    }
+
+    pub fn delete(&self, collection: &str, id: &str, expected: &str) -> Result<()> {
+        let _write_guard = self.write_guard.lock().unwrap();
+        let references = self.references_to(collection, id)?;
+        if let Some(reference) = references.first() {
+            return Err(Error::Conflict(format!(
+                "record is referenced by {}/{} at {}",
+                reference.collection, reference.record_id, reference.path
+            )));
+        }
+        let path = self.find_path(collection, id)?;
+        let file_lock = self.lock(&path);
+        let _guard = file_lock.lock().unwrap();
+        reject_symlink(&path)?;
+        if hash(&fs::read(&path)?) != expected {
+            return Err(Error::Conflict("record changed on disk".into()));
+        }
+        fs::remove_file(path)?;
+        self.clear_field_values(collection);
+        Ok(())
+    }
+
+    fn lock(&self, path: &Path) -> Arc<Mutex<()>> {
+        self.locks
+            .lock()
+            .unwrap()
+            .entry(path.to_owned())
+            .or_insert_with(|| Arc::new(Mutex::new(())))
+            .clone()
+    }
+
+    fn files(&self, collection: &str) -> Result<Vec<PathBuf>> {
+        let c = self.config.collection(collection)?;
+        let dir = self.config.collection_dir(collection)?;
+        let mut files = Vec::new();
+        for entry in fs::read_dir(dir)? {
+            let entry = entry?;
+            let path = entry.path();
+            if path.extension().and_then(|e| e.to_str()) == Some(extension(c)) {
+                reject_symlink(&path)?;
+                if path.is_file() {
+                    files.push(path);
+                }
+            }
+        }
+        Ok(files)
+    }
+
+    fn find_path(&self, collection: &str, id: &str) -> Result<PathBuf> {
+        safe_name(id)?;
+        let c = self.config.collection(collection)?;
+        if matches!(c.id, IdStrategy::Filename) {
+            let path = self
+                .config
+                .collection_dir(collection)?
+                .join(format!("{id}.{}", extension(c)));
+            reject_symlink(&path)?;
+            if !path.is_file() {
+                return Err(Error::NotFound(format!("record {id}")));
+            }
+            return Ok(path);
+        }
+        let mut found = None;
+        for path in self.files(collection)? {
+            let value = parse(c, &fs::read(&path)?)?;
+            if record_id(c, &path, &value)? == id {
+                if found.is_some() {
+                    return Err(Error::Data(format!("duplicate ID {id}")));
+                }
+                found = Some(path);
+            }
+        }
+        found.ok_or_else(|| Error::NotFound(format!("record {id}")))
+    }
+}
+
+fn category_node<'a>(
+    nodes: &'a mut Vec<CategoryNode>,
+    value: &str,
+    label: &str,
+) -> &'a mut CategoryNode {
+    if let Some(index) = nodes.iter().position(|node| node.value == value) {
+        return &mut nodes[index];
+    }
+    nodes.push(CategoryNode {
+        value: value.into(),
+        label: label.into(),
+        count: 0,
+        description: None,
+        order: None,
+        children: Vec::new(),
+    });
+    nodes.last_mut().unwrap()
+}
+
+fn find_category_at_depth<'a>(
+    nodes: &'a mut [CategoryNode],
+    depth: usize,
+    id: &str,
+) -> Option<&'a mut CategoryNode> {
+    if depth == 0 {
+        return nodes.iter_mut().find(|node| node.value == id);
+    }
+    for node in nodes {
+        if let Some(found) = find_category_at_depth(&mut node.children, depth - 1, id) {
+            return Some(found);
+        }
+    }
+    None
+}
+
+fn sort_categories(nodes: &mut [CategoryNode]) {
+    nodes.sort_by(|a, b| {
+        a.order
+            .is_none()
+            .cmp(&b.order.is_none())
+            .then(a.order.cmp(&b.order))
+            .then(a.label.cmp(&b.label))
+            .then(a.value.cmp(&b.value))
+    });
+    for node in nodes {
+        sort_categories(&mut node.children);
+    }
+}
+
+fn visit_relations(
+    root: &Value,
+    schema: &Value,
+    value: &Value,
+    path: &str,
+    depth: usize,
+    visit: &mut impl FnMut(&str, &str, bool, &str) -> Result<()>,
+) -> Result<()> {
+    if depth > 64 {
+        return Err(Error::Data("relation nesting too deep".into()));
+    }
+    let resolved = resolve_ref(root, schema, depth)?;
+    for keyword in ["oneOf", "anyOf", "allOf"] {
+        if let Some(branches) = resolved.get(keyword).and_then(Value::as_array) {
+            for branch in branches {
+                if jsonschema::draft202012::options()
+                    .offline()
+                    .build(branch)
+                    .map(|v| v.is_valid(value))
+                    .unwrap_or(false)
+                {
+                    visit_relations(root, branch, value, path, depth + 1, visit)?;
+                }
+            }
+        }
+    }
+    if resolved.get("x-editor").and_then(Value::as_str) == Some("relation")
+        && let Some(id) = value.as_str()
+    {
+        let relation = &resolved["x-relation"];
+        let target = relation["collection"]
+            .as_str()
+            .ok_or_else(|| Error::Config("relation missing collection".into()))?;
+        visit(
+            target,
+            id,
+            relation["allowUnresolved"].as_bool().unwrap_or(false),
+            path,
+        )?;
+    }
+    if let Some(object) = value.as_object() {
+        for (key, child) in object {
+            if let Some(child_schema) =
+                resolved
+                    .get("properties")
+                    .and_then(|p| p.get(key))
+                    .or_else(|| {
+                        resolved
+                            .get("additionalProperties")
+                            .filter(|v| v.is_object())
+                    })
+            {
+                visit_relations(
+                    root,
+                    child_schema,
+                    child,
+                    &format!("{path}/{}", pointer_escape(key)),
+                    depth + 1,
+                    visit,
+                )?;
+            }
+        }
+    } else if let Some(array) = value.as_array() {
+        for (index, child) in array.iter().enumerate() {
+            if let Some(child_schema) = resolved
+                .get("prefixItems")
+                .and_then(|v| v.get(index))
+                .or_else(|| resolved.get("items"))
+            {
+                visit_relations(
+                    root,
+                    child_schema,
+                    child,
+                    &format!("{path}/{index}"),
+                    depth + 1,
+                    visit,
+                )?;
+            }
+        }
+    }
+    Ok(())
+}
+
+fn validate_inline_fields(
+    root: &Value,
+    schema: &Value,
+    value: &Value,
+    path: &str,
+    depth: usize,
+    issues: &mut Vec<ValidationIssue>,
+) -> Result<()> {
+    if depth > 64 {
+        return Err(Error::Data("field nesting too deep".into()));
+    }
+    let resolved = resolve_ref(root, schema, depth)?;
+    if resolved.get("x-editor").and_then(Value::as_str) == Some("inline-markdown")
+        && value
+            .as_str()
+            .is_some_and(|text| text.contains(['\n', '\r']))
+    {
+        issues.push(ValidationIssue {
+            path: path.into(),
+            message: "one-line Markdown cannot contain a line break".into(),
+        });
+    }
+    for keyword in ["oneOf", "anyOf", "allOf"] {
+        if let Some(branches) = resolved.get(keyword).and_then(Value::as_array) {
+            for branch in branches {
+                if jsonschema::draft202012::options()
+                    .offline()
+                    .build(branch)
+                    .map(|v| v.is_valid(value))
+                    .unwrap_or(false)
+                {
+                    validate_inline_fields(root, branch, value, path, depth + 1, issues)?;
+                }
+            }
+        }
+    }
+    if let Some(object) = value.as_object() {
+        for (key, child) in object {
+            if let Some(child_schema) =
+                resolved
+                    .get("properties")
+                    .and_then(|p| p.get(key))
+                    .or_else(|| {
+                        resolved
+                            .get("additionalProperties")
+                            .filter(|v| v.is_object())
+                    })
+            {
+                validate_inline_fields(
+                    root,
+                    child_schema,
+                    child,
+                    &format!("{path}/{}", pointer_escape(key)),
+                    depth + 1,
+                    issues,
+                )?;
+            }
+        }
+    } else if let Some(array) = value.as_array() {
+        for (index, child) in array.iter().enumerate() {
+            if let Some(child_schema) = resolved
+                .get("prefixItems")
+                .and_then(|v| v.get(index))
+                .or_else(|| resolved.get("items"))
+            {
+                validate_inline_fields(
+                    root,
+                    child_schema,
+                    child,
+                    &format!("{path}/{index}"),
+                    depth + 1,
+                    issues,
+                )?;
+            }
+        }
+    }
+    Ok(())
+}
+
+fn pointer_escape(s: &str) -> String {
+    s.replace('~', "~0").replace('/', "~1")
+}
+fn resolve_ref<'a>(root: &'a Value, schema: &'a Value, depth: usize) -> Result<&'a Value> {
+    if depth > 64 {
+        return Err(Error::Data("recursive schema too deep".into()));
+    }
+    if let Some(reference) = schema.get("$ref").and_then(Value::as_str) {
+        let pointer = reference
+            .strip_prefix('#')
+            .ok_or_else(|| Error::Config("external schema references are unsupported".into()))?;
+        let target = root
+            .pointer(pointer)
+            .ok_or_else(|| Error::Config(format!("unresolved schema reference {reference}")))?;
+        resolve_ref(root, target, depth + 1)
+    } else {
+        Ok(schema)
+    }
+}
+fn field<'a>(v: &'a Value, path: &str) -> Option<&'a Value> {
+    path.split('.').try_fold(v, |v, key| v.get(key))
+}
+fn display_label(value: &Value, collection: &Collection, primary: &str, id: &str) -> String {
+    let composite = if primary == collection.display && !collection.display_fields.is_empty() {
+        collection
+            .display_fields
+            .iter()
+            .filter_map(|name| field(value, name))
+            .filter_map(|part| match part {
+                Value::String(text) if !text.trim().is_empty() => Some(text.clone()),
+                Value::Number(number) => Some(number.to_string()),
+                _ => None,
+            })
+            .map(|part| plain_markdown(&part))
+            .filter(|part| !part.is_empty())
+            .collect::<Vec<_>>()
+            .join(" · ")
+    } else {
+        String::new()
+    };
+    if !composite.is_empty() {
+        return composite.chars().take(150).collect();
+    }
+    std::iter::once(primary)
+        .chain(collection.display_fallback.iter().map(String::as_str))
+        .filter_map(|field_name| field(value, field_name).and_then(Value::as_str))
+        .find(|text| !text.trim().is_empty())
+        .map(|text| plain_markdown(text).chars().take(150).collect())
+        .unwrap_or_else(|| id.into())
+}
+fn plain_markdown(text: &str) -> String {
+    let mut plain = String::new();
+    for event in Parser::new(text) {
+        match event {
+            Event::Text(part) | Event::Code(part) | Event::Html(part) | Event::InlineHtml(part) => {
+                plain.push_str(&part)
+            }
+            Event::SoftBreak | Event::HardBreak => plain.push(' '),
+            _ => {}
+        }
+    }
+    plain.trim().to_owned()
+}
+
+fn visit_markdown_links(value: &Value, path: &str, visit: &mut impl FnMut(&str, &str)) {
+    match value {
+        Value::Object(fields) => {
+            for (key, child) in fields {
+                visit_markdown_links(child, &format!("{path}/{}", pointer_escape(key)), visit);
+            }
+        }
+        Value::Array(items) => {
+            for (index, child) in items.iter().enumerate() {
+                visit_markdown_links(child, &format!("{path}/{index}"), visit);
+            }
+        }
+        Value::String(text) => {
+            let mut destinations = BTreeSet::new();
+            for event in Parser::new(text) {
+                let destination = match event {
+                    Event::Start(Tag::Link { dest_url, .. } | Tag::Image { dest_url, .. }) => {
+                        dest_url
+                    }
+                    _ => continue,
+                };
+                destinations.insert(destination.into_string());
+            }
+            for destination in destinations {
+                visit(&destination, path);
+            }
+        }
+        _ => {}
+    }
+}
+
+fn unique_references(references: &mut Vec<Reference>) {
+    references.sort_by(|a, b| {
+        (&a.collection, &a.record_id, &a.path).cmp(&(&b.collection, &b.record_id, &b.path))
+    });
+    references.dedup_by(|a, b| {
+        a.collection == b.collection && a.record_id == b.record_id && a.path == b.path
+    });
+}
+
+fn visit_media_fields(
+    root: &Value,
+    schema: &Value,
+    value: &Value,
+    path: &str,
+    depth: usize,
+    visit: &mut impl FnMut(&str, &str) -> Result<()>,
+) -> Result<()> {
+    if depth > 64 {
+        return Err(Error::Data("media field nesting too deep".into()));
+    }
+    let resolved = resolve_ref(root, schema, depth)?;
+    for keyword in ["oneOf", "anyOf", "allOf"] {
+        if let Some(branches) = resolved.get(keyword).and_then(Value::as_array) {
+            for branch in branches {
+                if jsonschema::draft202012::options()
+                    .offline()
+                    .build(branch)
+                    .map(|validator| validator.is_valid(value))
+                    .unwrap_or(false)
+                {
+                    visit_media_fields(root, branch, value, path, depth + 1, visit)?;
+                }
+            }
+        }
+    }
+    if resolved.get("x-editor").and_then(Value::as_str) == Some("media")
+        && let Some(linked_path) = value.as_str()
+    {
+        visit(linked_path, path)?;
+    }
+    if let Some(object) = value.as_object() {
+        for (key, child) in object {
+            if let Some(child_schema) = resolved
+                .get("properties")
+                .and_then(|properties| properties.get(key))
+                .or_else(|| {
+                    resolved
+                        .get("additionalProperties")
+                        .filter(|schema| schema.is_object())
+                })
+            {
+                visit_media_fields(
+                    root,
+                    child_schema,
+                    child,
+                    &format!("{path}/{}", pointer_escape(key)),
+                    depth + 1,
+                    visit,
+                )?;
+            }
+        }
+    } else if let Some(items) = value.as_array() {
+        for (index, child) in items.iter().enumerate() {
+            if let Some(child_schema) = resolved
+                .get("prefixItems")
+                .and_then(|schemas| schemas.get(index))
+                .or_else(|| resolved.get("items"))
+            {
+                visit_media_fields(
+                    root,
+                    child_schema,
+                    child,
+                    &format!("{path}/{index}"),
+                    depth + 1,
+                    visit,
+                )?;
+            }
+        }
+    }
+    Ok(())
+}
+
+fn media_link_target(destination: &str) -> Option<String> {
+    let query = destination.strip_prefix("/api/media/file?")?;
+    let raw = query
+        .split('#')
+        .next()?
+        .split('&')
+        .find_map(|part| part.strip_prefix("path="))?;
+    percent_encoding::percent_decode_str(raw)
+        .decode_utf8()
+        .ok()
+        .map(|path| path.into_owned())
+}
+
+fn record_link_target(destination: &str) -> Option<(String, String)> {
+    let route = destination.strip_prefix("#/collections/")?;
+    let mut parts = route.split('/');
+    let collection = percent_encoding::percent_decode_str(parts.next()?)
+        .decode_utf8()
+        .ok()?
+        .into_owned();
+    let id = percent_encoding::percent_decode_str(parts.next()?)
+        .decode_utf8()
+        .ok()?
+        .into_owned();
+    if parts.next().is_some() {
+        return None;
+    }
+    Some((collection, id))
+}
+
+fn extension(c: &Collection) -> &'static str {
+    if c.format == "json" { "json" } else { "md" }
+}
+fn hash(bytes: &[u8]) -> String {
+    hex::encode(Sha256::digest(bytes))
+}
+fn reject_symlink(path: &Path) -> Result<()> {
+    if let Ok(meta) = fs::symlink_metadata(path)
+        && meta.file_type().is_symlink()
+    {
+        return Err(Error::InvalidPath(path.display().to_string()));
+    }
+    Ok(())
+}
+
+fn record_id(c: &Collection, path: &Path, value: &Value) -> Result<String> {
+    let id = match &c.id {
+        IdStrategy::Filename => path.file_stem().and_then(|s| s.to_str()),
+        IdStrategy::Frontmatter(field) => value.get(field).and_then(Value::as_str),
+    }
+    .ok_or_else(|| Error::Data(format!("missing ID in {}", path.display())))?;
+    safe_name(id)?;
+    Ok(id.into())
+}
+
+fn parse(c: &Collection, bytes: &[u8]) -> Result<Value> {
+    if c.format == "json" {
+        return serde_json::from_slice(bytes).map_err(|e| Error::Data(e.to_string()));
+    }
+    let text = std::str::from_utf8(bytes).map_err(|e| Error::Data(e.to_string()))?;
+    if !text.starts_with("---\n") {
+        let mut map = Map::new();
+        map.insert("body".into(), Value::String(text.into()));
+        return Ok(Value::Object(map));
+    }
+    let end = text[4..]
+        .find("\n---\n")
+        .ok_or_else(|| Error::Data("unterminated frontmatter".into()))?
+        + 4;
+    let metadata: Value =
+        serde_yaml::from_str(&text[4..end]).map_err(|e| Error::Data(e.to_string()))?;
+    let mut map = metadata
+        .as_object()
+        .cloned()
+        .ok_or_else(|| Error::Data("frontmatter must be an object".into()))?;
+    if map.contains_key("body") {
+        return Err(Error::Data("frontmatter key 'body' is reserved".into()));
+    }
+    map.insert("body".into(), Value::String(text[end + 5..].into()));
+    Ok(Value::Object(map))
+}
+
+fn serialize(c: &Collection, value: &Value) -> Result<Vec<u8>> {
+    if c.format == "json" {
+        let mut bytes = serde_json::to_vec_pretty(value).map_err(|e| Error::Data(e.to_string()))?;
+        bytes.push(b'\n');
+        return Ok(bytes);
+    }
+    let mut map = value
+        .as_object()
+        .cloned()
+        .ok_or_else(|| Error::Data("Markdown document must be an object".into()))?;
+    let body = map
+        .remove("body")
+        .and_then(|v| v.as_str().map(str::to_owned))
+        .ok_or_else(|| Error::Data("body must be a string".into()))?;
+    if map.is_empty() {
+        return Ok(body.into_bytes());
+    }
+    let yaml = serde_yaml::to_string(&map).map_err(|e| Error::Data(e.to_string()))?;
+    Ok(format!("---\n{}---\n{}", yaml, body).into_bytes())
+}
+
+pub(crate) fn atomic_write(path: &Path, bytes: &[u8]) -> Result<()> {
+    let parent = path
+        .parent()
+        .ok_or_else(|| Error::InvalidPath(path.display().to_string()))?;
+    let temp = parent.join(format!(".editor-{}.tmp", uuid::Uuid::new_v4()));
+    let result = (|| -> Result<()> {
+        let mut file = OpenOptions::new()
+            .write(true)
+            .create_new(true)
+            .open(&temp)?;
+        file.write_all(bytes)?;
+        file.sync_all()?;
+        fs::rename(&temp, path)?;
+        fs::File::open(parent)?.sync_all()?;
+        Ok(())
+    })();
+    if result.is_err() {
+        let _ = fs::remove_file(&temp);
+    }
+    result
+}
+
+fn atomic_create(path: &Path, bytes: &[u8]) -> Result<()> {
+    let parent = path
+        .parent()
+        .ok_or_else(|| Error::InvalidPath(path.display().to_string()))?;
+    let temp = parent.join(format!(".editor-{}.tmp", uuid::Uuid::new_v4()));
+    let mut linked = false;
+    let result = (|| -> Result<()> {
+        let mut file = OpenOptions::new()
+            .write(true)
+            .create_new(true)
+            .open(&temp)?;
+        file.write_all(bytes)?;
+        file.sync_all()?;
+        fs::hard_link(&temp, path)?;
+        linked = true;
+        fs::File::open(parent)?.sync_all()?;
+        Ok(())
+    })();
+    let _ = fs::remove_file(&temp);
+    if result.is_err() && linked {
+        let _ = fs::remove_file(path);
+    }
+    result
+}

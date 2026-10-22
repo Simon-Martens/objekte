@@ -1,0 +1,15 @@
+{
+  "source": "src/dynamic/edition/briefausgabe.njk",
+  "body": "<div class=\"maincolumn\">\n<img class=\"mx-4 h-[380px] sm:float-right mb-4\" src=\"/static/edition/bild_briefe.jpg\">\n<p>Ediert werden sämtliche Briefe an und von Lenz als durchsuchbarer Volltext. Die Briefe von und an Lenz werden ohne stillschweigende Eingriffe, Vereinheitlichungen oder Kürzungen dargeboten werden, indem die Edition\njeweils direkt das Manuskript oder die primäre Drucküberlieferung heranzieht. \n<p>Aufgenommen werden nur\ntatsächliche Briefe, also keine Stammbucheinträge oder ähnliches. Grundlage ist jeweils die materiale Basis, sodass auch z.B.\npoetische Entwürfe, die sich auf Briefmanuskripten finden, mit dargestellt werden. Zur Materialität\ngibt das <a href=\"https://lenz-archiv.de/verzeichnisse/handschriften/\">Handschriftenverzeichnis des\nLenz Archivs Heidelberg &rarr;</a> detailliert Auskunft.\n\n<p>Perspektivisch sollen die Briefe auch kommentiert werden.\n\n<p><a href=\" https://lenz-briefe.de/\">Hier geht es zur Kritischen Briefausgabe</a>\n</div>\n",
+  "assets": [
+    "edition/bild_briefe.jpg"
+  ],
+  "title": "Kritische Briefausgabe",
+  "description": "Editionsvorhaben einer kritischen Briefausgabe der Briefe von Jakob Lenz",
+  "eleventyNavigation": {
+    "key": "Kritische Briefausgabe",
+    "parent": "Edition",
+    "order": 3,
+    "status": "Laufend"
+  }
+}

@@ -1,0 +1,14 @@
+services:
+  editor:
+    build: .
+    environment:
+      EDITOR_ROOT: /content
+      EDITOR_DATA_DIR: /state
+      EDITOR_INSECURE_COOKIE: "1"
+    volumes:
+      - ./examples/lenz-archiv:/content
+      - editor-state:/state
+    ports:
+      - "127.0.0.1:4321:4321"
+volumes:
+  editor-state:

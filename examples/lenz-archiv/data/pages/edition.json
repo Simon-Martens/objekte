@@ -1,0 +1,11 @@
+{
+  "source": "src/dynamic/edition.njk",
+  "body": "",
+  "title": "Edition",
+  "permalink": false,
+  "showinnav": true,
+  "eleventyNavigation": {
+    "key": "Edition",
+    "order": 1
+  }
+}
