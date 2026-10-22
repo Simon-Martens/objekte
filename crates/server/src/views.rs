@@ -1,6 +1,8 @@
 pub mod list;
+pub(crate) mod markdown_source;
 mod preview;
 pub mod validation;
+use crate::templates::Template;
 use crate::{
     assets::Assets,
     auth::Actor,
@@ -8,7 +10,6 @@ use crate::{
     fields::{Context, Registry},
     sessions::EditSession,
 };
-use askama::Template;
 use percent_encoding::{NON_ALPHANUMERIC, utf8_percent_encode};
 use structured_editor_core::{Editor, ValidationIssue};
 pub fn encode(value: &str) -> String {
@@ -25,10 +26,10 @@ pub fn escape(value: &str) -> String {
 pub fn record_url(collection: &str, id: &str) -> String {
     format!("/collections/{}/records/{}", encode(collection), encode(id))
 }
-#[derive(Template)]
-#[template(path = "shell.html")]
+crate::templates::template!(Shell<'_>, "shell.html");
+#[derive(serde::Serialize)]
 struct Shell<'a> {
-    actor: &'a Actor,
+    actor: crate::templates::ActorContext<'a>,
     navigation: String,
     content: &'a str,
     assets: &'a str,
@@ -253,7 +254,7 @@ fn tree_navigation(editor: &Editor, name: &str, show_all_links: bool) -> Result<
 }
 pub fn shell(editor: &Editor, actor: &Actor, content: &str, assets: &Assets) -> Result<String> {
     Ok(Shell {
-        actor,
+        actor: actor.into(),
         navigation: navigation(editor, content)?,
         content,
         assets: &assets.tags,
@@ -261,8 +262,8 @@ pub fn shell(editor: &Editor, actor: &Actor, content: &str, assets: &Assets) -> 
     }
     .render()?)
 }
-#[derive(Template)]
-#[template(path = "login.html")]
+crate::templates::template!(Login<'_>, "login.html");
+#[derive(serde::Serialize)]
 struct Login<'a> {
     assets: &'a str,
     message: &'a str,
@@ -302,8 +303,8 @@ pub fn collection_tree(
         actor,
     )
 }
-#[derive(Template)]
-#[template(path = "record.html")]
+crate::templates::template!(RecordView<'_>, "record.html");
+#[derive(serde::Serialize)]
 struct RecordView<'a> {
     title: String,
     url: String,
@@ -311,7 +312,7 @@ struct RecordView<'a> {
     content: String,
     edit: String,
     delete: String,
-    actor: &'a Actor,
+    actor: crate::templates::ActorContext<'a>,
     references: Vec<String>,
     children: String,
     parents: String,
@@ -359,7 +360,7 @@ pub fn record(editor: &Editor, name: &str, id: &str, actor: &Actor) -> Result<St
         parents: crate::hierarchy::parents(editor, name, id)?,
         edit: format!("{url}/edit-sessions"),
         delete: format!("{url}/delete"),
-        actor,
+        actor: actor.into(),
         references: editor
             .references_to(name, id)?
             .iter()
@@ -386,11 +387,13 @@ pub fn record(editor: &Editor, name: &str, id: &str, actor: &Actor) -> Result<St
     }
     .render()?)
 }
-#[derive(Template)]
-#[template(path = "edit.html")]
+crate::templates::template!(Edit<'_>, "edit.html");
+#[derive(serde::Serialize)]
 struct Edit<'a> {
-    session: &'a EditSession,
-    actor: &'a Actor,
+    session: SessionContext<'a>,
+    can_undo: bool,
+    can_redo: bool,
+    actor: crate::templates::ActorContext<'a>,
     fields: String,
     metadata: String,
     sidebar_fields: String,
@@ -403,6 +406,14 @@ struct Edit<'a> {
     message: &'a str,
     picker: String,
     back: String,
+}
+#[derive(serde::Serialize)]
+struct SessionContext<'a> {
+    id: &'a str,
+    version: u64,
+    proposed_id: &'a str,
+    raw: &'a Option<String>,
+    schema_warning: bool,
 }
 pub fn edit(
     editor: &Editor,
@@ -461,8 +472,16 @@ pub fn edit(
         )?);
     }
     Ok(Edit {
-        session,
-        actor,
+        session: SessionContext {
+            id: &session.id,
+            version: session.version,
+            proposed_id: &session.proposed_id,
+            raw: &session.raw,
+            schema_warning: session.schema_warning,
+        },
+        can_undo: session.history.can_undo(),
+        can_redo: session.history.can_redo(),
+        actor: actor.into(),
         fields,
         metadata,
         sidebar_fields,
@@ -531,8 +550,8 @@ pub(crate) fn patches_mode(fragments: &[String], mode: &str) -> String {
         .collect()
 }
 
-#[derive(Template)]
-#[template(path = "panel.html")]
+crate::templates::template!(Panel<'_>, "panel.html");
+#[derive(serde::Serialize)]
 struct Panel<'a> {
     url: &'a str,
     title: &'a str,

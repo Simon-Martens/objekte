@@ -1,4 +1,5 @@
 //! Deletion review keeps reference protection visible and placements actionable.
+use crate::templates::Template;
 use crate::{
     AppState,
     auth::Actor,
@@ -7,7 +8,6 @@ use crate::{
     routes::{fragment, mutation_actor, page, page_actor, stream},
     views,
 };
-use askama::Template;
 use axum::{
     Router,
     extract::{Form, Path, State},
@@ -30,6 +30,7 @@ pub fn router() -> Router<Arc<AppState>> {
         )
 }
 
+#[derive(serde::Serialize)]
 struct Placement {
     collection: String,
     id: String,
@@ -41,15 +42,16 @@ struct Placement {
     revision: String,
     editable: bool,
 }
+#[derive(serde::Serialize)]
 struct Reference {
     label: String,
     path: String,
     url: String,
 }
-#[derive(Template)]
-#[template(path = "delete.html")]
+crate::templates::template!(DeleteReview<'_>, "delete.html");
+#[derive(serde::Serialize)]
 struct DeleteReview<'a> {
-    actor: &'a Actor,
+    actor: crate::templates::ActorContext<'a>,
     title: String,
     back: String,
     revision: String,
@@ -128,7 +130,7 @@ fn render(editor: &Editor, actor: &Actor, name: &str, id: &str, message: &str) -
     }
     let back = views::record_url(name, id);
     let modal = DeleteReview {
-        actor,
+        actor: actor.into(),
         title: editor.label(name, &doc.value, id, "record")?,
         back: back.clone(),
         revision: doc.revision,

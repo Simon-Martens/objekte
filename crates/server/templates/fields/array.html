@@ -1,5 +1,5 @@
 <div class="array-items">
-  {% if items.is_empty() %}<p class="array-empty muted">No items</p>{% endif %}
+  {% if not items %}<p class="array-empty muted">No items</p>{% endif %}
   {% for item in items %}
   <div class="array-item" role="group" aria-label="Item {{ loop.index }}">
     {{ item.html|safe }}

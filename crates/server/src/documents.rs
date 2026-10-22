@@ -1,4 +1,5 @@
 //! Editor settings and arbitrary schema-assigned JSON documents share one screen.
+use crate::templates::Template;
 use crate::{
     AppState,
     auth::Actor,
@@ -6,7 +7,6 @@ use crate::{
     error::{Result, WebError},
     routes, views,
 };
-use askama::Template;
 use axum::{
     Router,
     extract::{Form, Path, Query, State},
@@ -30,8 +30,8 @@ pub fn router() -> Router<Arc<AppState>> {
         )
         .route("/settings", get(settings).post(save_settings))
 }
-#[derive(Template)]
-#[template(path = "document.html")]
+crate::templates::template!(DocumentForm<'_>, "document.html");
+#[derive(serde::Serialize)]
 struct DocumentForm<'a> {
     url: &'a str,
     validation_url: &'a str,

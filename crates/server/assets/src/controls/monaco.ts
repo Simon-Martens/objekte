@@ -20,9 +20,27 @@ import 'monaco-editor/editor/contrib/format/browser/formatActions.js';
 import 'monaco-editor/editor/contrib/toggleTabFocusMode/browser/toggleTabFocusMode.js';
 import EditorWorker from 'monaco-editor/editor/editor.worker.js?worker';
 import HtmlWorker from 'monaco-editor/languages/features/html/html.worker.js?worker';
+import editorWorkerUrl from 'monaco-editor/editor/editor.worker.js?worker&url';
+import htmlWorkerUrl from 'monaco-editor/languages/features/html/html.worker.js?worker&url';
+
+function devWorker(url: string): Worker {
+  // The page is on Rust's origin; Vite's module workers live on another port.
+  // A same-origin blob can import those CORS-enabled modules.
+  const bootstrap = URL.createObjectURL(new Blob(
+    [`import ${JSON.stringify(new URL(url, import.meta.url).href)};`],
+    { type: 'text/javascript' },
+  ));
+  const worker = new Worker(bootstrap, { type: 'module' });
+  const release = () => URL.revokeObjectURL(bootstrap);
+  worker.addEventListener('message', release, { once: true });
+  worker.addEventListener('error', release, { once: true });
+  return worker;
+}
 
 self.MonacoEnvironment = {
-  getWorker: (_id, label) => label === 'html' ? new HtmlWorker() : new EditorWorker(),
+  getWorker: (_id, label) => import.meta.env.DEV
+    ? devWorker(label === 'html' ? htmlWorkerUrl : editorWorkerUrl)
+    : label === 'html' ? new HtmlWorker() : new EditorWorker(),
 };
 monaco.editor.defineTheme('objekte-light', {
   base: 'vs', inherit: true, rules: [],

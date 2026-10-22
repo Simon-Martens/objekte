@@ -53,8 +53,8 @@ impl From<turso::Error> for WebError {
         Self::internal(e)
     }
 }
-impl From<askama::Error> for WebError {
-    fn from(e: askama::Error) -> Self {
+impl From<minijinja::Error> for WebError {
+    fn from(e: minijinja::Error) -> Self {
         Self::internal(e)
     }
 }

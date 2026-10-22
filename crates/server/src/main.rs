@@ -27,23 +27,35 @@ async fn run() -> Result<(), WebError> {
     let assets_root = std::env::var_os("EDITOR_ASSETS_DIR")
         .map(PathBuf::from)
         .unwrap_or_else(|| PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("assets/dist"));
-    let admin = std::env::args().nth(1).as_deref() == Some("admin-create");
+    let args: Vec<_> = std::env::args().skip(1).collect();
+    if args
+        .iter()
+        .any(|arg| !matches!(arg.as_str(), "admin-create" | "--dev"))
+    {
+        return Err(WebError::bad(
+            "Usage: structured-editor-server [--dev] [admin-create]",
+        ));
+    }
+    let admin = args.iter().any(|arg| arg == "admin-create");
+    let dev =
+        args.iter().any(|arg| arg == "--dev") || std::env::var("EDITOR_DEV").as_deref() == Ok("1");
+    let vite_url = std::env::var("EDITOR_VITE_URL")
+        .ok()
+        .or_else(|| dev.then(|| "http://127.0.0.1:5173".into()));
+    structured_editor_server::templates::init(dev)?;
     let assets = if admin {
         Assets {
             root: assets_root,
             tags: String::new(),
         }
     } else {
-        Assets::load(
-            &assets_root,
-            std::env::var("EDITOR_VITE_URL").ok().as_deref(),
-        )?
+        Assets::load(&assets_root, vite_url.as_deref())?
     };
     let state = AppState::open(
         &root,
         &directory,
         assets,
-        std::env::var("EDITOR_INSECURE_COOKIE").as_deref() == Ok("1"),
+        dev || std::env::var("EDITOR_INSECURE_COOKIE").as_deref() == Ok("1"),
     )
     .await?;
     if admin {
@@ -75,6 +87,9 @@ async fn run() -> Result<(), WebError> {
         .await
         .map_err(WebError::internal)?;
     tracing::info!(%bind,"Objekte Rust server listening");
+    if dev {
+        tracing::info!(vite = ?vite_url, "Development mode: live assets, templates read from disk, HTTP cookies");
+    }
     axum::serve(listener, structured_editor_server::router(state))
         .with_graceful_shutdown(async {
             let _ = tokio::signal::ctrl_c().await;

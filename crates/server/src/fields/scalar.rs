@@ -1,8 +1,8 @@
 use super::*;
 use structured_editor_core::draft::InputKind;
 pub struct Scalar;
-#[derive(Template)]
-#[template(path = "fields/scalar.html")]
+crate::templates::template!(Input<'_>, "fields/scalar.html");
+#[derive(serde::Serialize)]
 struct Input<'a> {
     id: &'a str,
     raw: &'a str,

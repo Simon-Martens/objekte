@@ -2,25 +2,25 @@
   <section class="picker delete-review" role="dialog" aria-modal="true" aria-labelledby="delete-title" aria-describedby="delete-description" tabindex="-1">
     <div class="picker-heading"><h2 id="delete-title">Delete record</h2><a class="icon-button" data-nav data-close-picker href="{{ back }}" aria-label="Close deletion review"><i class="ri-close-line" aria-hidden="true"></i></a></div>
     <p class="delete-record-title">{{ title }}</p>
-    {% if !message.is_empty() %}<p class="notice" role="status">{{ message }}</p>{% endif %}
+    {% if message %}<p class="notice" role="status">{{ message }}</p>{% endif %}
     {% if blocked %}
     <p id="delete-description" class="help">This record is still in use. Remove its list placements and resolve the references below before deleting it.</p>
     {% else %}
     <p id="delete-description" class="help">No incoming references remain. Deleting permanently removes this record from the repository and cannot be undone in the editor.</p>
     {% endif %}
-    {% if !placements.is_empty() %}
-    <section class="delete-section"><h3>List placements <span class="badge">{{ placements.len() }}</span></h3><p class="help">Removing a placement updates that list immediately. The record stays available in its collection.</p>
+    {% if placements %}
+    <section class="delete-section"><h3>List placements <span class="badge">{{ placements|length }}</span></h3><p class="help">Removing a placement updates that list immediately. The record stays available in its collection.</p>
       <ul class="delete-dependencies">{% for placement in placements %}<li>
-        <div>{% if !placement.context.is_empty() %}<span class="help">{{ placement.context }}</span>{% endif %}<a data-nav href="{{ placement.url }}">{{ placement.label }}</a><span class="help">{{ placement.list_label }}</span></div>
+        <div>{% if placement.context %}<span class="help">{{ placement.context }}</span>{% endif %}<a data-nav href="{{ placement.url }}">{{ placement.label }}</a><span class="help">{{ placement.list_label }}</span></div>
         {% if placement.editable %}<form method="post" action="{{ back }}/delete/unlink" data-indicator:_pending data-on:submit__prevent="@post(el.getAttribute('action'),{contentType:'form',retry:'never',retryMaxCount:0})">
           <input type="hidden" name="csrf" value="{{ actor.csrf }}"><input type="hidden" name="revision" value="{{ placement.revision }}"><input type="hidden" name="parent_collection" value="{{ placement.collection }}"><input type="hidden" name="parent_id" value="{{ placement.id }}"><input type="hidden" name="parent_field" value="{{ placement.field }}">
           <button data-attr:disabled="$_pending"><i class="ri-link-unlink" aria-hidden="true"></i>Remove from list</button>
         </form>{% else %}<span class="help">Read-only list</span>{% endif %}
       </li>{% endfor %}</ul>
     </section>{% endif %}
-    {% if !references.is_empty() %}
-    <section class="delete-section"><h3>Other references <span class="badge">{{ references.len() }}</span></h3><p class="help">Open each record and remove or replace its reference.</p>
-      <ul class="delete-dependencies">{% for reference in references %}<li><div>{% if reference.url.is_empty() %}<span>{{ reference.label }}</span>{% else %}<a data-nav href="{{ reference.url }}">{{ reference.label }}</a>{% endif %}<code>{{ reference.path }}</code></div></li>{% endfor %}</ul>
+    {% if references %}
+    <section class="delete-section"><h3>Other references <span class="badge">{{ references|length }}</span></h3><p class="help">Open each record and remove or replace its reference.</p>
+      <ul class="delete-dependencies">{% for reference in references %}<li><div>{% if not reference.url %}<span>{{ reference.label }}</span>{% else %}<a data-nav href="{{ reference.url }}">{{ reference.label }}</a>{% endif %}<code>{{ reference.path }}</code></div></li>{% endfor %}</ul>
     </section>{% endif %}
     <form class="dialog-footer" method="post" action="{{ back }}/delete" data-indicator:_pending data-on:submit__prevent="@post(el.getAttribute('action'),{contentType:'form',retry:'never',retryMaxCount:0})">
       <input type="hidden" name="csrf" value="{{ actor.csrf }}"><input type="hidden" name="revision" value="{{ revision }}">

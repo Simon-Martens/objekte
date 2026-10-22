@@ -1,6 +1,6 @@
 # Rust editor server
 
-`structured-editor-server` serves both HTML and backend commands through Axum. Askama renders the persistent admin shell and replaceable workspace fragments. Datastar applies the backend's HTML patches. Vite builds CSS, the pinned Datastar runtime, and lazily loaded Monaco controls. No Node process is needed in production.
+`structured-editor-server` serves both HTML and backend commands through Axum. MiniJinja renders the persistent admin shell and replaceable workspace fragments. Datastar applies the backend's HTML patches. Vite builds CSS, the pinned Datastar runtime, and lazily loaded Monaco controls. No Node process is needed in production.
 
 This implements the revised repository MVP. The Astro application remains a separate legacy frontend on its existing port.
 
@@ -23,24 +23,40 @@ Open http://127.0.0.1:4322. `admin-create` prompts for email, display name, and 
 | `EDITOR_DATA_DIR` | Workspace `.data`; must be outside the repository |
 | `EDITOR_BIND` | `127.0.0.1:4322` |
 | `EDITOR_ASSETS_DIR` | This crate's `assets/dist` |
-| `EDITOR_VITE_URL` | Unset; local Vite origin for development, e.g. `http://127.0.0.1:5173` |
-| `EDITOR_INSECURE_COOKIE` | Set to `1` for local HTTP; otherwise session cookies require HTTPS |
+| `EDITOR_DEV` | Set to `1` (or pass `--dev`) for live Vite assets, disk templates and HTTP cookies |
+| `EDITOR_VITE_URL` | `http://127.0.0.1:5173` in dev mode; otherwise unset. Override with a local Vite HTTP origin |
+| `EDITOR_INSECURE_COOKIE` | Optional `1` for HTTP outside dev mode; dev mode automatically omits `Secure`. Otherwise cookies require HTTPS |
 | `RUST_LOG` | `structured_editor_server=info` |
 
 Use absolute filesystem paths for deployment. Copy the release binary and built `assets/dist`; set the paths above. Terminate HTTPS at the reverse proxy. Repository configuration is loaded at startup, so restart after changing it. The existing Docker/Compose setup still targets Astro.
 
-For asset development, run these in separate terminals from the root:
+## Development with live reload
+
+Install the assets once with `npm --prefix crates/server/assets ci`, then use two terminals from the repository root:
 
 ```bash
-npm --prefix crates/server/assets run dev -- --host 127.0.0.1
+# Terminal 1 — CSS/TypeScript updates and HTML template watching
+npm --prefix crates/server/assets run dev
 ```
 
 ```bash
-EDITOR_VITE_URL=http://127.0.0.1:5173 EDITOR_INSECURE_COOKIE=1 \
-  cargo run -p structured-editor-server
+# Terminal 2 — keep the Rust server running while editing the UI
+cargo run -p structured-editor-server -- --dev
 ```
 
-Rust and template edits require restarting the Rust process. Production asset rebuilds also require restarting it because the Vite manifest is loaded at startup.
+Open **http://127.0.0.1:4322**, the Rust server URL. Run `cargo run -p structured-editor-server -- admin-create` once if you have no administrator yet.
+
+`--dev` (equivalently `EDITOR_DEV=1`) enables:
+
+- Vite at `http://127.0.0.1:5173`, without needing an `assets/dist` build. CSS updates in place; TypeScript updates use Vite's reload behavior.
+- HTML templates loaded from `crates/server/templates/` on each render, including nested includes. Vite watches this folder and refreshes the page when an HTML file changes. Rust stays running, preserving server-side edit sessions.
+- Session cookies without `Secure` for local HTTP. `HttpOnly`, `SameSite=Strict`, authentication and CSRF protection still apply.
+
+To use another Vite port, set the same `EDITOR_VITE_URL` in both terminals and pass that port to Vite, for example `EDITOR_VITE_URL=http://127.0.0.1:5174 npm --prefix crates/server/assets run dev -- --port 5174` and `EDITOR_VITE_URL=http://127.0.0.1:5174 cargo run -p structured-editor-server -- --dev`.
+
+Rust source changes (including HTML built by Rust functions) still require a rebuild/restart. Repository configuration changes require a restart. HTML template and asset changes do not. A full browser refresh reloads the last submitted draft; submit input you want to keep before changing a template.
+
+Without dev mode, templates are embedded in the binary and parsed at startup, assets use the built Vite manifest, and cookies require HTTPS by default. There is no runtime dependency on the source template folder or Node. Recompile after production template changes and restart after a production asset build.
 
 ## Boundaries
 
@@ -52,6 +68,7 @@ Rust and template edits require restarting the Rust process. Production asset re
 | `src/fields/` | Web control registry and small control-specific renderers |
 | `templates/fields/` | Control markup |
 | `templates/shell.html` | Admin frame with stable navigation, workspace, notification and overlay regions |
+| `src/templates.rs` | Shared HTML escaping, embedded production templates and disk loading in dev |
 | `src/views.rs` and remaining templates | Collection lists, previews, edit screens and HTML patch serialization |
 | `src/routes.rs`, `media.rs`, `documents.rs`, `accounts.rs`, `pickers.rs` | HTTP adapters, commands and full-page/fragment responses |
 | `src/auth.rs`, `migrations/` | Embedded Turso users, login sessions, invitations and password resets |
@@ -124,6 +141,8 @@ Implemented workflows include configured sidebar groups and trees, contextual cr
 Account administration includes profile edits, current-password verification, last-administrator protection, account disable/enable, session revocation, expiring single-use invitations and resets. Administrators obtain one-time links to share manually; there is no outbound email service. Password changes/resets and role/status changes revoke sessions. Tokens are hashed in Turso.
 
 The MVP intentionally defers arbitrary panel/screen composition, conditional/table controls, a dedicated nested-object form, automatic schema migration, and media existence/type validation. Nested objects remain editable and validated through JSON. Embedded Turso is the selected local engine, not a Turso Cloud integration.
+
+Normal text fields contain decoded text: users enter quotes, newlines and backslashes as ordinary characters. JSON/YAML quoting happens automatically at save time. Markdown source controls omit redundant imported punctuation escapes only when the rendered content remains identical; meaningful escapes, code and literal backslashes are preserved. Lists and search excerpts render Markdown as readable text, including array items.
 
 Markdown preview is sanitized. HTML fields are shown as source, never executed as project templates. Datastar 1.0.4 is vendored from its official bundle with its MIT license, avoiding the deprecated npm beta package. The asset lockfile pins Vite and Monaco dependencies.
 

@@ -631,6 +631,54 @@ fn markdown_frontmatter_roundtrip_preserves_body_and_unknown_fields() {
 }
 
 #[test]
+fn serializers_handle_json_and_yaml_quoting_without_user_escapes() {
+    let (temp, _) = fixture();
+    let schema_path = temp.path().join(".editor/schema.json");
+    let mut schema: serde_json::Value =
+        serde_json::from_slice(&fs::read(&schema_path).unwrap()).unwrap();
+    schema["oneOf"].as_array_mut().unwrap().push(json!({
+        "x-collection":{"name":"articles","label":"Articles","path":"data/articles","format":"markdown","id":"frontmatter.id","display":"title"},
+        "type":"object","required":["id","title","body"],
+        "properties":{"id":{"type":"string"},"title":{"type":"string"},"body":{"type":"string"}}
+    }));
+    fs::write(&schema_path, schema.to_string()).unwrap();
+    let editor = Editor::open(temp.path()).unwrap();
+    let text = "He said \"hello\": [brackets] # literal\nNext line\tC:\\Users\\name\\file.txt";
+    for (collection, value) in [
+        ("people", json!({"kind":"person","name":text})),
+        (
+            "articles",
+            json!({"id":"quoting","title":text,"body":"[[→](https://example.test)]\n"}),
+        ),
+    ] {
+        let field = if collection == "people" {
+            "name"
+        } else {
+            "title"
+        };
+        let saved = editor
+            .save(collection, "quoting", value.clone(), None)
+            .unwrap();
+        let doc = editor.get(collection, "quoting").unwrap();
+        assert_eq!(doc.value, value);
+        let draft = editor.draft(collection, &doc.value).unwrap();
+        assert_eq!(
+            draft.fields.iter().find(|f| f.key == field).unwrap().raw,
+            text
+        );
+        editor
+            .save(
+                collection,
+                "quoting",
+                draft.value().unwrap(),
+                Some(&saved.revision),
+            )
+            .unwrap();
+        assert_eq!(editor.get(collection, "quoting").unwrap().value, value);
+    }
+}
+
+#[test]
 fn media_operations_and_paths() {
     let (_temp, editor) = fixture();
     editor.media_mkdir("images").unwrap();

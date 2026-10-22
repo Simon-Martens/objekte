@@ -1,12 +1,13 @@
 use super::*;
 use structured_editor_core::draft::InputKind;
 pub struct Array;
-#[derive(Template)]
-#[template(path = "fields/array.html")]
+crate::templates::template!(Input, "fields/array.html");
+#[derive(serde::Serialize)]
 struct Input {
     items: Vec<Item>,
     add: String,
 }
+#[derive(serde::Serialize)]
 struct Item {
     html: String,
     remove: String,

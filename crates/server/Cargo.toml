@@ -7,7 +7,7 @@ license.workspace = true
 [dependencies]
 structured-editor-core = { path = "../core" }
 axum = { version = "0.8", features = ["form", "query", "multipart"] }
-askama = "0.14"
+minijinja = { version = "3", features = ["serde"] }
 tokio = { version = "1", features = ["macros", "rt-multi-thread", "net", "signal"] }
 tower-http = { version = "0.6", features = ["fs"] }
 turso = { version = "=0.8.3", default-features = false }

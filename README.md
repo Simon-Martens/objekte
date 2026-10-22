@@ -1,6 +1,6 @@
 # Structured File Editor
 
-A filesystem backed editor with a reusable Rust project engine. The new `structured-editor-server` crate serves an Askama/Datastar interface and backend from one Rust process, with Vite-built assets and embedded Turso for administrative data. The existing Astro/React application remains available during migration. Project records and media remain ordinary files.
+A filesystem backed editor with a reusable Rust project engine. The new `structured-editor-server` crate serves a MiniJinja/Datastar interface and backend from one Rust process, with Vite-built assets and embedded Turso for administrative data. The existing Astro/React application remains available during migration. Project records and media remain ordinary files.
 
 ## Layout
 
@@ -28,6 +28,18 @@ EDITOR_INSECURE_COOKIE=1 cargo run -p structured-editor-server
 ```
 
 Open <http://127.0.0.1:4322>. The default project is `examples/lenz-archiv`; set `EDITOR_ROOT` and `EDITOR_DATA_DIR` to absolute paths to select another project and state directory. The initial administrator is stored in `.data/server.sqlite`, separately from Astro's accounts. See [server setup and architecture](crates/server/README.md) for development mode and extension points. The remaining application-specific development and deployment instructions below describe the existing Astro frontend.
+
+For live UI development, run these in **two terminals** after the initial install:
+
+```bash
+npm --prefix crates/server/assets run dev
+```
+
+```bash
+cargo run -p structured-editor-server -- --dev
+```
+
+Keep the Rust process running: CSS/TypeScript and `crates/server/templates/*.html` edits refresh through Vite without rebuilding Rust. Dev mode also allows session cookies over local HTTP. Open the Rust URL above, not the Vite URL.
 
 ## Project format
 

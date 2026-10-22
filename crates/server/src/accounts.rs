@@ -1,11 +1,11 @@
 //! Account administration uses Turso; token delivery is an explicit administrator action.
+use crate::templates::Template;
 use crate::{
     AppState,
     auth::Actor,
     error::{Result, WebError},
     routes, views,
 };
-use askama::Template;
 use axum::{
     Router,
     extract::{Form, Path, State},
@@ -293,8 +293,8 @@ async fn admin_action(
         admin_html(&state, &a, "Updated.", link.as_deref()).await?,
     )
 }
-#[derive(Template)]
-#[template(path = "public-account.html")]
+crate::templates::template!(PublicAccount<'_>, "public-account.html");
+#[derive(serde::Serialize)]
 struct PublicAccount<'a> {
     title: &'a str,
     assets: &'a str,

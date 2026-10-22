@@ -8,6 +8,25 @@ use serde_json::json;
 use std::collections::HashMap;
 use tower::ServiceExt;
 
+#[tokio::test]
+async fn secure_cookies_are_only_disabled_explicitly() {
+    let temp = tempfile::tempdir().unwrap();
+    for insecure in [false, true] {
+        let auth = Auth::open(
+            &temp.path().join(format!("cookies-{insecure}.sqlite")),
+            insecure,
+        )
+        .await
+        .unwrap();
+        for token in ["test-token", ""] {
+            let cookie = auth.cookie(token);
+            assert_eq!(cookie.contains("; Secure"), !insecure);
+            assert!(cookie.contains("; HttpOnly; SameSite=Strict"));
+            assert_eq!(cookie.contains("Max-Age=0"), token.is_empty());
+        }
+    }
+}
+
 async fn fixture() -> (tempfile::TempDir, Arc<AppState>, String, auth::Actor) {
     fixture_with_settings_schema(json!({"type":"object"})).await
 }
@@ -2094,4 +2113,87 @@ async fn added_array_slots_render_without_defaults_and_accept_typed_input() {
             Some(&expected)
         );
     }
+}
+
+#[tokio::test]
+async fn markdown_escapes_stay_out_of_normal_fields_and_list_previews() {
+    let (temp, mut state, cookie, actor) = field_types_fixture().await;
+    let root = temp.path().join("project");
+    let schema_path = root.join(".editor/objects.schema.json");
+    let mut schema: serde_json::Value =
+        serde_json::from_slice(&std::fs::read(&schema_path).unwrap()).unwrap();
+    schema["anyOf"][0]["x-search"] = json!(["inline", "notes"]);
+    std::fs::write(schema_path, schema.to_string()).unwrap();
+    Arc::get_mut(&mut state).unwrap().editor = Editor::open(&root).unwrap();
+    let doc = state.editor.get("notes", "one").unwrap();
+    let mut value = doc.value;
+    let imported = r"Der neue Menoza. \[[→](https://example.test)\]";
+    let readable = "Der neue Menoza. [[→](https://example.test)]";
+    let plain = "He said \"hello\"\nC:\\Users\\name\\file.txt";
+    value["notes"] = json!([imported]);
+    value["inline"] = json!(imported);
+    value["summary"] = json!(plain);
+    state
+        .editor
+        .save("notes", "one", value.clone(), Some(&doc.revision))
+        .unwrap();
+    let session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start(&state.editor, &actor, "notes", Some("one"))
+        .unwrap();
+    let (_, html) = request(
+        state.clone(),
+        "GET",
+        &format!("/edit-sessions/{}", session.id),
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert!(html.contains(readable));
+    assert!(!html.contains(imported));
+    assert!(html.contains(&views::escape(plain)));
+    // Rendering must not rewrite the source file or the in-memory draft.
+    assert_eq!(state.editor.get("notes", "one").unwrap().value, value);
+    assert_eq!(session.value().unwrap(), value);
+    let (_, list) = request(
+        state.clone(),
+        "GET",
+        "/collections/notes?columns=custom&column.notes=1&column.inline=1&q=%E2%86%92",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert!(list.contains("[<mark>→</mark>]"), "{list}");
+    assert!(!list.contains(r"\["));
+    assert!(!list.contains("https://example.test"));
+    let inline = session
+        .draft
+        .fields
+        .iter()
+        .find(|f| f.key == "inline")
+        .unwrap();
+    let mut values = form(&session, &actor);
+    values.insert(format!("value.{}", inline.id), readable.into());
+    let (status, _) = request(
+        state.clone(),
+        "POST",
+        &format!("/edit-sessions/{}/save", session.id),
+        &cookie,
+        &values,
+        true,
+    )
+    .await;
+    assert_eq!(status, StatusCode::OK);
+    let saved = state.editor.get("notes", "one").unwrap().value;
+    assert_eq!(saved["inline"], readable);
+    assert_eq!(saved["summary"], plain);
+    assert!(
+        views::record(&state.editor, "notes", "one", &actor)
+            .unwrap()
+            .contains("[<a href=\"https://example.test\"")
+    );
 }

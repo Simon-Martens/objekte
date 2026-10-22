@@ -1,7 +1,7 @@
 use super::*;
 pub struct Code;
-#[derive(Template)]
-#[template(path = "fields/code.html")]
+crate::templates::template!(Input<'_>, "fields/code.html");
+#[derive(serde::Serialize)]
 struct Input<'a> {
     id: &'a str,
     raw: &'a str,
@@ -29,9 +29,14 @@ impl Control for Code {
         _: &Registry,
     ) -> Result<String> {
         let editor = field.schema["x-editor"].as_str().unwrap_or("markdown");
+        let source = if editor == "html" {
+            std::borrow::Cow::Borrowed(field.raw.as_str())
+        } else {
+            crate::views::markdown_source::readable(&field.raw)
+        };
         Ok(Input {
             id: &field.id,
-            raw: &field.raw,
+            raw: &source,
             label: title(field),
             language: if editor == "html" { "html" } else { "markdown" },
             version: context.version,

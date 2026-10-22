@@ -5,7 +5,7 @@ mod reference;
 mod scalar;
 mod system;
 use crate::error::Result;
-use askama::Template;
+use crate::templates::Template;
 use structured_editor_core::{ValidationIssue, draft::DraftField};
 pub struct Context<'a> {
     pub session: &'a str,
@@ -105,8 +105,8 @@ impl Registry {
         .render()?)
     }
 }
-#[derive(Template)]
-#[template(path = "fields/wrapper.html")]
+crate::templates::template!(Field<'_>, "fields/wrapper.html");
+#[derive(serde::Serialize)]
 struct Field<'a> {
     session: &'a str,
     present: bool,

@@ -1,19 +1,19 @@
 {% if kind == "boolean" %}
-{% if raw.is_empty() %}
+{% if not raw %}
 <select id="input-{{ id }}" name="value.{{ id }}" aria-describedby="errors-{{ id }}"><option value="">Choose a value</option><option value="true">Yes</option><option value="false">No</option></select>
 {% else %}
 <input type="hidden" name="boolean.{{ id }}" value="1"><label class="boolean-control"><input id="input-{{ id }}" name="value.{{ id }}" type="checkbox" value="true" {% if raw == "true" %}checked{% endif %} aria-describedby="errors-{{ id }}"><span>Enabled</span></label>
 {% endif %}
-{% else if kind == "select" %}
+{% elif kind == "select" %}
 <select id="input-{{ id }}" name="value.{{ id }}" aria-describedby="errors-{{ id }}"><option value="">Choose a value</option>{% for (value,label,selected) in options %}<option value="{{ value }}" {% if selected %}selected{% endif %}>{{ label }}</option>{% endfor %}</select>
-{% else if kind == "json" || kind == "multiline" %}
+{% elif kind == "json" or kind == "multiline" %}
 <textarea id="input-{{ id }}" name="value.{{ id }}" aria-describedby="errors-{{ id }}" class="{% if kind == "json" %}source{% else %}text-multiline{% endif %}" rows="6" spellcheck="{% if kind == "json" %}false{% else %}true{% endif %}">
 {{ raw }}</textarea>
 {% else %}
-<input id="input-{{ id }}" name="value.{{ id }}" aria-describedby="errors-{{ id }}" type="text" {% if kind == "date" %}placeholder="YYYY-MM-DD"{% endif %} {% if !suggestions_url.is_empty() %}list="suggestions-{{ id }}"{% endif %} {% if kind == "integer" %}inputmode="numeric"{% else if kind == "numeric" %}inputmode="decimal"{% endif %} value="{{ raw }}" autocomplete="off" {% if !suggestions_url.is_empty() %}data-on:input__debounce.200ms="@post('{{ suggestions_url }}',{contentType:'form',retry:'never',retryMaxCount:0})"{% endif %}>
+<input id="input-{{ id }}" name="value.{{ id }}" aria-describedby="errors-{{ id }}" type="text" {% if kind == "date" %}placeholder="YYYY-MM-DD"{% endif %} {% if suggestions_url %}list="suggestions-{{ id }}"{% endif %} {% if kind == "integer" %}inputmode="numeric"{% elif kind == "numeric" %}inputmode="decimal"{% endif %} value="{{ raw }}" autocomplete="off" {% if suggestions_url %}data-on:input__debounce.200ms="@post('{{ suggestions_url }}',{contentType:'form',retry:'never',retryMaxCount:0})"{% endif %}>
 {% endif %}
 
 {% if kind == "datetime" %}<p class="help">RFC 3339 with an explicit offset, e.g. 2026-10-22T14:30:00+02:00. Precision and offset are preserved.</p>{% endif %}
-{% if !suggestions_url.is_empty() %}<datalist id="suggestions-{{ id }}">{% for value in suggestions %}<option value="{{ value }}"></option>{% endfor %}</datalist>{% endif %}
+{% if suggestions_url %}<datalist id="suggestions-{{ id }}">{% for value in suggestions %}<option value="{{ value }}"></option>{% endfor %}</datalist>{% endif %}
 
 {% if kind == "date" %}<p class="help">Calendar date in YYYY-MM-DD format.</p>{% endif %}

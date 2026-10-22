@@ -11,8 +11,19 @@ pub struct Assets {
 impl Assets {
     pub fn load(root: &Path, dev: Option<&str>) -> Result<Self> {
         if let Some(dev) = dev {
-            if !dev.starts_with("http://127.0.0.1:") && !dev.starts_with("http://localhost:") {
-                return Err(WebError::bad("Vite dev URL must use localhost."));
+            let origin: axum::http::Uri = dev
+                .parse()
+                .map_err(|_| WebError::bad("Invalid Vite dev URL."))?;
+            if origin.scheme_str() != Some("http")
+                || !matches!(origin.host(), Some("127.0.0.1" | "localhost"))
+                || origin.port_u16().is_none()
+                || origin.path() != "/"
+                || origin.query().is_some()
+                || dev.contains('@')
+            {
+                return Err(WebError::bad(
+                    "Vite dev URL must be a local HTTP origin with a port, e.g. http://127.0.0.1:5173.",
+                ));
             }
             return Ok(Self {
                 root: root.into(),
@@ -73,5 +84,39 @@ impl Assets {
             root: root.into(),
             tags,
         })
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn live_assets_do_not_require_a_production_build() {
+        let temp = tempfile::tempdir().unwrap();
+        let root = temp.path().join("missing-dist");
+        let assets = Assets::load(&root, Some("http://127.0.0.1:5173/")).unwrap();
+        assert!(
+            assets
+                .tags
+                .contains("http://127.0.0.1:5173/assets/@vite/client")
+        );
+        assert!(
+            assets
+                .tags
+                .contains("http://127.0.0.1:5173/assets/src/main.ts")
+        );
+        assert!(!assets.tags.contains("manifest"));
+        assert!(Assets::load(&root, None).is_err());
+        assert!(Assets::load(&root, Some("http://localhost:5174")).is_ok());
+        for invalid in [
+            "http://example.com:5173",
+            "http://127.0.0.1:5173@evil.example",
+            "http://localhost:5173/assets",
+            "http://localhost:5173?foo=bar",
+            "http://localhost:invalid",
+        ] {
+            assert!(Assets::load(&root, Some(invalid)).is_err(), "{invalid}");
+        }
     }
 }

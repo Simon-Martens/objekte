@@ -46,6 +46,26 @@ pub fn display_text(value: &Value) -> String {
         _ => value.to_string(),
     }
 }
+
+fn field_display(value: &Value, schema: &Value) -> String {
+    if let Some(items) = value.as_array() {
+        return items
+            .iter()
+            .map(|item| field_display(item, &schema["items"]))
+            .collect::<Vec<_>>()
+            .join(" · ");
+    }
+    let text = display_text(value);
+    if value.is_string()
+        && ["x-content", "x-editor"]
+            .iter()
+            .any(|key| matches!(schema[key].as_str(), Some("markdown" | "inline-markdown")))
+    {
+        plain_markdown(&text)
+    } else {
+        text
+    }
+}
 impl Editor {
     pub fn query_collection(&self, name: &str, request: &ListRequest) -> Result<ListPage> {
         self.require_operation(name, "read")?;
@@ -134,15 +154,9 @@ impl Editor {
                     continue;
                 }
                 if let Some(v) = value.get(key) {
-                    let mut text = display_text(v);
+                    let mut text = field_display(v, schema);
                     if schema["x-children"] == true {
                         text = v.as_array().map(|a| a.len()).unwrap_or(0).to_string();
-                    }
-                    if matches!(
-                        schema["x-editor"].as_str(),
-                        Some("markdown" | "inline-markdown")
-                    ) {
-                        text = plain_markdown(&text);
                     }
                     if let (Some(target), Some(id)) = (
                         schema
