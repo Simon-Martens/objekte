@@ -253,6 +253,7 @@ async fn collection(
 async fn record(
     State(state): App,
     Path((name, id)): Path<(String, String)>,
+    Query(query): Query<HashMap<String, String>>,
     headers: HeaderMap,
 ) -> Result<Response> {
     let actor = match page_actor(&state, &headers).await {
@@ -260,7 +261,13 @@ async fn record(
         Err(r) => return Ok(r),
     };
     blocking(move || {
-        let html = views::record(&state.editor, &name, &id, &actor)?;
+        let html = views::record_at(
+            &state.editor,
+            &name,
+            &id,
+            &actor,
+            query.get("node").map(String::as_str).unwrap_or(""),
+        )?;
         page(&state, &actor, &headers, html)
     })
     .await
@@ -321,6 +328,16 @@ async fn start_edit(
                 .lock()
                 .unwrap()
                 .start(&state.editor, &actor, &name, id.as_deref())?;
+        if let Some(path) = form.get("node") {
+            if session
+                .draft
+                .at_path(path)
+                .is_some_and(crate::tree::navigable)
+            {
+                session.view_path = path.clone();
+                state.sessions.lock().unwrap().insert(session.clone());
+            }
+        }
         if id.is_none() {
             if let (Some(parent), Some(parent_id), Some(field), Some(revision)) = (
                 form.get("parent_collection"),
@@ -428,12 +445,13 @@ async fn suggestions(
             .filter(|f| !f.hidden && !f.read_only)
             .ok_or_else(|| WebError::bad("Unknown editable field"))?;
         let context = session.value().unwrap_or(serde_json::json!({}));
-        let mut values = state.editor.suggestions_query(
-            &session.collection,
-            &input.key,
-            &context,
-            &input.raw,
-        )?;
+        let mut values = if session.document.is_some() {
+            Vec::new()
+        } else {
+            state
+                .editor
+                .suggestions_query(&session.collection, &input.key, &context, &input.raw)?
+        };
         if let Some(options) = input.schema["x-options"].as_array() {
             values.extend(
                 options
@@ -475,7 +493,7 @@ async fn live_validation(
         }
         session.apply(&form)?;
         let mut issues = session.validate(&state.editor)?;
-        if session.proposed_id != session.record_id || session.revision.is_none() {
+        if session.document.is_none() && (session.proposed_id != session.record_id || session.revision.is_none()) {
             issues.extend(
                 state
                     .editor
@@ -511,7 +529,9 @@ async fn perform(
         let mut issues = Vec::new();
         let mut message = String::new();
         if let Some(field) = field {
-            if action == "create-related" {
+            if action == "browse" {
+                if let Some((path, _)) = session.draft.paths().into_iter().find(|(_, f)| f.id == field && crate::tree::navigable(f)) { session.view_path = path; }
+            } else if action == "create-related" {
                 // Persist the parent before opening the child, including incomplete input.
                 sessions.insert(session.clone());
                 let child = related_session(&state.editor, &mut sessions, &actor, &session, &field, &form);
@@ -521,7 +541,7 @@ async fn perform(
                 }
             } else {
                 let result = if action == "include" || action == "omit" {
-                    session.draft.set_presence(&field,action == "include").map_err(WebError::bad)
+                    if action == "include" { session.draft.include_field(&session.schema, &field) } else { session.draft.set_presence(&field, false) }.map_err(WebError::bad)
                 } else if ["add", "remove", "up", "down"].contains(&action.as_str()) {
                     session.draft.array_action(&session.schema, &field, &action, item.as_deref()).map_err(WebError::bad)
                 } else {
@@ -530,16 +550,18 @@ async fn perform(
                 if let Err(error) = result { message = error.1; }
             }
         } else {
+            if session.document.is_some() && ["generate-id", "check-id"].contains(&action.as_str()) { return Err(WebError::bad("Assigned documents have fixed paths")); }
             match action.as_str() {
-                "undo" => {if let Some(previous)=session.history.undo(session.snapshot()){session.restore(previous);message="Change undone.".into();}},
+                "browse-root" => session.view_path.clear(),
+                "undo" => {if let Some(previous)=session.history.undo(session.snapshot()){session.restore(previous);}},
                 "redo" => {if let Some(next)=session.history.redo(session.snapshot()){session.restore(next);message="Change restored.".into();}},
                 "raw" => match session.value() {
                     Ok(value) => session.raw = Some(serde_json::to_string_pretty(&value).unwrap()),
                     Err(errors) => issues = errors,
                 },
                 "form" => match session.value() {
-                    Ok(value) if value.is_object() => {
-                        session.draft = state.editor.draft_for_id(&session.collection, &session.proposed_id, &value)?;
+                    Ok(value) if value.is_object() || session.document.is_some() => {
+                        session.draft = if session.document.is_some() { structured_editor_core::draft::Draft::document_form(&session.schema, &value) } else { state.editor.draft_for_id(&session.collection, &session.proposed_id, &value)? };
                         session.raw = None;
                     },
                     Ok(_) => message = "A record must be a JSON object.".into(),

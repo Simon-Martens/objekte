@@ -10,6 +10,7 @@ mod pickers;
 mod routes;
 pub mod sessions;
 pub mod templates;
+mod tree;
 pub mod views;
 use crate::{
     assets::Assets,

@@ -1744,7 +1744,7 @@ async fn deletion_review_resolves_placements_but_preserves_other_references_and_
             && html.contains("Group")
             && html.contains("Other references")
     );
-    assert!(html.contains("Linked note") && html.contains("Remove from list"));
+    assert!(html.contains("Linked note") && html.contains("Unlink from this list"));
     assert!(html.contains("class=\"danger\" disabled"));
     let delete = HashMap::from([
         ("csrf".into(), actor.csrf.clone()),
@@ -2233,4 +2233,807 @@ async fn markdown_escapes_stay_out_of_normal_fields_and_list_previews() {
             .unwrap()
             .contains("[<a href=\"https://example.test\"")
     );
+}
+
+#[tokio::test]
+async fn mapped_documents_share_drafts_controls_validation_and_conflict_guards() {
+    let (temp, state, cookie, actor) = fixture_with_settings_schema(json!({
+        "type":"object", "required":["title"], "properties":{
+            "title":{"type":"string","minLength":1},
+            "items":{"type":"array","items":{"type":"integer"}}
+        }
+    }))
+    .await;
+    std::fs::write(
+        temp.path().join("project/settings.json"),
+        r#"{"title":"Document","items":[1,2],"unknown":"keep"}"#,
+    )
+    .unwrap();
+    let form_start = HashMap::from([
+        ("csrf".into(), actor.csrf.clone()),
+        ("file".into(), "settings.json".into()),
+    ]);
+    let (status, html) = request(
+        state.clone(),
+        "POST",
+        "/documents/editor-settings/edit-sessions",
+        &cookie,
+        &form_start,
+        true,
+    )
+    .await;
+    assert_eq!(status, StatusCode::OK);
+    assert!(html.contains("settings.json"));
+    assert!(html.contains("Add item"));
+    assert!(!html.contains("name=\"record_id\""));
+    let id = html
+        .split("data-url=\"/edit-sessions/")
+        .nth(1)
+        .unwrap()
+        .split('"')
+        .next()
+        .unwrap();
+    let mut session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .get(id, &actor)
+        .unwrap()
+        .clone();
+    let title = session
+        .draft
+        .fields
+        .iter()
+        .find(|f| f.key == "title")
+        .unwrap()
+        .id
+        .clone();
+    let mut submitted = form(&session, &actor);
+    submitted.insert(format!("value.{title}"), String::new());
+    let (_, html) = request(
+        state.clone(),
+        "POST",
+        &format!("/edit-sessions/{id}/save"),
+        &cookie,
+        &submitted,
+        true,
+    )
+    .await;
+    assert!(html.contains("issue(s) to resolve"));
+    assert_eq!(state.editor.settings().unwrap().value["title"], "Document");
+    session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .get(id, &actor)
+        .unwrap()
+        .clone();
+    submitted = form(&session, &actor);
+    submitted.insert(format!("value.{title}"), "Updated".into());
+    let (_, html) = request(
+        state.clone(),
+        "POST",
+        &format!("/edit-sessions/{id}/save"),
+        &cookie,
+        &submitted,
+        true,
+    )
+    .await;
+    assert!(html.contains("Saved to disk."));
+    assert_eq!(state.editor.settings().unwrap().value["unknown"], "keep");
+    assert_eq!(
+        state.editor.settings().unwrap().value["items"],
+        json!([1, 2])
+    );
+    assert_eq!(state.editor.settings().unwrap().value["title"], "Updated");
+    session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .get(id, &actor)
+        .unwrap()
+        .clone();
+    std::fs::write(
+        temp.path().join("project/settings.json"),
+        r#"{"title":"External"}"#,
+    )
+    .unwrap();
+    let (_, html) = request(
+        state.clone(),
+        "POST",
+        &format!("/edit-sessions/{id}/save"),
+        &cookie,
+        &form(&session, &actor),
+        true,
+    )
+    .await;
+    assert!(html.contains("changed on disk"));
+    assert_eq!(state.editor.settings().unwrap().value["title"], "External");
+}
+
+#[tokio::test]
+async fn child_list_overrides_are_local_and_used_by_preview_and_full_list() {
+    let (temp, mut state, cookie, actor) = hierarchy_fixture().await;
+    let root = temp.path().join("project");
+    let mut ui: serde_json::Value =
+        serde_json::from_slice(&std::fs::read(root.join(".editor/ui.json")).unwrap()).unwrap();
+    ui["collections"]["notes"]["list"] =
+        json!({"columns":["name","count"],"defaultSort":{"field":"name","direction":"asc"}});
+    ui["collections"]["groups"]["childLists"] = json!({
+        "defaults":{"list":{"previewSize":1,"defaultSort":{"direction":"desc"}}},
+        "fields":{"children":{"list":{"columns":["count"],"filters":["count"]}}}
+    });
+    std::fs::write(root.join(".editor/ui.json"), ui.to_string()).unwrap();
+    Arc::get_mut(&mut state).unwrap().editor = Editor::open(&root).unwrap();
+    let resolved = state.editor.child_list_ui("groups", "children").unwrap();
+    assert_eq!(
+        resolved["list"]["defaultSort"],
+        json!({"field":"name","direction":"desc"})
+    );
+    assert_eq!(
+        state.editor.config().collection("notes").unwrap().ui["list"]["columns"],
+        json!(["name", "count"])
+    );
+    let preview = hierarchy::sections(&state.editor, "groups", "g", &actor).unwrap();
+    assert!(preview.contains("sort=count"));
+    assert!(!preview.contains("sort=name"));
+    let (status, html) = request(state.clone(), "GET", "/collections/notes?parent_collection=groups&parent_id=g&parent_field=children&filter.count.min=1", &cookie, &HashMap::new(), false).await;
+    assert_eq!(status, StatusCode::OK);
+    assert!(html.contains("data-label=\"count\""));
+    assert!(!html.contains("data-label=\"name\""));
+    // Reset the local list: inherited sort and columns disappear only for this occurrence.
+    ui["collections"]["groups"]["childLists"]["fields"]["children"] =
+        json!({"inherit":false,"list":{"columns":["_id"]}});
+    std::fs::write(root.join(".editor/ui.json"), ui.to_string()).unwrap();
+    Arc::get_mut(&mut state).unwrap().editor = Editor::open(&root).unwrap();
+    assert!(
+        state.editor.child_list_ui("groups", "children").unwrap()["list"]["defaultSort"].is_null()
+    );
+    assert_eq!(
+        state.editor.config().collection("notes").unwrap().ui["list"]["columns"],
+        json!(["name", "count"])
+    );
+}
+
+#[tokio::test]
+async fn document_presentation_inherits_global_defaults_and_supports_raw_root() {
+    let (temp, mut state, _, actor) = fixture_with_settings_schema(
+        json!({"type":"object","properties":{"title":{"type":"string"}}}),
+    )
+    .await;
+    let root = temp.path().join("project");
+    let mut ui: serde_json::Value =
+        serde_json::from_slice(&std::fs::read(root.join(".editor/ui.json")).unwrap()).unwrap();
+    ui["defaults"] = json!({"presentation":{"editor":"raw"}});
+    ui["documents"] = json!({"editor-settings":{"presentation":{"inherit":false,"editor":"form"}}});
+    std::fs::write(root.join(".editor/ui.json"), ui.to_string()).unwrap();
+    Arc::get_mut(&mut state).unwrap().editor = Editor::open(&root).unwrap();
+    let session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start_document(&state.editor, &actor, "editor-settings", "settings.json")
+        .unwrap();
+    assert!(session.raw.is_none());
+    assert!(!session.draft.root_value);
+    ui["documents"] = json!({});
+    std::fs::write(root.join(".editor/ui.json"), ui.to_string()).unwrap();
+    Arc::get_mut(&mut state).unwrap().editor = Editor::open(&root).unwrap();
+    let session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start_document(&state.editor, &actor, "editor-settings", "settings.json")
+        .unwrap();
+    assert_eq!(session.raw.as_deref(), Some("{}"));
+}
+
+#[tokio::test]
+async fn lists_and_object_views_offer_explicit_edit_buttons() {
+    let (_temp, state, cookie, _) = fixture().await;
+    let (_, list) = request(
+        state.clone(),
+        "GET",
+        "/collections/notes",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert!(list.contains("action=\"/collections/notes/records/one/edit-sessions\""));
+    assert!(list.contains("href=\"/collections/notes/records/one\""));
+    let (_, preview) = request(
+        state.clone(),
+        "GET",
+        "/collections/notes/records/one",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert!(preview.contains("action=\"/collections/notes/records/one/edit-sessions\""));
+    let (_, documents) = request(
+        state.clone(),
+        "GET",
+        "/documents",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert!(documents.contains("/edit-sessions\""));
+    assert!(documents.contains("aria-label=\"Edit settings.json\""));
+    let (_, document) = request(
+        state.clone(),
+        "GET",
+        "/documents/editor-settings?file=settings.json",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert!(document.contains("/edit-sessions\""));
+}
+
+#[tokio::test]
+async fn boolean_filters_always_offer_true_false_and_unset() {
+    let (temp, mut state, cookie, _) = fixture().await;
+    let root = temp.path().join("project");
+    let schema_path = root.join(".editor/objects.schema.json");
+    let mut schema: serde_json::Value =
+        serde_json::from_slice(&std::fs::read(&schema_path).unwrap()).unwrap();
+    schema["anyOf"][0]["properties"]["Verschollen"] = json!({"type":"boolean"});
+    std::fs::write(schema_path, schema.to_string()).unwrap();
+    let ui_path = root.join(".editor/ui.json");
+    let mut ui: serde_json::Value =
+        serde_json::from_slice(&std::fs::read(&ui_path).unwrap()).unwrap();
+    ui["collections"]["notes"]["list"] = json!({"filters":["Verschollen"]});
+    std::fs::write(ui_path, ui.to_string()).unwrap();
+    Arc::get_mut(&mut state).unwrap().editor = Editor::open(&root).unwrap();
+    // Even when no records have either boolean value, all three choices are available.
+    let (_, html) = request(
+        state.clone(),
+        "GET",
+        "/collections/notes",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    for option in ["true", "false", "__missing"] {
+        assert!(html.contains(&format!("<option value=\"{option}\" >")));
+    }
+    for (id, value) in [("yes", true), ("no", false)] {
+        state
+            .editor
+            .save(
+                "notes",
+                id,
+                json!({"name":id,"count":1,"Verschollen":value}),
+                None,
+            )
+            .unwrap();
+    }
+    for (option, id) in [("true", "yes"), ("false", "no"), ("__missing", "one")] {
+        let page = state
+            .editor
+            .query_collection(
+                "notes",
+                &structured_editor_core::ListRequest {
+                    filters: std::collections::BTreeMap::from([(
+                        "Verschollen".into(),
+                        option.into(),
+                    )]),
+                    limit: 50,
+                    ..Default::default()
+                },
+            )
+            .unwrap();
+        assert_eq!(page.matched, 1);
+        assert_eq!(page.rows[0].id, id);
+    }
+}
+
+#[tokio::test]
+async fn recursive_browsing_preserves_unsaved_siblings_and_saves_deep_edits() {
+    let (temp, mut state, cookie, actor) = fixture().await;
+    let root = temp.path().join("project");
+    let schema = json!({"type":"object","properties":{"title":{"type":"string"},"branch":{"type":"object","properties":{"items":{"type":"array","items":{"type":"object","properties":{"deep":{"type":"object","properties":{"text":{"type":"string"}}}}}}}}}});
+    std::fs::write(
+        root.join(".editor/settings.schema.json"),
+        schema.to_string(),
+    )
+    .unwrap();
+    let original = json!({"title":"original","branch":{"items":[{"deep":{"text":"leaf"}}]}});
+    std::fs::write(root.join("settings.json"), original.to_string()).unwrap();
+    Arc::get_mut(&mut state).unwrap().editor = Editor::open(&root).unwrap();
+    let mut session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start_document(&state.editor, &actor, "editor-settings", "settings.json")
+        .unwrap();
+    let title = session.draft.at_path("/title").unwrap().id.clone();
+    let deep = session
+        .draft
+        .at_path("/branch/items/0/deep")
+        .unwrap()
+        .id
+        .clone();
+    let text = session
+        .draft
+        .at_path("/branch/items/0/deep/text")
+        .unwrap()
+        .id
+        .clone();
+    let form = HashMap::from([
+        ("csrf".into(), actor.csrf.clone()),
+        ("version".into(), session.version.to_string()),
+        (format!("present.{title}"), "1".into()),
+        (format!("value.{title}"), "unsaved title".into()),
+    ]);
+    let (status, html) = request(
+        state.clone(),
+        "POST",
+        &format!("/edit-sessions/{}/fields/{deep}/actions/browse", session.id),
+        &cookie,
+        &form,
+        false,
+    )
+    .await;
+    assert_eq!(status, StatusCode::OK, "{html}");
+    assert!(html.contains(&format!("name=\"value.{text}\"")));
+    assert!(!html.contains(&format!("name=\"value.{title}\"")));
+    session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .get(&session.id, &actor)
+        .unwrap()
+        .clone();
+    assert_eq!(session.view_path, "/branch/items/0/deep");
+    let form = HashMap::from([
+        ("csrf".into(), actor.csrf.clone()),
+        ("version".into(), session.version.to_string()),
+        (format!("present.{text}"), "1".into()),
+        (format!("value.{text}"), "edited leaf".into()),
+    ]);
+    let (status, html) = request(
+        state.clone(),
+        "POST",
+        &format!("/edit-sessions/{}/save", session.id),
+        &cookie,
+        &form,
+        false,
+    )
+    .await;
+    assert_eq!(status, StatusCode::OK, "{html}");
+    let saved: serde_json::Value =
+        serde_json::from_slice(&std::fs::read(root.join("settings.json")).unwrap()).unwrap();
+    assert_eq!(saved["title"], "unsaved title");
+    assert_eq!(
+        saved.pointer("/branch/items/0/deep/text"),
+        Some(&json!("edited leaf"))
+    );
+    let (_, html) = request(
+        state,
+        "GET",
+        "/documents/editor-settings?file=settings.json&node=%2Fbranch%2Fitems%2F0%2Fdeep",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert!(html.contains("edited leaf"));
+    assert!(html.contains("Document tree"));
+    assert!(html.contains("Up one level"));
+}
+
+#[tokio::test]
+async fn recursive_endpoint_rendering_respects_raw_policy_and_hides_descendant_navigation() {
+    let schema = json!({"type":"object","x-presentation":{"rawFallback":false},"properties":{"endpoint":{"type":"object","x-presentation":{"navigation":"stop"},"properties":{"notes":{"type":"array","items":{"type":"string","x-editor":"markdown"}},"blocked":{"type":"object"},"source":{"type":"object","x-presentation":{"editor":"raw"}}}}}});
+    let (temp, state, _, actor) = fixture_with_settings_schema(schema).await;
+    let value =
+        json!({"endpoint":{"notes":["text"],"blocked":{"secret":"preserve"},"source":{"a":1}}});
+    std::fs::write(temp.path().join("project/settings.json"), value.to_string()).unwrap();
+    let mut session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start_document(&state.editor, &actor, "editor-settings", "settings.json")
+        .unwrap();
+    session.view_path = "/endpoint".into();
+    let source = &session.draft.at_path("/endpoint/source").unwrap().id;
+    let blocked = &session.draft.at_path("/endpoint/blocked").unwrap().id;
+    let html = views::edit(&state.editor, &session, &actor, &state.fields, &[], "").unwrap();
+    assert!(html.contains(&format!("name=\"value.{source}\"")));
+    assert!(!html.contains(&format!("name=\"value.{blocked}\"")));
+    assert!(html.contains("automatic raw fallback is disabled"));
+    let nav = crate::tree::edit_navigation(&session);
+    assert!(!nav.contains(&format!("/fields/{source}/actions/browse")));
+    assert!(!nav.contains(&format!("/fields/{blocked}/actions/browse")));
+    assert_eq!(session.value().unwrap(), value);
+}
+
+#[tokio::test]
+async fn invalid_nested_input_survives_navigation_and_undo_and_feedback_targets_visible_fields() {
+    let schema = json!({"type":"object","properties":{"branch":{"type":"object","properties":{"a/b~c":{"type":"integer"}}},"sibling":{"type":"string"}}});
+    let (temp, state, cookie, actor) = fixture_with_settings_schema(schema).await;
+    let file = temp.path().join("project/settings.json");
+    let value = json!({"branch":{"a/b~c":7},"sibling":"unchanged"});
+    std::fs::write(&file, value.to_string()).unwrap();
+    let mut session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start_document(&state.editor, &actor, "editor-settings", "settings.json")
+        .unwrap();
+    let branch = session.draft.at_path("/branch").unwrap().id.clone();
+    let number = session.draft.at_path("/branch/a~1b~0c").unwrap().id.clone();
+    let sibling = session.draft.at_path("/sibling").unwrap().id.clone();
+    for (action, raw) in [
+        (format!("fields/{branch}/actions/browse"), None),
+        ("browse-root".into(), Some("invalid integer")),
+        (format!("fields/{branch}/actions/browse"), None),
+    ] {
+        let mut form = HashMap::from([
+            ("csrf".into(), actor.csrf.clone()),
+            ("version".into(), session.version.to_string()),
+        ]);
+        if let Some(raw) = raw {
+            form.insert(format!("present.{number}"), "1".into());
+            form.insert(format!("value.{number}"), raw.into());
+        }
+        let (status, html) = request(
+            state.clone(),
+            "POST",
+            &format!("/edit-sessions/{}/{action}", session.id),
+            &cookie,
+            &form,
+            false,
+        )
+        .await;
+        assert_eq!(status, StatusCode::OK, "{html}");
+        session = state
+            .sessions
+            .lock()
+            .unwrap()
+            .get(&session.id, &actor)
+            .unwrap()
+            .clone();
+    }
+    assert_eq!(
+        session.draft.at_path("/branch/a~1b~0c").unwrap().raw,
+        "invalid integer"
+    );
+    let issues = session.value().unwrap_err();
+    assert_eq!(issues[0].path, "/branch/a~1b~0c");
+    let fragments = views::validation::fragments(&session, &issues);
+    assert!(
+        fragments
+            .iter()
+            .any(|f| f.contains(&format!("id=\"errors-{number}\"")) && f.contains("valid integer"))
+    );
+    assert!(
+        !fragments
+            .iter()
+            .any(|f| f.contains(&format!("id=\"errors-{sibling}\"")))
+    );
+    let form = HashMap::from([
+        ("csrf".into(), actor.csrf.clone()),
+        ("version".into(), session.version.to_string()),
+    ]);
+    let (status, html) = request(
+        state.clone(),
+        "POST",
+        &format!("/edit-sessions/{}/undo", session.id),
+        &cookie,
+        &form,
+        false,
+    )
+    .await;
+    assert_eq!(status, StatusCode::OK, "{html}");
+    let restored = state
+        .sessions
+        .lock()
+        .unwrap()
+        .get(&session.id, &actor)
+        .unwrap()
+        .clone();
+    assert_eq!(restored.value().unwrap(), value);
+    assert_eq!(
+        serde_json::from_slice::<serde_json::Value>(&std::fs::read(file).unwrap()).unwrap(),
+        value
+    );
+}
+
+#[tokio::test]
+async fn linked_list_actions_offer_unlink_and_reviewed_delete_with_independent_permissions() {
+    let (temp, mut state, cookie, actor) = hierarchy_fixture().await;
+    for url in [
+        "/collections/groups/records/g",
+        "/collections/notes?parent_collection=groups&parent_id=g&parent_field=children",
+    ] {
+        let (status, html) =
+            request(state.clone(), "GET", url, &cookie, &HashMap::new(), false).await;
+        assert_eq!(status, StatusCode::OK);
+        assert!(html.contains("Unlink from this list"), "{url}");
+        assert!(
+            html.contains("href=\"/collections/notes/records/one/delete\""),
+            "{url}"
+        );
+    }
+    let before = state.editor.get("notes", "one").unwrap();
+    let (_, html) = request(
+        state.clone(),
+        "GET",
+        "/collections/notes/records/one/delete",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert!(html.contains("class=\"danger\" disabled"));
+    assert_eq!(
+        state.editor.get("notes", "one").unwrap().revision,
+        before.revision
+    );
+    let root = temp.path().join("project");
+    upgrade_action_fixture(&root);
+    let path = root.join(".editor/notes.settings.json");
+    let mut config: serde_json::Value =
+        serde_json::from_slice(&std::fs::read(&path).unwrap()).unwrap();
+    config["operations"] = json!(["read", "update"]);
+    std::fs::write(&path, config.to_string()).unwrap();
+    Arc::get_mut(&mut state).unwrap().editor = Editor::open(&root).unwrap();
+    let menu = crate::hierarchy::record_actions(
+        &state.editor,
+        &actor,
+        "notes",
+        "one",
+        "First",
+        Some(("groups", "g", "children", "revision")),
+    )
+    .unwrap();
+    assert!(menu.contains("Unlink from this list"));
+    assert!(!menu.contains("/records/one/delete"));
+    config["operations"] = json!(["read", "delete"]);
+    let group_path = root.join(".editor/groups.settings.json");
+    let mut group: serde_json::Value =
+        serde_json::from_slice(&std::fs::read(&group_path).unwrap()).unwrap();
+    group["operations"] = json!(["read"]);
+    std::fs::write(group_path, group.to_string()).unwrap();
+    std::fs::write(path, config.to_string()).unwrap();
+    Arc::get_mut(&mut state).unwrap().editor = Editor::open(&root).unwrap();
+    let menu = crate::hierarchy::record_actions(
+        &state.editor,
+        &actor,
+        "notes",
+        "one",
+        "First",
+        Some(("groups", "g", "children", "revision")),
+    )
+    .unwrap();
+    assert!(!menu.contains("Unlink from this list"));
+    assert!(menu.contains("/records/one/delete"));
+    let mut viewer = actor.clone();
+    viewer.role = "viewer".into();
+    assert!(
+        crate::hierarchy::record_actions(&state.editor, &viewer, "notes", "one", "First", None)
+            .unwrap()
+            .is_empty()
+    );
+}
+
+#[tokio::test]
+async fn array_actions_distinguish_embedded_deletion_from_id_unlinking() {
+    let schema = json!({"type":"object","properties":{"embedded":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"}}}},"linked":{"type":"array","items":{"type":"string","x-relation":{"collection":"notes"}}}}});
+    let (temp, mut state, _, actor) = fixture_with_settings_schema(schema).await;
+    let root = temp.path().join("project");
+    upgrade_action_fixture(&root);
+    let ui_path = root.join(".editor/ui.json");
+    let mut ui: serde_json::Value =
+        serde_json::from_slice(&std::fs::read(&ui_path).unwrap()).unwrap();
+    ui["collections"]["notes"]["singularLabel"] = json!("Note");
+    std::fs::write(ui_path, ui.to_string()).unwrap();
+    std::fs::write(
+        root.join("settings.json"),
+        json!({"embedded":[{"name":"nested"}],"linked":["one"]}).to_string(),
+    )
+    .unwrap();
+    Arc::get_mut(&mut state).unwrap().editor = Editor::open(&root).unwrap();
+    let mut session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start_document(&state.editor, &actor, "editor-settings", "settings.json")
+        .unwrap();
+    session.view_path = "/embedded".into();
+    let html = views::edit(&state.editor, &session, &actor, &state.fields, &[], "").unwrap();
+    assert!(html.contains("Delete item 1"));
+    assert!(html.contains("Delete item and its nested contents when saved"));
+    assert!(!html.contains("Unlink item 1"));
+    session.view_path.clear();
+    let html = views::edit(&state.editor, &session, &actor, &state.fields, &[], "").unwrap();
+    assert!(html.contains("Unlink item 1 from this list"));
+    assert!(html.contains("href=\"/collections/notes/records/one/delete\""));
+    assert!(html.contains("Delete Note…"));
+    assert!(html.contains("leaves it unset when saved, rather than empty"));
+}
+
+fn upgrade_action_fixture(root: &std::path::Path) {
+    let repository = root.join(".editor/repository.json");
+    let mut config: serde_json::Value =
+        serde_json::from_slice(&std::fs::read(&repository).unwrap()).unwrap();
+    let schemas: serde_json::Value =
+        serde_json::from_slice(&std::fs::read(root.join(".editor/objects.schema.json")).unwrap())
+            .unwrap();
+    for (name, storage) in config["collections"].as_object_mut().unwrap() {
+        let mut schema = schemas["anyOf"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .find(|s| s["x-collection"] == *name)
+            .unwrap()
+            .clone();
+        schema.as_object_mut().unwrap().remove("x-collection");
+        let schema_path = format!(".editor/{name}.schema.json");
+        std::fs::write(root.join(&schema_path), schema.to_string()).unwrap();
+        let mut settings = storage.clone();
+        settings["type"] = json!("data");
+        settings["schema"] = json!(schema_path);
+        let ui_path = format!(".editor/{name}.ui.json");
+        std::fs::write(root.join(&ui_path), "{}").unwrap();
+        settings["ui"] = json!(ui_path);
+        let path = format!(".editor/{name}.settings.json");
+        std::fs::write(root.join(&path), settings.to_string()).unwrap();
+        *storage = json!(path);
+    }
+    config["version"] = json!(2);
+    config.as_object_mut().unwrap().remove("objects");
+    std::fs::write(repository, config.to_string()).unwrap();
+}
+
+#[tokio::test]
+async fn mapped_reference_validation_blocks_raw_saves_and_exposes_document_in_delete_review() {
+    let schema = json!({"type":"object","properties":{"links":{"type":"array","items":{"type":"string","x-relation":{"collection":"notes"}}}}});
+    let (temp, state, cookie, actor) = fixture_with_settings_schema(schema).await;
+    let file = temp.path().join("project/settings.json");
+    let original = std::fs::read(&file).unwrap();
+    let mut session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start_document(&state.editor, &actor, "editor-settings", "settings.json")
+        .unwrap();
+    session.raw = Some("{}".into());
+    state.sessions.lock().unwrap().insert(session.clone());
+    let values = HashMap::from([
+        ("csrf".into(), actor.csrf.clone()),
+        ("version".into(), session.version.to_string()),
+        ("raw".into(), json!({"links":["missing"]}).to_string()),
+    ]);
+    let (_, html) = request(
+        state.clone(),
+        "POST",
+        &format!("/edit-sessions/{}/save", session.id),
+        &cookie,
+        &values,
+        false,
+    )
+    .await;
+    assert!(html.contains("/links/0") && html.contains("unresolved notes reference"));
+    assert_eq!(std::fs::read(&file).unwrap(), original);
+    let doc = state
+        .editor
+        .json_document("editor-settings", "settings.json")
+        .unwrap();
+    state
+        .editor
+        .save_json_document(
+            "editor-settings",
+            "settings.json",
+            json!({"links":["one"]}),
+            &doc.revision,
+        )
+        .unwrap();
+    let (_, html) = request(
+        state,
+        "GET",
+        "/collections/notes/records/one/delete",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert!(
+        html.contains("/documents/editor%2Dsettings?file=settings%2Ejson")
+            || html.contains("/documents/editor-settings?file=settings%2Ejson"),
+        "{html}"
+    );
+    assert!(html.contains("/links/0"));
+    assert!(html.contains("class=\"danger\" disabled"));
+}
+
+#[tokio::test]
+async fn system_metadata_is_readable_in_root_and_nested_document_views_and_edits() {
+    let schema = json!({"type":"object","properties":{"branch":{"type":"object","properties":{"title":{"type":"string"}}}}});
+    let (temp, state, cookie, actor) = fixture_with_settings_schema(schema).await;
+    let revision = "abcdef0123456789abcdef0123456789abcdef01";
+    let metadata = json!({"schema_revision":revision,"manual_order":0,"extra":{"enabled":true,"note":"<script>bad</script>"}});
+    let data = json!({"_editor":metadata,"branch":{"title":"Branch","_editor":metadata}});
+    std::fs::write(temp.path().join("project/settings.json"), data.to_string()).unwrap();
+    for url in [
+        "/documents/editor-settings?file=settings.json",
+        "/documents/editor-settings?file=settings.json&node=%2Fbranch",
+    ] {
+        let (status, html) =
+            request(state.clone(), "GET", url, &cookie, &HashMap::new(), false).await;
+        assert_eq!(status, StatusCode::OK);
+        assert!(html.contains("Editor metadata"));
+        assert!(html.contains("Schema revision"));
+        assert!(html.contains("<code>abcdef01</code>"), "{url}: {html}");
+        assert!(html.contains("Manual order"));
+        assert!(html.contains("<span class=\"mono\">0</span>"));
+        assert!(html.contains("&lt;script&gt;bad&lt;/script&gt;"));
+        assert!(!html.contains("<pre"));
+        assert!(!html.contains("&quot;schema_revision&quot;"));
+    }
+    let mut session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start_document(&state.editor, &actor, "editor-settings", "settings.json")
+        .unwrap();
+    let root = session.draft.at_path("/_editor").unwrap().id.clone();
+    let nested = session.draft.at_path("/branch/_editor").unwrap().id.clone();
+    session.view_path = "/branch".into();
+    let html = views::edit(&state.editor, &session, &actor, &state.fields, &[], "").unwrap();
+    for id in [&root, &nested] {
+        assert!(html.contains(&format!("name=\"manual_order.{id}\"")));
+        assert!(!html.contains(&format!("name=\"value.{id}\"")));
+    }
+    assert!(html.contains("<code>abcdef01</code>"));
+    let values = HashMap::from([
+        ("version".into(), session.version.to_string()),
+        (format!("present.{nested}"), "1".into()),
+        (format!("manual_order.{nested}"), "7".into()),
+    ]);
+    session.apply(&values).unwrap();
+    let result = session.value().unwrap();
+    assert_eq!(result["_editor"], metadata);
+    assert_eq!(result["branch"]["_editor"]["schema_revision"], revision);
+    assert_eq!(result["branch"]["_editor"]["manual_order"], 7);
+    assert_eq!(result["branch"]["_editor"]["extra"], metadata["extra"]);
+}
+
+#[tokio::test]
+async fn record_metadata_preview_uses_system_fields_instead_of_raw_json() {
+    let (_temp, state, _, actor) = fixture().await;
+    let doc = state.editor.get("notes", "one").unwrap();
+    let mut data = doc.value;
+    data["_editor"] =
+        json!({"schema_revision":"0123456789abcdef0123456789abcdef01234567","manual_order":12});
+    // Render the same shared preview used by record and document routes.
+    let draft = structured_editor_core::draft::Draft::new(&json!({"type":"object"}), &data);
+    let html = crate::tree::preview(
+        &state.editor,
+        &draft,
+        &data,
+        "/collections/notes/records/one",
+        "",
+    );
+    assert!(html.contains("Schema revision") && html.contains("<code>01234567</code>"));
+    assert!(html.contains("Manual order") && html.contains("<span class=\"mono\">12</span>"));
+    assert!(!html.contains("&quot;schema_revision&quot;"));
+    let mut session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start(&state.editor, &actor, "notes", Some("one"))
+        .unwrap();
+    session.draft = draft;
+    let html = views::edit(&state.editor, &session, &actor, &state.fields, &[], "").unwrap();
+    assert_eq!(html.matches("<code>01234567</code>").count(), 1);
+    assert!(html.contains("Manual order"));
 }

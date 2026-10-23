@@ -1,8 +1,12 @@
 {
-  "name": "Göttingen, Stadtarchiv",
-  "short": "Göttingen",
-  "sammlungen": [],
+  "_editor": {
+    "schema_revision": "b486fde0998e179d96b9723b22be2700a581f47b"
+  },
   "handschriften": [
-    "gottingen-stadtarchiv--stabu-nr-56-stammbuch-von-johann-georg-heinrich-uhthof-s-196--74ec555d1a"
-  ]
+    "gottingen-stadtarchiv--stabu-nr-56-stammbuch-von-johann-georg-heinrich-uhthof-s-196--74ec555d1a",
+    "was"
+  ],
+  "name": "Göttingen, Stadtarchiv",
+  "sammlungen": [],
+  "short": "Göttingen"
 }

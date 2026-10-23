@@ -142,7 +142,7 @@ Implemented workflows include configured sidebar groups and trees, contextual cr
 
 Account administration includes profile edits, current-password verification, last-administrator protection, account disable/enable, session revocation, expiring single-use invitations and resets. Administrators obtain one-time links to share manually; there is no outbound email service. Password changes/resets and role/status changes revoke sessions. Tokens are hashed in Turso.
 
-The MVP intentionally defers arbitrary panel/screen composition, conditional/table controls, a dedicated nested-object form, automatic schema migration, and media existence/type validation. Nested objects remain editable and validated through JSON. Embedded Turso is the selected local engine, not a Turso Cloud integration.
+The MVP intentionally defers arbitrary panel/screen composition, conditional/table controls, automatic schema migration, and media existence/type validation. Nested objects use recursive property forms and document-tree navigation. Embedded Turso is the selected local engine, not a Turso Cloud integration.
 
 Normal text fields contain decoded text: users enter quotes, newlines and backslashes as ordinary characters. JSON/YAML quoting happens automatically at save time. Markdown source controls omit redundant imported punctuation escapes only when the rendered content remains identical; meaningful escapes, code and literal backslashes are preserved. Lists and search excerpts render Markdown as readable text, including array items.
 
@@ -191,3 +191,78 @@ Media operations now include separately configurable `replace` and `copy` capabi
 Invitations and reset links include locally generated QR codes and a copy control. Set `EDITOR_PUBLIC_URL` to the editor's HTTP(S) origin behind a proxy so links and QR codes use the externally reachable address. Otherwise the request Origin, or HTTP Host for ordinary form submissions, supplies the base. A phone cannot reach a server bound only to localhost. Tokens remain one-time, expiring, and are shown only to an administrator; no external QR service receives them.
 
 See [the archive field review](../../docs/lenz-archiv-field-review.md) for evidence-based proposals for historical dates, attachment lists, contributor relations and other future types.
+
+## Inherited view options
+
+UI option objects merge recursively: omitted options inherit, local values override, and arrays (such as `columns`) replace the inherited array. Set `inherit: false` on an option object to discard its inherited options; omitted options then use the renderer's built-in defaults. The reset is local and does not modify other views. Presentation never changes schema validation or stored data.
+
+Collection defaults resolve from global `defaults`, the collection UI file, then global `collections.<name>` overrides. Child lists start with their target collection's resolved UI, followed by the parent collection's `childLists.defaults`, then `childLists.fields.<property>`. The shared defaults apply to sibling child lists on that parent; each property can override them independently. For example, in an Ort's collection UI:
+
+```json
+{
+  "childLists": {
+    "defaults": { "list": { "previewSize": 8 } },
+    "fields": {
+      "handschriften": {
+        "list": {
+          "columns": ["Signatur", "Titel"],
+          "defaultSort": { "field": "Signatur", "direction": "asc" }
+        }
+      },
+      "sammlungen": {
+        "inherit": false,
+        "list": { "columns": ["_label"], "previewSize": 4 },
+        "pageSize": 25
+      }
+    }
+  }
+}
+```
+
+Embedded previews and their **Browse list** pages use the same resolved columns, sort, and filter configuration. `list.previewSize` controls preview rows (default 10, range 1–200); `pageSize` controls the full list. Preview columns are no longer capped at four. These overrides belong to that parent/list occurrence and do not alter the target collection elsewhere. They do not propagate across reference navigation into another record's child lists.
+
+General assigned JSON documents now offer a typed preview and an **Edit** button in the document list, using the same draft controls, array actions, undo/redo, validation, and conflict-checked saves as records. Documents keep their assigned paths and have no record-ID controls. Arrays and scalar values are also supported at the document root. The dedicated `/settings` screen remains available.
+
+Document UI options live in global `documents.<mapping-name>` and inherit global `defaults`. `fields` uses the same schema JSON pointers as collection UI. `presentation` supplies defaults down the schema tree; a field's `x-presentation` overrides or resets them. For example:
+
+```json
+{
+  "defaults": { "presentation": { "editor": "form" } },
+  "documents": {
+    "metadata": {
+      "fieldOrder": ["title", "source"],
+      "fields": {
+        "/properties/source": { "x-presentation": { "editor": "raw" } },
+        "/properties/tags/items": {
+          "x-presentation": { "inherit": false, "editor": "form" }
+        }
+      }
+    }
+  }
+}
+```
+
+`presentation.editor: "raw"` at the collection/document root opens raw JSON editing by default. `x-presentation.editor: "raw"` on a field renders that entire value/subtree as JSON. `"form"` selects normal typed controls; the existing `x-editor: "json"` remains an explicit JSON control. Raw editing preserves JSON types and still validates against the same schema. A raw subtree is one editor, so its descendants have no separate visible controls until that subtree is shown as a form. Objects and homogeneous object arrays use recursive subtree views. Scalar arrays stay inline. Unions, mixed arrays, tuple schemas, invalid container values and unsupported schema shapes use the validated JSON fallback when enabled. Reload the server after changing configuration.
+
+The header button beside **objekte** shows or hides the sidebar. Drag its right divider to resize it, or focus the divider and use Left/Right (Shift for larger steps), Home, or End. Sidebar width and desktop visibility are remembered locally; navigation content and ordering still come from project UI configuration. List links open previews; existing records and assigned documents offer Edit buttons both in their list rows and at the top right of their individual views, subject to editing permissions.
+
+
+### Recursive subtree navigation
+
+Objects and homogeneous object arrays appear in the document tree for records and assigned JSON documents. Opening a branch shows its properties or items; edit navigation submits visible inputs into the existing draft before changing branches. Save validates and saves the entire document. Absent schema-defined objects can be added one level at a time, including recursive local `$ref` schemas. Empty scalar arrays remain inline; adding unknown properties or choosing a type for an untyped empty array still requires an explicit raw editor or a schema.
+
+Inherited presentation options (under `presentation` in collection/document UI, or `x-presentation` on a schema field):
+
+```json
+{ "x-presentation": { "navigation": "stop", "rawFallback": false } }
+```
+
+`navigation: "stop"` makes this object an endpoint. Its scalars and homogeneous scalar arrays remain structured. Deeper containers use fallback unless a local `navigation: "continue"` overrides the stop. `rawFallback: false` leaves unsupported values preserved and unavailable for structured editing. `editor: "raw"` explicitly enables a JSON editor for a subtree even when automatic fallback is disabled. `inherit: false` clears inherited presentation options. The explicit whole-document Raw JSON action remains available.
+
+The renderer has a safety boundary after 64 nesting levels; deeper values use the same fallback policy and remain preserved. Navigation does not change JSON storage, reference semantics, schema validation, or ownership rules.
+
+
+Removal actions describe the stored data: **Unlink from this list** removes an ID reference while retaining the separate record; **Delete item** removes an embedded array value and its nested contents on save; **Remove field** leaves a property unset on save. Child-list unlinking updates the saved parent immediately; reference-array unlinking happens in the draft. Linked records also offer **Delete <type>…** (or **Delete record…** without a configured `singularLabel`), opening the existing incoming-reference review. Unlink and delete permissions are checked independently. Deletion remains blocked while saved references exist; opening its review does not save an editing draft.
+
+
+ID references declared with `x-relation` are checked by the server against their target collection before saving, including nested arrays/objects, mapped JSON documents, and raw editing. Missing or invalid IDs produce errors at the JSON path and leave the saved file unchanged. `allowUnresolved` no longer bypasses validation. Incoming references from mapped documents/settings participate in deletion and rename review. Standalone document saves recheck references under the same write lock as deletion. External edits to repository files can still introduce invalid data; the editor rejects saving it until the references are repaired.

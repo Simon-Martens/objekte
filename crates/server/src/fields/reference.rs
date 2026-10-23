@@ -3,9 +3,11 @@ use crate::views::{escape, record_url};
 pub struct Reference;
 impl Control for Reference {
     fn accepts(&self, f: &DraftField) -> bool {
-        f.schema.get("x-relation").is_some()
-            || f.schema["x-content"] == "media"
-            || f.schema["x-editor"] == "media"
+        f.schema["x-presentation"]["editor"] != "raw"
+            && f.schema["x-editor"] != "json"
+            && (f.schema.get("x-relation").is_some()
+                || f.schema["x-content"] == "media"
+                || f.schema["x-editor"] == "media")
     }
     fn render(&self, f: &DraftField, _: &str, c: &Context<'_>, _: &Registry) -> Result<String> {
         let target = f

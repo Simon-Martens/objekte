@@ -1110,3 +1110,140 @@ fn mapped_collection_files_keep_record_validation_and_reference_guards() {
         Err(Error::Conflict(_))
     ));
 }
+
+#[test]
+fn strict_references_cover_nested_mapped_documents_and_block_delete_and_rename() {
+    let temp = split_fixture();
+    let root = temp.path();
+    fs::write(root.join("links.json"), "{}").unwrap();
+    let schema = json!({"type":"object","$defs":{"ref":{"type":"string","x-relation":{"collection":"people","allowUnresolved":true}}},"properties":{
+        "rows":{"type":"array","items":{"type":"object","properties":{"owner":{"$ref":"#/$defs/ref"}}}},
+        "choice":{"anyOf":[{"$ref":"#/$defs/ref"},{"type":"null"}]},
+        "dictionary":{"type":"object","patternProperties":{"^ref":{"$ref":"#/$defs/ref"}}},
+        "conditional":{"type":"object","if":{"required":["owner"]},"then":{"properties":{"owner":{"$ref":"#/$defs/ref"}}}},
+        "typed":{"x-relation":{"collection":"people"}},
+        "contained":{"type":"array","contains":{"$ref":"#/$defs/ref"}}
+    }});
+    add_document_mapping(root, "links", schema, &["links.json"]);
+    let e = Editor::open(root).unwrap();
+    let person = e
+        .save("people", "valid", json!({"name":"Person"}), None)
+        .unwrap();
+    let original = e.json_document("links", "links.json").unwrap();
+    for (value, path) in [
+        (json!({"rows":[{"owner":"missing"}]}), "/rows/0/owner"),
+        (json!({"choice":"missing"}), "/choice"),
+        (
+            json!({"dictionary":{"ref/a~b":"missing"}}),
+            "/dictionary/ref~1a~0b",
+        ),
+        (
+            json!({"conditional":{"owner":"missing"}}),
+            "/conditional/owner",
+        ),
+        (json!({"contained":["missing"]}), "/contained/0"),
+        (json!({"typed":42}), "/typed"),
+        (json!({"typed":"../valid"}), "/typed"),
+        (json!({"typed":""}), "/typed"),
+    ] {
+        let issues = e.validate_document("links", &value).unwrap();
+        assert!(issues.iter().any(|i| i.path == path), "{value}: {issues:?}");
+        assert!(matches!(
+            e.save_json_document("links", "links.json", value, &original.revision),
+            Err(Error::Validation(_))
+        ));
+        assert_eq!(
+            e.json_document("links", "links.json").unwrap().revision,
+            original.revision
+        );
+    }
+    let saved = e
+        .save_json_document(
+            "links",
+            "links.json",
+            json!({"rows":[{"owner":"valid"}],"choice":null}),
+            &original.revision,
+        )
+        .unwrap();
+    let incoming = e.references_to("people", "valid").unwrap();
+    assert!(
+        incoming
+            .iter()
+            .any(|r| r.document.as_deref() == Some("links") && r.path == "/rows/0/owner")
+    );
+    assert!(matches!(
+        e.delete("people", "valid", &person.revision),
+        Err(Error::Conflict(_))
+    ));
+    assert!(matches!(
+        e.rename(
+            "people",
+            "valid",
+            "renamed",
+            person.value.clone(),
+            &person.revision
+        ),
+        Err(Error::Conflict(_))
+    ));
+    e.save_json_document("links", "links.json", json!({}), &saved.revision)
+        .unwrap();
+    e.delete("people", "valid", &person.revision).unwrap();
+}
+
+#[test]
+fn collection_reference_validation_cannot_be_bypassed_by_allow_unresolved_or_ref_siblings() {
+    let temp = split_fixture();
+    let root = temp.path();
+    let path = root.join(".editor/objects.schema.json");
+    let mut schema: serde_json::Value = serde_json::from_slice(&fs::read(&path).unwrap()).unwrap();
+    schema["$defs"] = json!({"id":{"type":"string"}});
+    schema["anyOf"][1]["properties"]["owner"] =
+        json!({"$ref":"#/$defs/id","x-relation":{"collection":"people","allowUnresolved":true}});
+    fs::write(path, schema.to_string()).unwrap();
+    let e = Editor::open(root).unwrap();
+    for id in ["missing", "", "../escape"] {
+        let value = json!({"text":"Note","owner":id});
+        assert!(
+            e.validate("notes", &value)
+                .unwrap()
+                .iter()
+                .any(|i| i.path == "/owner")
+        );
+        assert!(matches!(
+            e.save("notes", "n", value, None),
+            Err(Error::Validation(_))
+        ));
+    }
+    let person = e
+        .save("people", "p", json!({"name":"Person"}), None)
+        .unwrap();
+    e.save("notes", "n", json!({"text":"Note","owner":"p"}), None)
+        .unwrap();
+    assert!(matches!(
+        e.delete("people", "p", &person.revision),
+        Err(Error::Conflict(_))
+    ));
+}
+
+#[test]
+fn direct_settings_write_cannot_bypass_mapped_reference_validation() {
+    let temp = split_fixture();
+    let root = temp.path();
+    fs::write(root.join(".editor/settings.schema.json"),json!({"type":"object","properties":{"owner":{"type":"string","x-relation":{"collection":"people"}}}}).to_string()).unwrap();
+    let e = Editor::open(root).unwrap();
+    let before = e.settings().unwrap();
+    assert!(matches!(
+        e.save_settings(json!({"owner":"missing"}), &before.revision),
+        Err(Error::Validation(_))
+    ));
+    assert_eq!(e.settings().unwrap().revision, before.revision);
+    let person = e
+        .save("people", "p", json!({"name":"Person"}), None)
+        .unwrap();
+    e.save_settings(json!({"owner":"p"}), &before.revision)
+        .unwrap();
+    assert!(matches!(
+        e.delete("people", "p", &person.revision),
+        Err(Error::Conflict(_))
+    ));
+}

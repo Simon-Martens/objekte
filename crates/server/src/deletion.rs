@@ -51,6 +51,7 @@ struct Reference {
 crate::templates::template!(DeleteReview<'_>, "delete.html");
 #[derive(serde::Serialize)]
 struct DeleteReview<'a> {
+    record_kind: String,
     actor: crate::templates::ActorContext<'a>,
     title: String,
     back: String,
@@ -103,6 +104,22 @@ fn render(editor: &Editor, actor: &Actor, name: &str, id: &str, message: &str) -
         }) {
             continue;
         }
+        if let Some(mapping) = &reference.document {
+            references.push(Reference {
+                label: reference.record_id.clone(),
+                path: reference.path.clone(),
+                url: if mapping.is_empty() {
+                    "/settings".into()
+                } else {
+                    format!(
+                        "/documents/{}?file={}",
+                        views::encode(mapping),
+                        views::encode(&reference.record_id)
+                    )
+                },
+            });
+            continue;
+        }
         let readable = editor.allows(&reference.collection, "read");
         references.push(Reference {
             label: if readable {
@@ -130,6 +147,7 @@ fn render(editor: &Editor, actor: &Actor, name: &str, id: &str, message: &str) -
     }
     let back = views::record_url(name, id);
     let modal = DeleteReview {
+        record_kind: views::record_kind(editor, name)?,
         actor: actor.into(),
         title: editor.label(name, &doc.value, id, "record")?,
         back: back.clone(),

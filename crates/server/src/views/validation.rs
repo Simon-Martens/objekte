@@ -15,24 +15,48 @@ fn field_feedback(
     path: &str,
     issues: &[ValidationIssue],
     output: &mut Vec<String>,
+    focus: &str,
 ) {
     if field.hidden || !field.present {
         return;
     }
     output.push(field_errors(&format!("errors-{}", field.id), path, issues));
-    for (index, item) in field.items.iter().enumerate() {
-        field_feedback(item, &format!("{path}/{index}"), issues, output);
+    if crate::tree::navigable(field) && field.id != focus {
+        return;
+    }
+    for item in &field.items {
+        field_feedback(
+            item,
+            &structured_editor_core::draft::child_path(path, &item.key),
+            issues,
+            output,
+            focus,
+        );
     }
 }
 pub fn fragments(session: &EditSession, issues: &[ValidationIssue]) -> Vec<String> {
     let mut output = Vec::new();
     if session.raw.is_none() {
-        for field in &session.draft.fields {
+        let selected = session
+            .draft
+            .at_path(&session.view_path)
+            .filter(|f| crate::tree::navigable(f));
+        let fields: Vec<_> = selected
+            .map(|f| vec![f])
+            .unwrap_or_else(|| session.draft.fields.iter().collect());
+        for field in fields {
             field_feedback(
                 field,
-                &format!("/{}", field.key.replace('~', "~0").replace('/', "~1")),
+                &if selected.is_some() {
+                    session.view_path.clone()
+                } else if session.draft.root_value {
+                    String::new()
+                } else {
+                    format!("/{}", field.key.replace('~', "~0").replace('/', "~1"))
+                },
                 issues,
                 &mut output,
+                selected.map(|f| f.id.as_str()).unwrap_or(""),
             );
         }
     }

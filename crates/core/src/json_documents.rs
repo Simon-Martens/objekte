@@ -50,13 +50,15 @@ impl Editor {
             .should_validate_formats(true)
             .build(self.document_schema(name)?)
             .map_err(|e| Error::Config(format!("{name}: {e}")))?;
-        Ok(validator
+        let mut issues: Vec<ValidationIssue> = validator
             .iter_errors(value)
             .map(|e| ValidationIssue {
                 path: e.instance_path().to_string(),
                 message: e.to_string(),
             })
-            .collect())
+            .collect();
+        issues.extend(self.validate_reference_values(self.document_schema(name)?, value)?);
+        Ok(issues)
     }
 
     pub fn save_json_document(
@@ -95,6 +97,11 @@ impl Editor {
             }
         }
         let _guard = self.write_guard.lock().unwrap();
+        // Check targets again under the same lock as record deletion/rename.
+        let issues = self.validate_document(name, &value)?;
+        if !issues.is_empty() {
+            return Err(Error::Validation(issues));
+        }
         let current = self.json_document(name, file)?;
         if current.revision != expected {
             return Err(Error::Conflict(format!("{file} changed on disk")));

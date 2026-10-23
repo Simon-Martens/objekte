@@ -53,17 +53,7 @@ window.addEventListener('popstate', async () => {
 });
 window.addEventListener('beforeunload', event => { if (dirty) { event.preventDefault(); event.returnValue = ''; } });
 
-// Small-screen navigation is a shell control, independent of project fragments.
-function closeNavigation() {
-  document.getElementById('admin-shell')?.classList.remove('navigation-open');
-  document.querySelector('[data-menu-toggle]')?.setAttribute('aria-expanded', 'false');
-}
-document.querySelector('[data-menu-toggle]')?.addEventListener('click', event => {
-  const open = document.getElementById('admin-shell')?.classList.toggle('navigation-open');
-  (event.currentTarget as HTMLElement).setAttribute('aria-expanded', String(!!open));
-});
-window.addEventListener('navigate', closeNavigation);
-document.addEventListener('keydown', event => { if (event.key === 'Escape') closeNavigation(); });
+import './controls/sidebar';
 
 document.addEventListener('keydown', event => {
   if (!(event.ctrlKey || event.metaKey) || event.key.toLowerCase() !== 's') return;

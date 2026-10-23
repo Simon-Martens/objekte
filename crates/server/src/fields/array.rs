@@ -9,6 +9,9 @@ struct Input {
 }
 #[derive(serde::Serialize)]
 struct Item {
+    linked: bool,
+    delete_url: String,
+    delete_label: String,
     html: String,
     remove: String,
     up: String,
@@ -36,7 +39,37 @@ impl Control for Array {
             .iter()
             .enumerate()
             .map(|(index, item)| {
+                let target = item
+                    .schema
+                    .pointer("/x-relation/collection")
+                    .and_then(serde_json::Value::as_str);
+                let linked = target.is_some();
+                let target_id = if item.kind == InputKind::Text {
+                    item.raw.clone()
+                } else {
+                    serde_json::from_str::<serde_json::Value>(&item.raw)
+                        .ok()
+                        .and_then(|v| v.as_str().map(str::to_owned))
+                        .unwrap_or_default()
+                };
+                let deletable = target.filter(|target| {
+                    linked
+                        && context.editor.allows(target, "read")
+                        && context.editor.allows(target, "delete")
+                        && context.editor.get(target, &target_id).is_ok()
+                });
                 Ok(Item {
+                    linked,
+                    delete_url: deletable
+                        .map(|target| {
+                            format!("{}/delete", crate::views::record_url(target, &target_id))
+                        })
+                        .unwrap_or_default(),
+                    delete_label: deletable
+                        .map(|target| crate::views::record_kind(context.editor, target))
+                        .transpose()?
+                        .map(|kind| format!("Delete {kind}…"))
+                        .unwrap_or_default(),
                     html: registry.render(item, &format!("{path}/{index}"), context, true)?,
                     remove: format!("{base}/remove?item={}", item.id),
                     up: format!("{base}/up?item={}", item.id),

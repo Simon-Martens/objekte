@@ -7,6 +7,30 @@ use structured_editor_core::{
 
 /// Use the same resolved field definitions as the editor, including array items.
 pub fn value(editor: &Editor, field: &DraftField, value: &Value) -> String {
+    if field.hidden {
+        return String::new();
+    }
+    if field.key == "_editor" {
+        return super::metadata::value("_editor", value);
+    }
+    if field.kind == InputKind::Unsupported {
+        return "<p class=\"muted\">Value preserved; structured display unavailable and automatic raw fallback disabled.</p>".into();
+    }
+    if field.kind == InputKind::Object {
+        let mut html = format!("<div id=\"node-{}\" class=\"preview-object\">", field.id);
+        for child in &field.items {
+            if !child.hidden {
+                if let Some(value) = value.get(&child.key) {
+                    html += &format!(
+                        "<section class=\"preview-field\"><h3>{}</h3>{}</section>",
+                        escape(&crate::tree::label(child)),
+                        self::value(editor, child, value)
+                    );
+                }
+            }
+        }
+        return html + "</div>";
+    }
     if field.kind == InputKind::Array {
         if let Some(items) = value.as_array() {
             if items.is_empty() {
@@ -25,6 +49,9 @@ pub fn value(editor: &Editor, field: &DraftField, value: &Value) -> String {
             html += "</ol>";
             return html;
         }
+    }
+    if field.schema["x-presentation"]["editor"] == "raw" || field.schema["x-editor"] == "json" {
+        return json(value);
     }
     let schema = &field.schema;
     if let (Some(target), Some(id)) = (

@@ -1,6 +1,7 @@
 pub mod list;
 pub(crate) mod markdown_source;
-mod preview;
+pub(crate) mod metadata;
+pub(crate) mod preview;
 pub mod validation;
 use crate::templates::Template;
 use crate::{
@@ -196,6 +197,13 @@ pub fn navigation(editor: &Editor, workspace: &str) -> Result<String> {
             );
         }
     }
+    if let Some(tree) = workspace
+        .split("<template id=\"data-navigation\">")
+        .nth(1)
+        .and_then(|s| s.split("</template>").next())
+    {
+        html += tree;
+    }
     html += &format!(
         "<p class=\"eyebrow\">Workspace</p><a data-nav href=\"/documents\"{}><i class=\"ri-braces-line\" aria-hidden=\"true\"></i><span>JSON documents</span></a><a data-nav href=\"/settings\"{}><i class=\"ri-settings-3-line\" aria-hidden=\"true\"></i><span>Editor settings</span></a></nav><div class=\"sidebar-footer mono\"><span class=\"status-dot\"></span>Repository workspace</div></aside>",
         current("/documents"),
@@ -306,59 +314,63 @@ pub fn collection_tree(
 crate::templates::template!(RecordView<'_>, "record.html");
 #[derive(serde::Serialize)]
 struct RecordView<'a> {
+    record_kind: String,
+    view_url: String,
+    node: String,
     title: String,
     url: String,
     back: String,
+    back_label: String,
     content: String,
-    edit: String,
     delete: String,
     actor: crate::templates::ActorContext<'a>,
     references: Vec<String>,
     children: String,
     parents: String,
-    can_update: bool,
     can_delete: bool,
+    can_update: bool,
+}
+pub(crate) fn record_kind(editor: &Editor, name: &str) -> Result<String> {
+    Ok(editor.config().collection(name)?.ui["singularLabel"]
+        .as_str()
+        .filter(|s| !s.trim().is_empty())
+        .unwrap_or("record")
+        .to_owned())
 }
 pub fn record(editor: &Editor, name: &str, id: &str, actor: &Actor) -> Result<String> {
+    record_at(editor, name, id, actor, "")
+}
+pub fn record_at(
+    editor: &Editor,
+    name: &str,
+    id: &str,
+    actor: &Actor,
+    path: &str,
+) -> Result<String> {
     editor.require_operation(name, "read")?;
     let doc = editor.get(name, id)?;
     let projected = editor.view_value(name, &doc.value)?;
     let draft = editor.draft(name, &doc.value)?;
-    let mut content = String::new();
-    for f in &draft.fields {
-        if f.hidden {
-            continue;
-        }
-        let Some(value) = projected.get(&f.key) else {
-            continue;
-        };
-        let label = f.schema["title"].as_str().unwrap_or(&f.key);
-        if f.key == "_editor" {
-            content += &format!(
-                "<details class=\"preview-metadata\"><summary>Record metadata</summary><pre class=\"mono\">{}</pre></details>",
-                escape(&serde_json::to_string_pretty(value).unwrap_or_default())
-            );
-            continue;
-        }
-        content += &format!(
-            "<section class=\"preview-field\"><h3>{}</h3><div>",
-            escape(label)
-        );
-        content += &preview::value(editor, f, value);
-        content += "</div></section>";
-    }
     let url = record_url(name, id);
+    let content = crate::tree::preview(editor, &draft, &projected, &url, path);
     let parent_links = editor.parent_links(name, id)?;
     Ok(RecordView {
+        record_kind: record_kind(editor, name)?,
+        view_url: if path.is_empty() {
+            url.clone()
+        } else {
+            format!("{url}?node={}", encode(path))
+        },
+        node: path.into(),
         title: editor.label(name, &doc.value, id, "record")?,
-        can_update: actor.editable() && editor.allows(name, "update"),
         can_delete: actor.editable() && editor.allows(name, "delete"),
+        can_update: actor.editable() && editor.allows(name, "update"),
         url: url.clone(),
         back: format!("/collections/{}", encode(name)),
+        back_label: editor.config().collection(name)?.label.clone(),
         content,
         children: crate::hierarchy::sections(editor, name, id, actor)?,
         parents: crate::hierarchy::parents(editor, name, id)?,
-        edit: format!("{url}/edit-sessions"),
         delete: format!("{url}/delete"),
         actor: actor.into(),
         references: editor
@@ -377,7 +389,14 @@ pub fn record(editor: &Editor, name: &str, id: &str, actor: &Actor) -> Result<St
             .map(|r| {
                 format!(
                     "<a data-nav href=\"{}\">{}/{}</a> at {}",
-                    record_url(&r.collection, &r.record_id),
+                    r.document
+                        .as_ref()
+                        .map(|name| if name.is_empty() {
+                            "/settings".into()
+                        } else {
+                            format!("/documents/{}?file={}", encode(name), encode(&r.record_id))
+                        })
+                        .unwrap_or_else(|| record_url(&r.collection, &r.record_id)),
                     escape(&r.collection),
                     escape(&r.record_id),
                     escape(&r.path)
@@ -415,6 +434,7 @@ struct SessionContext<'a> {
     proposed_id: &'a str,
     raw: &'a Option<String>,
     schema_warning: bool,
+    document: bool,
 }
 pub fn edit(
     editor: &Editor,
@@ -425,7 +445,12 @@ pub fn edit(
     message: &str,
 ) -> Result<String> {
     let value = session.value().unwrap_or(serde_json::json!({}));
+    let selected = session
+        .draft
+        .at_path(&session.view_path)
+        .filter(|f| crate::tree::navigable(f));
     let context = Context {
+        focus: selected.map(|f| f.id.as_str()).unwrap_or(""),
         editor,
         collection: &session.collection,
         value: &value,
@@ -449,8 +474,17 @@ pub fn edit(
         });
     let mut sidebar_fields = String::new();
     let mut available_fields = String::new();
-    let ui = &editor.config().collection(&session.collection)?.ui;
-    for field in &session.draft.fields {
+    let document_ui;
+    let ui = if let Some((name, _)) = &session.document {
+        document_ui = editor.document_ui(name)?;
+        &document_ui
+    } else {
+        &editor.config().collection(&session.collection)?.ui
+    };
+    let shown: Vec<_> = selected
+        .map(|f| vec![f])
+        .unwrap_or_else(|| session.draft.fields.iter().collect());
+    for field in shown {
         if !field.present && !field.hidden && !field.read_only && field.key != "_editor" {
             available_fields += &format!(
                 "<button class=\"menu-action add-field-option\" formaction=\"/edit-sessions/{}/fields/{}/actions/include\"><i class=\"ri-add-line\" aria-hidden=\"true\"></i><span>{}</span><small>{}</small></button>",
@@ -478,11 +512,37 @@ pub fn edit(
         };
         destination.push_str(&registry.render(
             field,
-            &format!("/{}", field.key.replace('~', "~0").replace('/', "~1")),
+            &if selected.is_some() {
+                session.view_path.clone()
+            } else if session.draft.root_value {
+                String::new()
+            } else {
+                format!("/{}", field.key.replace('~', "~0").replace('/', "~1"))
+            },
             &context,
             false,
         )?);
     }
+    // Root system controls remain available while editing another subtree.
+    if selected.is_some() && metadata.is_empty() {
+        if let Some(field) = session.draft.fields.iter().find(|f| f.key == "_editor") {
+            metadata = registry.render(field, "/_editor", &context, false)?;
+        }
+    }
+    fields = format!(
+        "{}{}{}",
+        crate::tree::edit_navigation(session),
+        if selected.is_some() {
+            format!(
+                "<button class=\"small\" formaction=\"/edit-sessions/{}/browse-root\">Back to document root</button><p class=\"mono\">{}</p>",
+                session.id,
+                escape(&session.view_path)
+            )
+        } else {
+            String::new()
+        },
+        fields
+    );
     Ok(Edit {
         session: SessionContext {
             id: &session.id,
@@ -490,6 +550,7 @@ pub fn edit(
             proposed_id: &session.proposed_id,
             raw: &session.raw,
             schema_warning: session.schema_warning,
+            document: session.document.is_some(),
         },
         can_undo: session.history.can_undo(),
         can_redo: session.history.can_redo(),
@@ -499,13 +560,23 @@ pub fn edit(
         schema_revision,
         sidebar_fields,
         available_fields,
-        section: format!("/collections/{}", encode(&session.collection)),
-        record_url: session
-            .parent
-            .as_ref()
-            .map(|p| record_url(&p.collection, &p.id))
-            .unwrap_or_else(|| record_url(&session.collection, &session.record_id)),
-        collection_label: if let Some(parent) = &session.parent {
+        section: if session.document.is_some() {
+            "/documents".into()
+        } else {
+            format!("/collections/{}", encode(&session.collection))
+        },
+        record_url: if let Some((name, file)) = &session.document {
+            format!("/documents/{}?file={}", encode(name), encode(file))
+        } else {
+            session
+                .parent
+                .as_ref()
+                .map(|p| record_url(&p.collection, &p.id))
+                .unwrap_or_else(|| record_url(&session.collection, &session.record_id))
+        },
+        collection_label: if session.document.is_some() {
+            "JSON documents".into()
+        } else if let Some(parent) = &session.parent {
             editor.label(
                 &parent.collection,
                 &editor.get(&parent.collection, &parent.id)?.value,
@@ -519,7 +590,9 @@ pub fn edit(
                 .label
                 .clone()
         },
-        title: if session.record_id.is_empty() {
+        title: if let Some((_, file)) = &session.document {
+            file.clone()
+        } else if session.record_id.is_empty() {
             format!("New {}", ui["singularLabel"].as_str().unwrap_or("record"))
         } else {
             editor.label(&session.collection, &value, &session.record_id, "record")?
@@ -527,7 +600,9 @@ pub fn edit(
         issues,
         message,
         picker: crate::pickers::render(editor, session)?,
-        back: if let Some(parent) = &session.parent {
+        back: if let Some((name, file)) = &session.document {
+            format!("/documents/{}?file={}", encode(name), encode(file))
+        } else if let Some(parent) = &session.parent {
             record_url(&parent.collection, &parent.id)
         } else if let Some((parent, _)) = &session.return_to {
             format!("/edit-sessions/{parent}")
@@ -571,8 +646,12 @@ struct Panel<'a> {
     body: &'a str,
     section: &'a str,
     category: &'a str,
+    actions: &'a str,
 }
 pub fn panel(url: &str, title: &str, body: &str) -> Result<String> {
+    panel_with_actions(url, title, body, "")
+}
+pub fn panel_with_actions(url: &str, title: &str, body: &str, actions: &str) -> Result<String> {
     let section = url.split('?').next().unwrap_or(url);
     let category = if url.starts_with("/media/") {
         "Files / Media collection"
@@ -585,6 +664,7 @@ pub fn panel(url: &str, title: &str, body: &str) -> Result<String> {
         body,
         section,
         category,
+        actions,
     }
     .render()?)
 }

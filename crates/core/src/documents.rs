@@ -51,6 +51,8 @@ pub struct CategoryNode {
 
 #[derive(Debug, Clone, Serialize)]
 pub struct Reference {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub document: Option<String>,
     pub collection: String,
     pub record_id: String,
     pub path: String,
@@ -140,13 +142,15 @@ impl Editor {
             .should_validate_formats(true)
             .build(self.settings_schema()?)
             .map_err(|e| Error::Config(format!("settings schema: {e}")))?;
-        Ok(validator
+        let mut issues: Vec<ValidationIssue> = validator
             .iter_errors(value)
             .map(|e| ValidationIssue {
                 path: e.instance_path().to_string(),
                 message: e.to_string(),
             })
-            .collect())
+            .collect();
+        issues.extend(self.validate_reference_values(self.settings_schema()?, value)?);
+        Ok(issues)
     }
 
     pub fn save_settings(&self, value: Value, expected: &str) -> Result<Document> {
@@ -154,6 +158,15 @@ impl Editor {
         let issues = self.validate_settings(&value)?;
         if !issues.is_empty() {
             return Err(Error::Validation(issues));
+        }
+        if let Some(settings) = &self.config.settings {
+            let path = crate::contained(&self.config.root, &settings.path)?;
+            if let Some(name) = self.mapped_document_name(&path) {
+                let issues = self.validate_document(name, &value)?;
+                if !issues.is_empty() {
+                    return Err(Error::Validation(issues));
+                }
+            }
         }
         let current = self.settings()?;
         if current.revision != expected {
@@ -595,9 +608,10 @@ impl Editor {
                     &value,
                     "",
                     0,
-                    &mut |target, referenced_id, allow_unresolved, path| {
-                        if !allow_unresolved && target == collection && referenced_id == id {
+                    &mut |target, referenced_id, _allow_unresolved, path| {
+                        if target == collection && referenced_id == id {
                             references.push(Reference {
+                                document: None,
                                 collection: source_name.clone(),
                                 record_id: source_id.clone(),
                                 path: path.into(),
@@ -612,12 +626,65 @@ impl Editor {
                         && referenced_id == id
                     {
                         references.push(Reference {
+                            document: None,
                             collection: source_name.clone(),
                             record_id: source_id.clone(),
                             path: field_path.into(),
                         });
                     }
                 });
+            }
+        }
+        for (name, mapping) in &self.config.documents {
+            for file in &mapping.files {
+                let value = self.json_document(name, file)?.value;
+                visit_relations(
+                    &mapping.schema,
+                    &mapping.schema,
+                    &value,
+                    "",
+                    0,
+                    &mut |target, referenced_id, _, path| {
+                        if target == collection && referenced_id == id {
+                            references.push(Reference {
+                                document: Some(name.clone()),
+                                collection: String::new(),
+                                record_id: file.clone(),
+                                path: path.into(),
+                            });
+                        }
+                        Ok(())
+                    },
+                )?;
+            }
+        }
+        if let Some(settings) = &self.config.settings {
+            if !self
+                .config
+                .documents
+                .values()
+                .any(|mapping| mapping.files.contains(&settings.path))
+            {
+                let value = self.settings()?.value;
+                let schema = self.settings_schema()?;
+                visit_relations(
+                    schema,
+                    schema,
+                    &value,
+                    "",
+                    0,
+                    &mut |target, referenced_id, _, path| {
+                        if target == collection && referenced_id == id {
+                            references.push(Reference {
+                                document: Some(String::new()),
+                                collection: String::new(),
+                                record_id: settings.path.clone(),
+                                path: path.into(),
+                            });
+                        }
+                        Ok(())
+                    },
+                )?;
             }
         }
         unique_references(&mut references);
@@ -651,6 +718,7 @@ impl Editor {
                         }
                         if linked_path == path || linked_path.starts_with(&child_prefix) {
                             references.push(Reference {
+                                document: None,
                                 collection: source_name.clone(),
                                 record_id: source_id.clone(),
                                 path: field_path.into(),
@@ -663,6 +731,38 @@ impl Editor {
         }
         unique_references(&mut references);
         Ok(references)
+    }
+
+    pub(crate) fn validate_reference_values(
+        &self,
+        schema: &Value,
+        value: &Value,
+    ) -> Result<Vec<ValidationIssue>> {
+        let mut issues = Vec::new();
+        visit_relations(schema, schema, value, "", 0, &mut |target, id, _, path| {
+            if safe_name(id).is_err() {
+                issues.push(ValidationIssue {
+                    path: path.into(),
+                    message: format!("invalid {target} record ID: {id}"),
+                });
+            } else if self.config.collection(target).is_err() {
+                issues.push(ValidationIssue {
+                    path: path.into(),
+                    message: format!("unknown reference collection: {target}"),
+                });
+            } else {
+                match self.get(target, id) {
+                    Ok(_) => {}
+                    Err(Error::NotFound(_)) => issues.push(ValidationIssue {
+                        path: path.into(),
+                        message: format!("unresolved {target} reference: {id}"),
+                    }),
+                    Err(error) => return Err(error),
+                }
+            }
+            Ok(())
+        })?;
+        Ok(issues)
     }
 
     pub fn validate(&self, collection: &str, value: &Value) -> Result<Vec<ValidationIssue>> {
@@ -690,26 +790,7 @@ impl Editor {
                     }),
             );
         }
-        visit_relations(
-            &c.schema_value,
-            &c.schema_value,
-            value,
-            "",
-            0,
-            &mut |target, id, allow, path| {
-                if !allow {
-                    match self.find_path(target, id) {
-                        Ok(_) => {}
-                        Err(Error::NotFound(_)) => issues.push(ValidationIssue {
-                            path: path.into(),
-                            message: format!("unresolved {target} reference: {id}"),
-                        }),
-                        Err(error) => return Err(error),
-                    }
-                }
-                Ok(())
-            },
-        )?;
+        issues.extend(self.validate_reference_values(&c.schema_value, value)?);
         for (index, level) in c.constraints.iter().enumerate() {
             let (Some(target), Some(parent_field)) = (&level.collection, &level.parent_field)
             else {
@@ -1067,6 +1148,22 @@ fn sort_categories(nodes: &mut [CategoryNode]) {
     }
 }
 
+fn relation_branch_matches(root: &Value, schema: &Value, value: &Value) -> Result<bool> {
+    let mut candidate = crate::draft::resolve(root, schema, 0);
+    if let Some(obj) = candidate.as_object_mut() {
+        for key in ["$defs", "definitions"] {
+            if let Some(defs) = root.get(key) {
+                obj.entry(key).or_insert_with(|| defs.clone());
+            }
+        }
+    }
+    jsonschema::draft202012::options()
+        .offline()
+        .build(&candidate)
+        .map(|v| v.is_valid(value))
+        .map_err(|e| Error::Config(format!("reference branch schema: {e}")))
+}
+
 fn visit_relations(
     root: &Value,
     schema: &Value,
@@ -1078,47 +1175,71 @@ fn visit_relations(
     if depth > 64 {
         return Err(Error::Data("relation nesting too deep".into()));
     }
-    let resolved = resolve_ref(root, schema, depth)?;
+    let resolved = crate::draft::resolve(root, schema, 0);
     for keyword in ["oneOf", "anyOf", "allOf"] {
         if let Some(branches) = resolved.get(keyword).and_then(Value::as_array) {
             for branch in branches {
-                if jsonschema::draft202012::options()
-                    .offline()
-                    .build(branch)
-                    .map(|v| v.is_valid(value))
-                    .unwrap_or(false)
-                {
+                if keyword == "allOf" || relation_branch_matches(root, branch, value)? {
                     visit_relations(root, branch, value, path, depth + 1, visit)?;
                 }
             }
         }
     }
-    if resolved.get("x-relation").is_some()
-        && let Some(id) = value.as_str()
-    {
+    if resolved.get("x-relation").is_some() && !value.is_null() {
         let relation = &resolved["x-relation"];
         let target = relation["collection"]
             .as_str()
             .ok_or_else(|| Error::Config("relation missing collection".into()))?;
         visit(
             target,
-            id,
+            value.as_str().unwrap_or(""),
             relation["allowUnresolved"].as_bool().unwrap_or(false),
             path,
         )?;
     }
+    if let Some(condition) = resolved.get("if") {
+        let branch = if relation_branch_matches(root, condition, value)? {
+            resolved.get("then")
+        } else {
+            resolved.get("else")
+        };
+        if let Some(branch) = branch {
+            visit_relations(root, branch, value, path, depth + 1, visit)?;
+        }
+    }
     if let Some(object) = value.as_object() {
+        if let Some(dependencies) = resolved["dependentSchemas"].as_object() {
+            for (key, branch) in dependencies {
+                if object.contains_key(key) {
+                    visit_relations(root, branch, value, path, depth + 1, visit)?;
+                }
+            }
+        }
         for (key, child) in object {
-            if let Some(child_schema) =
-                resolved
-                    .get("properties")
-                    .and_then(|p| p.get(key))
-                    .or_else(|| {
-                        resolved
-                            .get("additionalProperties")
-                            .filter(|v| v.is_object())
-                    })
-            {
+            let mut schemas = Vec::new();
+            if let Some(s) = resolved.get("properties").and_then(|p| p.get(key)) {
+                schemas.push(s);
+            }
+            if let Some(patterns) = resolved["patternProperties"].as_object() {
+                for (pattern, s) in patterns {
+                    if relation_branch_matches(
+                        root,
+                        &serde_json::json!({"type":"string","pattern":pattern}),
+                        &Value::String(key.clone()),
+                    )? {
+                        schemas.push(s);
+                    }
+                }
+            }
+            if schemas.is_empty() {
+                if let Some(s) = resolved
+                    .get("additionalProperties")
+                    .filter(|s| s.is_object())
+                {
+                    schemas.push(s);
+                }
+            }
+            for child_schema in schemas {
                 visit_relations(
                     root,
                     child_schema,
@@ -1131,6 +1252,18 @@ fn visit_relations(
         }
     } else if let Some(array) = value.as_array() {
         for (index, child) in array.iter().enumerate() {
+            if let Some(contains) = resolved.get("contains") {
+                if relation_branch_matches(root, contains, child)? {
+                    visit_relations(
+                        root,
+                        contains,
+                        child,
+                        &format!("{path}/{index}"),
+                        depth + 1,
+                        visit,
+                    )?;
+                }
+            }
             if let Some(child_schema) = resolved
                 .get("prefixItems")
                 .and_then(|v| v.get(index))
@@ -1331,10 +1464,18 @@ fn visit_markdown_links(value: &Value, path: &str, visit: &mut impl FnMut(&str, 
 
 fn unique_references(references: &mut Vec<Reference>) {
     references.sort_by(|a, b| {
-        (&a.collection, &a.record_id, &a.path).cmp(&(&b.collection, &b.record_id, &b.path))
+        (&a.document, &a.collection, &a.record_id, &a.path).cmp(&(
+            &b.document,
+            &b.collection,
+            &b.record_id,
+            &b.path,
+        ))
     });
     references.dedup_by(|a, b| {
-        a.collection == b.collection && a.record_id == b.record_id && a.path == b.path
+        a.document == b.document
+            && a.collection == b.collection
+            && a.record_id == b.record_id
+            && a.path == b.path
     });
 }
 

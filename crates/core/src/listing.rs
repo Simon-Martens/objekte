@@ -68,6 +68,16 @@ fn field_display(value: &Value, schema: &Value) -> String {
 }
 impl Editor {
     pub fn query_collection(&self, name: &str, request: &ListRequest) -> Result<ListPage> {
+        self.query_collection_with_ui(name, request, &self.config.collection(name)?.ui)
+    }
+
+    /// Query using the resolved presentation of this particular list occurrence.
+    pub fn query_collection_with_ui(
+        &self,
+        name: &str,
+        request: &ListRequest,
+        ui: &Value,
+    ) -> Result<ListPage> {
         self.require_operation(name, "read")?;
         let c = self.config.collection(name)?;
         if request.category.len() > c.categories.len() {
@@ -88,18 +98,18 @@ impl Editor {
         {
             return Err(Error::Data("Unknown sort column".into()));
         }
-        let mut facet_fields: Vec<String> =
-            c.ui.pointer("/list/filters")
-                .and_then(Value::as_array)
-                .map(|a| {
-                    a.iter()
-                        .filter_map(Value::as_str)
-                        .filter(|s| visible(s))
-                        .map(str::to_owned)
-                        .collect()
-                })
-                .unwrap_or_default();
-        if c.ui.pointer("/list/autoFilters") == Some(&Value::Bool(true)) {
+        let mut facet_fields: Vec<String> = ui
+            .pointer("/list/filters")
+            .and_then(Value::as_array)
+            .map(|a| {
+                a.iter()
+                    .filter_map(Value::as_str)
+                    .filter(|s| visible(s))
+                    .map(str::to_owned)
+                    .collect()
+            })
+            .unwrap_or_default();
+        if ui.pointer("/list/autoFilters") == Some(&Value::Bool(true)) {
             for (key, s) in &props {
                 if visible(key)
                     && matches!(

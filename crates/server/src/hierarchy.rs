@@ -149,6 +149,12 @@ pub fn sections(editor: &Editor, parent: &str, id: &str, actor: &Actor) -> Resul
             continue;
         }
         let c = editor.config().collection(&child.collection)?;
+        let ui = editor.child_list_ui(parent, &child.field)?;
+        let preview_size = ui
+            .pointer("/list/previewSize")
+            .and_then(|v| v.as_u64())
+            .unwrap_or(10)
+            .clamp(1, 200) as usize;
         let url = scoped_url(parent, id, &child.field, &child.collection);
         let base = format!(
             "{}/children/{}",
@@ -157,31 +163,30 @@ pub fn sections(editor: &Editor, parent: &str, id: &str, actor: &Actor) -> Resul
         );
         let child_ids = editor.child_ids(parent, id, &child.field)?;
         let missing_count = child_ids.len();
-        let rows = editor.query_collection(
+        let rows = editor.query_collection_with_ui(
             &child.collection,
             &ListRequest {
                 ids: Some(child_ids),
-                sort: c
-                    .ui
+                sort: ui
                     .pointer("/list/defaultSort/field")
                     .and_then(|v| v.as_str())
                     .unwrap_or("_label")
                     .into(),
-                descending: c
-                    .ui
+                descending: ui
                     .pointer("/list/defaultSort/direction")
                     .and_then(|v| v.as_str())
                     == Some("desc"),
-                limit: 10,
+                limit: preview_size,
                 ..Default::default()
             },
+            &ui,
         )?;
         let missing_count = missing_count.saturating_sub(rows.total);
         let editable = actor.editable() && editor.allows(parent, "update");
         html += &format!(
             "<section class=\"surface child-list\" id=\"children-{}\"><div class=\"child-heading\"><div><h2><i class=\"{}\" aria-hidden=\"true\"></i>{}<span class=\"badge mono\">{}</span></h2></div><div class=\"actions\"><a class=\"button quiet small\" data-nav href=\"{}\"><i class=\"ri-list-check\" aria-hidden=\"true\"></i>Browse list</a>",
             encode(&child.field),
-            views::icon_class(c.ui["icon"].as_str(), "ri-folder-line"),
+            views::icon_class(ui["icon"].as_str(), "ri-folder-line"),
             escape(&child.label),
             rows.total,
             escape(&url)
@@ -191,7 +196,7 @@ pub fn sections(editor: &Editor, parent: &str, id: &str, actor: &Actor) -> Resul
                 "<a class=\"button small\" data-nav href=\"{base}/picker\"><i class=\"ri-link\" aria-hidden=\"true\"></i>Link existing</a>"
             );
             if editor.allows(&child.collection, "create") {
-                let singular = c.ui["singularLabel"].as_str().unwrap_or("record");
+                let singular = ui["singularLabel"].as_str().unwrap_or("record");
                 html += &format!(
                     "<form method=\"post\" action=\"/collections/{}/edit-sessions\" {SUBMIT}>{}{}{}{}{}<button class=\"small primary\"><i class=\"ri-add-line\" aria-hidden=\"true\"></i>New {}</button></form>",
                     encode(&child.collection),
@@ -216,16 +221,15 @@ pub fn sections(editor: &Editor, parent: &str, id: &str, actor: &Actor) -> Resul
                 escape(&child.label)
             );
         } else {
-            let columns: Vec<&str> =
-                c.ui.pointer("/list/columns")
-                    .and_then(|v| v.as_array())
-                    .map(|a| {
-                        a.iter()
-                            .filter_map(|v| v.as_str().or_else(|| v["field"].as_str()))
-                            .take(4)
-                            .collect()
-                    })
-                    .unwrap_or_else(|| vec!["_label"]);
+            let columns: Vec<&str> = ui
+                .pointer("/list/columns")
+                .and_then(|v| v.as_array())
+                .map(|a| {
+                    a.iter()
+                        .filter_map(|v| v.as_str().or_else(|| v["field"].as_str()))
+                        .collect()
+                })
+                .unwrap_or_else(|| vec!["_label"]);
             let title = |key: &str| -> String {
                 match key {
                     "_label" => "Record".into(),
@@ -275,21 +279,20 @@ pub fn sections(editor: &Editor, parent: &str, id: &str, actor: &Actor) -> Resul
                         escape(&row.label)
                     );
                 }
-                if editable {
-                    html += &format!(
-                        "<details class=\"action-menu\"><summary class=\"icon-button\" aria-label=\"Placement options for {}\"><i class=\"ri-more-2-line\" aria-hidden=\"true\"></i></summary><div class=\"menu-panel\"><form method=\"post\" action=\"{base}/unlink\" {SUBMIT}>{}{}{}<p>Remove from this list. The record stays in the repository.</p><button class=\"menu-action\"><i class=\"ri-link-unlink\" aria-hidden=\"true\"></i>Remove from list</button></form></div></details>",
-                        escape(&row.label),
-                        hidden("csrf", &actor.csrf),
-                        hidden("revision", &doc.revision),
-                        hidden("child_id", &row.id)
-                    );
-                }
+                html += &record_actions(
+                    editor,
+                    actor,
+                    &child.collection,
+                    &row.id,
+                    &row.label,
+                    editable.then_some((parent, id, child.field.as_str(), doc.revision.as_str())),
+                )?;
                 html += "</div></td></tr>";
             }
             html += "</tbody></table></div>";
-            if rows.total > 10 {
+            if rows.total > preview_size {
                 html += &format!(
-                    "<div class=\"child-footer\"><span class=\"muted\">Showing 10 of {}</span><a data-nav href=\"{}\">View all {} <i class=\"ri-arrow-right-line\" aria-hidden=\"true\"></i></a></div>",
+                    "<div class=\"child-footer\"><span class=\"muted\">Showing {preview_size} of {}</span><a data-nav href=\"{}\">View all {} <i class=\"ri-arrow-right-line\" aria-hidden=\"true\"></i></a></div>",
                     rows.total,
                     escape(&url),
                     rows.total
@@ -370,4 +373,48 @@ async fn membership(
         )
     })
     .await
+}
+
+/// Unlink changes the parent list; delete opens the target record's reference review.
+pub(crate) fn record_actions(
+    editor: &Editor,
+    actor: &Actor,
+    target: &str,
+    id: &str,
+    label: &str,
+    placement: Option<(&str, &str, &str, &str)>,
+) -> Result<String> {
+    if !actor.editable() {
+        return Ok(String::new());
+    }
+    let mut actions = String::new();
+    if let Some((parent, parent_id, field, revision)) = placement {
+        if editor.allows(parent, "update") {
+            let base = format!(
+                "{}/children/{}",
+                record_url(parent, parent_id),
+                encode(field)
+            );
+            actions += &format!(
+                "<form method=\"post\" action=\"{base}/unlink\" {SUBMIT}>{}{}{}<p>Unlinking updates this list immediately. The record remains available in its collection.</p><button class=\"menu-action\"><i class=\"ri-link-unlink\" aria-hidden=\"true\"></i>Unlink from this list</button></form>",
+                hidden("csrf", &actor.csrf),
+                hidden("revision", revision),
+                hidden("child_id", id)
+            );
+        }
+    }
+    if editor.allows(target, "delete") && editor.allows(target, "read") {
+        actions += &format!(
+            "<a class=\"menu-action danger\" data-nav href=\"{}/delete\" data-tooltip=\"Delete the record itself after reviewing its references\"><i class=\"ri-delete-bin-line\" aria-hidden=\"true\"></i>Delete {}…</a>",
+            record_url(target, id),
+            escape(&views::record_kind(editor, target)?)
+        );
+    }
+    if actions.is_empty() {
+        return Ok(actions);
+    }
+    Ok(format!(
+        "<details class=\"action-menu\"><summary class=\"icon-button\" aria-label=\"Actions for {}\"><i class=\"ri-more-2-line\" aria-hidden=\"true\"></i></summary><div class=\"menu-panel\">{actions}</div></details>",
+        escape(label)
+    ))
 }

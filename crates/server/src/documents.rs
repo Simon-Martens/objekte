@@ -12,7 +12,7 @@ use axum::{
     extract::{Form, Path, Query, State},
     http::HeaderMap,
     response::Response,
-    routing::get,
+    routing::{get, post},
 };
 use std::{collections::HashMap, sync::Arc};
 type App = State<Arc<AppState>>;
@@ -20,6 +20,7 @@ pub fn router() -> Router<Arc<AppState>> {
     Router::new()
         .route("/documents", get(index))
         .route("/documents/{name}", get(open).post(save))
+        .route("/documents/{name}/edit-sessions", post(start_document))
         .route(
             "/documents/{name}/validation",
             axum::routing::post(validate),
@@ -76,12 +77,22 @@ async fn index(State(s): App, h: HeaderMap) -> Result<Response> {
         for file in &mapping.files {
             count += 1;
             body += &format!(
-                "<a class=\"document-row\" data-nav href=\"/documents/{}?file={}\"><i class=\"ri-braces-line\" aria-hidden=\"true\"></i><strong>{}</strong><span class=\"mono\">{}</span><i class=\"ri-arrow-right-s-line\" aria-hidden=\"true\"></i></a>",
+                "<div class=\"document-list-row\"><a class=\"document-row\" data-nav href=\"/documents/{}?file={}\"><i class=\"ri-braces-line\" aria-hidden=\"true\"></i><strong>{}</strong><span class=\"mono\">{}</span><i class=\"ri-arrow-right-s-line\" aria-hidden=\"true\"></i></a>",
                 views::encode(name),
                 views::encode(file),
                 views::escape(name),
                 views::escape(file)
             );
+            if a.editable() {
+                body += &format!(
+                    "<form method=\"post\" action=\"/documents/{}/edit-sessions\" data-on:submit__prevent=\"@post(el.getAttribute('action'),{{contentType:'form',retry:'never',retryMaxCount:0}})\"><input type=\"hidden\" name=\"csrf\" value=\"{}\"><input type=\"hidden\" name=\"file\" value=\"{}\"><button class=\"icon-button\" aria-label=\"Edit {}\"><i class=\"ri-edit-line\" aria-hidden=\"true\"></i></button></form>",
+                    views::encode(name),
+                    views::escape(&a.csrf),
+                    views::escape(file),
+                    views::escape(file)
+                );
+            }
+            body += "</div>";
         }
     }
     if count == 0 {
@@ -120,23 +131,53 @@ async fn open(
             views::encode(&name),
             views::encode(&file)
         );
+        let schema = s.editor.document_editor_schema(&name)?;
+        let draft = structured_editor_core::draft::Draft::document(&schema, &d.value);
+        let content = crate::tree::preview(&s.editor, &draft, &d.value, &url, q.get("node").map(String::as_str).unwrap_or(""));
+        let node = q.get("node").map(String::as_str).unwrap_or("");
+        let actions = if a.editable() {
+            format!("<form method=\"post\" action=\"/documents/{}/edit-sessions\" data-on:submit__prevent=\"@post(el.getAttribute('action'),{{contentType:'form',retry:'never',retryMaxCount:0}})\"><input type=\"hidden\" name=\"csrf\" value=\"{}\"><input type=\"hidden\" name=\"file\" value=\"{}\"><input type=\"hidden\" name=\"node\" value=\"{}\"><button class=\"primary\"><i class=\"ri-edit-line\" aria-hidden=\"true\"></i>Edit</button></form>", views::encode(&name), views::escape(&a.csrf), views::escape(&file), views::escape(node))
+        } else { String::new() };
+        routes::page(&s, &a, &h, views::panel_with_actions(&format!("{url}&node={}", views::encode(q.get("node").map(String::as_str).unwrap_or(""))), &file, &content, &actions)?)
+    })
+    .await
+}
+async fn start_document(
+    State(s): App,
+    Path(name): Path<String>,
+    h: HeaderMap,
+    Form(f): Form<HashMap<String, String>>,
+) -> Result<Response> {
+    let a = routes::mutation_actor(&s, &h, &f).await?;
+    blocking(move || {
+        let file = f
+            .get("file")
+            .ok_or_else(|| WebError::bad("Document file required"))?;
+        let mut session = s
+            .sessions
+            .lock()
+            .unwrap()
+            .start_document(&s.editor, &a, &name, file)?;
+        if let Some(path) = f.get("node") {
+            if session
+                .draft
+                .at_path(path)
+                .is_some_and(crate::tree::navigable)
+            {
+                session.view_path = path.clone();
+                s.sessions.lock().unwrap().insert(session.clone());
+            }
+        }
         routes::page(
             &s,
             &a,
             &h,
-            render(
-                &a,
-                &url,
-                &file,
-                &serde_json::to_string_pretty(&d.value).unwrap(),
-                &d.revision,
-                &file,
-                "",
-            )?,
+            views::edit(&s.editor, &session, &a, &s.fields, &[], "")?,
         )
     })
     .await
 }
+
 async fn settings(State(s): App, h: HeaderMap) -> Result<Response> {
     let a = match routes::page_actor(&s, &h).await {
         Ok(a) => a,

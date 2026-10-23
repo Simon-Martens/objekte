@@ -47,26 +47,14 @@ pub(crate) fn load(root: &Path, manifest: Value) -> Result<Loaded> {
         let path = string(&settings, "path")?;
         let presentation_path = string(&settings, "ui")?;
         protected.insert(contained(root, presentation_path)?);
-        let mut presentation = ui.get("defaults").cloned().unwrap_or(json!({}));
         let local = read(root, presentation_path)?;
-        presentation
-            .as_object_mut()
-            .ok_or_else(|| Error::Config("UI defaults must be an object".into()))?
-            .extend(
-                local
-                    .as_object()
-                    .ok_or_else(|| Error::Config("collection UI must be an object".into()))?
-                    .clone(),
-            );
-        if let Some(placement) = ui
-            .pointer(&format!("/collections/{name}"))
-            .and_then(Value::as_object)
-        {
-            presentation
-                .as_object_mut()
-                .unwrap()
-                .extend(placement.clone());
+        if !local.is_object() || ui.get("defaults").is_some_and(|v| !v.is_object()) {
+            return Err(Error::Config("UI options must be objects".into()));
         }
+        let presentation = crate::ui::inherit(
+            &crate::ui::inherit(&ui["defaults"], &local),
+            &ui["collections"][name],
+        );
         if let Some(mode) = presentation.get("sidebarAllLinks")
             && !matches!(mode.as_str(), Some("none" | "root" | "all"))
         {
@@ -176,6 +164,8 @@ pub(crate) fn load(root: &Path, manifest: Value) -> Result<Loaded> {
                 if let Some(fields) = presentation.get("fields") {
                     super::project_config::apply_fields(&mut schema, fields)?;
                 }
+                schema["x-presentation"] =
+                    crate::ui::inherit(&presentation["presentation"], &schema["x-presentation"]);
                 schema["x-collection"] = json!({"name":name,"path":path,"format":string(&settings,"format")?,"id":string(&settings,"id")?,"label":label,"display":presentation["display"].as_str().unwrap_or("id"),"bodyField":settings.pointer("/content/body").and_then(Value::as_str).unwrap_or("body"),"schemaPath":schema_path,"operations":operations,"idPattern":settings.get("idPattern"),"ui":presentation});
                 for key in [
                     "displayFields",

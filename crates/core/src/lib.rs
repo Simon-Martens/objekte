@@ -7,6 +7,7 @@ mod json_documents;
 mod media;
 mod policy;
 mod project_config;
+pub mod ui;
 pub use collation::alphabetic_cmp;
 
 pub use config::{CategoryEntry, CategoryLevel, Collection, Config, IdStrategy, MediaCollection};

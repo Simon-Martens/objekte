@@ -114,13 +114,13 @@ code, .mono, .source { font-family: var(--mono); font-size: 11px; font-variant-l
 .section-heading h2 { display: flex; align-items: center; gap: .5rem; font-size: 13px; }
 .section-heading i { color: var(--muted); font-size: 16px; }
 /* Persistent administration shell. */
-#admin-shell { display: grid; grid-template-columns: 232px minmax(0,1fr); grid-template-rows: 49px 1fr; min-height: 100dvh; }
+#admin-shell { display: grid; grid-template-columns: var(--sidebar-width, 232px) minmax(0,1fr); grid-template-rows: 49px 1fr; min-height: 100dvh; }
 #admin-header { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0 18px; background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 30; }
 .brand { display: inline-flex; align-items: center; gap: .6rem; font-size: 19px; font-weight: 650; letter-spacing: -.6px; }
 .brand:hover { color: var(--text); }
 .brand-mark { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; color: var(--accent-text); background: var(--accent-bg); border-radius: 5px; }
 .brand-mark i { font-size: 19px; }
-.brand-caption { font: 9px var(--mono); letter-spacing: .07em; color: var(--faint); margin-left: .8rem; border-left: 1px solid var(--border); padding-left: 1rem; }
+.header-brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
 .header-tools { display: flex; align-items: center; gap: .6rem; }
 .account-link { display: flex; align-items: center; gap: .45rem; font-size: 12px; max-width: 180px; }
 .account-link span { text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
@@ -150,8 +150,8 @@ code, .mono, .source { font-family: var(--mono); font-size: 11px; font-variant-l
 .tree-node { padding: 0; border: 0; }
 
 .tree-node small { font-family: var(--mono); font-size: 9px; color: var(--faint); }
-.mobile-menu { display: none; }
-#workspace { min-width: 0; width: 100%; padding: 25px 30px 48px; max-width: 1600px; margin: 0 auto; }
+
+#workspace { min-width: 0; width: 100%; padding: 25px 30px 48px; grid-column: 2; grid-row: 2; }
 .page-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; margin-bottom: 22px; min-height: 50px; }
 .page-heading > div:first-child { min-width: 0; }
 .page-heading .eyebrow, .breadcrumb { margin-bottom: 6px; }
@@ -363,12 +363,10 @@ body:has(server-picker) { overflow: hidden; }
 .login .error { margin-top: 16px; }
 /* Desktop first; narrower screens keep every workflow reachable. */
 @media (max-width: 1200px) {
-  #admin-shell { grid-template-columns: 210px minmax(0,1fr); }
   #workspace { padding: 22px 20px 40px; }
   .edit-grid { grid-template-columns: minmax(0,1fr) 218px; gap: 14px; }
   .editor-fields > .field { padding: 15px; }
   .field > fieldset { grid-template-columns: minmax(90px, 22%) minmax(0,1fr); gap: 12px; }
-  .brand-caption { display: none; }
 }
 @media (max-width: 1000px) {
   .edit-grid { grid-template-columns: minmax(0,1fr); }
@@ -381,7 +379,6 @@ body:has(server-picker) { overflow: hidden; }
 @media (max-width: 720px) {
   #admin-shell { grid-template-columns: minmax(0,1fr); grid-template-rows: 49px 1fr; }
   #admin-header { padding: 0 12px; gap: 8px; }
-  .mobile-menu { display: inline-flex; }
   .brand { font-size: 18px; margin-right: auto; }
   .brand-mark { width: 24px; height: 24px; }
   .header-tools { gap: 4px; }
@@ -389,7 +386,7 @@ body:has(server-picker) { overflow: hidden; }
   .account-link span { display: none; }
   #project-navigation { display: none; position: fixed; top: 49px; bottom: 0; left: 0; width: 260px; z-index: 25; box-shadow: 12px 0 40px #0003; }
   .navigation-open #project-navigation { display: flex; }
-  #workspace { padding: 18px 14px 32px; }
+  #workspace { grid-column: 1; padding: 18px 14px 32px; }
   h1 { font-size: 23px; }
   .page-heading { align-items: flex-start; margin-bottom: 18px; }
   .edit-heading { flex-wrap: wrap; margin-top: -6px; padding: 6px 0 14px; }
@@ -521,7 +518,7 @@ body:has(server-picker) { overflow: hidden; }
 .tree-node>summary small,.tree-leaf small{font:10px var(--mono);color:var(--faint);margin-left:auto;padding-left:4px}
 #project-navigation .tree-children .tree-all{display:block;font-style:italic;font-weight:500;color:var(--muted);padding-left:31px}
 
-.remove-field{opacity:.65;flex:0 0 28px;width:28px;height:28px;min-height:28px;margin:0}.field:hover .remove-field,.remove-field:focus-visible{opacity:1}.remove-field:hover{color:var(--danger)}
+.remove-field{color:var(--muted);flex:0 0 28px;width:28px;height:28px;min-height:28px;margin:0}.remove-field:hover{color:var(--danger)}
 .add-fields{padding:14px 18px}.add-field-picker{width:max-content}.add-field-menu{width:320px;padding:8px}.add-field-menu>.eyebrow{padding:6px 10px}.add-field-option{white-space:normal;align-items:center;border-radius:3px}.add-field-option>span{flex:1;min-width:0}.add-field-option>small{font-size:11px;color:var(--muted);margin-left:auto}
 .history-controls{display:flex;border:1px solid var(--border);border-radius:4px}.history-controls .icon-button{border:0;width:calc(var(--control-height) - 2px);height:calc(var(--control-height) - 2px);min-height:0;flex-basis:calc(var(--control-height) - 2px)}
 .boolean-control{display:flex;align-items:center;gap:9px;min-height:32px;font-size:13px}.boolean-control input{width:17px;height:17px;accent-color:var(--accent)}.sidebar-fields .field{padding:12px 14px}.sidebar-fields .field>fieldset{display:block}.sidebar-fields .field-label{margin-bottom:8px}.sidebar-fields .field-kind{display:none}
@@ -648,3 +645,55 @@ body:has(server-picker) { overflow: hidden; }
   .row-actions .icon-button { width: 36px; height: 36px; min-height: 36px; flex-basis: 36px; }
   .row-action-buttons { gap: 8px; }
 }
+
+/* Sidebar geometry is shell state and survives content/navigation fragment updates. */
+#project-navigation { grid-column: 1; grid-row: 2; }
+.sidebar-resizer { grid-column: 1; grid-row: 2; justify-self: end; position: sticky; top: 49px; width: 8px; height: calc(100dvh - 49px); margin-right: -4px; cursor: col-resize; touch-action: none; z-index: 26; }
+.sidebar-resizer:hover, .sidebar-resizer:focus-visible { background: var(--accent-bg); outline: 1px solid var(--accent); }
+.sidebar-resizing, .sidebar-resizing * { cursor: col-resize !important; user-select: none !important; }
+.document-list-row { display: flex; align-items: center; border-bottom: 1px solid var(--border); padding-right: 12px; }
+.document-list-row:last-child { border-bottom: 0; }
+.document-list-row .document-row { flex: 1; min-width: 0; border-bottom: 0; }
+.document-list-row > form { flex-shrink: 0; }
+@media (min-width: 721px) {
+  #admin-shell.sidebar-collapsed { grid-template-columns: 0 minmax(0,1fr); }
+  .sidebar-collapsed #project-navigation, .sidebar-collapsed .sidebar-resizer { display: none; }
+}
+@media (max-width: 720px) {
+  .sidebar-resizer { display: none; }
+  .header-brand { gap: 8px; }
+  #project-navigation { width: min(var(--sidebar-width, 260px), calc(100vw - 48px)); }
+}
+
+/* Interface chrome does not participate in text selection. Content remains copyable. */
+#admin-header, #project-navigation, button, .button, summary, label, legend,
+th, .eyebrow, .breadcrumb, .section-heading, .field-label, .field-kind,
+.help, .field-errors, .notice, .error, .validation-summary, .schema-revision,
+.result-summary, .list-footer, .child-footer, .sidebar-footer, .empty-state,
+.menu-panel, .tippy-box, #loading-region, #notification-region,
+.preview-field > h3, .preview-metadata > summary, .required-mark {
+  -webkit-user-select: none;
+  user-select: none;
+}
+/* Inputs can be nested in labels, menus, and other non-selectable interface elements. */
+input, textarea, [contenteditable], code-input, .monaco-editor {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.result-summary { align-items: center; }
+.summary-pagination { display: flex; align-items: center; gap: 3px; flex-shrink: 0; }
+.summary-pagination > .icon-button { width: 24px; height: 24px; min-height: 24px; flex-basis: 24px; }
+.summary-pagination > .mono { margin-left: 8px; white-space: nowrap; }
+
+/* Nested data navigation remains usable without a fixed nesting depth. */
+.data-tree-node > summary { display: flex; align-items: center; min-width: 0; }
+.data-tree-node > summary > button,
+.data-tree-node > summary > a { min-width: 0; overflow-wrap: anywhere; white-space: normal; text-align: left; }
+.data-tree-node > summary > button { border: 0; background: transparent; box-shadow: none; }
+#project-navigation { overflow-x: auto; }
+.preview-object { min-width: 0; }
+
+.focused-field > fieldset { grid-template-columns: minmax(0, 1fr); }
+.data-tree-node > summary::before { content: "›"; width: 1rem; flex: 0 0 1rem; text-align: center; }
+.data-tree-node[open] > summary::before { transform: rotate(90deg); }

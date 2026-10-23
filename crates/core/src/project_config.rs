@@ -196,7 +196,11 @@ pub(crate) fn load(root: &Path) -> Result<Loaded> {
         if let Some(search) = branch.get("x-search") {
             metadata["search"] = search.clone();
         }
-        if let Some(presentation) = presentations.get(&name) {
+        let presentation = crate::ui::inherit(
+            &ui["defaults"],
+            presentations.get(&name).unwrap_or(&Value::Null),
+        );
+        if !presentation.is_null() {
             let presentation = presentation
                 .as_object()
                 .ok_or_else(|| invalid("collection UI must be an object"))?;
@@ -224,6 +228,10 @@ pub(crate) fn load(root: &Path) -> Result<Loaded> {
                     "icon",
                     "list",
                     "edit",
+                    "inherit",
+                    "presentation",
+                    "childLists",
+                    "pageSize",
                 ]
                 .contains(&key.as_str())
                 {
@@ -235,9 +243,11 @@ pub(crate) fn load(root: &Path) -> Result<Loaded> {
         }
         // Produce the existing form contract in Rust; clients do not merge configuration.
         *branch = effective;
-        if let Some(fields) = presentations.get(&name).and_then(|p| p.get("fields")) {
+        if let Some(fields) = presentation.get("fields") {
             apply_fields(branch, fields)?;
         }
+        branch["x-presentation"] =
+            crate::ui::inherit(&presentation["presentation"], &branch["x-presentation"]);
         branch["x-collection"] = metadata;
     }
     if data_schemas.len() != repo.collections.len() {
@@ -332,6 +342,12 @@ pub(crate) fn apply_fields(schema: &mut Value, fields: &Value) -> Result<()> {
                     .and_then(Value::as_object_mut)
                     .ok_or_else(|| invalid("x-create requires a relation"))?;
                 relation.insert("create".into(), value.clone());
+            } else if key == "x-presentation" {
+                let mut merged = crate::ui::inherit(target.get(key).unwrap_or(&Value::Null), value);
+                if value["inherit"] == false {
+                    merged["inherit"] = Value::Bool(false);
+                }
+                target.insert(key.clone(), merged);
             } else {
                 target.insert(key.clone(), value.clone());
             }

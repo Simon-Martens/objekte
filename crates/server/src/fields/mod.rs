@@ -1,6 +1,7 @@
 //! Web control registry. Semantic decoding lives in core::draft, not these renderers.
 mod array;
 mod code;
+mod object;
 mod reference;
 mod scalar;
 mod system;
@@ -8,6 +9,7 @@ use crate::error::Result;
 use crate::templates::Template;
 use structured_editor_core::{ValidationIssue, draft::DraftField};
 pub struct Context<'a> {
+    pub focus: &'a str,
     pub session: &'a str,
     pub version: u64,
     pub editor: &'a structured_editor_core::Editor,
@@ -30,24 +32,14 @@ pub struct Registry {
     controls: Vec<Box<dyn Control>>,
 }
 fn title(field: &DraftField) -> String {
-    if let Ok(index) = field.key.parse::<usize>() {
-        format!(
-            "{} {}",
-            field.schema["title"].as_str().unwrap_or("Item"),
-            index + 1
-        )
-    } else {
-        field.schema["title"]
-            .as_str()
-            .unwrap_or(&field.key)
-            .to_owned()
-    }
+    crate::tree::label(field)
 }
 impl Default for Registry {
     fn default() -> Self {
         Self {
             controls: vec![
                 Box::new(system::System),
+                Box::new(object::Object),
                 Box::new(array::Array),
                 Box::new(reference::Reference),
                 Box::new(code::Code),
@@ -72,7 +64,21 @@ impl Registry {
             .iter()
             .find(|c| c.accepts(field))
             .expect("fallback control");
-        let content = control.render(field, path, context, self)?;
+        let content = if crate::tree::navigable(field) && field.id != context.focus {
+            format!(
+                "<button formaction=\"/edit-sessions/{}/fields/{}/actions/browse\">Open {} <span class=\"badge\">{}</span></button>",
+                context.session,
+                field.id,
+                crate::views::escape(&title(field)),
+                field
+                    .items
+                    .iter()
+                    .filter(|f| f.present && !f.hidden)
+                    .count()
+            )
+        } else {
+            control.render(field, path, context, self)?
+        };
         let title = title(field);
         let errors: Vec<&str> = context
             .issues
@@ -81,16 +87,21 @@ impl Registry {
             .map(|i| i.message.as_str())
             .collect();
         Ok(Field {
+            focused: field.id == context.focus,
             id: &field.id,
             // An explicit Add item action creates an editable slot, even without a default.
             present: field.present || item,
-            deletable: field.key != "_editor",
+            deletable: field.id != context.focus && field.key != "_editor" && !field.key.is_empty(),
             session: context.session,
             title: &title,
-            kind: field.schema["x-editor"]
-                .as_str()
-                .or_else(|| field.schema["type"].as_str())
-                .unwrap_or("value"),
+            kind: if field.key == "_editor" {
+                "system fields"
+            } else {
+                field.schema["x-editor"]
+                    .as_str()
+                    .or_else(|| field.schema["type"].as_str())
+                    .unwrap_or("value")
+            },
             description: field
                 .schema
                 .get("description")
@@ -108,6 +119,7 @@ impl Registry {
 crate::templates::template!(Field<'_>, "fields/wrapper.html");
 #[derive(serde::Serialize)]
 struct Field<'a> {
+    focused: bool,
     session: &'a str,
     present: bool,
     deletable: bool,

@@ -91,9 +91,16 @@ pub fn render(
     actor: &Actor,
 ) -> Result<String> {
     let c = editor.config().collection(name)?;
+    let ui = if let (Some(parent), Some(field)) =
+        (params.get("parent_collection"), params.get("parent_field"))
+    {
+        editor.child_list_ui(parent, field)?
+    } else {
+        c.ui.clone()
+    };
     let base = format!("/collections/{}", encode(name));
     let settings = editor.settings().ok().map(|d| d.value).unwrap_or_default();
-    let limit = c.ui["pageSize"]
+    let limit = ui["pageSize"]
         .as_u64()
         .or_else(|| settings["pageSize"].as_u64())
         .unwrap_or(50)
@@ -106,22 +113,22 @@ pub fn render(
     let tree = params.get("tree").cloned().unwrap_or_else(|| "[]".into());
     let category = serde_json::from_str(&tree)
         .map_err(|_| crate::error::WebError::bad("Invalid tree path"))?;
-    let default_sort =
-        c.ui.pointer("/list/defaultSort/field")
-            .and_then(|v| v.as_str())
-            .unwrap_or(
-                if c.ui.pointer("/ordering/by").and_then(|v| v.as_str()) == Some("manual") {
-                    "_manual"
-                } else {
-                    "_label"
-                },
-            );
+    let default_sort = ui
+        .pointer("/list/defaultSort/field")
+        .and_then(|v| v.as_str())
+        .unwrap_or(
+            if ui.pointer("/ordering/by").and_then(|v| v.as_str()) == Some("manual") {
+                "_manual"
+            } else {
+                "_label"
+            },
+        );
     let sort = params
         .get("sort")
         .map(String::as_str)
         .unwrap_or(default_sort);
     let direction = params.get("direction").map(String::as_str).unwrap_or(
-        c.ui.pointer("/list/defaultSort/direction")
+        ui.pointer("/list/defaultSort/direction")
             .and_then(|v| v.as_str())
             .unwrap_or("asc"),
     );
@@ -164,7 +171,7 @@ pub fn render(
             })
             .collect(),
     };
-    let page = editor.query_collection(name, &request)?;
+    let page = editor.query_collection_with_ui(name, &request, &ui)?;
     let props = c.editor_schema["properties"]
         .as_object()
         .cloned()
@@ -181,16 +188,16 @@ pub fn render(
             })
             .map(|(k, s)| (k.clone(), s["title"].as_str().unwrap_or(k).to_owned())),
     );
-    let configured: Vec<String> =
-        c.ui.pointer("/list/columns")
-            .and_then(|v| v.as_array())
-            .map(|v| {
-                v.iter()
-                    .filter_map(|v| v.as_str().or_else(|| v["field"].as_str()))
-                    .map(str::to_owned)
-                    .collect()
-            })
-            .unwrap_or_else(|| vec!["_label".into(), "_id".into()]);
+    let configured: Vec<String> = ui
+        .pointer("/list/columns")
+        .and_then(|v| v.as_array())
+        .map(|v| {
+            v.iter()
+                .filter_map(|v| v.as_str().or_else(|| v["field"].as_str()))
+                .map(str::to_owned)
+                .collect()
+        })
+        .unwrap_or_else(|| vec!["_label".into(), "_id".into()]);
     let columns: Vec<_> = available
         .iter()
         .filter(|(key, _)| {
@@ -237,7 +244,7 @@ pub fn render(
             "<form action=\"{base}/edit-sessions\" method=\"post\" data-on:submit__prevent=\"@post(el.getAttribute('action'),{{contentType:'form',retry:'never',retryMaxCount:0}})\"><input type=\"hidden\" name=\"csrf\" value=\"{}\"><input type=\"hidden\" name=\"context\" value=\"{}\"><button class=\"primary\"><i class=\"ri-add-line\" aria-hidden=\"true\"></i>New {}</button></form>",
             escape(&actor.csrf),
             escape(&tree),
-            escape(c.ui["singularLabel"].as_str().unwrap_or("record"))
+            escape(ui["singularLabel"].as_str().unwrap_or("record"))
         );
         if request.ids.is_some() {
             // Attach context to the create form, using the parent's current revision.
@@ -324,6 +331,25 @@ pub fn render(
                 escape(&facet.label)
             );
             match facet.kind.as_str() {
+                "boolean" => {
+                    body += &format!(
+                        "<select id=\"filter-{}\" name=\"{}\">",
+                        escape(&facet.field),
+                        escape(&key)
+                    );
+                    for (option, label) in [
+                        ("", "All values"),
+                        ("true", "true"),
+                        ("false", "false"),
+                        ("__missing", "unset"),
+                    ] {
+                        body += &format!(
+                            "<option value=\"{option}\" {}>{label}</option>",
+                            if value == option { "selected" } else { "" }
+                        );
+                    }
+                    body += "</select>";
+                }
                 "number" => {
                     for (suffix, label) in [("min", "From"), ("max", "To")] {
                         let key = format!("{key}.{suffix}");
@@ -389,8 +415,36 @@ pub fn render(
         );
     }
     body += "</fieldset><div class=\"menu-footer\"><span class=\"help\" role=\"status\" hidden data-attr:hidden=\"!$_columnsPending\">Updating…</span><button type=\"button\" class=\"small quiet\" data-close-menu>Done</button><noscript><button class=\"primary\">Apply columns</button></noscript></div></form></details></div>";
+    let mut page_controls = String::new();
+    for (enabled, next_offset, label, icon) in [
+        (
+            offset > 0,
+            offset.saturating_sub(limit),
+            "Previous page",
+            "ri-arrow-left-s-line",
+        ),
+        (
+            offset.saturating_add(limit) < page.matched,
+            offset.saturating_add(limit),
+            "Next page",
+            "ri-arrow-right-s-line",
+        ),
+    ] {
+        if enabled {
+            let mut next = params.clone();
+            next.insert("offset".into(), next_offset.to_string());
+            page_controls += &format!(
+                "<a class=\"icon-button\" data-nav href=\"{}\" aria-label=\"{label}\"><i class=\"{icon}\" aria-hidden=\"true\"></i></a>",
+                escape(&query_url(&base, &next))
+            );
+        } else {
+            page_controls += &format!(
+                "<button type=\"button\" class=\"icon-button\" disabled aria-label=\"{label}\"><i class=\"{icon}\" aria-hidden=\"true\"></i></button>"
+            );
+        }
+    }
     body += &format!(
-        "<div class=\"result-summary\"><span><strong>{}</strong> {} {}</span><span class=\"mono\">{}–{}</span></div><div class=\"table-scroll\"><table class=\"data-table\"><thead><tr>",
+        "<div class=\"result-summary\"><span><strong>{}</strong> {} {}</span><nav class=\"summary-pagination\" aria-label=\"List pagination\">{page_controls}<span class=\"mono\">{}–{}</span></nav></div><div class=\"table-scroll\"><table class=\"data-table\"><thead><tr>",
         page.matched,
         if q.is_empty() && request.filters.values().all(|v| v.is_empty()) {
             "entries"
@@ -443,6 +497,18 @@ pub fn render(
         );
     }
     body += "<th scope=\"col\"><span class=\"sr-only\">Actions</span></th></tr></thead><tbody>";
+    let placement = if request.ids.is_some() {
+        Some((
+            &params["parent_collection"],
+            &params["parent_id"],
+            &params["parent_field"],
+            editor
+                .get(&params["parent_collection"], &params["parent_id"])?
+                .revision,
+        ))
+    } else {
+        None
+    };
     for row in &page.rows {
         let link = record_url(name, &row.id);
         body += "<tr>";
@@ -486,6 +552,21 @@ pub fn render(
                 escape(&actor.csrf)
             );
         }
+        body += &crate::hierarchy::record_actions(
+            editor,
+            actor,
+            name,
+            &row.id,
+            &row.label,
+            placement.as_ref().map(|(parent, id, field, revision)| {
+                (
+                    parent.as_str(),
+                    id.as_str(),
+                    field.as_str(),
+                    revision.as_str(),
+                )
+            }),
+        )?;
         body += "</div></td></tr>";
         let extra_matches: Vec<_> = row
             .matches
@@ -509,6 +590,21 @@ pub fn render(
                     highlighted(&m.text, &q, true)
                 );
             }
+            body += &crate::hierarchy::record_actions(
+                editor,
+                actor,
+                name,
+                &row.id,
+                &row.label,
+                placement.as_ref().map(|(parent, id, field, revision)| {
+                    (
+                        parent.as_str(),
+                        id.as_str(),
+                        field.as_str(),
+                        revision.as_str(),
+                    )
+                }),
+            )?;
             body += "</div></td></tr>";
         }
     }

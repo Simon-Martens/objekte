@@ -22,6 +22,12 @@ impl Control for Scalar {
         context: &Context<'_>,
         _: &Registry,
     ) -> Result<String> {
+        if field.kind == InputKind::Unsupported {
+            return Ok("<p class=\"help\">Structured editing is unavailable here and automatic raw fallback is disabled. The value is preserved. Configure an explicit raw editor for this subtree to edit it.</p>".into());
+        }
+        if field.kind == InputKind::Null {
+            return Ok("<span class=\"mono\">null</span>".into());
+        }
         let mut options = Vec::new();
         let kind = match field.kind {
             InputKind::Boolean => "boolean",

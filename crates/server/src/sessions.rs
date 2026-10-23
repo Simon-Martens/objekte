@@ -18,6 +18,8 @@ pub struct ParentContext {
 }
 #[derive(Clone)]
 pub struct EditSession {
+    pub view_path: String,
+    pub document: Option<(String, String)>,
     pub parent: Option<ParentContext>,
     pub id: String,
     pub owner: String,
@@ -52,13 +54,7 @@ pub struct Sessions {
     entries: HashMap<String, EditSession>,
 }
 impl Sessions {
-    pub fn start(
-        &mut self,
-        editor: &Editor,
-        actor: &Actor,
-        collection: &str,
-        record: Option<&str>,
-    ) -> Result<EditSession> {
+    fn check_capacity(&mut self, actor: &Actor) -> Result<()> {
         self.entries.retain(|_, s| now() - s.touched < 7200);
         if self.entries.len() >= 512
             || self
@@ -73,6 +69,58 @@ impl Sessions {
                 "Too many open editing sessions. Sign out to clear them.".into(),
             ));
         }
+        Ok(())
+    }
+    pub fn start_document(
+        &mut self,
+        editor: &Editor,
+        actor: &Actor,
+        name: &str,
+        file: &str,
+    ) -> Result<EditSession> {
+        self.check_capacity(actor)?;
+        if !actor.editable() {
+            return Err(WebError(
+                StatusCode::FORBIDDEN,
+                "Editing permission required".into(),
+            ));
+        }
+        let doc = editor.json_document(name, file)?;
+        let schema = editor.document_editor_schema(name)?;
+        let raw = (schema["x-presentation"]["editor"] == "raw" || schema["x-editor"] == "json")
+            .then(|| serde_json::to_string_pretty(&doc.value).unwrap());
+        let session = EditSession {
+            view_path: String::new(),
+            document: Some((name.into(), file.into())),
+            parent: None,
+            id: uuid::Uuid::new_v4().simple().to_string(),
+            owner: actor.session.clone(),
+            collection: String::new(),
+            record_id: file.into(),
+            proposed_id: file.into(),
+            revision: Some(doc.revision),
+            draft: Draft::document(&schema, &doc.value),
+            schema,
+            version: 0,
+            touched: now(),
+            raw,
+            picker: None,
+            return_to: None,
+            preview: Default::default(),
+            history: Default::default(),
+            schema_warning: false,
+        };
+        self.insert(session.clone());
+        Ok(session)
+    }
+    pub fn start(
+        &mut self,
+        editor: &Editor,
+        actor: &Actor,
+        collection: &str,
+        record: Option<&str>,
+    ) -> Result<EditSession> {
+        self.check_capacity(actor)?;
         editor.require_operation(
             collection,
             if record.is_some() { "update" } else { "create" },
@@ -85,6 +133,8 @@ impl Sessions {
         let doc = record.map(|id| editor.get(collection, id)).transpose()?;
         let id = uuid::Uuid::new_v4().simple().to_string();
         let session = EditSession {
+            view_path: String::new(),
+            document: None,
             parent: None,
             id: id.clone(),
             owner: actor.session.clone(),
@@ -113,6 +163,16 @@ impl Sessions {
                 && editor.schema_revision(collection)?.is_none(),
         };
         let mut session = session;
+        if session.schema["x-presentation"]["editor"] == "raw" {
+            session.raw = Some(
+                serde_json::to_string_pretty(
+                    &session
+                        .value()
+                        .map_err(|_| WebError::bad("Invalid draft"))?,
+                )
+                .unwrap(),
+            );
+        }
         if editor
             .settings()
             .ok()
@@ -180,45 +240,51 @@ impl EditSession {
             inputs: &mut HashMap<String, FieldInput>,
         ) {
             for field in fields {
-                inputs.insert(
-                    field.id.clone(),
-                    FieldInput {
-                        present: form.contains_key(&format!("present.{}", field.id)),
-                        raw: form
-                            .get(&format!("value.{}", field.id))
-                            .cloned()
-                            .unwrap_or_else(|| {
-                                if field.kind == structured_editor_core::draft::InputKind::Boolean
-                                    && form.contains_key(&format!("boolean.{}", field.id))
-                                {
-                                    "false".into()
-                                } else {
-                                    field.raw.clone()
-                                }
-                            }),
-                    },
-                );
-                if field.key == "_editor" {
-                    if let Some(raw) = form.get(&format!("manual_order.{}", field.id)) {
-                        let mut v = serde_json::from_str::<serde_json::Value>(&field.raw)
-                            .unwrap_or(serde_json::json!({}));
-                        if !v.is_object() {
-                            v = serde_json::json!({});
-                        }
-                        if raw.trim().is_empty() {
-                            v.as_object_mut().unwrap().remove("manual_order");
-                        } else {
-                            v["manual_order"] = raw
-                                .parse::<i64>()
-                                .map(serde_json::Value::from)
-                                .unwrap_or(serde_json::json!(raw));
-                        }
-                        let input = inputs.get_mut(&field.id).unwrap();
-                        if !raw.trim().is_empty() {
-                            input.present = true;
-                        }
-                        if !raw.trim().is_empty() || field.present {
-                            input.raw = v.to_string();
+                if ["present", "value", "boolean", "manual_order"]
+                    .iter()
+                    .any(|prefix| form.contains_key(&format!("{prefix}.{}", field.id)))
+                {
+                    inputs.insert(
+                        field.id.clone(),
+                        FieldInput {
+                            present: form.contains_key(&format!("present.{}", field.id)),
+                            raw: form
+                                .get(&format!("value.{}", field.id))
+                                .cloned()
+                                .unwrap_or_else(|| {
+                                    if field.kind
+                                        == structured_editor_core::draft::InputKind::Boolean
+                                        && form.contains_key(&format!("boolean.{}", field.id))
+                                    {
+                                        "false".into()
+                                    } else {
+                                        field.raw.clone()
+                                    }
+                                }),
+                        },
+                    );
+                    if field.key == "_editor" {
+                        if let Some(raw) = form.get(&format!("manual_order.{}", field.id)) {
+                            let mut v = serde_json::from_str::<serde_json::Value>(&field.raw)
+                                .unwrap_or(serde_json::json!({}));
+                            if !v.is_object() {
+                                v = serde_json::json!({});
+                            }
+                            if raw.trim().is_empty() {
+                                v.as_object_mut().unwrap().remove("manual_order");
+                            } else {
+                                v["manual_order"] = raw
+                                    .parse::<i64>()
+                                    .map(serde_json::Value::from)
+                                    .unwrap_or(serde_json::json!(raw));
+                            }
+                            let input = inputs.get_mut(&field.id).unwrap();
+                            if !raw.trim().is_empty() {
+                                input.present = true;
+                            }
+                            if !raw.trim().is_empty() || field.present {
+                                input.raw = v.to_string();
+                            }
                         }
                     }
                 }
@@ -232,7 +298,7 @@ impl EditSession {
         } else {
             self.draft.apply(&inputs);
         }
-        if let Some(id) = form.get("record_id") {
+        if let Some(id) = form.get("record_id").filter(|_| self.document.is_none()) {
             self.proposed_id = id.clone();
         }
         self.version += 1;
@@ -251,7 +317,7 @@ impl EditSession {
         }
     }
     pub fn refresh_derived(&mut self, editor: &Editor) -> Result<()> {
-        if self.raw.is_some() {
+        if self.raw.is_some() || self.document.is_some() {
             return Ok(());
         }
         let Ok(value) = self.draft.value() else {
@@ -284,6 +350,9 @@ impl EditSession {
     pub fn validate(&self, editor: &Editor) -> Result<Vec<ValidationIssue>> {
         match self.value() {
             Ok(value) => {
+                if let Some((name, _)) = &self.document {
+                    return Ok(editor.validate_document(name, &value)?);
+                }
                 let previous = if self.revision.is_some() {
                     Some(editor.get(&self.collection, &self.record_id)?.value)
                 } else {
@@ -306,6 +375,24 @@ impl EditSession {
         let value = self
             .value()
             .map_err(structured_editor_core::Error::Validation)?;
+        if let Some((name, file)) = &self.document {
+            let saved = editor.save_json_document(
+                name,
+                file,
+                value,
+                self.revision.as_deref().unwrap_or(""),
+            )?;
+            self.revision = Some(saved.revision);
+            self.draft = if self.raw.is_some() {
+                Draft::document(&self.schema, &saved.value)
+            } else {
+                Draft::document_form(&self.schema, &saved.value)
+            };
+            if self.raw.is_some() {
+                self.raw = Some(serde_json::to_string_pretty(&saved.value).unwrap());
+            }
+            return Ok(());
+        }
         let saved = if let Some(parent) = &self.parent {
             editor.create_child(
                 &parent.collection,

@@ -1,5 +1,15 @@
 This revised MVP incorporates your comments. It defines the intended behavior for the rebuild; it does not prescribe frontend technology or architecture. Accepted implementation decisions are recorded below; configuration and module details are in README.md and crates/server/README.md.
 
+**Governing UI principle: browse the data tree**
+
+The UI is a schema-guided browser and editor of the JSON data tree. For every collection and every assigned schema, it presents objects through their properties, arrays through lists of their items, and nested objects through their own properties. The same model applies recursively: a collection list leads to an object, an object exposes properties and child lists, and each child can be explored in turn. Markdown/frontmatter records use their configured data mapping within this model.
+
+Embedded objects and schema-declared child references share this browsing model, but retain their different storage semantics. Following a reference opens the existing record; it does not copy that record into the parent JSON. Relationship trees are views over those links, not a requirement to store all content in one physical JSON tree.
+
+UI configuration customizes the presentation of this structure. Applicable options—such as labels, visible properties, property order, list columns, sorting, and expanded or compact display—must be configurable for an individual object, property, array/list, or item view, and collectively through shared defaults. Configuration must support explicit scopes for a node itself, its descendants, or a group of siblings under the same parent, as well as defaults for an entire collection/schema or the whole application. Inheritance is the default. A local override changes only the specified options; unrelated inherited options remain effective. Setting `inherit: false` on an option object discards its inherited options and uses local options plus built-in defaults. More specific settings take precedence over broader defaults, with deterministic conflict rules. Sibling scope is local to a parent view; it must not inadvertently change every use of the same target collection.
+
+Presentation options do not change stored values, ownership, reference identity, or schema validation. This is a consistent way to browse and configure data-derived views, not arbitrary panel or screen composition. Implemented configuration syntax and precedence are documented in crates/server/README.md; broader descendant and sibling scopes must follow the same inheritance rule. Existing implementation limitations below are gaps toward this principle, not exceptions to it.
+
 **1. Configuration scope**
 
 Configuration is separated into repository-wide and collection-specific concerns. There is no single object schema containing all collections.
@@ -14,7 +24,7 @@ Configuration is separated into repository-wide and collection-specific concerns
 | Collection UI configuration | Field controls, field order, labels, list/search presentation, trees, and visibility |
 | Additional schemas | Validate one or multiple explicitly assigned JSON files anywhere in the repository |
 
-Sidebar configuration is maintained **only through global and collection UI JSON files**. There is no sidebar customization screen and no per-user or browser-local sidebar configuration.
+Sidebar configuration is maintained **only through global and collection UI JSON files**. There is no sidebar-content customization screen or browser-local navigation configuration. Sidebar width and collapsed state are view preferences controlled beside the app title and remembered locally.
 
 Arbitrary panel and screen composition is deferred.
 
@@ -62,7 +72,7 @@ The schema defines the stored values and their constraints. UI configuration sel
 | JSON | Any JSON value, with a schema when available | Raw JSON editing; fallback when no applicable schema/control definition exists |
 | System field | Reserved metadata with a defined system meaning | Usually generated or read-only; special behavior where appropriate |
 
-Nested JSON objects do not require a separate structured-object editor in this MVP. They can use the JSON control, including schema validation when a nested schema exists.
+Nested JSON objects should expose their properties recursively, including objects inside arrays, in accordance with the governing UI principle. Raw JSON is also an explicit presentation choice for any subtree and its contents, including a whole document. Nested object properties and homogeneous object arrays now use recursive subtree views and the document sidebar. Scalar arrays remain inline. Inherited `navigation: "stop"` makes an object an endpoint: scalar fields and scalar arrays stay structured, while deeper containers use explicit raw presentation or the configured fallback. `rawFallback: false` preserves unsupported values without exposing a raw editor; explicit `editor: "raw"` still works. Local overrides or `inherit: false` reset inherited options.
 
 The JSON fallback still validates against any available schema. Without a schema, it checks JSON syntax.
 
@@ -170,6 +180,7 @@ The MVP needs suggestions for fields such as `Werk` and `Sprache`, backed by dis
 - Its schema uses the same general schema-assignment mechanism as other JSON documents.
 - Additional schemas may govern singular or multiple JSON files.
 - Assigned documents can be opened, validated, and saved.
+- Assigned documents share typed previews and the record draft editor, including array controls, validation, history, and conflict checks. Raw editing is an optional presentation mode; nested objects share recursive controls and navigation.
 - Saving uses the same revision/conflict behavior as other document editing.
 - Imports preserve editor settings, schema mappings, and existing assigned documents.
 
@@ -187,6 +198,18 @@ These remain outside field schemas:
 - Shared loading, empty-state, error, and save-conflict behavior.
 
 **10. Remaining inconsistencies and generalizations**
+
+Review of the current Rust implementation against the governing UI principle:
+
+| Area | Current implementation and next step |
+|---|---|
+| Schema-driven records and arrays | Record properties use shared field definitions for editing and preview; arrays recursively render item controls. Nested objects use the same controls and subtree navigation. |
+| Nested objects | Objects and homogeneous object-array items support recursive property views, editing, and sidebar navigation. Explicit endpoints and raw subtrees stop expansion. |
+| Shared UI options | Global defaults, collection UI, and global collection overrides now merge individual options recursively, with `inherit: false` resets. Presentation settings inherit into fields and array items; parent-owned child lists support shared sibling defaults and local overrides. Object views inherit presentation settings recursively; inheritance across reference navigation remains a separate design question. |
+| Child lists | Each parent/list occurrence inherits target collection defaults, then parent-local shared and individual overrides. Preview and full-list views share the resolved columns, sorting, and filters; preview size is configurable and columns are not capped at four. Record identity is unchanged. |
+| Assigned JSON documents | Mapped documents now share typed previews and the existing draft editor, including array/scalar roots, without record-ID actions. Global defaults and mapping-specific options select presentation, including raw JSON for a subtree or the whole document. Nested objects share recursive structured controls. |
+
+Suggested next step: expose navigation stops and raw/fallback choices in a per-node view-options menu. Define any scopes across reference navigation explicitly rather than silently changing another occurrence of a shared record.
 
 | Issue | Corrected direction or remaining decision |
 |---|---|
