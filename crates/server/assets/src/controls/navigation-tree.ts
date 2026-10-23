@@ -1,12 +1,22 @@
 // Expansion is local interaction state; node contents and destinations come from Rust.
 const expanded = new Map<string, boolean>();
+let collapseAll = false;
 document.addEventListener('toggle', event => {
   const node = event.target;
-  if (node instanceof HTMLDetailsElement && node.id && node.closest('#project-navigation')) expanded.set(node.id,node.open);
+  if (node instanceof HTMLDetailsElement && node.id && node.closest('#project-navigation')) {
+    if (node.open) collapseAll = false;
+    expanded.set(node.id,node.open);
+  }
 }, true);
 // Label navigation opens the containing branch. The chevron remains a native
 // summary toggle, so collapsing never changes the selected record.
 window.addEventListener('navigate', ((event: CustomEvent<{url:string}>) => {
+  collapseAll = event.detail.url === '/';
+  if (collapseAll) {
+    for (const id of expanded.keys()) expanded.set(id, false);
+    document.querySelectorAll<HTMLDetailsElement>('#project-navigation details').forEach(node => { node.open = false; expanded.set(node.id, false); });
+    return;
+  }
   for (const link of document.querySelectorAll<HTMLAnchorElement>('#project-navigation a[data-nav]')) {
     if(link.pathname+link.search!==event.detail.url) continue;
     let node: Element|null=link;
@@ -22,6 +32,10 @@ new MutationObserver(() => {
   if (!next) return;
   const workspace=document.getElementById('workspace');
   const active=workspace?.dataset.recordUrl || workspace?.dataset.url || '';
+  if (collapseAll) {
+    next.querySelectorAll<HTMLDetailsElement>('details').forEach(node => { node.open = false; expanded.set(node.id, false); });
+    activeWorkspace = active;
+  }
   if(active!==activeWorkspace){
     activeWorkspace=active;
     for(const node of next.querySelectorAll<HTMLDetailsElement>('details[data-active-branch="true"]')) {

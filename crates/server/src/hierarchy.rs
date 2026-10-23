@@ -212,7 +212,7 @@ pub fn sections(editor: &Editor, parent: &str, id: &str, actor: &Actor) -> Resul
         html += "</div></div>";
         if missing_count > 0 {
             html += &format!(
-                "<p class=\"notice\">{missing_count} linked record(s) could not be found. Review this record’s raw JSON to repair the child list.</p>"
+                "<template data-notification=\"warning\">{missing_count} linked record(s) could not be found. Review this record’s raw JSON to repair the child list.</template>"
             );
         }
         if rows.total == 0 {
@@ -274,8 +274,7 @@ pub fn sections(editor: &Editor, parent: &str, id: &str, actor: &Actor) -> Resul
                 html += "<td class=\"row-actions\"><div class=\"row-action-buttons\">";
                 if actor.editable() && editor.allows(&child.collection, "update") {
                     html += &format!(
-                        "<form method=\"post\" action=\"{record}/edit-sessions\" {SUBMIT}>{}<button class=\"icon-button\" data-tooltip=\"Edit\" aria-label=\"Edit {}\"><i class=\"ri-edit-line\" aria-hidden=\"true\"></i></button></form>",
-                        hidden("csrf", &actor.csrf),
+                        "<a class=\"icon-button\" data-nav href=\"{record}/edit\" data-tooltip=\"Edit\" aria-label=\"Edit {}\"><i class=\"ri-edit-line\" aria-hidden=\"true\"></i></a>",
                         escape(&row.label)
                     );
                 }

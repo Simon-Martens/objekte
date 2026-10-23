@@ -2,7 +2,7 @@
   <section class="picker delete-review" role="dialog" aria-modal="true" aria-labelledby="delete-title" aria-describedby="delete-description" tabindex="-1">
     <div class="picker-heading"><h2 id="delete-title">Delete {{ record_kind }}</h2><a class="icon-button" data-nav data-close-picker href="{{ back }}" aria-label="Close deletion review"><i class="ri-close-line" aria-hidden="true"></i></a></div>
     <p class="delete-record-title">{{ title }}</p>
-    {% if message %}<p class="notice" role="status">{{ message }}</p>{% endif %}
+    {% if message %}<template data-notification="success">{{ message }}</template>{% endif %}
     {% if blocked %}
     <p id="delete-description" class="help">This record is still in use. Unlink its list placements and resolve the references below before deleting it.</p>
     {% else %}

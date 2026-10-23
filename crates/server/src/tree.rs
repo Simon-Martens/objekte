@@ -53,10 +53,7 @@ pub fn edit_navigation(session: &EditSession) -> String {
             *out += "</div></details>";
         }
     }
-    let mut html = format!(
-        "<template id=\"data-navigation\"><p class=\"eyebrow\">Document tree</p><button form=\"record-form\" formaction=\"/edit-sessions/{}/browse-root\">Document root</button>",
-        session.id
-    );
+    let mut html = String::from("<template id=\"data-navigation\">");
     if session.raw.is_none() {
         nodes(&session.draft.fields, session, &mut html);
     }
@@ -98,10 +95,7 @@ pub fn preview(
             *out += "</div></details>";
         }
     }
-    let mut html = format!(
-        "<template id=\"data-navigation\"><p class=\"eyebrow\">Document tree</p><a data-nav href=\"{}\">Document root</a>",
-        escape(url)
-    );
+    let mut html = String::from("<template id=\"data-navigation\">");
     nodes(&draft.fields, "", draft.root_value, url, &mut html);
     html += "</template>";
     let selected = draft.at_path(path).filter(|f| navigable(f));
@@ -136,6 +130,7 @@ pub fn preview(
             })
             .collect()
     };
+    let mut metadata = String::new();
     for (f, path) in fields {
         if f.hidden || !f.present {
             continue;
@@ -143,6 +138,10 @@ pub fn preview(
         let Some(value) = value.pointer(&path) else {
             continue;
         };
+        if f.key == "_editor" {
+            metadata += &crate::views::metadata::preview(value);
+            continue;
+        }
         let title = label(f);
         html += &format!(
             "<section class=\"preview-field\"><h3>{}</h3><div>",
@@ -160,5 +159,5 @@ pub fn preview(
         }
         html += "</div></section>";
     }
-    html
+    html + &metadata
 }

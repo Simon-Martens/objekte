@@ -7,7 +7,7 @@ use crate::{
 use serde_json::{Value, json};
 use std::collections::HashMap;
 use structured_editor_core::{Editor, MediaKind};
-pub fn render(editor: &Editor, session: &EditSession) -> Result<String> {
+pub fn render(editor: &Editor, session: &EditSession, actor: &crate::auth::Actor) -> Result<String> {
     let Some(p) = &session.picker else {
         return Ok(String::new());
     };
@@ -24,7 +24,7 @@ pub fn render(editor: &Editor, session: &EditSession) -> Result<String> {
         views::escape(&p.query)
     );
     if p.kind == "links" {
-        html += "<label>Collection<select name=\"picker_collection\">";
+        html += "<label>Collection<select name=\"picker_collection\" data-picker-collection><optgroup label=\"Records\">";
         for (name, c) in &editor.config().collections {
             if !editor.allows(name, "read") {
                 continue;
@@ -40,6 +40,7 @@ pub fn render(editor: &Editor, session: &EditSession) -> Result<String> {
                 views::escape(&c.label)
             );
         }
+        html += "</optgroup><optgroup label=\"Media files\">";
         for (name, c) in &editor.config().media_collections {
             if !editor.allows(name, "read") {
                 continue;
@@ -55,15 +56,15 @@ pub fn render(editor: &Editor, session: &EditSession) -> Result<String> {
                 views::escape(&c.label)
             );
         }
-        html += "</select></label>";
+        html += "</optgroup></select></label>";
     }
     html += &format!(
         "<button data-picker-search formaction=\"{base}/search-picker\">Search</button></div>"
     );
     if p.kind == "links" {
-        html += "<details class=\"picker-link-options\"><summary>Link label, image or external URL</summary><div class=\"picker-link-fields\"><label>Link label (optional)<input name=\"link_label\" placeholder=\"Use the selected record’s label\"></label><label>External URL<input name=\"link_url\" placeholder=\"https://…\"></label><label class=\"checkbox-label\"><input type=\"checkbox\" name=\"link_image\">Insert as an image</label>";
         html += &format!(
-            "<button formaction=\"{base}/insert-link\">Insert URL</button></div></details>"
+            "<details class=\"picker-link-options\"><summary>Link text, image or external URL</summary><div class=\"picker-link-fields\"><label>Link text (optional)<input name=\"link_label\" placeholder=\"Use the selected item’s label\" value=\"{}\"></label><label>External URL<input name=\"link_url\" placeholder=\"https://…\" value=\"{}\"></label><label class=\"checkbox-label\"><input type=\"checkbox\" name=\"link_image\" {}>Insert as an image</label><button formaction=\"{base}/insert-link\">Insert URL</button></div></details>",
+            views::escape(&p.label), views::escape(&p.url), if p.image { "checked" } else { "" }
         );
     }
     html += "<div class=\"picker-results\" aria-label=\"Search results\">";
@@ -73,6 +74,14 @@ pub fn render(editor: &Editor, session: &EditSession) -> Result<String> {
         .media_collections
         .contains_key(&p.collection)
     {
+        let config = &editor.config().media_collections[&p.collection];
+        html += &format!("<div class=\"picker-location\"><i class=\"ri-folder-line\" aria-hidden=\"true\"></i><strong>{}</strong><span>{}</span></div>", views::escape(&config.label), views::escape(if p.path.is_empty() { "/" } else { &p.path }));
+        if actor.editable() && editor.allows(&p.collection, "upload") {
+            html += &format!(
+                "<div class=\"picker-upload\"><input form=\"picker-upload-form\" type=\"hidden\" name=\"csrf\" value=\"{}\"><input form=\"picker-upload-form\" type=\"hidden\" name=\"picker_session\" value=\"{}\"><input form=\"picker-upload-form\" type=\"hidden\" name=\"picker_version\" value=\"{}\"><input form=\"picker-upload-form\" type=\"hidden\" name=\"path\" value=\"{}\"><label>Upload to this folder<input form=\"picker-upload-form\" type=\"file\" name=\"file\" required></label><button form=\"picker-upload-form\" formaction=\"/media/{}/upload\" data-attr:disabled=\"$_pickerUploadPending\"><i class=\"ri-upload-2-line\" aria-hidden=\"true\"></i>Upload</button><p class=\"help\">Up to 50 MiB. Uploaded files remain in this collection even if you discard the record.</p><div id=\"picker-upload-result\" aria-live=\"polite\"></div></div>",
+                views::escape(&actor.csrf), views::escape(&session.id), session.version, views::escape(&p.path), views::encode(&p.collection)
+            );
+        }
         let media = editor.for_media(&p.collection)?;
         let entries = if p.query.is_empty() {
             media.media_list(&p.path, p.offset, 51)?
@@ -90,15 +99,21 @@ pub fn render(editor: &Editor, session: &EditSession) -> Result<String> {
             html += "<p class=\"empty-state compact\">No files match this search.</p>";
         }
         for e in entries.iter().take(50) {
+            let folder = matches!(e.kind, MediaKind::Directory);
+            let mut visual = if folder { String::new() } else { crate::media::thumbnail(editor, &p.collection, &e.path) };
+            if visual.is_empty() {
+                visual = format!("<i class=\"{}\" aria-hidden=\"true\"></i>", if folder { "ri-folder-line" } else { "ri-file-line" });
+            }
             html += &format!(
-                "<button class=\"picker-result\" name=\"choice\" value=\"{}\" formaction=\"{base}/{}\"><span>{}</span><i class=\"ri-arrow-right-line\" aria-hidden=\"true\"></i></button>",
+                "<button class=\"picker-result\" name=\"choice\" value=\"{}\" formaction=\"{base}/{}\"><span class=\"picker-media-item\">{visual}<span>{}<small>{}</small></span></span><i class=\"ri-arrow-right-line\" aria-hidden=\"true\"></i></button>",
                 views::escape(&e.path),
                 if matches!(e.kind, MediaKind::Directory) {
                     "folder"
                 } else {
                     "select"
                 },
-                views::escape(&e.name)
+                views::escape(&e.name),
+                views::escape(&e.path)
             );
         }
         if entries.len() > 50 {
@@ -169,6 +184,7 @@ pub fn action(
                 .config()
                 .collections
                 .keys()
+                .chain(editor.config().media_collections.keys())
                 .find(|name| editor.allows(name, "read"))
                 .cloned()
                 .unwrap_or_default()
@@ -206,12 +222,22 @@ pub fn action(
         .filter(|p| p.field == field)
         .ok_or_else(|| WebError::bad("Open the picker first"))?;
     editor.require_operation(&p.collection, "read")?;
+    if p.kind == "links" {
+        p.label = form.get("link_label").cloned().unwrap_or_default();
+        p.url = form.get("link_url").cloned().unwrap_or_default();
+        p.image = form.contains_key("link_image");
+    }
     match action {
         "search-picker" => {
             p.query = form.get("picker_query").cloned().unwrap_or_default();
             if p.kind == "links" {
-                p.collection = form.get("picker_collection").cloned().unwrap_or_default();
-                p.path.clear();
+                let collection = form.get("picker_collection").cloned().unwrap_or_else(|| p.collection.clone());
+                editor.require_operation(&collection, "read")?;
+                if p.collection != collection {
+                    p.collection = collection;
+                    p.path.clear();
+                    p.query.clear();
+                }
             }
             p.offset = 0;
         }

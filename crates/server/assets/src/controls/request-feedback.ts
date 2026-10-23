@@ -11,7 +11,8 @@ document.addEventListener('datastar-fetch', event => {
   }
   if (type !== 'retrying' && type !== 'retries-failed') return;
   notice.dataset.networkError = 'true';
-  notice.setAttribute('role', 'alert');
+  notice.dataset.kind = type === 'retrying' ? 'warning' : 'error';
+  notice.setAttribute('role', type === 'retrying' ? 'status' : 'alert');
   notice.setAttribute('aria-live', 'assertive');
   notice.textContent = type === 'retrying'
     ? 'Connection interrupted. Waiting to reconnect…'

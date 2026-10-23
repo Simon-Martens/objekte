@@ -32,6 +32,8 @@ pub fn router(state: Arc<AppState>) -> Router {
         .route("/collections/{name}/records/{id}", get(record))
         .route("/collections/{name}/records/{id}/export", get(export))
         .route("/collections/{name}/edit-sessions", post(create))
+        .route("/collections/{name}/records/{id}/edit", get(edit_entry))
+        .route("/collections/{name}/new", get(new_entry))
         .route(
             "/collections/{name}/records/{id}/edit-sessions",
             post(start),
@@ -285,6 +287,61 @@ pub(crate) async fn mutation_actor(
     )?;
     Ok(actor)
 }
+async fn edit_entry(
+    State(state): App,
+    Path((name, id)): Path<(String, String)>,
+    Query(query): Query<HashMap<String, String>>,
+    headers: HeaderMap,
+) -> Result<Response> {
+    entry_record(state, name, Some(id), query, headers).await
+}
+async fn new_entry(
+    State(state): App,
+    Path(name): Path<String>,
+    Query(query): Query<HashMap<String, String>>,
+    headers: HeaderMap,
+) -> Result<Response> {
+    entry_record(state, name, None, query, headers).await
+}
+async fn entry_record(
+    state: Arc<AppState>,
+    name: String,
+    id: Option<String>,
+    query: HashMap<String, String>,
+    headers: HeaderMap,
+) -> Result<Response> {
+    let actor = match page_actor(&state, &headers).await {
+        Ok(a) => a,
+        Err(r) => return Ok(r),
+    };
+    if !actor.editable() {
+        return Err(WebError(StatusCode::FORBIDDEN, "Read-only account.".into()));
+    }
+    blocking(move || {
+        state
+            .editor
+            .require_operation(&name, if id.is_some() { "update" } else { "create" })?;
+        let base = id
+            .as_ref()
+            .map(|id| views::record_url(&name, id))
+            .unwrap_or_else(|| format!("/collections/{}", views::encode(&name)));
+        let mut url = format!("{base}/{}", if id.is_some() { "edit" } else { "new" });
+        let node = query.get("node").map(String::as_str).unwrap_or("");
+        if !node.is_empty() {
+            url += &format!("?node={}", views::encode(node));
+        }
+        let html = crate::draft_lifecycle::entry(
+            &actor,
+            &url,
+            &format!("{base}/edit-sessions"),
+            None,
+            node,
+            false,
+        )?;
+        page(&state, &actor, &headers, html)
+    })
+    .await
+}
 async fn start(
     State(state): App,
     Path((name, id)): Path<(String, String)>,
@@ -310,6 +367,34 @@ async fn start_edit(
 ) -> Result<Response> {
     let actor = mutation_actor(&state, &headers, &form).await?;
     blocking(move || {
+        let base = id
+            .as_ref()
+            .map(|id| views::record_url(&name, id))
+            .unwrap_or_else(|| format!("/collections/{}", views::encode(&name)));
+        let key = format!("{base}/{}", if id.is_some() { "edit" } else { "new" });
+        match crate::draft_lifecycle::resume(&state, &actor, &form, &key) {
+            Ok(Some(session)) => {
+                return page(
+                    &state,
+                    &actor,
+                    &headers,
+                    views::edit(&state.editor, &session, &actor, &state.fields, &[], "")?,
+                );
+            }
+            Err(error) if error.0 == StatusCode::NOT_FOUND => {
+                let html = crate::draft_lifecycle::entry(
+                    &actor,
+                    &key,
+                    &format!("{base}/edit-sessions"),
+                    None,
+                    form.get("node").map(String::as_str).unwrap_or(""),
+                    true,
+                )?;
+                return page(&state, &actor, &headers, html);
+            }
+            Err(error) => return Err(error),
+            Ok(None) => {}
+        }
         let context_count = [
             "parent_collection",
             "parent_id",
@@ -322,12 +407,17 @@ async fn start_edit(
         if context_count != 0 && (context_count != 4 || id.is_some()) {
             return Err(WebError::bad("Incomplete or invalid parent context"));
         }
-        let mut session =
-            state
-                .sessions
-                .lock()
-                .unwrap()
-                .start(&state.editor, &actor, &name, id.as_deref())?;
+        let mut session = crate::sessions::Sessions::default().start(
+            &state.editor,
+            &actor,
+            &name,
+            id.as_deref(),
+        )?;
+        state
+            .sessions
+            .lock()
+            .unwrap()
+            .register(&actor, session.clone())?;
         if let Some(path) = form.get("node") {
             if session
                 .draft
@@ -374,16 +464,18 @@ async fn start_edit(
             }
         }
 
-        if fragment(&headers) {
-            page(
-                &state,
-                &actor,
-                &headers,
-                views::edit(&state.editor, &session, &actor, &state.fields, &[], "")?,
-            )
-        } else {
-            Ok(Redirect::to(&format!("/edit-sessions/{}", session.id)).into_response())
-        }
+        session.mark_clean();
+        state
+            .sessions
+            .lock()
+            .unwrap()
+            .update(&actor, session.clone())?;
+        page(
+            &state,
+            &actor,
+            &headers,
+            views::edit(&state.editor, &session, &actor, &state.fields, &[], "")?,
+        )
     })
     .await
 }
@@ -503,6 +595,7 @@ async fn live_validation(
         issues.sort_by(|a, b| a.path.cmp(&b.path).then(a.message.cmp(&b.message)));
         issues.dedup_by(|a, b| a.path == b.path && a.message == b.message);
         let mut fragments = views::validation::fragments(&session, &issues);
+        fragments.push(views::draft_exit(&session)?);
         for id in &session.preview {if let Some(field)=session.draft.field(id).filter(|f|f.present&&!f.hidden){fragments.push(format!("<section id=\"preview-{}\" class=\"markdown-preview\"><p class=\"eyebrow\">Live preview</p>{}</section>",field.id,views::markdown(&field.raw)));}}
         Ok(stream(fragments))
     })
@@ -520,21 +613,54 @@ async fn perform(
 ) -> Result<Response> {
     let actor = mutation_actor(&state, &headers, &form).await?;
     blocking(move || {
-        let mut sessions = state.sessions.lock().unwrap();
-        let mut session = sessions.get(&id, &actor)?.clone();
+        if state.sessions.lock().unwrap().get(&id,&actor).is_err() {
+            return crate::draft_lifecycle::expired(&state,&actor,&headers,&form);
+        }
+        // Lock only the affected drafts. Related-save touches both parent and child;
+        // consistent ID order prevents deadlocks between concurrent commands.
+        let gates = {
+            let mut registry = state.sessions.lock().unwrap();
+            let mut ids = vec![id.clone()];
+            if let Some((parent, _)) = &registry.get(&id, &actor)?.return_to {
+                ids.push(parent.clone());
+            }
+            ids.sort();
+            ids.dedup();
+            let mut gates = Vec::new();
+            for key in ids {
+                match registry.gate(&key, &actor) {
+                    Ok(gate) => gates.push(gate),
+                    Err(error) if key == id => return Err(error),
+                    Err(_) => {} // Expired parent does not prevent saving the child.
+                }
+            }
+            gates
+        };
+        let _guards: Vec<_> = gates.iter().map(|gate| gate.lock().unwrap()).collect();
+        let mut session = state.sessions.lock().unwrap().get(&id, &actor)?.clone();
         let before_input=session.snapshot();
         session.apply(&form)?;
+        if action == "discard" || action == "discard-close" { return crate::draft_lifecycle::closed(&state,&actor,&headers,&session); }
+        if action == "close" && !session.dirty() { return crate::draft_lifecycle::closed(&state,&actor,&headers,&session); }
+        if action == "close" || action == "keep-editing" {
+            session.close_requested = action == "close";
+            session.history.record(before_input,&session.snapshot());
+            state.sessions.lock().unwrap().update(&actor,session.clone())?;
+            return page(&state,&actor,&headers,views::edit(&state.editor,&session,&actor,&state.fields,&[],"")?);
+        }
+        if action == "save-close" { session.close_requested = false; }
         session.history.record(before_input,&session.snapshot());
         let before_command=session.snapshot();
         let mut issues = Vec::new();
         let mut message = String::new();
+        let mut message_kind = "error";
         if let Some(field) = field {
             if action == "browse" {
                 if let Some((path, _)) = session.draft.paths().into_iter().find(|(_, f)| f.id == field && crate::tree::navigable(f)) { session.view_path = path; }
             } else if action == "create-related" {
                 // Persist the parent before opening the child, including incomplete input.
-                sessions.insert(session.clone());
-                let child = related_session(&state.editor, &mut sessions, &actor, &session, &field, &form);
+                state.sessions.lock().unwrap().update(&actor, session.clone())?;
+                let child = related_session(&state, &actor, &session, &field, &form);
                 match child {
                     Ok(child) => return page(&state, &actor, &headers, views::edit(&state.editor, &child, &actor, &state.fields, &[], "")?),
                     Err(error) => message = error.1,
@@ -554,7 +680,7 @@ async fn perform(
             match action.as_str() {
                 "browse-root" => session.view_path.clear(),
                 "undo" => {if let Some(previous)=session.history.undo(session.snapshot()){session.restore(previous);}},
-                "redo" => {if let Some(next)=session.history.redo(session.snapshot()){session.restore(next);message="Change restored.".into();}},
+                "redo" => {if let Some(next)=session.history.redo(session.snapshot()){session.restore(next);message_kind="success";message="Change restored.".into();}},
                 "raw" => match session.value() {
                     Ok(value) => session.raw = Some(serde_json::to_string_pretty(&value).unwrap()),
                     Err(errors) => issues = errors,
@@ -567,35 +693,29 @@ async fn perform(
                     Ok(_) => message = "A record must be a JSON object.".into(),
                     Err(errors) => issues = errors,
                 },
-                "save" => match session.save(&state.editor) {
+                "save" | "save-close" => match session.save(&state.editor) {
                     Ok(()) => {
-                        message = "Saved to disk.".into();
-                        if let Some(parent)=session.parent.take() {
-                            sessions.insert(session);
-                            return page(&state,&actor,&headers,views::record(&state.editor,&parent.collection,&parent.id,&actor)?);
-                        }
-                        if let Some((parent_id, field)) = &session.return_to {
-                            let parent = sessions.get(parent_id, &actor).map(|s| s.clone());
-                            // A related record stays successfully saved even if its parent expired.
+                        message_kind = "success"; message = "Saved to disk.".into();
+                        session.close_requested = false;
+                        session.parent = None;
+                        if let Some((parent_id, field)) = session.return_to.take() {
+                            let parent = state.sessions.lock().unwrap().get(&parent_id, &actor).map(|s| s.clone());
                             if let Ok(mut parent) = parent {
-                                parent.draft.set_field(field, serde_json::json!(session.record_id)).map_err(WebError::bad)?;
+                                parent.draft.set_field(&field, serde_json::json!(session.record_id)).map_err(WebError::bad)?;
                                 parent.version += 1;
                                 parent.picker = None;
                                 parent.refresh_derived(&state.editor)?;
-                                sessions.insert(session);
-                                sessions.insert(parent.clone());
-                                let html = views::edit(&state.editor, &parent, &actor, &state.fields, &[], "Related record created and selected. Save this record to retain the reference.")?;
-                                return page(&state, &actor, &headers, html);
-                            }
-                            message = "Saved. The parent draft has expired; select this record from a new draft.".into();
-                            session.return_to = None;
+                                state.sessions.lock().unwrap().update(&actor, parent)?;
+                                message = "Related record created and selected. Save the parent record to retain the reference.".into();
+                            } else { message_kind = "warning"; message = "Saved. The parent draft has expired; select this record from a new draft.".into(); }
                         }
+                        if action == "save-close" { return crate::draft_lifecycle::closed(&state,&actor,&headers,&session); }
                     },
                     Err(structured_editor_core::Error::Validation(errors)) => issues = errors,
                     Err(error) => message = error.to_string(),
                 },
                 "validate" => match session.validate(&state.editor) {
-                    Ok(errors) => { issues = errors; if issues.is_empty() { message = "The draft is valid.".into(); } },
+                    Ok(errors) => { issues = errors; if issues.is_empty() { message_kind = "success"; message = "The draft is valid.".into(); } },
                     Err(error) => message = error.1,
                 },
                 "generate-id" => match session.value() {
@@ -607,19 +727,20 @@ async fn perform(
                 },
                 "check-id" => {
                     if session.proposed_id == session.record_id && session.revision.is_some() {
-                        message = "This is the current record ID.".into();
+                        message_kind = "success"; message = "This is the current record ID.".into();
                     } else {
                         issues = state.editor.validate_new_id(&session.collection, &session.proposed_id)?;
-                        if issues.is_empty() { message = "This ID is available.".into(); }
+                        if issues.is_empty() { message_kind = "success"; message = "This ID is available.".into(); }
                     }
                 },
                 _ => return Err(WebError::bad("Unknown operation")),
             }
         }
         session.refresh_derived(&state.editor)?;
-        if !["undo","redo","save"].contains(&action.as_str()) { session.history.record(before_command,&session.snapshot()); }
-        let html = views::edit(&state.editor, &session, &actor, &state.fields, &issues, &message)?;
-        sessions.insert(session);
+        if !["undo","redo","save","save-close"].contains(&action.as_str()) { session.history.record(before_command,&session.snapshot()); }
+        if !issues.is_empty() && message.is_empty() { message = "Please resolve the validation errors before saving.".into(); message_kind = "error"; }
+        let html = views::edit_with_kind(&state.editor, &session, &actor, &state.fields, &issues, &message, message_kind)?;
+        state.sessions.lock().unwrap().update(&actor, session)?;
         // Undo can restore the same HTML attributes a locally changed control already
         // has. Replacement resets dirty browser properties as well as markup; ordinary
         // commands and live validation retain morphing and Monaco's typing history.
@@ -631,13 +752,13 @@ async fn perform(
 }
 
 fn related_session(
-    editor: &structured_editor_core::Editor,
-    sessions: &mut crate::sessions::Sessions,
+    state: &AppState,
     actor: &Actor,
     parent: &crate::sessions::EditSession,
     field: &str,
     form: &HashMap<String, String>,
 ) -> Result<crate::sessions::EditSession> {
+    let editor = &state.editor;
     let picker = parent
         .picker
         .as_ref()
@@ -667,14 +788,20 @@ fn related_session(
             context[target] = value.clone();
         }
     }
-    let mut child = sessions.start(editor, actor, &picker.collection, None)?;
+    let mut child =
+        crate::sessions::Sessions::default().start(editor, actor, &picker.collection, None)?;
     child.draft = editor.draft_for_id(
         &picker.collection,
         "",
         &editor.initial_value(&picker.collection, &context)?,
     )?;
     child.return_to = Some((parent.id.clone(), field.into()));
-    sessions.insert(child.clone());
+    child.mark_clean();
+    state
+        .sessions
+        .lock()
+        .unwrap()
+        .register(actor, child.clone())?;
     Ok(child)
 }
 

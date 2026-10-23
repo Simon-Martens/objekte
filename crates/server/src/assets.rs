@@ -28,7 +28,8 @@ impl Assets {
             return Ok(Self {
                 root: root.into(),
                 tags: format!(
-                    "<script type=\"module\" src=\"{}/assets/@vite/client\"></script><script type=\"module\" src=\"{}/assets/src/main.ts\"></script>",
+                    "<link rel=\"icon\" type=\"image/svg+xml\" href=\"{}/assets/favicon.svg\"><script type=\"module\" src=\"{}/assets/@vite/client\"></script><script type=\"module\" src=\"{}/assets/src/main.ts\"></script>",
+                    escape(dev.trim_end_matches('/')),
                     escape(dev.trim_end_matches('/')),
                     escape(dev.trim_end_matches('/'))
                 ),
@@ -45,7 +46,8 @@ impl Assets {
         let file = entry["file"]
             .as_str()
             .ok_or_else(|| WebError::bad("Missing Vite entry"))?;
-        let mut tags = String::new();
+        let mut tags =
+            String::from("<link rel=\"icon\" type=\"image/svg+xml\" href=\"/assets/favicon.svg\">");
         fn css(
             manifest: &serde_json::Value,
             entry: &serde_json::Value,

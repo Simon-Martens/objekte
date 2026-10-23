@@ -11,16 +11,21 @@ pub fn value(editor: &Editor, field: &DraftField, value: &Value) -> String {
         return String::new();
     }
     if field.key == "_editor" {
-        return super::metadata::value("_editor", value);
+        return super::metadata::preview(value);
     }
     if field.kind == InputKind::Unsupported {
         return "<p class=\"muted\">Value preserved; structured display unavailable and automatic raw fallback disabled.</p>".into();
     }
     if field.kind == InputKind::Object {
         let mut html = format!("<div id=\"node-{}\" class=\"preview-object\">", field.id);
+        let mut metadata = String::new();
         for child in &field.items {
             if !child.hidden {
                 if let Some(value) = value.get(&child.key) {
+                    if child.key == "_editor" {
+                        metadata += &super::metadata::preview(value);
+                        continue;
+                    }
                     html += &format!(
                         "<section class=\"preview-field\"><h3>{}</h3>{}</section>",
                         escape(&crate::tree::label(child)),
@@ -29,7 +34,7 @@ pub fn value(editor: &Editor, field: &DraftField, value: &Value) -> String {
                 }
             }
         }
-        return html + "</div>";
+        return html + &metadata + "</div>";
     }
     if field.kind == InputKind::Array {
         if let Some(items) = value.as_array() {

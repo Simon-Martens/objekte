@@ -60,6 +60,14 @@ Rust source changes (including HTML built by Rust functions) still require a reb
 
 Without dev mode, templates are embedded in the binary and parsed at startup, assets use the built Vite manifest, and cookies require HTTPS by default. There is no runtime dependency on the source template folder or Node. Recompile after production template changes and restart after a production asset build.
 
+## Read caching and concurrent editing
+
+The core caches parsed collection records, prepared list values, paginated query results, ID-to-file lookups and incoming-reference indexes. Reads check file metadata for external changes; on Unix this includes modification time, change time, size and file identity. Additions, deletions and atomic replacements invalidate affected results without a TTL. List and reference dependencies include other collections so changed relation labels and derived values are refreshed. Reference indexes also track mapped documents and settings. Parsed-record entries are capped at 10,000; prepared lists and sorted queries each retain up to 16 entries.
+
+Metadata directory scans still run to detect external edits. New searches filter cached values in memory; pagination reuses sorted results. Filename-based child lists load only their members. Configuration and schema changes still require restarting the server.
+
+Editing commands serialize per draft, rather than holding the global session registry during file access, validation or rendering. Related-record saves lock parent and child drafts in a consistent order. Version checks continue to reject stale commands. The project write lock remains in place to protect reference integrity across writes, and blocking work stays on Tokio's blocking pool.
+
 ## Boundaries
 
 | Location | Responsibility |
@@ -107,6 +115,7 @@ Request errors are sent as notification patches for Datastar requests, with HTTP
 | `POST /collections/{collection}/records/{id}/delete/unlink` | Remove one placement with the parent revision; return to deletion review |
 | `POST /collections/{collection}/edit-sessions` | Start a new-record draft |
 | `POST /collections/{collection}/records/{id}/edit-sessions` | Start an existing-record draft |
+| `GET /collections/{name}/records/{id}/edit`, `/collections/{name}/new`, `/documents/{name}/edit?file=…` | Stable editor entry URLs; start/resume a private tab draft |
 | `GET /edit-sessions/{session}` | Render the draft owned by this login |
 | `POST /edit-sessions/{session}/save` | Validate, create/update/rename, render canonical saved data |
 | `POST /edit-sessions/{session}/live-validation` | Validate submitted input on a clone and patch feedback only |
@@ -130,7 +139,9 @@ Ordinary page requests return the full shell. `Datastar-Request: true` requests 
 
 Every mutation requires a login and CSRF token; content changes require editor/administrator permissions. Draft commands additionally require the current draft version. Saving and deleting use the core's on-disk revision checks. Invalid raw input remains in the draft; no save happens until validation passes. A stale draft request receives HTTP 409 without applying its submitted input. A file conflict keeps the draft for manual review; reopen the record to obtain a new revision.
 
-Drafts live in bounded process memory, belong to a specific login session, expire after two hours of inactivity, and disappear on restart/sign-out. The current architecture therefore runs as one server process for a repository. Durable drafts and multi-instance coordination are future work.
+Drafts live in bounded process memory (32 per login, 512 total). A background sweep runs once a minute and removes drafts after two hours without a draft request; logout also removes that login's drafts. Restarting the server loses drafts. Record edit URLs are `/collections/{name}/records/{id}/edit`, new records use `/collections/{name}/new`, and documents use `/documents/{name}/edit?file=…`; `node` selects a subtree. The private draft ID stays in the form and tab-scoped storage. Refresh resumes the same draft and restores pending form input from tab storage when the version still matches. Other tabs use independent drafts; a BroadcastChannel claim prevents active tabs from sharing a copied draft ID. Browser storage is optional; when unavailable, automatic refresh recovery is unavailable.
+
+Save keeps the editor open. The toolbar offers Discard without a separate Close action. Discard releases the draft and returns to the saved entry view; a new unsaved record returns to its parent or collection. Expired or missing drafts show an explicit explanation and Reopen editor action. Navigation away leaves the draft available until expiry, while the internal close command explicitly removes it. Drafts never hold record locks between requests.
 
 ## Storage and current coverage
 

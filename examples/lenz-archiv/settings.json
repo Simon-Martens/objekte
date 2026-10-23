@@ -1,1 +1,9 @@
-{}
+{
+  "defaultTheme": "system",
+  "density": "compact",
+  "editorFontSize": 13,
+  "markdownPreview": false,
+  "mediaThumbnails": true,
+  "pageSize": 200,
+  "validationDelay": 400
+}

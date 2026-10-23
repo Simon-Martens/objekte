@@ -18,6 +18,8 @@ pub struct ParentContext {
 }
 #[derive(Clone)]
 pub struct EditSession {
+    pub baseline: Option<structured_editor_core::draft::DraftState>,
+    pub close_requested: bool,
     pub view_path: String,
     pub document: Option<(String, String)>,
     pub parent: Option<ParentContext>,
@@ -40,6 +42,9 @@ pub struct EditSession {
 }
 #[derive(Clone, Default)]
 pub struct Picker {
+    pub label: String,
+    pub url: String,
+    pub image: bool,
     pub field: String,
     pub kind: String,
     pub query: String,
@@ -52,8 +57,36 @@ pub struct Picker {
 #[derive(Default)]
 pub struct Sessions {
     entries: HashMap<String, EditSession>,
+    gates: HashMap<String, std::sync::Weak<std::sync::Mutex<()>>>,
 }
 impl Sessions {
+    /// Acquire the returned gate only after releasing the registry mutex.
+    pub fn gate(
+        &mut self,
+        id: &str,
+        actor: &Actor,
+    ) -> Result<std::sync::Arc<std::sync::Mutex<()>>> {
+        self.get(id, actor)?;
+        self.gates.retain(|_, gate| gate.strong_count() > 0);
+        if let Some(gate) = self.gates.get(id).and_then(|gate| gate.upgrade()) {
+            return Ok(gate);
+        }
+        let gate = std::sync::Arc::new(std::sync::Mutex::new(()));
+        self.gates
+            .insert(id.into(), std::sync::Arc::downgrade(&gate));
+        Ok(gate)
+    }
+    pub fn register(&mut self, actor: &Actor, session: EditSession) -> Result<()> {
+        self.check_capacity(actor)?;
+        self.insert(session);
+        Ok(())
+    }
+    pub fn update(&mut self, actor: &Actor, session: EditSession) -> Result<()> {
+        // Do not resurrect sessions removed by logout while a command was running.
+        self.get(&session.id, actor)?;
+        self.insert(session);
+        Ok(())
+    }
     fn check_capacity(&mut self, actor: &Actor) -> Result<()> {
         self.entries.retain(|_, s| now() - s.touched < 7200);
         if self.entries.len() >= 512
@@ -90,6 +123,8 @@ impl Sessions {
         let raw = (schema["x-presentation"]["editor"] == "raw" || schema["x-editor"] == "json")
             .then(|| serde_json::to_string_pretty(&doc.value).unwrap());
         let session = EditSession {
+            baseline: None,
+            close_requested: false,
             view_path: String::new(),
             document: Some((name.into(), file.into())),
             parent: None,
@@ -110,6 +145,8 @@ impl Sessions {
             history: Default::default(),
             schema_warning: false,
         };
+        let mut session = session;
+        session.mark_clean();
         self.insert(session.clone());
         Ok(session)
     }
@@ -133,6 +170,8 @@ impl Sessions {
         let doc = record.map(|id| editor.get(collection, id)).transpose()?;
         let id = uuid::Uuid::new_v4().simple().to_string();
         let session = EditSession {
+            baseline: None,
+            close_requested: false,
             view_path: String::new(),
             document: None,
             parent: None,
@@ -191,6 +230,7 @@ impl Sessions {
                 .map(|f| f.id.clone())
                 .collect();
         }
+        session.mark_clean();
         self.entries.insert(id, session.clone());
         Ok(session)
     }
@@ -211,11 +251,74 @@ impl Sessions {
     pub fn insert(&mut self, session: EditSession) {
         self.entries.insert(session.id.clone(), session);
     }
+    pub fn remove(&mut self, id: &str, actor: &Actor) -> Result<()> {
+        self.get(id, actor)?;
+        self.entries.remove(id);
+        Ok(())
+    }
+    pub fn expire(&mut self) {
+        self.entries
+            .retain(|_, session| now() - session.touched < 7200);
+        self.gates.retain(|_, gate| gate.strong_count() > 0);
+    }
     pub fn logout(&mut self, actor: &Actor) {
         self.entries.retain(|_, s| s.owner != actor.session);
     }
 }
 impl EditSession {
+    pub fn mark_clean(&mut self) {
+        self.baseline = Some(self.snapshot());
+    }
+    pub fn dirty(&self) -> bool {
+        let Some(baseline) = &self.baseline else {
+            return true;
+        };
+        if self.proposed_id != baseline.id {
+            return true;
+        }
+        let original = match &baseline.raw {
+            Some(raw) => serde_json::from_str(raw).ok(),
+            None => baseline.draft.value().ok(),
+        };
+        match (self.value().ok(), original) {
+            (Some(current), Some(original)) => current != original,
+            _ => self.snapshot() != *baseline,
+        }
+    }
+    pub fn edit_key(&self) -> String {
+        use crate::views::{encode, record_url};
+        if let Some((name, file)) = &self.document {
+            format!("/documents/{}/edit?file={}", encode(name), encode(file))
+        } else if self.record_id.is_empty() {
+            format!("/collections/{}/new", encode(&self.collection))
+        } else {
+            format!("{}/edit", record_url(&self.collection, &self.record_id))
+        }
+    }
+    pub fn edit_url(&self) -> String {
+        let mut url = self.edit_key();
+        if !self.view_path.is_empty() {
+            url += &format!(
+                "{}node={}",
+                if url.contains('?') { "&" } else { "?" },
+                crate::views::encode(&self.view_path)
+            );
+        }
+        url
+    }
+    pub fn close_url(&self) -> String {
+        use crate::views::{encode, record_url};
+        if let Some((name, file)) = &self.document {
+            format!("/documents/{}?file={}", encode(name), encode(file))
+        } else if !self.record_id.is_empty() {
+            record_url(&self.collection, &self.record_id)
+        } else if let Some(parent) = &self.parent {
+            record_url(&parent.collection, &parent.id)
+        } else {
+            format!("/collections/{}", encode(&self.collection))
+        }
+    }
+
     pub fn snapshot(&self) -> structured_editor_core::draft::DraftState {
         structured_editor_core::draft::DraftState {
             draft: self.draft.clone(),
@@ -391,6 +494,7 @@ impl EditSession {
             if self.raw.is_some() {
                 self.raw = Some(serde_json::to_string_pretty(&saved.value).unwrap());
             }
+            self.mark_clean();
             return Ok(());
         }
         let saved = if let Some(parent) = &self.parent {
@@ -432,6 +536,7 @@ impl EditSession {
         if self.raw.is_some() {
             self.raw = Some(serde_json::to_string_pretty(&saved.value).unwrap());
         }
+        self.mark_clean();
         Ok(())
     }
 }

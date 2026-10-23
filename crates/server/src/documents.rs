@@ -21,6 +21,7 @@ pub fn router() -> Router<Arc<AppState>> {
         .route("/documents", get(index))
         .route("/documents/{name}", get(open).post(save))
         .route("/documents/{name}/edit-sessions", post(start_document))
+        .route("/documents/{name}/edit", get(edit_entry))
         .route(
             "/documents/{name}/validation",
             axum::routing::post(validate),
@@ -85,10 +86,9 @@ async fn index(State(s): App, h: HeaderMap) -> Result<Response> {
             );
             if a.editable() {
                 body += &format!(
-                    "<form method=\"post\" action=\"/documents/{}/edit-sessions\" data-on:submit__prevent=\"@post(el.getAttribute('action'),{{contentType:'form',retry:'never',retryMaxCount:0}})\"><input type=\"hidden\" name=\"csrf\" value=\"{}\"><input type=\"hidden\" name=\"file\" value=\"{}\"><button class=\"icon-button\" aria-label=\"Edit {}\"><i class=\"ri-edit-line\" aria-hidden=\"true\"></i></button></form>",
+                    "<a class=\"icon-button\" data-nav href=\"/documents/{}/edit?file={}\" aria-label=\"Edit {}\"><i class=\"ri-edit-line\" aria-hidden=\"true\"></i></a>",
                     views::encode(name),
-                    views::escape(&a.csrf),
-                    views::escape(file),
+                    views::encode(file),
                     views::escape(file)
                 );
             }
@@ -136,9 +136,50 @@ async fn open(
         let content = crate::tree::preview(&s.editor, &draft, &d.value, &url, q.get("node").map(String::as_str).unwrap_or(""));
         let node = q.get("node").map(String::as_str).unwrap_or("");
         let actions = if a.editable() {
-            format!("<form method=\"post\" action=\"/documents/{}/edit-sessions\" data-on:submit__prevent=\"@post(el.getAttribute('action'),{{contentType:'form',retry:'never',retryMaxCount:0}})\"><input type=\"hidden\" name=\"csrf\" value=\"{}\"><input type=\"hidden\" name=\"file\" value=\"{}\"><input type=\"hidden\" name=\"node\" value=\"{}\"><button class=\"primary\"><i class=\"ri-edit-line\" aria-hidden=\"true\"></i>Edit</button></form>", views::encode(&name), views::escape(&a.csrf), views::escape(&file), views::escape(node))
+            format!("<a class=\"button primary\" data-nav href=\"/documents/{}/edit?file={}&amp;node={}\"><i class=\"ri-edit-line\" aria-hidden=\"true\"></i>Edit</a>",views::encode(&name),views::encode(&file),views::encode(node))
         } else { String::new() };
         routes::page(&s, &a, &h, views::panel_with_actions(&format!("{url}&node={}", views::encode(q.get("node").map(String::as_str).unwrap_or(""))), &file, &content, &actions)?)
+    })
+    .await
+}
+async fn edit_entry(
+    State(s): App,
+    Path(name): Path<String>,
+    Query(q): Query<HashMap<String, String>>,
+    h: HeaderMap,
+) -> Result<Response> {
+    let a = match routes::page_actor(&s, &h).await {
+        Ok(a) => a,
+        Err(r) => return Ok(r),
+    };
+    if !a.editable() {
+        return Err(WebError(
+            axum::http::StatusCode::FORBIDDEN,
+            "Editing permission required".into(),
+        ));
+    }
+    blocking(move || {
+        let file = q
+            .get("file")
+            .ok_or_else(|| WebError::bad("Document file required"))?;
+        let node = q.get("node").map(String::as_str).unwrap_or("");
+        let mut url = format!(
+            "/documents/{}/edit?file={}",
+            views::encode(&name),
+            views::encode(file)
+        );
+        if !node.is_empty() {
+            url += &format!("&node={}", views::encode(node));
+        }
+        let html = crate::draft_lifecycle::entry(
+            &a,
+            &url,
+            &format!("/documents/{}/edit-sessions", views::encode(&name)),
+            Some(file),
+            node,
+            false,
+        )?;
+        routes::page(&s, &a, &h, html)
     })
     .await
 }
@@ -153,11 +194,37 @@ async fn start_document(
         let file = f
             .get("file")
             .ok_or_else(|| WebError::bad("Document file required"))?;
-        let mut session = s
-            .sessions
-            .lock()
-            .unwrap()
-            .start_document(&s.editor, &a, &name, file)?;
+        let key = format!(
+            "/documents/{}/edit?file={}",
+            views::encode(&name),
+            views::encode(file)
+        );
+        match crate::draft_lifecycle::resume(&s, &a, &f, &key) {
+            Ok(Some(session)) => {
+                return routes::page(
+                    &s,
+                    &a,
+                    &h,
+                    views::edit(&s.editor, &session, &a, &s.fields, &[], "")?,
+                );
+            }
+            Err(error) if error.0 == axum::http::StatusCode::NOT_FOUND => {
+                let html = crate::draft_lifecycle::entry(
+                    &a,
+                    &key,
+                    &format!("/documents/{}/edit-sessions", views::encode(&name)),
+                    Some(file),
+                    f.get("node").map(String::as_str).unwrap_or(""),
+                    true,
+                )?;
+                return routes::page(&s, &a, &h, html);
+            }
+            Err(error) => return Err(error),
+            Ok(None) => {}
+        }
+        let mut session =
+            crate::sessions::Sessions::default().start_document(&s.editor, &a, &name, file)?;
+        s.sessions.lock().unwrap().register(&a, session.clone())?;
         if let Some(path) = f.get("node") {
             if session
                 .draft
@@ -324,12 +391,21 @@ async fn submit(
                 Err(e) => Err(e.into()),
             }
         })();
+        let notice_kind = if result.is_ok() { "success" } else { "error" };
         let message = result.unwrap_or_else(|e| e.1);
         if name.is_none() {
             if let Some(html) =
                 crate::preferences::render(&s.editor, &a, &raw, &revision, &message)?
             {
-                return routes::page(&s, &a, &h, html);
+                return routes::page(
+                    &s,
+                    &a,
+                    &h,
+                    html.replace(
+                        "data-notification=\"success\"",
+                        &format!("data-notification=\"{notice_kind}\""),
+                    ),
+                );
             }
         }
         routes::page(
@@ -348,7 +424,11 @@ async fn submit(
                 &revision,
                 &file,
                 &message,
-            )?,
+            )?
+            .replace(
+                "data-notification=\"success\"",
+                &format!("data-notification=\"{notice_kind}\""),
+            ),
         )
     })
     .await

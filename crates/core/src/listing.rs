@@ -1,6 +1,6 @@
 //! Frontend-independent collection queries: values, matches, typed filters and ordering.
 use super::*;
-#[derive(Clone, Debug, Default)]
+#[derive(Clone, Debug, Default, Serialize)]
 pub struct ListRequest {
     /// Restrict a child-list view to the parent's canonical membership.
     pub ids: Option<std::collections::BTreeSet<String>>,
@@ -32,6 +32,7 @@ pub struct ListFacet {
     pub kind: String,
     pub options: Vec<(String, String, usize)>,
 }
+#[derive(Clone)]
 pub struct ListPage {
     pub rows: Vec<ListRow>,
     pub total: usize,
@@ -79,6 +80,23 @@ impl Editor {
         ui: &Value,
     ) -> Result<ListPage> {
         self.require_operation(name, "read")?;
+        let signature = self.read_signature()?;
+        let mut query = request.clone();
+        query.offset = 0;
+        query.limit = 0;
+        let key =
+            serde_json::to_string(&(name, &query, ui)).map_err(|e| Error::Data(e.to_string()))?;
+        let cached = self
+            .read_cache
+            .lists
+            .lock()
+            .unwrap()
+            .iter()
+            .find(|(old, k, _)| old == &signature && k == &key)
+            .map(|(_, _, page)| page.clone());
+        if let Some(page) = cached {
+            return Ok(page_slice(&page, request));
+        }
         let c = self.config.collection(name)?;
         if request.category.len() > c.categories.len() {
             return Err(Error::Data("category path is too deep".into()));
@@ -134,62 +152,113 @@ impl Editor {
         }
         let q = request.query.trim().to_lowercase();
         let mut rows = Vec::new();
-        let mut total = 0;
-        let mut ids = HashSet::new();
-        let mut relations = HashMap::<(String, String), String>::new();
-        let mut facet_values: BTreeMap<String, BTreeMap<String, (String, usize)>> = BTreeMap::new();
-        for path in self.files(name)? {
-            let value = self.view_value(name, &parse(c, &fs::read(&path)?)?)?;
-            let id = record_id(c, &path, &value)?;
-            if request.ids.as_ref().is_some_and(|ids| !ids.contains(&id)) {
-                continue;
-            }
-            if !ids.insert(id.clone()) {
-                return Err(Error::Data(format!("duplicate ID {id}")));
-            }
-            if !request
-                .category
-                .iter()
-                .zip(&c.categories)
-                .all(|(expected, level)| {
-                    field(&value, &level.field).and_then(Value::as_str) == Some(expected)
-                })
-            {
-                continue;
-            }
-            total += 1;
-            let mut display = BTreeMap::new();
-            for (key, schema) in &props {
-                if !visible(key) {
+        let prepared_key = serde_json::to_string(&(name, &request.ids, &request.category))
+            .map_err(|e| Error::Data(e.to_string()))?;
+        let cached = self
+            .read_cache
+            .prepared
+            .lock()
+            .unwrap()
+            .iter()
+            .find(|(old, k, _)| old == &signature && k == &prepared_key)
+            .map(|(_, _, rows)| rows.clone());
+        let prepared = if let Some(rows) = cached {
+            rows
+        } else {
+            let mut prepared = Vec::new();
+            let mut ids = HashSet::new();
+            let mut relations = HashMap::<(String, String), String>::new();
+            for path in self.files(name)? {
+                // Filename IDs allow a child list to avoid loading unrelated records.
+                if matches!(c.id, IdStrategy::Filename)
+                    && request.ids.as_ref().is_some_and(|ids| {
+                        !path
+                            .file_stem()
+                            .and_then(|s| s.to_str())
+                            .is_some_and(|id| ids.contains(id))
+                    })
+                {
                     continue;
                 }
-                if let Some(v) = value.get(key) {
-                    let mut text = field_display(v, schema);
-                    if schema["x-children"] == true {
-                        text = v.as_array().map(|a| a.len()).unwrap_or(0).to_string();
-                    }
-                    if let (Some(target), Some(id)) = (
-                        schema
-                            .pointer("/x-relation/collection")
-                            .and_then(Value::as_str),
-                        v.as_str(),
-                    ) {
-                        let k = (target.to_owned(), id.to_owned());
-                        text = relations
-                            .entry(k)
-                            .or_insert_with(|| {
-                                self.get(target, id)
-                                    .ok()
-                                    .and_then(|d| {
-                                        self.label(target, &d.value, id, "reference").ok()
-                                    })
-                                    .unwrap_or_else(|| id.into())
-                            })
-                            .clone();
-                    }
-                    display.insert(key.clone(), text);
+                let doc = self.cached_document(name, &path)?;
+                let id = doc.id.clone();
+                if request.ids.as_ref().is_some_and(|ids| !ids.contains(&id)) {
+                    continue;
                 }
+                let value = self.view_value(name, &doc.value)?;
+                if !ids.insert(id.clone()) {
+                    return Err(Error::Data(format!("duplicate ID {id}")));
+                }
+                if !request
+                    .category
+                    .iter()
+                    .zip(&c.categories)
+                    .all(|(expected, level)| {
+                        field(&value, &level.field).and_then(Value::as_str) == Some(expected)
+                    })
+                {
+                    continue;
+                }
+                let mut display = BTreeMap::new();
+                for (key, schema) in &props {
+                    if !visible(key) {
+                        continue;
+                    }
+                    if let Some(v) = value.get(key) {
+                        let mut text = field_display(v, schema);
+                        if schema["x-children"] == true {
+                            text = v.as_array().map(|a| a.len()).unwrap_or(0).to_string();
+                        }
+                        if let (Some(target), Some(id)) = (
+                            schema
+                                .pointer("/x-relation/collection")
+                                .and_then(Value::as_str),
+                            v.as_str(),
+                        ) {
+                            let k = (target.to_owned(), id.to_owned());
+                            text = relations
+                                .entry(k)
+                                .or_insert_with(|| {
+                                    self.get(target, id)
+                                        .ok()
+                                        .and_then(|d| {
+                                            self.label(target, &d.value, id, "reference").ok()
+                                        })
+                                        .unwrap_or_else(|| id.into())
+                                })
+                                .clone();
+                        }
+                        display.insert(key.clone(), text);
+                    }
+                }
+                let label = self.label(name, &value, &id, "list")?;
+                prepared.push(ListRow {
+                    id,
+                    label,
+                    value,
+                    display,
+                    matches: Vec::new(),
+                });
             }
+            let prepared = Arc::new(prepared);
+            let mut cache = self.read_cache.prepared.lock().unwrap();
+            cache.retain(|(old, k, _)| old == &signature && k != &prepared_key);
+            if cache.len() >= 16 {
+                cache.remove(0);
+            }
+            cache.push((signature.clone(), prepared_key, prepared.clone()));
+            prepared
+        };
+        let total = prepared.len();
+        let mut facet_values: BTreeMap<String, BTreeMap<String, (String, usize)>> = BTreeMap::new();
+        for row in prepared.iter() {
+            let ListRow {
+                id,
+                label,
+                value,
+                display,
+                ..
+            } = row;
             for key in &facet_fields {
                 if let Some(v) = value.get(key) {
                     let raw = display_text(v);
@@ -202,7 +271,6 @@ impl Editor {
                     entry.1 += 1;
                 }
             }
-            let label = self.label(name, &value, &id, "list")?;
             let mut matches = Vec::new();
             if !q.is_empty() {
                 if id.to_lowercase().contains(&q) {
@@ -232,13 +300,9 @@ impl Editor {
                     continue;
                 }
             }
-            rows.push(ListRow {
-                id,
-                label,
-                value,
-                display,
-                matches,
-            });
+            let mut row = row.clone();
+            row.matches = matches;
+            rows.push(row);
         }
         rows.retain(|row| {
             request.filters.iter().all(|(key, expected)| {
@@ -348,15 +412,32 @@ impl Editor {
             .then(a.id.cmp(&b.id))
         });
         let matched = rows.len();
-        Ok(ListPage {
-            rows: rows
-                .into_iter()
-                .skip(request.offset.min(matched))
-                .take(request.limit.clamp(1, 200))
-                .collect(),
+        let page = Arc::new(ListPage {
+            rows,
             total,
             matched,
             facets,
-        })
+        });
+        let mut cache = self.read_cache.lists.lock().unwrap();
+        cache.retain(|(old, k, _)| old == &signature && k != &key);
+        if cache.len() >= 16 {
+            cache.remove(0);
+        }
+        cache.push((signature, key, page.clone()));
+        Ok(page_slice(&page, request))
+    }
+}
+fn page_slice(page: &ListPage, request: &ListRequest) -> ListPage {
+    ListPage {
+        rows: page
+            .rows
+            .iter()
+            .skip(request.offset.min(page.matched))
+            .take(request.limit.clamp(1, 200))
+            .cloned()
+            .collect(),
+        total: page.total,
+        matched: page.matched,
+        facets: page.facets.clone(),
     }
 }

@@ -42,11 +42,36 @@ pub fn value(key: &str, value: &Value) -> String {
             } else {
                 text
             };
-            format!("<code>{}</code>", escape(short))
+            format!(
+                "<code tabindex=\"0\" data-tooltip=\"{}\">{}</code>",
+                escape(text),
+                escape(short)
+            )
         }
         Value::String(text) => format!("<span>{}</span>", escape(text)),
         Value::Number(number) => format!("<span class=\"mono\">{number}</span>"),
         Value::Bool(v) => if *v { "Yes" } else { "No" }.into(),
         Value::Null => "<span class=\"muted\">Not assigned</span>".into(),
     }
+}
+
+/// Present known system properties directly, without an implementation-name wrapper.
+pub fn preview(metadata: &Value) -> String {
+    let Some(fields) = metadata.as_object() else {
+        return value("_editor", metadata);
+    };
+    if fields.is_empty() {
+        return String::new();
+    }
+    let mut html = String::from("<div class=\"record-metadata\" aria-label=\"Record properties\">");
+    let mut properties: Vec<_> = fields.iter().collect();
+    properties.sort_by_key(|(key, _)| (key.as_str() != "schema_revision", key.as_str()));
+    for (key, child) in properties {
+        html += &format!(
+            "<div class=\"record-property\"><span class=\"record-property-label\">{}</span><div>{}</div></div>",
+            escape(&label(key)),
+            value(key, child)
+        );
+    }
+    html + "</div>"
 }

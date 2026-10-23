@@ -397,14 +397,16 @@ pub fn render(
         );
     }
     body += &format!(
-        "<section class=\"surface table-panel\" aria-label=\"Records\"><div class=\"list-toolbar\"><form class=\"search-form\" action=\"{base}\" {get}>{}<label class=\"search-input\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i><span class=\"sr-only\">Search</span><input type=\"search\" name=\"q\" value=\"{}\" placeholder=\"Search all indexed fields…\"></label><button>Search</button></form><details class=\"action-menu column-picker\"><summary class=\"button\"><i class=\"ri-layout-column-line\" aria-hidden=\"true\"></i>Columns</summary><form class=\"menu-panel\" action=\"{base}\" {get} data-on:change=\"el.requestSubmit()\" data-indicator:_columns-pending>{}<input type=\"hidden\" name=\"columns\" value=\"custom\"><p class=\"eyebrow\">Visible columns</p><fieldset data-attr:inert=\"$_columnsPending\">",
+        "<section class=\"surface table-panel\" aria-label=\"Records\"><div class=\"list-toolbar\"><form class=\"search-form\" action=\"{base}\" {get}>{}<label class=\"search-input\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i><span class=\"sr-only\">Search</span><input type=\"search\" name=\"q\" value=\"{}\" placeholder=\"Search all indexed fields…\"></label><button>Search</button></form><details class=\"action-menu column-picker\"><summary class=\"button icon-button\" aria-label=\"Columns\" data-tooltip=\"Columns\"><i class=\"ri-layout-column-line\" aria-hidden=\"true\"></i></summary><form class=\"menu-panel\" action=\"{base}\" {get} data-on:change=\"el.requestSubmit()\" data-indicator:_columns-pending>{}<input type=\"hidden\" name=\"columns\" value=\"custom\"><p class=\"eyebrow\">Visible columns</p><fieldset data-attr:inert=\"$_columnsPending\">",
         hidden(params, &["q", "offset"]),
         escape(&q),
         hidden(params, &["column.", "columns", "offset"])
     );
     for (key, label) in &available {
         body += &format!(
-            "<label class=\"column-option\"><input type=\"checkbox\" name=\"column.{}\" value=\"1\" {}>{}</label>",
+            "<label class=\"column-option\" for=\"column-{}\"><input id=\"column-{}\" type=\"checkbox\" name=\"column.{}\" value=\"1\" {}><span>{}</span></label>",
+            escape(&encode(key)),
+            escape(&encode(key)),
             escape(key),
             if columns.iter().any(|(k, _)| k == key) {
                 "checked"
@@ -414,7 +416,7 @@ pub fn render(
             escape(label)
         );
     }
-    body += "</fieldset><div class=\"menu-footer\"><span class=\"help\" role=\"status\" hidden data-attr:hidden=\"!$_columnsPending\">Updating…</span><button type=\"button\" class=\"small quiet\" data-close-menu>Done</button><noscript><button class=\"primary\">Apply columns</button></noscript></div></form></details></div>";
+    body += "</fieldset><noscript><button class=\"primary\">Apply columns</button></noscript></form></details></div>";
     let mut page_controls = String::new();
     for (enabled, next_offset, label, icon) in [
         (
@@ -548,8 +550,7 @@ pub fn render(
         );
         if actor.editable() && editor.allows(name, "update") {
             body += &format!(
-                "<form method=\"post\" action=\"{link}/edit-sessions\" data-on:submit__prevent=\"@post(el.getAttribute('action'),{{contentType:'form',retry:'never',retryMaxCount:0}})\"><input type=\"hidden\" name=\"csrf\" value=\"{}\"><button class=\"icon-button\" aria-label=\"Edit\"><i class=\"ri-edit-line\" aria-hidden=\"true\"></i></button></form>",
-                escape(&actor.csrf)
+                "<a class=\"icon-button\" data-nav href=\"{link}/edit\" aria-label=\"Edit\"><i class=\"ri-edit-line\" aria-hidden=\"true\"></i></a>"
             );
         }
         body += &crate::hierarchy::record_actions(
@@ -612,7 +613,7 @@ pub fn render(
     if page.rows.is_empty() {
         body += "<div class=\"empty-state\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i><h2>No matching records</h2><p>Try a broader search or clear a filter.</p></div>";
     }
-    body += "<footer class=\"list-footer\"><span class=\"help\">Click a column heading to sort</span><div class=\"actions\">";
+    body += "<footer class=\"list-footer\"><div class=\"actions\">";
     for (enabled, n, label) in [
         (offset > 0, offset.saturating_sub(limit), "Previous"),
         (
@@ -628,6 +629,8 @@ pub fn render(
                 "<a class=\"button\" data-nav href=\"{}\">{label}</a>",
                 escape(&query_url(&base, &p))
             );
+        } else {
+            body += &format!("<button type=\"button\" disabled>{label}</button>");
         }
     }
     body += "</div></footer></section></div></main>";

@@ -1,6 +1,7 @@
 {
-  "name": "1",
-  "order": 1,
+  "_editor": {
+    "schema_revision": "b486fde0998e179d96b9723b22be2700a581f47b"
+  },
   "handschriften": [
     "basel-staatsarchiv--pa-212-f-11-27-10-b-1--727a1290a2",
     "basel-staatsarchiv--pa-212-f-11-27-10-b-2--087bc5b54f",
@@ -20,7 +21,6 @@
     "basel-staatsarchiv--pa-212-f-11-27-10-nr-2--71318dc95f",
     "basel-staatsarchiv--pa-212-f-11-27-10-nr-20--ed3db243e1",
     "basel-staatsarchiv--pa-212-f-11-27-10-nr-3a--0268c50533",
-    "basel-staatsarchiv--pa-212-f-11-27-10-nr-3b--604f8f8d25",
     "basel-staatsarchiv--pa-212-f-11-27-10-nr-4--5dcf8536a7",
     "basel-staatsarchiv--pa-212-f-11-27-10-nr-5--dda45c464f",
     "basel-staatsarchiv--pa-212-f-11-27-10-nr-5b--9d9a2f15e4",
@@ -29,5 +29,7 @@
     "basel-staatsarchiv--pa-212-f-11-27-10-nr-8--933c4ed45c",
     "basel-staatsarchiv--pa-212-f-11-27-10-nr-9--dbaf59fd0a",
     "basel-staatsarchiv--pa-212a-f-11-27-10--2c58eaef6e"
-  ]
+  ],
+  "name": "1",
+  "order": 1
 }

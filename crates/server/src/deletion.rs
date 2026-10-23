@@ -200,7 +200,10 @@ fn failure(
         state,
         actor,
         headers,
-        render(&state.editor, actor, name, id, &error.1)?,
+        render(&state.editor, actor, name, id, &error.1)?.replace(
+            "data-notification=\"success\"",
+            "data-notification=\"error\"",
+        ),
     )?;
     if fragment(headers) {
         response

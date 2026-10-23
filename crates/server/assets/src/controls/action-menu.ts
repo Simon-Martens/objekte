@@ -72,5 +72,8 @@ document.addEventListener('click', event => {
 window.addEventListener('navigate', () => close());
 window.addEventListener('resize', () => { if (active) position(); });
 document.addEventListener('scroll', event => {
-  if (active && !panel?.contains(event.target as Node)) close();
+  if (active && !panel?.contains(event.target as Node)) {
+    if (active.classList.contains('column-picker')) position();
+    else close();
+  }
 }, true);

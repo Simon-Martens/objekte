@@ -10,16 +10,19 @@ import './controls/live-validation';
 import './controls/server-picker';
 import './controls/action-menu';
 import './controls/list-columns';
+import './controls/column-resize';
 import './controls/request-feedback';
 import './controls/tooltips';
 import './controls/code-input';
 import { confirmNavigation } from './controls/navigation-dialog';
+import { syncDraft } from './controls/draft-lifecycle';
 
 // Navigation mechanics only. Datastar applies every server-generated DOM patch.
 let dirty = false;
 let version = '';
 let shownUrl = location.pathname + location.search;
 function syncLocation() {
+  syncDraft();
   const workspace = document.getElementById('workspace');
   const url = workspace?.dataset.url;
   const nextVersion = workspace?.querySelector<HTMLInputElement>('input[name="version"], input[name="revision"]')?.value ?? '';
@@ -30,7 +33,9 @@ function syncLocation() {
   if (url) shownUrl = url;
   if (nextVersion !== version) { dirty = false; version = nextVersion; }
   if (url && url.startsWith('/') && !url.startsWith('//') && location.pathname + location.search !== url) {
-    history.pushState(null, '', url); dirty = false;
+    if (location.pathname.includes('/edit-sessions')) history.replaceState(null, '', url);
+    else history.pushState(null, '', url);
+    dirty = false;
   }
 }
 new MutationObserver(syncLocation).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-url', 'value'] });
@@ -40,12 +45,12 @@ document.addEventListener('click', async event => {
   const link = (event.target as Element)?.closest<HTMLAnchorElement>('a[data-nav]');
   if (!link || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
   event.preventDefault();
-  if (dirty && !await confirmNavigation()) return;
+  if ((dirty || document.querySelector<HTMLElement>('#workspace')?.dataset.draftDirty === 'true') && !await confirmNavigation()) return;
   dirty = false;
   window.dispatchEvent(new CustomEvent('navigate', { detail: { url: link.pathname + link.search } }));
 });
 window.addEventListener('popstate', async () => {
-  if (dirty && !await confirmNavigation()) {
+  if ((dirty || document.querySelector<HTMLElement>('#workspace')?.dataset.draftDirty === 'true') && !await confirmNavigation()) {
     history.pushState(null, '', shownUrl); return;
   }
   dirty = false;
@@ -64,3 +69,9 @@ document.addEventListener('keydown', event => {
 import './controls/draft-history';
 import './controls/preferences';
 import './controls/navigation-tree';
+
+import './controls/record-id';
+
+import './controls/notifications';
+
+import './controls/discard-confirmation';

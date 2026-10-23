@@ -2,6 +2,8 @@
 mod hierarchy;
 #[path = "listing.rs"]
 mod listing;
+#[path = "read_cache.rs"]
+mod read_cache;
 use crate::{Collection, Config, Error, IdStrategy, Result, safe_name};
 pub use hierarchy::*;
 pub use listing::*;
@@ -61,6 +63,7 @@ pub struct Reference {
 #[derive(Clone)]
 pub struct Editor {
     config: Arc<Config>,
+    read_cache: Arc<read_cache::ReadCache>,
     validators: Arc<Validators>,
     locks: Arc<Mutex<HashMap<PathBuf, Arc<Mutex<()>>>>>,
     pub(crate) write_guard: Arc<Mutex<()>>,
@@ -94,6 +97,7 @@ impl Editor {
         }
         Ok(Self {
             config: Arc::new(config),
+            read_cache: Arc::new(read_cache::ReadCache::default()),
             validators: Arc::new(Validators {
                 project,
                 collections,
@@ -508,15 +512,14 @@ impl Editor {
     }
 
     pub fn get(&self, collection: &str, id: &str) -> Result<Document> {
-        let c = self.config.collection(collection)?;
         let path = self.find_path(collection, id)?;
-        let bytes = fs::read(&path)?;
-        let value = parse(c, &bytes)?;
-        Ok(Document {
-            id: id.into(),
-            value,
-            revision: hash(&bytes),
-        })
+        let doc = self.cached_document(collection, &path)?;
+        if doc.id != id {
+            return Err(Error::Conflict(
+                "Record ID changed during lookup; retry the read".into(),
+            ));
+        }
+        Ok((*doc).clone())
     }
 
     pub fn validate_new_id(&self, collection: &str, id: &str) -> Result<Vec<ValidationIssue>> {
@@ -597,96 +600,120 @@ impl Editor {
     pub fn references_to(&self, collection: &str, id: &str) -> Result<Vec<Reference>> {
         self.config.collection(collection)?;
         safe_name(id)?;
-        let mut references = Vec::new();
-        for (source_name, source) in &self.config.collections {
-            for file in self.files(source_name)? {
-                let value = self.view_value(source_name, &parse(source, &fs::read(&file)?)?)?;
-                let source_id = record_id(source, &file, &value)?;
-                visit_relations(
-                    &source.schema_value,
-                    &source.schema_value,
-                    &value,
-                    "",
-                    0,
-                    &mut |target, referenced_id, _allow_unresolved, path| {
-                        if target == collection && referenced_id == id {
-                            references.push(Reference {
-                                document: None,
-                                collection: source_name.clone(),
-                                record_id: source_id.clone(),
-                                path: path.into(),
-                            });
+        let signature = self.reference_signature()?;
+        let cached = self
+            .read_cache
+            .references
+            .lock()
+            .unwrap()
+            .as_ref()
+            .filter(|(old, _)| old == &signature)
+            .map(|(_, index)| index.clone());
+        let index = if let Some(index) = cached {
+            index
+        } else {
+            let mut index: HashMap<(String, String), Vec<Reference>> = HashMap::new();
+            for (source_name, source) in &self.config.collections {
+                for file in self.files(source_name)? {
+                    let doc = self.cached_document(source_name, &file)?;
+                    let value = self.view_value(source_name, &doc.value)?;
+                    let source_id = record_id(source, &file, &value)?;
+                    visit_relations(
+                        &source.schema_value,
+                        &source.schema_value,
+                        &value,
+                        "",
+                        0,
+                        &mut |target, referenced_id, _allow_unresolved, path| {
+                            index
+                                .entry((target.to_owned(), referenced_id.to_owned()))
+                                .or_default()
+                                .push(Reference {
+                                    document: None,
+                                    collection: source_name.clone(),
+                                    record_id: source_id.clone(),
+                                    path: path.into(),
+                                });
+                            Ok(())
+                        },
+                    )?;
+                    visit_markdown_links(&value, "", &mut |destination, field_path| {
+                        if let Some((target, referenced_id)) = record_link_target(destination) {
+                            index
+                                .entry((target.to_owned(), referenced_id.to_owned()))
+                                .or_default()
+                                .push(Reference {
+                                    document: None,
+                                    collection: source_name.clone(),
+                                    record_id: source_id.clone(),
+                                    path: field_path.into(),
+                                });
                         }
-                        Ok(())
-                    },
-                )?;
-                visit_markdown_links(&value, "", &mut |destination, field_path| {
-                    if let Some((target, referenced_id)) = record_link_target(destination)
-                        && target == collection
-                        && referenced_id == id
-                    {
-                        references.push(Reference {
-                            document: None,
-                            collection: source_name.clone(),
-                            record_id: source_id.clone(),
-                            path: field_path.into(),
-                        });
-                    }
-                });
+                    });
+                }
             }
-        }
-        for (name, mapping) in &self.config.documents {
-            for file in &mapping.files {
-                let value = self.json_document(name, file)?.value;
-                visit_relations(
-                    &mapping.schema,
-                    &mapping.schema,
-                    &value,
-                    "",
-                    0,
-                    &mut |target, referenced_id, _, path| {
-                        if target == collection && referenced_id == id {
-                            references.push(Reference {
-                                document: Some(name.clone()),
-                                collection: String::new(),
-                                record_id: file.clone(),
-                                path: path.into(),
-                            });
-                        }
-                        Ok(())
-                    },
-                )?;
+            for (name, mapping) in &self.config.documents {
+                for file in &mapping.files {
+                    let value = self.json_document(name, file)?.value;
+                    visit_relations(
+                        &mapping.schema,
+                        &mapping.schema,
+                        &value,
+                        "",
+                        0,
+                        &mut |target, referenced_id, _, path| {
+                            index
+                                .entry((target.to_owned(), referenced_id.to_owned()))
+                                .or_default()
+                                .push(Reference {
+                                    document: Some(name.clone()),
+                                    collection: String::new(),
+                                    record_id: file.clone(),
+                                    path: path.into(),
+                                });
+                            Ok(())
+                        },
+                    )?;
+                }
             }
-        }
-        if let Some(settings) = &self.config.settings {
-            if !self
-                .config
-                .documents
-                .values()
-                .any(|mapping| mapping.files.contains(&settings.path))
-            {
-                let value = self.settings()?.value;
-                let schema = self.settings_schema()?;
-                visit_relations(
-                    schema,
-                    schema,
-                    &value,
-                    "",
-                    0,
-                    &mut |target, referenced_id, _, path| {
-                        if target == collection && referenced_id == id {
-                            references.push(Reference {
-                                document: Some(String::new()),
-                                collection: String::new(),
-                                record_id: settings.path.clone(),
-                                path: path.into(),
-                            });
-                        }
-                        Ok(())
-                    },
-                )?;
+            if let Some(settings) = &self.config.settings {
+                if !self
+                    .config
+                    .documents
+                    .values()
+                    .any(|mapping| mapping.files.contains(&settings.path))
+                {
+                    let value = self.settings()?.value;
+                    let schema = self.settings_schema()?;
+                    visit_relations(
+                        schema,
+                        schema,
+                        &value,
+                        "",
+                        0,
+                        &mut |target, referenced_id, _, path| {
+                            index
+                                .entry((target.to_owned(), referenced_id.to_owned()))
+                                .or_default()
+                                .push(Reference {
+                                    document: Some(String::new()),
+                                    collection: String::new(),
+                                    record_id: settings.path.clone(),
+                                    path: path.into(),
+                                });
+                            Ok(())
+                        },
+                    )?;
+                }
             }
-        }
+            let index = Arc::new(index);
+            *self.read_cache.references.lock().unwrap() = Some((signature, index.clone()));
+            index
+        };
+        let mut references = index
+            .get(&(collection.to_owned(), id.to_owned()))
+            .cloned()
+            .unwrap_or_default();
         unique_references(&mut references);
         Ok(references)
     }
@@ -1085,17 +1112,7 @@ impl Editor {
             }
             return Ok(path);
         }
-        let mut found = None;
-        for path in self.files(collection)? {
-            let value = parse(c, &fs::read(&path)?)?;
-            if record_id(c, &path, &value)? == id {
-                if found.is_some() {
-                    return Err(Error::Data(format!("duplicate ID {id}")));
-                }
-                found = Some(path);
-            }
-        }
-        found.ok_or_else(|| Error::NotFound(format!("record {id}")))
+        self.indexed_path(collection, id)
     }
 }
 

@@ -56,7 +56,7 @@ pub fn render(
     let mut body = String::new();
     if !message.is_empty() {
         body += &format!(
-            "<p class=\"notice\" role=\"status\">{}</p>",
+            "<template data-notification=\"success\">{}</template>",
             views::escape(message)
         );
     }
@@ -229,6 +229,8 @@ pub fn render(
             views::encode(q),
             offset.saturating_sub(50)
         );
+    } else {
+        body += "<button type=\"button\" disabled>Previous</button>";
     }
     if entries.len() > 50 {
         body += &format!(
@@ -237,10 +239,23 @@ pub fn render(
             views::encode(q),
             offset.saturating_add(50)
         );
+    } else {
+        body += "<button type=\"button\" disabled>Next</button>";
     }
     body += "</div></footer></section>";
     views::panel(&url, &config.label, &body)
 }
+/// Inline previews use the same raster formats served inline by the file endpoint.
+pub(crate) fn thumbnail(editor: &structured_editor_core::Editor, collection: &str, path: &str) -> String {
+    let extension = std::path::Path::new(path).extension().and_then(|s| s.to_str()).unwrap_or("").to_ascii_lowercase();
+    if !matches!(extension.as_str(), "png" | "jpg" | "jpeg" | "webp" | "gif")
+        || editor.settings().ok().is_some_and(|settings| settings.value["mediaThumbnails"] == false)
+    {
+        return String::new();
+    }
+    format!("<img class=\"picker-thumbnail\" src=\"/media/{}/file?path={}\" alt=\"\" loading=\"lazy\" decoding=\"async\">", views::encode(collection), views::encode(path))
+}
+
 fn reference_id(path: &str) -> String {
     format!(
         "media-refs-{}",
@@ -380,12 +395,16 @@ async fn upload(
     let mut csrf = String::new();
     let mut path = String::new();
     let mut file = None;
+    let mut picker_session = String::new();
+    let mut picker_version = String::new();
     let mut replacement = String::new();
     let mut revision = String::new();
     while let Some(field) = data.next_field().await.map_err(WebError::internal)? {
         match field.name().unwrap_or("") {
             "csrf" => csrf = field.text().await.map_err(WebError::internal)?,
             "path" => path = field.text().await.map_err(WebError::internal)?,
+            "picker_session" => picker_session = field.text().await.map_err(WebError::internal)?,
+            "picker_version" => picker_version = field.text().await.map_err(WebError::internal)?,
             "replacement" => replacement = field.text().await.map_err(WebError::internal)?,
             "revision" => revision = field.text().await.map_err(WebError::internal)?,
             "file" => {
@@ -403,6 +422,30 @@ async fn upload(
     state.auth.mutation(&actor, &csrf, true)?;
     let (filename, bytes) = file.ok_or_else(|| WebError::bad("Select a file"))?;
     blocking(move || {
+        if !picker_session.is_empty() {
+            let gate = state.sessions.lock().unwrap().gate(&picker_session, &actor)?;
+            let _guard = gate.lock().unwrap();
+            let session = state.sessions.lock().unwrap().get(&picker_session, &actor)?.clone();
+            let picker = session.picker.as_ref().ok_or_else(|| WebError::bad("Open the picker before uploading."))?;
+            if picker.collection != name || picker.path != path
+                || picker_version.parse::<u64>().ok() != Some(session.version)
+                || !replacement.is_empty()
+            {
+                return Err(WebError(axum::http::StatusCode::CONFLICT, "The selected collection or folder changed. Choose the file again.".into()));
+            }
+            if !session.draft.field(&picker.field).is_some_and(|field| !field.hidden && !field.read_only) {
+                return Err(WebError::bad("Field is not editable"));
+            }
+            state.editor.require_operation(&name, "read")?;
+            let target = if path.is_empty() { filename.clone() } else { format!("{path}/{filename}") };
+            state.editor.for_media(&name)?.media_upload(&target, &bytes, 50 * 1024 * 1024)?;
+            // Only patch upload feedback: preserve typed link options and the parent form.
+            let result = format!(
+                "<div id=\"picker-upload-result\" aria-live=\"polite\">{}<p class=\"valid\"><i class=\"ri-checkbox-circle-line\" aria-hidden=\"true\"></i> Uploaded {}</p><button form=\"record-form\" name=\"choice\" value=\"{}\" formaction=\"/edit-sessions/{}/fields/{}/actions/select\"><i class=\"ri-link\" aria-hidden=\"true\"></i>Insert uploaded file</button></div>",
+                thumbnail(&state.editor, &name, &target), views::escape(&filename), views::escape(&target), views::escape(&session.id), views::escape(&picker.field)
+            );
+            return Ok(routes::stream(vec![result]));
+        }
         let target = if path.is_empty() {
             filename
         } else {

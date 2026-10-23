@@ -134,7 +134,7 @@ pub fn render(
         body += "</section>";
     }
     body += &format!(
-        "</div><div id=\"document-validation\" class=\"notice\" role=\"status\">{}</div><div class=\"settings-footer actions\"><span class=\"help\">Instance defaults · personal theme choices take precedence</span><button name=\"action\" value=\"validate\">Validate</button><button class=\"primary\" name=\"action\" value=\"save\" {}><i class=\"ri-save-line\" aria-hidden=\"true\"></i>Save settings</button></div></form>",
+        "</div><template data-notification=\"success\">{}</template><div id=\"document-validation\" class=\"help\" role=\"status\"></div><div class=\"settings-footer actions\"><span class=\"help\">Instance defaults · personal theme choices take precedence</span><button name=\"action\" value=\"validate\">Validate</button><button class=\"primary\" name=\"action\" value=\"save\" {}><i class=\"ri-save-line\" aria-hidden=\"true\"></i>Save settings</button></div></form>",
         views::escape(message),
         if actor.editable() { "" } else { "disabled" }
     );

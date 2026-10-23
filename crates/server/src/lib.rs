@@ -3,6 +3,7 @@ pub mod assets;
 pub mod auth;
 mod deletion;
 mod documents;
+mod draft_lifecycle;
 pub mod error;
 pub mod fields;
 mod media;
@@ -29,7 +30,7 @@ pub struct AppState {
     pub editor: Editor,
     pub auth: Auth,
     pub assets: Assets,
-    pub sessions: Mutex<Sessions>,
+    pub sessions: Arc<Mutex<Sessions>>,
     pub fields: Registry,
 }
 impl AppState {
@@ -51,13 +52,25 @@ impl AppState {
             .await
             .map_err(WebError::internal)??;
         let auth = Auth::open(&state.join("server.sqlite"), insecure).await?;
-        Ok(Arc::new(Self {
+        let state = Arc::new(Self {
             editor,
             auth,
             assets,
-            sessions: Mutex::new(Sessions::default()),
+            sessions: Arc::new(Mutex::new(Sessions::default())),
             fields: Registry::default(),
-        }))
+        });
+        let weak = Arc::downgrade(&state.sessions);
+        tokio::spawn(async move {
+            let mut timer = tokio::time::interval(std::time::Duration::from_secs(60));
+            loop {
+                timer.tick().await;
+                let Some(sessions) = weak.upgrade() else {
+                    break;
+                };
+                sessions.lock().unwrap().expire();
+            }
+        });
+        Ok(state)
     }
 }
 pub fn router(state: Arc<AppState>) -> axum::Router {

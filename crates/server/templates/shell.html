@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Objekte editor</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Objekte</title>
 {% include "theme-init.html" %}{{ assets|safe }}</head>
 <body data-indicator:_pending data-signals="{_pending:false}" data-on:navigate__window="@get(evt.detail.url, {filterSignals:{include:/^$/}})">
 <div id="loading-region" data-show="$_pending" role="status" hidden data-attr:hidden="!$_pending">Working…</div>
@@ -21,7 +21,8 @@
   {{ navigation|safe }}
   <div class="sidebar-resizer" role="separator" aria-label="Sidebar width" aria-orientation="vertical" aria-controls="project-navigation" aria-valuemin="180" aria-valuemax="520" aria-valuenow="232" tabindex="0" data-sidebar-resizer></div>
   {{ content|safe }}
-  <dialog id="navigation-dialog" class="confirm-dialog" aria-labelledby="navigation-title"><form method="dialog"><span class="dialog-icon"><i class="ri-file-warning-line" aria-hidden="true"></i></span><h2 id="navigation-title">Leave this view?</h2><p>Your latest input has not been submitted. Submit it first, or leave without these changes.</p><div class="actions"><button value="stay" autofocus>Keep editing</button><button value="leave" class="danger">Leave view</button></div></form></dialog>
+  <dialog id="navigation-dialog" class="confirm-dialog" aria-labelledby="navigation-title"><form method="dialog"><h2 id="navigation-title">Leave this view?</h2><p>Your changes are not saved. You can return to this draft in this tab until it expires.</p><div class="actions"><button value="stay" autofocus>Keep editing</button><button value="leave" class="warning">Leave view</button></div></form></dialog>
+  <dialog id="discard-dialog" class="confirm-dialog" aria-labelledby="discard-title"><form method="dialog"><h2 id="discard-title">Discard changes?</h2><p>Your unsaved changes will be lost. The saved record will stay unchanged.</p><div class="actions"><button value="cancel" autofocus>Keep editing</button><button value="discard" class="warning">Discard changes</button></div></form></dialog>
   <div id="notification-region" role="status" aria-live="polite"></div><div id="overlay-region"></div>
 </div>
 </body></html>

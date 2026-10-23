@@ -1,0 +1,1 @@
+<button id="draft-exit" class="{% if dirty %}warning{% endif %}" form="record-form" formaction="/edit-sessions/{{ session.id }}/{% if dirty %}discard{% else %}close{% endif %}">{% if dirty %}Discard{% else %}Close{% endif %}</button>

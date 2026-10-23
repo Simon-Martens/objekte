@@ -148,7 +148,7 @@ pub fn navigation(editor: &Editor, workspace: &str) -> Result<String> {
         .unwrap_or_default()
         .to_string_lossy();
     let mut html = format!(
-        "<aside id=\"project-navigation\"><div class=\"repository-heading\"><i class=\"ri-git-repository-line\" aria-hidden=\"true\"></i><div><span class=\"eyebrow\">Repository</span><strong>{}</strong></div></div><nav aria-label=\"Repository navigation\">",
+        "<aside id=\"project-navigation\"><a href=\"/\" data-nav class=\"repository-heading\" aria-label=\"Repository root\"><i class=\"ri-git-repository-line\" aria-hidden=\"true\"></i><div><span class=\"eyebrow\">Repository</span><strong>{}</strong></div></a><nav aria-label=\"Repository navigation\">",
         escape(&repository)
     );
     let mut last = String::new();
@@ -316,7 +316,7 @@ crate::templates::template!(RecordView<'_>, "record.html");
 struct RecordView<'a> {
     record_kind: String,
     view_url: String,
-    node: String,
+    edit_link: String,
     title: String,
     url: String,
     back: String,
@@ -361,7 +361,7 @@ pub fn record_at(
         } else {
             format!("{url}?node={}", encode(path))
         },
-        node: path.into(),
+        edit_link: format!("{}/edit?node={}", record_url(name, id), encode(path)),
         title: editor.label(name, &doc.value, id, "record")?,
         can_delete: actor.editable() && editor.allows(name, "delete"),
         can_update: actor.editable() && editor.allows(name, "update"),
@@ -410,6 +410,10 @@ crate::templates::template!(Edit<'_>, "edit.html");
 #[derive(serde::Serialize)]
 struct Edit<'a> {
     session: SessionContext<'a>,
+    edit_url: String,
+    draft_key: String,
+    dirty: bool,
+    close_requested: bool,
     can_undo: bool,
     can_redo: bool,
     actor: crate::templates::ActorContext<'a>,
@@ -424,6 +428,7 @@ struct Edit<'a> {
     title: String,
     issues: &'a [ValidationIssue],
     message: &'a str,
+    message_kind: &'a str,
     picker: String,
     back: String,
 }
@@ -443,6 +448,17 @@ pub fn edit(
     registry: &Registry,
     issues: &[ValidationIssue],
     message: &str,
+) -> Result<String> {
+    edit_with_kind(editor, session, actor, registry, issues, message, "success")
+}
+pub fn edit_with_kind(
+    editor: &Editor,
+    session: &EditSession,
+    actor: &Actor,
+    registry: &Registry,
+    issues: &[ValidationIssue],
+    message: &str,
+    message_kind: &str,
 ) -> Result<String> {
     let value = session.value().unwrap_or(serde_json::json!({}));
     let selected = session
@@ -487,7 +503,7 @@ pub fn edit(
     for field in shown {
         if !field.present && !field.hidden && !field.read_only && field.key != "_editor" {
             available_fields += &format!(
-                "<button class=\"menu-action add-field-option\" formaction=\"/edit-sessions/{}/fields/{}/actions/include\"><i class=\"ri-add-line\" aria-hidden=\"true\"></i><span>{}</span><small>{}</small></button>",
+                "<button class=\"menu-action add-field-option\" formaction=\"/edit-sessions/{}/fields/{}/actions/include\"><span>{}</span><small>{}</small></button>",
                 session.id,
                 field.id,
                 escape(field.schema["title"].as_str().unwrap_or(&field.key)),
@@ -552,6 +568,10 @@ pub fn edit(
             schema_warning: session.schema_warning,
             document: session.document.is_some(),
         },
+        edit_url: session.edit_url(),
+        draft_key: session.edit_key(),
+        dirty: session.dirty(),
+        close_requested: session.close_requested,
         can_undo: session.history.can_undo(),
         can_redo: session.history.can_redo(),
         actor: actor.into(),
@@ -599,7 +619,8 @@ pub fn edit(
         },
         issues,
         message,
-        picker: crate::pickers::render(editor, session)?,
+        message_kind,
+        picker: crate::pickers::render(editor, session, actor)?,
         back: if let Some((name, file)) = &session.document {
             format!("/documents/{}?file={}", encode(name), encode(file))
         } else if let Some(parent) = &session.parent {
@@ -616,7 +637,7 @@ pub fn edit(
 }
 pub fn notice(message: &str) -> String {
     format!(
-        "<div id=\"notification-region\" role=\"status\">{}</div>",
+        "<div id=\"notification-region\" role=\"status\" data-kind=\"success\">{}</div>",
         escape(message)
     )
 }
@@ -695,4 +716,14 @@ pub fn icon_class(value: Option<&str>, fallback: &str) -> String {
         })
         .unwrap_or(fallback)
         .into()
+}
+
+#[derive(serde::Serialize)]
+struct DraftExit<'a> {
+    session: std::collections::HashMap<&'a str, &'a str>,
+    dirty: bool,
+}
+crate::templates::template!(DraftExit<'_>, "draft-exit.html");
+pub fn draft_exit(session: &EditSession) -> Result<String> {
+    DraftExit { session: std::collections::HashMap::from([("id", session.id.as_str())]), dirty: session.dirty() }.render()
 }

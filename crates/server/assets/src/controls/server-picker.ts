@@ -80,3 +80,10 @@ class ServerPicker extends HTMLElement {
   }
 }
 customElements.define('server-picker', ServerPicker);
+
+// Collection changes browse immediately; search remains scoped to that collection.
+document.addEventListener('change', event => {
+  const select = event.target;
+  if (!(select instanceof HTMLSelectElement) || !select.matches('[data-picker-collection]')) return;
+  select.closest('server-picker')?.querySelector<HTMLButtonElement>('[data-picker-search]')?.click();
+});

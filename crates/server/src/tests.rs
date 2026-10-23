@@ -959,7 +959,7 @@ async fn collection_configs_related_creation_and_generated_identity_work_togethe
     )
     .await;
     let child_id = html
-        .split("data-url=\"/edit-sessions/")
+        .split("data-draft-id=\"")
         .nth(1)
         .unwrap()
         .split('"')
@@ -1086,6 +1086,7 @@ async fn live_validation_returns_only_feedback_and_never_changes_draft_or_disk()
         .unwrap()
         .id
         .clone();
+    assert!(crate::views::draft_exit(&session).unwrap().contains(">Close</button>"));
     let url = format!("/edit-sessions/{}/live-validation", session.id);
     let mut values = form(&session, &actor);
     values.insert(format!("value.{count}"), "-3".into());
@@ -1094,6 +1095,7 @@ async fn live_validation_returns_only_feedback_and_never_changes_draft_or_disk()
     assert!(body.contains(&format!("id=\"errors-{count}\"")));
     assert!(body.contains("/count"));
     assert!(body.contains("issue(s) to resolve"));
+    assert!(body.contains(">Discard</button>"));
     assert!(!body.contains("id=\"workspace\""));
     assert!(!body.contains("code-input"));
     assert!(!body.contains("<input"));
@@ -1114,6 +1116,10 @@ async fn live_validation_returns_only_feedback_and_never_changes_draft_or_disk()
     assert!(body.contains(&format!(
         "id=\"errors-{count}\" class=\"field-errors\" aria-live=\"polite\"></div>"
     )));
+    values.insert(format!("value.{count}"), "1".into());
+    let (_, body) = request(state.clone(), "POST", &url, &cookie, &values, true).await;
+    assert!(body.contains(">Close</button>"));
+    assert!(!body.contains(">Discard</button>"));
     values.insert("record_id".into(), "invalid/id".into());
     let (_, body) = request(state.clone(), "POST", &url, &cookie, &values, true).await;
     assert!(body.contains("/id"));
@@ -1685,7 +1691,7 @@ async fn hierarchy_routes_render_scope_create_attach_and_reject_stale_changes() 
     )
     .await;
     let id = html
-        .split("data-url=\"/edit-sessions/")
+        .split("data-draft-id=\"")
         .nth(1)
         .unwrap()
         .split('"')
@@ -1720,7 +1726,7 @@ async fn hierarchy_routes_render_scope_create_attach_and_reject_stale_changes() 
     )
     .await;
     assert_eq!(status, StatusCode::OK);
-    assert!(html.contains("data-url=\"/collections/groups/records/g\""));
+    assert!(html.contains("data-url=\"/collections/notes/records/created%2Dchild/edit\""));
     assert_eq!(
         state
             .editor
@@ -2267,7 +2273,7 @@ async fn mapped_documents_share_drafts_controls_validation_and_conflict_guards()
     assert!(html.contains("Add item"));
     assert!(!html.contains("name=\"record_id\""));
     let id = html
-        .split("data-url=\"/edit-sessions/")
+        .split("data-draft-id=\"")
         .nth(1)
         .unwrap()
         .split('"')
@@ -2440,7 +2446,7 @@ async fn lists_and_object_views_offer_explicit_edit_buttons() {
         false,
     )
     .await;
-    assert!(list.contains("action=\"/collections/notes/records/one/edit-sessions\""));
+    assert!(list.contains("href=\"/collections/notes/records/one/edit\""));
     assert!(list.contains("href=\"/collections/notes/records/one\""));
     let (_, preview) = request(
         state.clone(),
@@ -2451,7 +2457,7 @@ async fn lists_and_object_views_offer_explicit_edit_buttons() {
         false,
     )
     .await;
-    assert!(preview.contains("action=\"/collections/notes/records/one/edit-sessions\""));
+    assert!(preview.contains("href=\"/collections/notes/records/one/edit?node="));
     let (_, documents) = request(
         state.clone(),
         "GET",
@@ -2461,7 +2467,7 @@ async fn lists_and_object_views_offer_explicit_edit_buttons() {
         false,
     )
     .await;
-    assert!(documents.contains("/edit-sessions\""));
+    assert!(documents.contains("/edit?file="));
     assert!(documents.contains("aria-label=\"Edit settings.json\""));
     let (_, document) = request(
         state.clone(),
@@ -2472,7 +2478,7 @@ async fn lists_and_object_views_offer_explicit_edit_buttons() {
         false,
     )
     .await;
-    assert!(document.contains("/edit-sessions\""));
+    assert!(document.contains("/edit?file="));
 }
 
 #[tokio::test]
@@ -2625,7 +2631,9 @@ async fn recursive_browsing_preserves_unsaved_siblings_and_saves_deep_edits() {
     )
     .await;
     assert!(html.contains("edited leaf"));
-    assert!(html.contains("Document tree"));
+    assert!(!html.contains("Document tree"));
+    assert!(!html.contains("Document root"));
+    assert!(html.contains("data-navigation"));
     assert!(html.contains("Up one level"));
 }
 
@@ -2970,9 +2978,10 @@ async fn system_metadata_is_readable_in_root_and_nested_document_views_and_edits
         let (status, html) =
             request(state.clone(), "GET", url, &cookie, &HashMap::new(), false).await;
         assert_eq!(status, StatusCode::OK);
-        assert!(html.contains("Editor metadata"));
+        assert!(!html.contains("Editor metadata"));
+        assert!(html.contains("record-metadata"));
         assert!(html.contains("Schema revision"));
-        assert!(html.contains("<code>abcdef01</code>"), "{url}: {html}");
+        assert!(html.contains("\">abcdef01</code>"), "{url}: {html}");
         assert!(html.contains("Manual order"));
         assert!(html.contains("<span class=\"mono\">0</span>"));
         assert!(html.contains("&lt;script&gt;bad&lt;/script&gt;"));
@@ -2993,7 +3002,7 @@ async fn system_metadata_is_readable_in_root_and_nested_document_views_and_edits
         assert!(html.contains(&format!("name=\"manual_order.{id}\"")));
         assert!(!html.contains(&format!("name=\"value.{id}\"")));
     }
-    assert!(html.contains("<code>abcdef01</code>"));
+    assert!(html.contains("\">abcdef01</code>"));
     let values = HashMap::from([
         ("version".into(), session.version.to_string()),
         (format!("present.{nested}"), "1".into()),
@@ -3023,7 +3032,7 @@ async fn record_metadata_preview_uses_system_fields_instead_of_raw_json() {
         "/collections/notes/records/one",
         "",
     );
-    assert!(html.contains("Schema revision") && html.contains("<code>01234567</code>"));
+    assert!(html.contains("Schema revision") && html.contains("\">01234567</code>"));
     assert!(html.contains("Manual order") && html.contains("<span class=\"mono\">12</span>"));
     assert!(!html.contains("&quot;schema_revision&quot;"));
     let mut session = state
@@ -3036,4 +3045,529 @@ async fn record_metadata_preview_uses_system_fields_instead_of_raw_json() {
     let html = views::edit(&state.editor, &session, &actor, &state.fields, &[], "").unwrap();
     assert_eq!(html.matches("<code>01234567</code>").count(), 1);
     assert!(html.contains("Manual order"));
+}
+
+#[tokio::test]
+async fn unrelated_edit_sessions_progress_while_another_session_is_locked() {
+    let (_temp, state, cookie, actor) = fixture().await;
+    let first = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start(&state.editor, &actor, "notes", Some("one"))
+        .unwrap();
+    let second = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start(&state.editor, &actor, "notes", Some("one"))
+        .unwrap();
+    let gate = state
+        .sessions
+        .lock()
+        .unwrap()
+        .gate(&first.id, &actor)
+        .unwrap();
+    let held = gate.lock().unwrap();
+    let form = HashMap::from([
+        ("csrf".into(), actor.csrf.clone()),
+        ("version".into(), "0".into()),
+    ]);
+    let blocked = {
+        let state = state.clone();
+        let cookie = cookie.clone();
+        let form = form.clone();
+        let id = first.id.clone();
+        tokio::spawn(async move {
+            request(
+                state,
+                "POST",
+                &format!("/edit-sessions/{id}/validate"),
+                &cookie,
+                &form,
+                false,
+            )
+            .await
+        })
+    };
+    let result = tokio::time::timeout(
+        std::time::Duration::from_secs(3),
+        request(
+            state.clone(),
+            "POST",
+            &format!("/edit-sessions/{}/validate", second.id),
+            &cookie,
+            &form,
+            false,
+        ),
+    )
+    .await;
+    let still_blocked = !blocked.is_finished();
+    drop(held); // Always release before asserting, including timeout failures.
+    assert_eq!(result.unwrap().0, StatusCode::OK);
+    assert!(still_blocked);
+    assert_eq!(blocked.await.unwrap().0, StatusCode::OK);
+    // Two concurrent commands with the same version cannot both replace the draft.
+    let form = HashMap::from([
+        ("csrf".into(), actor.csrf.clone()),
+        ("version".into(), "1".into()),
+    ]);
+    let url = format!("/edit-sessions/{}/validate", first.id);
+    let (a, b) = tokio::join!(
+        request(state.clone(), "POST", &url, &cookie, &form, false),
+        request(state.clone(), "POST", &url, &cookie, &form, false)
+    );
+    assert_eq!(
+        [a.0, b.0].iter().filter(|s| **s == StatusCode::OK).count(),
+        1
+    );
+    assert_eq!(
+        state
+            .sessions
+            .lock()
+            .unwrap()
+            .get(&first.id, &actor)
+            .unwrap()
+            .version,
+        2
+    );
+    let session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .get(&first.id, &actor)
+        .unwrap()
+        .clone();
+    state.sessions.lock().unwrap().logout(&actor);
+    assert!(
+        state
+            .sessions
+            .lock()
+            .unwrap()
+            .update(&actor, session)
+            .is_err()
+    );
+}
+
+fn draft_id(html: &str) -> String {
+    html.split("data-draft-id=\"")
+        .nth(1)
+        .unwrap()
+        .split('"')
+        .next()
+        .unwrap()
+        .into()
+}
+#[tokio::test]
+async fn stable_edit_urls_resume_private_drafts_and_restore_unsubmitted_input() {
+    let (_temp, state, cookie, actor) = fixture().await;
+    let (_, entry) = request(
+        state.clone(),
+        "GET",
+        "/collections/notes/records/one/edit",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert!(entry.contains("data-draft-entry"));
+    assert!(!entry.contains("data-draft-id"));
+    let start = HashMap::from([("csrf".into(), actor.csrf.clone())]);
+    let (_, html) = request(
+        state.clone(),
+        "POST",
+        "/collections/notes/records/one/edit-sessions",
+        &cookie,
+        &start,
+        true,
+    )
+    .await;
+    let id = draft_id(&html);
+    assert!(html.contains("data-url=\"/collections/notes/records/one/edit\""));
+    let session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .get(&id, &actor)
+        .unwrap()
+        .clone();
+    let mut input = form(&session, &actor);
+    let name = session
+        .draft
+        .fields
+        .iter()
+        .find(|f| f.key == "name")
+        .unwrap();
+    input.insert(format!("value.{}", name.id), "Recovered typing".into());
+    let mut resume = start.clone();
+    resume.insert("draft".into(), id.clone());
+    resume.insert("restore".into(), serde_json::to_string(&input).unwrap());
+    let (_, html) = request(
+        state.clone(),
+        "POST",
+        "/collections/notes/records/one/edit-sessions",
+        &cookie,
+        &resume,
+        true,
+    )
+    .await;
+    assert_eq!(draft_id(&html), id);
+    assert!(html.contains("Recovered typing"));
+    assert_eq!(
+        state.editor.get("notes", "one").unwrap().value["name"],
+        "First"
+    );
+    assert!(
+        state
+            .sessions
+            .lock()
+            .unwrap()
+            .get(&id, &actor)
+            .unwrap()
+            .dirty()
+    );
+    // A fresh tab gets an independent draft; it does not attach to a record-wide session.
+    let (_, html) = request(
+        state.clone(),
+        "POST",
+        "/collections/notes/records/one/edit-sessions",
+        &cookie,
+        &start,
+        true,
+    )
+    .await;
+    assert_ne!(draft_id(&html), id);
+    let mut stranger = actor.clone();
+    stranger.session = "other-login".into();
+    assert!(
+        crate::draft_lifecycle::resume(
+            &state,
+            &stranger,
+            &resume,
+            "/collections/notes/records/one/edit"
+        )
+        .is_err()
+    );
+}
+#[tokio::test]
+async fn close_discard_and_save_close_preserve_data_and_release_drafts() {
+    let (_temp, state, cookie, actor) = fixture().await;
+    let mut session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start(&state.editor, &actor, "notes", Some("one"))
+        .unwrap();
+    let id = session.id.clone();
+    let mut input = form(&session, &actor);
+    let name = session
+        .draft
+        .fields
+        .iter()
+        .find(|f| f.key == "name")
+        .unwrap()
+        .id
+        .clone();
+    input.insert(format!("value.{name}"), "Unsubmitted edit".into());
+    let (_, html) = request(
+        state.clone(),
+        "POST",
+        &format!("/edit-sessions/{id}/close"),
+        &cookie,
+        &input,
+        true,
+    )
+    .await;
+    assert!(html.contains("Close with unsaved changes?"));
+    assert!(
+        html.contains("Save and close")
+            && html.contains("Discard and close")
+            && html.contains("Keep editing")
+    );
+    assert_eq!(
+        state.editor.get("notes", "one").unwrap().value["name"],
+        "First"
+    );
+    session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .get(&id, &actor)
+        .unwrap()
+        .clone();
+    request(
+        state.clone(),
+        "POST",
+        &format!("/edit-sessions/{id}/keep-editing"),
+        &cookie,
+        &form(&session, &actor),
+        true,
+    )
+    .await;
+    session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .get(&id, &actor)
+        .unwrap()
+        .clone();
+    assert!(!session.close_requested && session.dirty());
+    let mut doc = state.editor.get("notes", "one").unwrap();
+    doc.value["name"] = json!("External update");
+    state
+        .editor
+        .save("notes", "one", doc.value, Some(&doc.revision))
+        .unwrap();
+    let (_, html) = request(
+        state.clone(),
+        "POST",
+        &format!("/edit-sessions/{id}/discard"),
+        &cookie,
+        &form(&session, &actor),
+        true,
+    )
+    .await;
+    assert!(html.contains("data-closed-draft"));
+    assert!(html.contains("data-navigate-to=\"/collections/notes/records/one\""));
+    assert!(state.sessions.lock().unwrap().get(&id, &actor).is_err());
+    assert_eq!(
+        state.editor.get("notes", "one").unwrap().value["name"],
+        "External update"
+    );
+    session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start(&state.editor, &actor, "notes", Some("one"))
+        .unwrap();
+    let id = session.id.clone();
+    let mut input = form(&session, &actor);
+    let count = session
+        .draft
+        .fields
+        .iter()
+        .find(|f| f.key == "count")
+        .unwrap()
+        .id
+        .clone();
+    input.insert(format!("value.{count}"), "invalid".into());
+    let (_, html) = request(
+        state.clone(),
+        "POST",
+        &format!("/edit-sessions/{id}/save-close"),
+        &cookie,
+        &input,
+        true,
+    )
+    .await;
+    assert!(html.contains("record-form") && !html.contains("data-closed-draft"));
+    session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .get(&id, &actor)
+        .unwrap()
+        .clone();
+    let mut input = form(&session, &actor);
+    input.insert(format!("value.{count}"), "7".into());
+    let (_, html) = request(
+        state.clone(),
+        "POST",
+        &format!("/edit-sessions/{id}/save-close"),
+        &cookie,
+        &input,
+        true,
+    )
+    .await;
+    assert!(
+        html.contains("data-closed-draft")
+            && html.contains("data-navigate-to=\"/collections/notes/records/one\"")
+    );
+    assert!(state.sessions.lock().unwrap().get(&id, &actor).is_err());
+    assert_eq!(state.editor.get("notes", "one").unwrap().value["count"], 7);
+    for action in ["close", "discard-close"] {
+        let session = state
+            .sessions
+            .lock()
+            .unwrap()
+            .start(&state.editor, &actor, "notes", Some("one"))
+            .unwrap();
+        let (_, html) = request(
+            state.clone(),
+            "POST",
+            &format!("/edit-sessions/{}/{action}", session.id),
+            &cookie,
+            &form(&session, &actor),
+            true,
+        )
+        .await;
+        assert!(html.contains("data-closed-draft"));
+        assert!(
+            state
+                .sessions
+                .lock()
+                .unwrap()
+                .get(&session.id, &actor)
+                .is_err()
+        );
+    }
+}
+#[tokio::test]
+async fn expired_and_closed_drafts_offer_explicit_recovery() {
+    let (_temp, state, cookie, actor) = fixture().await;
+    let mut session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start(&state.editor, &actor, "notes", Some("one"))
+        .unwrap();
+    let mut input = form(&session, &actor);
+    input.insert("edit_url".into(), session.edit_url());
+    session.touched = auth::now() - 7201;
+    state.sessions.lock().unwrap().insert(session.clone());
+    state.sessions.lock().unwrap().expire();
+    let (_, html) = request(
+        state.clone(),
+        "POST",
+        &format!("/edit-sessions/{}/save", session.id),
+        &cookie,
+        &input,
+        true,
+    )
+    .await;
+    assert!(html.contains("Draft expired") && html.contains("Reopen editor"));
+    assert!(!html.contains("record-form"));
+    let start = HashMap::from([
+        ("csrf".into(), actor.csrf.clone()),
+        ("draft".into(), session.id),
+    ]);
+    let (_, html) = request(
+        state.clone(),
+        "POST",
+        "/collections/notes/records/one/edit-sessions",
+        &cookie,
+        &start,
+        true,
+    )
+    .await;
+    assert!(
+        html.contains("data-expired=\"true\"")
+            && html.contains("unsaved server-side changes are no longer available")
+    );
+    assert!(!html.contains("data-draft-id"));
+}
+#[tokio::test]
+async fn mapped_documents_use_stable_edit_urls_and_save_keeps_draft_open() {
+    let (_temp, state, cookie, actor) = fixture().await;
+    let (_, html) = request(
+        state.clone(),
+        "GET",
+        "/documents/editor-settings/edit?file=settings.json",
+        &cookie,
+        &HashMap::new(),
+        true,
+    )
+    .await;
+    assert!(html.contains("data-draft-entry"));
+    let session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start_document(&state.editor, &actor, "editor-settings", "settings.json")
+        .unwrap();
+    let (_, html) = request(
+        state.clone(),
+        "POST",
+        &format!("/edit-sessions/{}/save", session.id),
+        &cookie,
+        &form(&session, &actor),
+        true,
+    )
+    .await;
+    assert!(html.contains("/documents/editor%2Dsettings/edit?file=settings%2Ejson"));
+    assert_eq!(draft_id(&html), session.id);
+    let current = state
+        .sessions
+        .lock()
+        .unwrap()
+        .get(&session.id, &actor)
+        .unwrap()
+        .clone();
+    assert!(!current.dirty());
+    let (_, html) = request(
+        state.clone(),
+        "POST",
+        &format!("/edit-sessions/{}/close", session.id),
+        &cookie,
+        &form(&current, &actor),
+        true,
+    )
+    .await;
+    assert!(
+        html.contains("data-navigate-to=\"/documents/editor%2Dsettings?file=settings%2Ejson\"")
+    );
+}
+
+#[path = "concurrency_tests.rs"]
+mod concurrency;
+
+#[tokio::test]
+async fn link_picker_browses_media_and_uploads_without_replacing_the_draft() {
+    let (_temp, state, cookie, actor) = fixture().await;
+    let mut session = state.sessions.lock().unwrap().start(&state.editor, &actor, "notes", Some("one")).unwrap();
+    let field = session.draft.fields.iter().find(|field| field.key == "body").unwrap().id.clone();
+    let mut input = form(&session, &actor);
+    crate::pickers::action(&state.editor, &mut session, &field, "links", &input).unwrap();
+    input.insert("picker_collection".into(), "media".into());
+    input.insert("link_label".into(), "My scan".into());
+    input.insert("link_image".into(), "on".into());
+    crate::pickers::action(&state.editor, &mut session, &field, "search-picker", &input).unwrap();
+    state.editor.for_media("media").unwrap().media_mkdir("scans").unwrap();
+    input.insert("choice".into(), "scans".into());
+    crate::pickers::action(&state.editor, &mut session, &field, "folder", &input).unwrap();
+    let html = crate::pickers::render(&state.editor, &session, &actor).unwrap();
+    assert!(html.contains("optgroup label=\"Records\"") && html.contains("optgroup label=\"Media files\""));
+    assert!(html.contains("/media/media/upload"));
+    assert!(html.contains("value=\"My scan\""));
+    assert!(html.contains("name=\"path\" value=\"scans\""));
+    let baseline = session.value().unwrap();
+    state.sessions.lock().unwrap().update(&actor, session.clone()).unwrap();
+
+    async fn upload(state: Arc<AppState>, cookie: &str, csrf: &str, session: &sessions::EditSession, path: &str, version: u64, name: &str) -> (StatusCode, String) {
+        let boundary = "picker-upload-test";
+        let mut body = String::new();
+        for (key, value) in [("csrf", csrf.to_owned()), ("picker_session", session.id.clone()), ("picker_version", version.to_string()), ("path", path.into())] {
+            body += &format!("--{boundary}\r\nContent-Disposition: form-data; name=\"{key}\"\r\n\r\n{value}\r\n");
+        }
+        body += &format!("--{boundary}\r\nContent-Disposition: form-data; name=\"file\"; filename=\"{name}\"\r\nContent-Type: text/plain\r\n\r\nScan content\r\n--{boundary}--\r\n");
+        let response = router(state).oneshot(Request::builder().method("POST").uri("/media/media/upload").header("cookie", cookie).header("datastar-request", "true").header("content-type", format!("multipart/form-data; boundary={boundary}")).body(Body::from(body)).unwrap()).await.unwrap();
+        let status = response.headers().get("x-editor-error-status").and_then(|value| StatusCode::from_bytes(value.as_bytes()).ok()).unwrap_or(response.status());
+        let body = String::from_utf8(response.into_body().collect().await.unwrap().to_bytes().to_vec()).unwrap();
+        (status, body)
+    }
+    for (csrf, path, version, expected) in [
+        ("wrong", "scans", session.version, StatusCode::FORBIDDEN),
+        (actor.csrf.as_str(), "", session.version, StatusCode::CONFLICT),
+        (actor.csrf.as_str(), "scans", session.version + 1, StatusCode::CONFLICT),
+    ] {
+        assert_eq!(upload(state.clone(), &cookie, csrf, &session, path, version, "rejected.txt").await.0, expected);
+        assert!(state.editor.media_read("scans/rejected.txt").is_err());
+    }
+    let (status, html) = upload(state.clone(), &cookie, &actor.csrf, &session, "scans", session.version, "scan.txt").await;
+    assert_eq!(status, StatusCode::OK);
+    assert!(html.contains("Insert uploaded file") && html.contains("value=\"scans/scan.txt\""));
+    assert!(!html.contains("id=\"workspace\""));
+    assert_eq!(state.editor.media_read("scans/scan.txt").unwrap(), b"Scan content");
+    assert_eq!(state.sessions.lock().unwrap().get(&session.id, &actor).unwrap().value().unwrap(), baseline);
+    assert_ne!(upload(state.clone(), &cookie, &actor.csrf, &session, "scans", session.version, "scan.txt").await.0, StatusCode::OK);
+    {
+        let mut registry = state.sessions.lock().unwrap();
+        registry.get(&session.id, &actor).unwrap().picker.as_mut().unwrap().collection = "notes".into();
+    }
+    assert_eq!(upload(state.clone(), &cookie, &actor.csrf, &session, "scans", session.version, "wrong-collection.txt").await.0, StatusCode::CONFLICT);
+    assert!(state.editor.media_read("scans/wrong-collection.txt").is_err());
+    input.insert("choice".into(), "scans/scan.txt".into());
+    crate::pickers::action(&state.editor, &mut session, &field, "select", &input).unwrap();
+    assert!(session.value().unwrap()["body"].as_str().unwrap().contains("![My scan](/media/media/file?path=scans%2Fscan%2Etxt)"));
+    assert_eq!(state.editor.get("notes", "one").unwrap().value["body"], "**Hello**");
 }
