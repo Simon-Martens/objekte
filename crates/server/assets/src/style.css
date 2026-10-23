@@ -218,6 +218,10 @@ code, .mono, .source { font-family: var(--mono); font-size: 11px; font-variant-l
 .inspector-content > label { display: block; font-size: 12px; margin-bottom: .4rem; }
 .inspector-content > .actions { margin-top: .6rem; }
 .inspector-content .help { margin: .65rem 0; }
+.schema-revision { padding: 12px; border-top: 1px solid var(--border); font-size: 12px; }
+.schema-revision h3 { font-size: 12px; margin-bottom: .35rem; }
+.schema-revision code { color: var(--muted); }
+.schema-revision .help { margin-top: .65rem; }
 .inspector-details > summary { display: flex; align-items: center; gap: .5rem; padding: 12px; font-weight: 550; font-size: 12px; cursor: pointer; }
 .inspector-details > summary::after { content: '+'; margin-left: auto; color: var(--muted); }
 .inspector-details[open] > summary::after { content: '−'; }

@@ -396,6 +396,7 @@ struct Edit<'a> {
     actor: crate::templates::ActorContext<'a>,
     fields: String,
     metadata: String,
+    schema_revision: Option<String>,
     sidebar_fields: String,
     available_fields: String,
     section: String,
@@ -435,6 +436,17 @@ pub fn edit(
     };
     let mut fields = String::new();
     let mut metadata = String::new();
+    let schema_revision = session
+        .draft
+        .fields
+        .iter()
+        .find(|field| field.key == "_editor")
+        .and_then(|field| serde_json::from_str::<serde_json::Value>(&field.raw).ok())
+        .and_then(|metadata| {
+            metadata["schema_revision"]
+                .as_str()
+                .map(|revision| revision.chars().take(8).collect::<String>())
+        });
     let mut sidebar_fields = String::new();
     let mut available_fields = String::new();
     let ui = &editor.config().collection(&session.collection)?.ui;
@@ -484,6 +496,7 @@ pub fn edit(
         actor: actor.into(),
         fields,
         metadata,
+        schema_revision,
         sidebar_fields,
         available_fields,
         section: format!("/collections/{}", encode(&session.collection)),

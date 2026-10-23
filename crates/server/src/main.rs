@@ -3,6 +3,9 @@ use std::{
     path::PathBuf,
 };
 use structured_editor_server::{AppState, assets::Assets, error::WebError};
+
+mod reset;
+
 #[tokio::main]
 async fn main() {
     tracing_subscriber::fmt()
@@ -28,13 +31,22 @@ async fn run() -> Result<(), WebError> {
         .map(PathBuf::from)
         .unwrap_or_else(|| PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("assets/dist"));
     let args: Vec<_> = std::env::args().skip(1).collect();
+    let usage = "Usage: structured-editor-server [--dev] [admin-create | reset]";
     if args
         .iter()
-        .any(|arg| !matches!(arg.as_str(), "admin-create" | "--dev"))
+        .any(|arg| !matches!(arg.as_str(), "admin-create" | "reset" | "--dev"))
+        || args.iter().filter(|arg| arg.as_str() == "--dev").count() > 1
+        || args
+            .iter()
+            .filter(|arg| matches!(arg.as_str(), "admin-create" | "reset"))
+            .count()
+            > 1
     {
-        return Err(WebError::bad(
-            "Usage: structured-editor-server [--dev] [admin-create]",
-        ));
+        return Err(WebError::bad(usage));
+    }
+    if args.iter().any(|arg| arg == "reset") {
+        reset::run(&root, &directory)?;
+        return Ok(());
     }
     let admin = args.iter().any(|arg| arg == "admin-create");
     let dev =

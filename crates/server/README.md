@@ -17,6 +17,8 @@ EDITOR_INSECURE_COOKIE=1 cargo run -p structured-editor-server
 
 Open http://127.0.0.1:4322. `admin-create` prompts for email, display name, and a password of at least 12 characters. Noninteractive use accepts those as three stdin lines. It only creates the first administrator.
 
+To delete all Rust server accounts and sessions, stop the server and run `cargo run -p structured-editor-server -- reset`, then run `admin-create` again. `reset` removes `server.sqlite` and its SQLite sidecars from `EDITOR_DATA_DIR` (default `.data`). It leaves project records and media, built assets, and the Astro frontend's separate `editor.sqlite` intact. The command succeeds when the database does not exist.
+
 | Variable | Default / meaning |
 | --- | --- |
 | `EDITOR_ROOT` | Workspace `examples/lenz-archiv`; repository to edit |

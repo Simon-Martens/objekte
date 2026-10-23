@@ -29,6 +29,8 @@ EDITOR_INSECURE_COOKIE=1 cargo run -p structured-editor-server
 
 Open <http://127.0.0.1:4322>. The default project is `examples/lenz-archiv`; set `EDITOR_ROOT` and `EDITOR_DATA_DIR` to absolute paths to select another project and state directory. The initial administrator is stored in `.data/server.sqlite`, separately from Astro's accounts. See [server setup and architecture](crates/server/README.md) for development mode and extension points. The remaining application-specific development and deployment instructions below describe the existing Astro frontend.
 
+To reset Rust server accounts and sessions, stop the server, run `cargo run -p structured-editor-server -- reset`, then run `cargo run -p structured-editor-server -- admin-create` to create a new administrator. Project content and the Astro account database are unaffected.
+
 For live UI development, run these in **two terminals** after the initial install:
 
 ```bash

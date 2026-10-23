@@ -158,6 +158,43 @@ fn form(session: &sessions::EditSession, actor: &auth::Actor) -> HashMap<String,
     values
 }
 #[tokio::test]
+async fn schema_revision_appears_in_validation_with_a_short_hash() {
+    let (_temp, state, _cookie, actor) = fixture().await;
+    let mut session = state
+        .sessions
+        .lock()
+        .unwrap()
+        .start(&state.editor, &actor, "notes", Some("one"))
+        .unwrap();
+    let full_hash = "0123456789abcdef0123456789abcdef01234567";
+    session
+        .draft
+        .fields
+        .push(structured_editor_core::draft::DraftField {
+            id: "system-metadata".into(),
+            key: "_editor".into(),
+            schema: json!({"type": "object"}),
+            kind: structured_editor_core::draft::InputKind::Json,
+            present: true,
+            required: false,
+            hidden: false,
+            read_only: false,
+            raw: json!({"schema_revision": full_hash}).to_string(),
+            items: Vec::new(),
+        });
+
+    let html = views::edit(&state.editor, &session, &actor, &state.fields, &[], "").unwrap();
+    let validation = html.find("Validation</h2>").unwrap();
+    let revision = html
+        .find("<div class=\"schema-revision\"><h3>Schema revision</h3>")
+        .unwrap();
+    assert!(validation < revision);
+    assert!(!html[validation..revision].contains("</section>"));
+    assert!(html.contains("<code>01234567</code>"));
+    assert!(!html.contains(full_hash));
+    assert_eq!(html.matches("Schema revision</h3>").count(), 1);
+}
+#[tokio::test]
 async fn authentication_shell_and_fragment_contract() {
     let (_temp, state, cookie, actor) = fixture().await;
     let (status, _) = request(

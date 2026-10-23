@@ -1,6 +1,9 @@
 {
-  "source": "src/dynamic/lists/posthume_ausgaben/1979_1.html",
+  "Eintrag": "Poesiealbum 142: Jakob Michael Reinhold Lenz. Auswahl: Sigrid Damm. Berlin: Neues Leben 1979. – 32 S.",
   "Jahr": 1979,
   "Sort": 1,
-  "Eintrag": "Poesiealbum 142: Jakob Michael Reinhold Lenz. Auswahl: Sigrid Damm. Berlin: Neues Leben 1979. – 32 S."
+  "_editor": {
+    "schema_revision": "b486fde0998e179d96b9723b22be2700a581f47b"
+  },
+  "source": "src/dynamic/lists/posthume_ausgaben/1979_1.html"
 }

@@ -15,12 +15,10 @@ impl Control for System {
                     .unwrap_or_else(|| v.to_string())
             })
             .unwrap_or_default();
-        let revision = v["schema_revision"].as_str().unwrap_or("Not assigned");
         Ok(format!(
-            "<label>Manual order<input name=\"manual_order.{}\" value=\"{}\" inputmode=\"numeric\"></label><p class=\"help\">Blank means unordered. Order applies within this collection.</p><p>Schema revision: <code>{}</code></p>",
+            "<label>Manual order<input name=\"manual_order.{}\" value=\"{}\" inputmode=\"numeric\"></label><p class=\"help\">Blank means unordered. Order applies within this collection.</p>",
             f.id,
             escape(&order),
-            escape(revision)
         ))
     }
 }
