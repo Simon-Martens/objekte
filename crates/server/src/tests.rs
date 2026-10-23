@@ -1058,6 +1058,17 @@ async fn suggestion_lookups_patch_only_options_without_mutating_the_draft() {
     assert_eq!(status, StatusCode::OK);
     assert!(html.contains("value=\"First\""));
     assert!(!html.contains("id=\"workspace\""));
+    assert!(html.contains("data-query=\"Fir\""));
+    input.insert(format!("value.{name}"), "No matching value".into());
+    let (status, html) = request(
+        state.clone(), "POST",
+        &format!("/edit-sessions/{}/fields/{name}/suggestions?all=1", session.id),
+        &cookie, &input, true,
+    ).await;
+    assert_eq!(status, StatusCode::OK);
+    assert!(html.contains("value=\"First\""));
+    assert!(html.contains("data-query=\"\""));
+
     let current = state
         .sessions
         .lock()
@@ -2232,7 +2243,8 @@ async fn markdown_escapes_stay_out_of_normal_fields_and_list_previews() {
     .await;
     assert_eq!(status, StatusCode::OK);
     let saved = state.editor.get("notes", "one").unwrap().value;
-    assert_eq!(saved["inline"], readable);
+    // An unchanged readable control must not rewrite the stored Markdown.
+    assert_eq!(saved["inline"], imported);
     assert_eq!(saved["summary"], plain);
     assert!(
         views::record(&state.editor, "notes", "one", &actor)
@@ -3278,10 +3290,9 @@ async fn close_discard_and_save_close_preserve_data_and_release_drafts() {
         true,
     )
     .await;
-    assert!(html.contains("Close with unsaved changes?"));
+    assert!(html.contains("Discard changes?"));
     assert!(
-        html.contains("Save and close")
-            && html.contains("Discard and close")
+        html.contains("Discard changes")
             && html.contains("Keep editing")
     );
     assert_eq!(
@@ -3570,4 +3581,36 @@ async fn link_picker_browses_media_and_uploads_without_replacing_the_draft() {
     crate::pickers::action(&state.editor, &mut session, &field, "select", &input).unwrap();
     assert!(session.value().unwrap()["body"].as_str().unwrap().contains("![My scan](/media/media/file?path=scans%2Fscan%2Etxt)"));
     assert_eq!(state.editor.get("notes", "one").unwrap().value["body"], "**Hello**");
+}
+
+#[tokio::test]
+async fn exit_uses_actual_changes_and_confirms_only_once() {
+    let (_temp, state, cookie, actor) = fixture().await;
+    let original = state.editor.get("notes", "one").unwrap();
+    let mut value = original.value.clone();
+    value["body"] = json!(r"A \[caption\]");
+    state.editor.save("notes", "one", value, Some(&original.revision)).unwrap();
+    for (changed, confirm) in [(false, true), (true, true), (true, false)] {
+        let mut session = state.sessions.lock().unwrap().start(&state.editor, &actor, "notes", Some("one")).unwrap();
+        let body = session.draft.fields.iter().find(|field| field.key == "body").unwrap().id.clone();
+        let mut input = form(&session, &actor);
+        input.insert(format!("value.{body}"), if changed { "Edited" } else { "A [caption]" }.into());
+        input.insert("confirm_discard".into(), confirm.to_string());
+        let (_, html) = request(state.clone(), "POST", &format!("/edit-sessions/{}/close", session.id), &cookie, &input, true).await;
+        if changed && confirm {
+            assert_eq!(html.matches("id=\"draft-close-dialog\"").count(), 1);
+            assert!(!html.contains("id=\"discard-dialog\""));
+            session = state.sessions.lock().unwrap().get(&session.id, &actor).unwrap().clone();
+            // Reverting before the next exit must also close without a dialog.
+            let mut reverted = form(&session, &actor);
+            reverted.insert(format!("value.{body}"), "A [caption]".into());
+            let (_, html) = request(state.clone(), "POST", &format!("/edit-sessions/{}/close", session.id), &cookie, &reverted, true).await;
+            assert!(html.contains("data-closed-draft"));
+            assert!(!html.contains("<dialog"));
+        } else {
+            assert!(html.contains("data-closed-draft"));
+            assert!(!html.contains("<dialog"));
+        }
+        assert_eq!(state.editor.get("notes", "one").unwrap().value["body"], r"A \[caption\]");
+    }
 }

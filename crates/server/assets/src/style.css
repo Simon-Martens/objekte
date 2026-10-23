@@ -789,3 +789,13 @@ button:disabled:hover { color: var(--muted); background: var(--surface); border-
 /* Keep headings on one line, including after column resizing. */
 .data-table th a { display:block;position:relative;white-space:nowrap;overflow-wrap:normal;overflow:hidden;text-overflow:ellipsis;padding-right:32px; }
 .data-table th a > i { position:absolute;right:13px;top:50%;transform:translateY(-50%); }
+
+suggestion-select { display:block;position:relative; }
+suggestion-select > input { padding-right:38px; }
+suggestion-select > datalist { display:none; }
+.suggestion-toggle { position:absolute;right:1px;top:1px;bottom:1px;width:34px;min-height:0;padding:0;border:0;border-left:1px solid var(--border);border-radius:0;background:transparent;color:var(--muted); }
+.suggestion-toggle[aria-expanded=true] { color:var(--accent);background:var(--hover); }
+.suggestion-menu { position:fixed;inset:auto;margin:0;padding:4px;overflow:auto;border:1px solid var(--border-strong);border-radius:3px;background:var(--surface-raised);color:var(--text);box-shadow:var(--shadow);font-size:13px; }
+.suggestion-menu [role=option] { padding:8px 10px;border-radius:2px;cursor:pointer;overflow-wrap:anywhere; }
+.suggestion-menu [role=option]:hover,.suggestion-menu [role=option].active { background:var(--hover); }
+.suggestion-menu [aria-selected=true] { color:var(--accent);font-weight:600; }

@@ -1,6 +1,9 @@
 {
-  "source": "src/dynamic/lists/theaterauffuehrungen/2012_Hofmeister.html",
+  "Eintrag": "Der Hofmeister. Neues Theater Halle. I.: Jörg Steinberg. P.: 17.11.2012.",
   "Jahr": 2012,
   "Werk": "Hofmeister",
-  "Eintrag": "Der Hofmeister. Neues Theater Halle. I.: Jörg Steinberg. P.: 17.11.2012."
+  "_editor": {
+    "schema_revision": "b486fde0998e179d96b9723b22be2700a581f47b"
+  },
+  "source": "src/dynamic/lists/theaterauffuehrungen/2012_Hofmeister.html"
 }

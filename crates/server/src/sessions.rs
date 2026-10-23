@@ -353,7 +353,17 @@ impl EditSession {
                             present: form.contains_key(&format!("present.{}", field.id)),
                             raw: form
                                 .get(&format!("value.{}", field.id))
-                                .cloned()
+                                .map(|value| {
+                                    // The Markdown control hides redundant escapes. Submitting
+                                    // that unchanged presentation must preserve the stored source.
+                                    if matches!(field.schema["x-editor"].as_str(), Some("markdown" | "inline-markdown"))
+                                        && value == crate::views::markdown_source::readable(&field.raw).as_ref()
+                                    {
+                                        field.raw.clone()
+                                    } else {
+                                        value.clone()
+                                    }
+                                })
                                 .unwrap_or_else(|| {
                                     if field.kind
                                         == structured_editor_core::draft::InputKind::Boolean
@@ -396,6 +406,17 @@ impl EditSession {
         }
         let mut inputs = HashMap::new();
         collect(&self.draft.fields, form, &mut inputs);
+        if let Some(baseline) = &self.baseline {
+            for (id, input) in &mut inputs {
+                if let Some(original) = baseline.draft.field(id) {
+                    if matches!(original.schema["x-editor"].as_str(), Some("markdown" | "inline-markdown"))
+                        && input.raw == crate::views::markdown_source::readable(&original.raw).as_ref()
+                    {
+                        input.raw = original.raw.clone();
+                    }
+                }
+            }
+        }
         if self.raw.is_some() {
             self.raw = Some(form.get("raw").cloned().unwrap_or_default());
         } else {

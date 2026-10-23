@@ -75,3 +75,5 @@ import './controls/record-id';
 import './controls/notifications';
 
 import './controls/discard-confirmation';
+
+import './controls/suggestion-select';

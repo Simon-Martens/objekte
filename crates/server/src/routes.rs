@@ -523,6 +523,7 @@ async fn array_command(
 async fn suggestions(
     State(state): App,
     Path((id, field)): Path<(String, String)>,
+    Query(query): Query<HashMap<String, String>>,
     headers: HeaderMap,
     Form(form): Form<HashMap<String, String>>,
 ) -> Result<Response> {
@@ -536,26 +537,27 @@ async fn suggestions(
             .field(&field)
             .filter(|f| !f.hidden && !f.read_only)
             .ok_or_else(|| WebError::bad("Unknown editable field"))?;
+        let search = if query.get("all").is_some_and(|value| value == "1") { "" } else { input.raw.as_str() };
         let context = session.value().unwrap_or(serde_json::json!({}));
         let mut values = if session.document.is_some() {
             Vec::new()
         } else {
             state
                 .editor
-                .suggestions_query(&session.collection, &input.key, &context, &input.raw)?
+                .suggestions_query(&session.collection, &input.key, &context, search)?
         };
         if let Some(options) = input.schema["x-options"].as_array() {
             values.extend(
                 options
                     .iter()
                     .filter_map(|v| v.as_str())
-                    .filter(|s| s.to_lowercase().contains(&input.raw.to_lowercase()))
+                    .filter(|s| s.to_lowercase().contains(&search.to_lowercase()))
                     .map(str::to_owned),
             );
         }
         values.sort_by(|a, b| structured_editor_core::alphabetic_cmp(a, b).then(a.cmp(b)));
         values.dedup();
-        let mut html = format!("<datalist id=\"suggestions-{}\">", views::escape(&field));
+        let mut html = format!("<datalist id=\"suggestions-{}\" data-query=\"{}\">", views::escape(&field), views::escape(search));
         for value in values {
             html += &format!("<option value=\"{}\"></option>", views::escape(&value));
         }
@@ -641,7 +643,7 @@ async fn perform(
         let before_input=session.snapshot();
         session.apply(&form)?;
         if action == "discard" || action == "discard-close" { return crate::draft_lifecycle::closed(&state,&actor,&headers,&session); }
-        if action == "close" && !session.dirty() { return crate::draft_lifecycle::closed(&state,&actor,&headers,&session); }
+        if action == "close" && (!session.dirty() || form.get("confirm_discard").is_some_and(|value| value == "false")) { return crate::draft_lifecycle::closed(&state,&actor,&headers,&session); }
         if action == "close" || action == "keep-editing" {
             session.close_requested = action == "close";
             session.history.record(before_input,&session.snapshot());
