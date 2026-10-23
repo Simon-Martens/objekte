@@ -500,6 +500,19 @@ fn parent_owned_lists_support_direct_grouped_and_shared_records() {
         )
         .unwrap();
     assert_eq!(page.total, 0);
+    // Removing the final placement leaves a valid, independently browsable record.
+    let record = e.get("records", "r").unwrap();
+    let group = e.get("groups", "g").unwrap();
+    e.set_child_membership("groups", "g", "records", "r", false, &group.revision)
+        .unwrap();
+    assert!(e.parent_links("records", "r").unwrap().is_empty());
+    assert_eq!(e.get("records", "r").unwrap().value, record.value);
+    assert!(e.validate("records", &record.value).unwrap().is_empty());
+    let page = e
+        .query_collection("records", &ListRequest::default())
+        .unwrap();
+    assert_eq!(page.total, 1);
+    assert_eq!(page.rows[0].id, "r");
 }
 #[test]
 fn child_creation_checks_revision_permissions_and_rolls_back_failed_attachments() {
@@ -609,10 +622,9 @@ fn unicode_collection_sort_is_accent_aware_in_both_directions() {
     }
 }
 #[test]
-fn migrated_lenz_records_validate_and_every_manuscript_has_a_parent() {
+fn migrated_lenz_records_and_existing_parent_links_validate() {
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../examples/lenz-archiv");
     let e = Editor::open(root).unwrap();
-    let mut placed = std::collections::BTreeSet::new();
     for name in ["orte", "sammlungen", "handschriften"] {
         let rows: Vec<_> = (0..10000)
             .step_by(100)
@@ -630,17 +642,15 @@ fn migrated_lenz_records_validate_and_every_manuscript_has_a_parent() {
             assert!(doc.value.get("Ort").is_none() && doc.value.get("Sammlung").is_none());
             if name != "handschriften" {
                 for id in e.child_ids(name, &row.id, "handschriften").unwrap() {
-                    placed.insert(id);
+                    assert!(
+                        e.get("handschriften", &id).is_ok(),
+                        "{name}/{} links to missing manuscript {id}",
+                        row.id
+                    );
                 }
             }
         }
     }
-    assert_eq!(
-        placed.len(),
-        e.query_collection("handschriften", &ListRequest::default())
-            .unwrap()
-            .total
-    );
 }
 
 #[test]
