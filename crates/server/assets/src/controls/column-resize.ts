@@ -16,19 +16,27 @@ function enhanceTables() {
     const saved = widths.get(key);
     if (saved?.length === headers.length) apply(saved);
     headers.forEach((header, index) => {
-      if (!header.querySelector('a') || header.querySelector('.column-resize-handle')) return;
+      // Only internal data-column boundaries resize; keep the actions column fixed.
+      if (!header.querySelector('a') || !headers[index + 1]?.querySelector('a') || header.querySelector('.column-resize-handle')) return;
       const handle = document.createElement('span');
       handle.className = 'column-resize-handle';
       handle.tabIndex = 0;
       handle.setAttribute('role', 'separator');
       handle.setAttribute('aria-orientation', 'vertical');
       handle.setAttribute('aria-label', `Resize ${header.textContent?.trim()} column`);
-      handle.setAttribute('aria-valuemin', '96');
       const resize = (sizes: number[], value: number) => {
-        sizes[index] = Math.max(96, Math.round(value));
-        widths.set(key, sizes);
-        apply(sizes);
-        handle.setAttribute('aria-valuenow', String(sizes[index]));
+        const next = index + 1;
+        const pairWidth = sizes[index] + sizes[next];
+        const minimum = Math.min(96, sizes[index]);
+        const maximum = pairWidth - Math.min(96, sizes[next]);
+        const resized = [...sizes];
+        resized[index] = Math.max(minimum, Math.min(maximum, value));
+        resized[next] = pairWidth - resized[index];
+        widths.set(key, resized);
+        apply(resized);
+        handle.setAttribute('aria-valuemin', String(Math.round(minimum)));
+        handle.setAttribute('aria-valuemax', String(Math.round(maximum)));
+        handle.setAttribute('aria-valuenow', String(Math.round(resized[index])));
       };
       handle.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); });
       handle.addEventListener('pointerdown', event => {

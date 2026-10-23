@@ -763,7 +763,7 @@ button:disabled:hover { color: var(--muted); background: var(--surface); border-
   .column-resize-handle:focus-visible { outline:2px solid var(--accent);outline-offset:-2px; }
   .data-table.columns-resized { table-layout:fixed;width:var(--table-width); }
   .data-table.columns-resized th { width:var(--column-width);overflow:hidden; }
-  .data-table.columns-resized th a { overflow:hidden;white-space:normal;overflow-wrap:anywhere;padding-right:16px; }
+  .data-table.columns-resized th a { padding-right:32px; }
   .data-table.columns-resized td { min-width:0;max-width:none;overflow:hidden; }
   .data-table.columns-resized .table-record-link { min-width:0; }
 }
@@ -784,3 +784,8 @@ button:disabled:hover { color: var(--muted); background: var(--surface); border-
 .picker-media-item > i { width:48px;flex-shrink:0;text-align:center;font-size:22px;color:var(--muted); }
 .picker-thumbnail { width:48px;height:48px;flex-shrink:0;object-fit:contain;background:var(--subtle);border:1px solid var(--border);border-radius:3px; }
 #picker-upload-result > .picker-thumbnail { margin-top:4px; }
+
+
+/* Keep headings on one line, including after column resizing. */
+.data-table th a { display:block;position:relative;white-space:nowrap;overflow-wrap:normal;overflow:hidden;text-overflow:ellipsis;padding-right:32px; }
+.data-table th a > i { position:absolute;right:13px;top:50%;transform:translateY(-50%); }

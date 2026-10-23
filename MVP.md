@@ -1,4 +1,29 @@
-This revised MVP incorporates your comments. It defines the intended behavior for the rebuild; it does not prescribe frontend technology or architecture. Accepted implementation decisions are recorded below; configuration and module details are in README.md and crates/server/README.md.
+# Objekte MVP
+
+Objekte is a **schema-driven editor for structured, file-based content**. Given JSON schemas and collections of files, it provides an interface for browsing, searching, filtering, viewing, and editing their contents. The schema defines what the data can contain; UI options define how it is presented. A new collection should not require a custom application or a separately designed editing screen.
+
+This document records the product principles, intended behavior, current capabilities, and remaining gaps. The implementation overview below describes the current architecture; the product requirements do not prescribe a frontend technology. Configuration and module details are documented in README.md and crates/server/README.md.
+
+**Current capabilities**
+
+- **Typed editing:** strings, Markdown, numbers, booleans, nested objects, and homogeneous arrays; optional fields, explicit null where permitted, and raw JSON where enabled. Editing remains guided by an assigned schema.
+- **Collections and relationships:** searchable, sortable, filterable lists, configurable and resizable columns, validated ID references, and distinct unlink and delete actions. Embedded values and linked records retain their different storage semantics.
+- **Media:** collection and folder browsing, search, uploads, small image previews, and Markdown link insertion. The link picker can switch between readable record and media collections and upload into the selected media collection and folder. Uploading does not save the edited record; uploaded files remain even if that record's draft is discarded.
+- **Editing safeguards:** private drafts, undo/redo, live validation, and revision checks that reject conflicting saves. Unchanged drafts offer Close; changed drafts offer Discard with confirmation, which can be disabled through a browser preference. Drafts do not lock records between requests.
+- **Accounts and permissions:** users, roles, invitations, password resets, account administration, and configured operation permissions.
+- **Interface:** light and dark modes, mobile layouts, a resizable and collapsible sidebar, inherited presentation options, readable system metadata, and notifications that do not shift the editing layout.
+
+**Current architecture and storage**
+
+Content remains in ordinary files: JSON records, Markdown/frontmatter records, media, schemas, and configuration. Rust handles validation, storage, reference integrity, concurrency checks, and server-rendered views. JavaScript handles browser interactions, with Vite providing frontend development updates.
+
+The local embedded database stores accounts, login sessions, invitations, and password-reset tokens. Editing drafts, undo history, and read caches live in server memory and are lost on restart. Browser storage holds some interface preferences and tab-specific draft recovery information. Login sessions and editing drafts are distinct concepts.
+
+**Current stage and boundaries**
+
+The application is a working foundation for a general-purpose structured-content editor. Its strength is editing schema-defined documents and their relationships through shared controls and navigation. Full JSON Schema support in the structured UI remains unfinished, especially union types, mixed arrays, and conditional forms. Backend validation and structured control coverage are separate concerns: accepting a schema for validation does not imply that every construct has a dedicated editor. The detailed completion backlog is in ToDOo.md.
+
+The governing principle below applies to both existing features and further development.
 
 **Governing UI principle: browse the data tree**
 
@@ -184,7 +209,7 @@ The MVP needs suggestions for fields such as `Werk` and `Sprache`, backed by dis
 - Saving uses the same revision/conflict behavior as other document editing.
 - Imports preserve editor settings, schema mappings, and existing assigned documents.
 
-No concrete instance-setting options are specified yet.
+Current instance settings include default theme, density, page size, editor font size, live-validation delay, Markdown preview, and media thumbnails. Personal browser preferences, such as theme choice and discard confirmation, remain distinct from project content and instance settings.
 
 **9. Application functionality**
 
