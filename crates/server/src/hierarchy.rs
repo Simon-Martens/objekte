@@ -5,7 +5,10 @@ use crate::{
     blocking,
     error::{Result, WebError},
     routes::{mutation_actor, page, page_actor},
-    views::{self, encode, escape, record_url},
+    views::{
+        self, encode, escape, record_url,
+        table::{TableColumns, query_url},
+    },
 };
 use axum::{
     Router,
@@ -141,7 +144,13 @@ pub fn scoped_url(parent: &str, id: &str, field: &str, target: &str) -> String {
         encode(field)
     )
 }
-pub fn sections(editor: &Editor, parent: &str, id: &str, actor: &Actor) -> Result<String> {
+pub fn sections(
+    editor: &Editor,
+    parent: &str,
+    id: &str,
+    actor: &Actor,
+    params: &HashMap<String, String>,
+) -> Result<String> {
     let doc = editor.get(parent, id)?;
     let mut html = String::new();
     for child in editor.config().collection(parent)?.child_collections() {
@@ -155,7 +164,31 @@ pub fn sections(editor: &Editor, parent: &str, id: &str, actor: &Actor) -> Resul
             .and_then(|v| v.as_u64())
             .unwrap_or(10)
             .clamp(1, 200) as usize;
-        let url = scoped_url(parent, id, &child.field, &child.collection);
+        let scope = format!("children-{}", encode(&child.field));
+        let prefix = format!("child.{}.", encode(&child.field));
+        let columns = TableColumns::new(&c.editor_schema, &ui, params, &prefix, &["_label"]);
+        let mut browse = HashMap::from([
+            ("parent_collection".into(), parent.into()),
+            ("parent_id".into(), id.into()),
+            ("parent_field".into(), child.field.clone()),
+        ]);
+        if params
+            .get(&format!("{prefix}columns"))
+            .is_some_and(|v| v == "custom")
+        {
+            browse.insert("columns".into(), "custom".into());
+            for (key, _) in &columns.selected {
+                browse.insert(format!("column.{key}"), "1".into());
+            }
+        }
+        let url = if browse.contains_key("columns") {
+            query_url(
+                &format!("/collections/{}", encode(&child.collection)),
+                &browse,
+            )
+        } else {
+            scoped_url(parent, id, &child.field, &child.collection)
+        };
         let base = format!(
             "{}/children/{}",
             record_url(parent, id),
@@ -209,6 +242,7 @@ pub fn sections(editor: &Editor, parent: &str, id: &str, actor: &Actor) -> Resul
                 );
             }
         }
+        html += &columns.picker(&scope, &record_url(parent, id), params, &prefix);
         html += "</div></div>";
         if missing_count > 0 {
             html += &format!(
@@ -221,46 +255,27 @@ pub fn sections(editor: &Editor, parent: &str, id: &str, actor: &Actor) -> Resul
                 escape(&child.label)
             );
         } else {
-            let columns: Vec<&str> = ui
-                .pointer("/list/columns")
-                .and_then(|v| v.as_array())
-                .map(|a| {
-                    a.iter()
-                        .filter_map(|v| v.as_str().or_else(|| v["field"].as_str()))
-                        .collect()
-                })
-                .unwrap_or_else(|| vec!["_label"]);
-            let title = |key: &str| -> String {
-                match key {
-                    "_label" => "Record".into(),
-                    "_id" => "Identifier".into(),
-                    _ => c.editor_schema["properties"][key]["title"]
-                        .as_str()
-                        .unwrap_or(key)
-                        .into(),
-                }
-            };
             html +=
                 "<div class=\"table-scroll\"><table class=\"data-table child-table\"><thead><tr>";
-            for key in &columns {
+            for (key, title) in &columns.selected {
                 html += &format!(
                     "<th><a data-nav href=\"{}&amp;sort={}\">{}<i class=\"ri-arrow-up-down-line\" aria-hidden=\"true\"></i></a></th>",
                     escape(&url),
                     encode(key),
-                    escape(&title(key))
+                    escape(title)
                 );
             }
             html += "<th class=\"row-actions-heading\"><span class=\"sr-only\">Actions</span></th></tr></thead><tbody>";
             for row in rows.rows {
                 let record = record_url(&child.collection, &row.id);
                 html += "<tr>";
-                for (index, key) in columns.iter().enumerate() {
-                    let text = match *key {
+                for (index, (key, title)) in columns.selected.iter().enumerate() {
+                    let text = match key.as_str() {
                         "_label" => row.label.clone(),
                         "_id" => row.id.clone(),
-                        _ => row.display.get(*key).cloned().unwrap_or_else(|| "—".into()),
+                        _ => row.display.get(key).cloned().unwrap_or_else(|| "—".into()),
                     };
-                    html += &format!("<td data-label=\"{}\">", escape(&title(key)));
+                    html += &format!("<td data-label=\"{}\">", escape(title));
                     if index == 0 {
                         html += &format!(
                             "<a class=\"record-link\" data-nav href=\"{record}\">{}</a>",
@@ -302,6 +317,7 @@ pub fn sections(editor: &Editor, parent: &str, id: &str, actor: &Actor) -> Resul
     }
     Ok(html)
 }
+
 pub fn router() -> Router<Arc<AppState>> {
     Router::new()
         .route(

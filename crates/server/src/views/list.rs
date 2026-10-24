@@ -1,4 +1,5 @@
 use super::*;
+use super::table::{TableColumns, GET_FORM, hidden, query_url};
 use std::collections::HashMap;
 use structured_editor_core::ListRequest;
 
@@ -51,38 +52,6 @@ pub fn highlighted(
         html += "…";
     }
     html
-}
-fn query_url(base: &str, params: &HashMap<String, String>) -> String {
-    let mut values: Vec<_> = params.iter().filter(|(_, v)| !v.is_empty()).collect();
-    values.sort_by(|a, b| a.0.cmp(b.0));
-    if values.is_empty() {
-        return base.into();
-    }
-    format!(
-        "{base}?{}",
-        values
-            .into_iter()
-            .map(|(k, v)| format!("{}={}", encode(k), encode(v)))
-            .collect::<Vec<_>>()
-            .join("&")
-    )
-}
-fn hidden(params: &HashMap<String, String>, exclude: &[&str]) -> String {
-    params
-        .iter()
-        .filter(|(k, _)| {
-            !exclude
-                .iter()
-                .any(|e| k.as_str() == *e || e.ends_with('.') && k.starts_with(e))
-        })
-        .map(|(k, v)| {
-            format!(
-                "<input type=\"hidden\" name=\"{}\" value=\"{}\">",
-                escape(k),
-                escape(v)
-            )
-        })
-        .collect()
 }
 pub fn render(
     editor: &Editor,
@@ -195,50 +164,9 @@ pub fn render(
         .as_object()
         .cloned()
         .unwrap_or_default();
-    let mut available = vec![
-        ("_label".to_owned(), "Record".to_owned()),
-        ("_id".into(), "Identifier".into()),
-    ];
-    available.extend(
-        props
-            .iter()
-            .filter(|(k, s)| {
-                k.as_str() != "_editor" && s["x-editor"] != "hidden" && s["x-visible"] != false
-            })
-            .map(|(k, s)| (k.clone(), s["title"].as_str().unwrap_or(k).to_owned())),
-    );
-    let configured: Vec<String> = ui
-        .pointer("/list/columns")
-        .and_then(|v| v.as_array())
-        .map(|v| {
-            v.iter()
-                .filter_map(|v| v.as_str().or_else(|| v["field"].as_str()))
-                .map(str::to_owned)
-                .collect()
-        })
-        .unwrap_or_else(|| vec!["_label".into(), "_id".into()]);
-    let columns: Vec<_> = available
-        .iter()
-        .filter(|(key, _)| {
-            if params.get("columns").is_some_and(|v| v == "custom") {
-                params.contains_key(&format!("column.{key}"))
-            } else {
-                configured.contains(key)
-            }
-        })
-        .cloned()
-        .collect();
-    let mut columns = if columns.is_empty() {
-        vec![available[0].clone()]
-    } else {
-        columns
-    };
-    columns.sort_by_key(|(key, _)| {
-        configured
-            .iter()
-            .position(|v| v == key)
-            .unwrap_or(usize::MAX)
-    });
+    let table_columns = TableColumns::new(&c.editor_schema, &ui, params, "", &["_label", "_id"]);
+    let available = &table_columns.available;
+    let columns = &table_columns.selected;
     let url = query_url(&base, params);
     let mut body = format!(
         "<main id=\"workspace\" class=\"collection-workspace\" data-url=\"{}\" data-section=\"{base}\" tabindex=\"-1\"><div class=\"page-heading\"><div><p class=\"eyebrow\">Content / Collection</p><h1>{} <span class=\"heading-count mono\">{}</span></h1></div><div class=\"actions\">",
@@ -334,7 +262,7 @@ pub fn render(
         body += "</nav>";
     }
     body += "<div class=\"collection-layout\">";
-    let get = "data-on:submit__prevent=\"@get(el.getAttribute('action')+'?'+new URLSearchParams(new FormData(el)),{filterSignals:{include:/^$/}})\"";
+    let get = GET_FORM;
     if !page.facets.is_empty() {
         body += &format!(
             "<details class=\"surface filter-panel\" open><summary><i class=\"ri-filter-3-line\" aria-hidden=\"true\"></i>Filters<span class=\"badge\">{}</span></summary><form action=\"{base}\" {get}>{}",
@@ -450,27 +378,12 @@ pub fn render(
     } else {
         "false"
     };
+    let column_picker = table_columns.picker("collection", &base, params, "");
     body += &format!(
-        "<section class=\"surface table-panel\" aria-label=\"Records\"><div class=\"list-toolbar\"><form class=\"search-form\" data-regex-search action=\"{base}\" {get}>{}<div class=\"search-input has-options\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i><label class=\"sr-only\" for=\"collection-search\">Search</label><input id=\"collection-search\" aria-invalid=\"{invalid}\" aria-describedby=\"search-pattern-error\" type=\"search\" name=\"q\" value=\"{}\" placeholder=\"Search all indexed fields…\">{search_controls}</div><button>Search</button>{show_all}</form><details class=\"action-menu column-picker\"><summary class=\"button icon-button\" aria-label=\"Columns\" data-tooltip=\"Columns\"><i class=\"ri-layout-column-line\" aria-hidden=\"true\"></i></summary><form class=\"menu-panel\" action=\"{base}\" {get} data-on:change=\"el.requestSubmit()\" data-indicator:_columns-pending>{}<input type=\"hidden\" name=\"columns\" value=\"custom\"><p class=\"eyebrow\">Visible columns</p><fieldset data-attr:inert=\"$_columnsPending\">",
+        "<section class=\"surface table-panel\" aria-label=\"Records\"><div class=\"list-toolbar\"><form class=\"search-form\" data-regex-search action=\"{base}\" {get}>{}<div class=\"search-input has-options\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i><label class=\"sr-only\" for=\"collection-search\">Search</label><input id=\"collection-search\" aria-invalid=\"{invalid}\" aria-describedby=\"search-pattern-error\" type=\"search\" name=\"q\" value=\"{}\" placeholder=\"Search all indexed fields…\">{search_controls}</div><button>Search</button>{show_all}</form>{column_picker}</div>",
         hidden(params, &["q", "regex", "case_sensitive", "offset"]),
-        escape(&q),
-        hidden(params, &["column.", "columns", "offset"])
+        escape(&q)
     );
-    for (key, label) in &available {
-        body += &format!(
-            "<label class=\"column-option\" for=\"column-{}\"><input id=\"column-{}\" type=\"checkbox\" name=\"column.{}\" value=\"1\" {}><span>{}</span></label>",
-            escape(&encode(key)),
-            escape(&encode(key)),
-            escape(key),
-            if columns.iter().any(|(k, _)| k == key) {
-                "checked"
-            } else {
-                ""
-            },
-            escape(label)
-        );
-    }
-    body += "</fieldset><noscript><button class=\"primary\">Apply columns</button></noscript></form></details></div>";
     body += &validation;
     let mut page_controls = String::new();
     for (enabled, next_offset, label, icon) in [
@@ -516,7 +429,7 @@ pub fn render(
         if page.rows.is_empty() { 0 } else { offset + 1 },
         (offset + page.rows.len()).min(page.matched)
     );
-    for (key, label) in &columns {
+    for (key, label) in columns {
         let mut p = params.clone();
         p.insert("sort".into(), key.clone());
         p.insert(
@@ -569,7 +482,7 @@ pub fn render(
     for row in &page.rows {
         let link = record_url(name, &row.id);
         body += "<tr>";
-        for (key, label) in &columns {
+        for (key, label) in columns {
             let text = match key.as_str() {
                 "_id" => Some(&row.id),
                 "_label" => Some(&row.label),

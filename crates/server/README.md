@@ -185,7 +185,7 @@ Each collection's `ui.json` can define:
 }
 ```
 
-Columns use top-level schema field names, plus `_label` and `_id`. `_manual` is supported as a default sort key. Column checkboxes update the list immediately and keep the chooser open; Done dismisses it. Runtime column choices, sort direction, search, category and filters are URL parameters and survive pagination. Sorting does not rewrite stored order. Numeric columns sort numerically; missing values remain last. Search returns matching field values, including fields outside the selected columns, with escaped Unicode-aware highlighting.
+Columns use top-level schema field names, plus `_label` and `_id`. `_manual` is supported as a default sort key. Every collection table and embedded child table has a show/hide columns button. Column checkboxes update that table immediately and keep its chooser open; Escape or clicking outside dismisses it. At least one data column remains visible. Runtime column choices, sort direction, search, category and filters are URL parameters and survive pagination. Sorting does not rewrite stored order. Numeric columns sort numerically; missing values remain last. Search returns matching field values, including fields outside the selected columns, with escaped Unicode-aware highlighting.
 
 `filters` chooses desirable fields explicitly. `autoFilters: true` also derives filters from visible scalar fields: numbers get ranges; booleans get true/false/not-set; relations, enums and strings with at most 40 distinct values get selectors; larger string vocabularies get a contains input. Rich text and hidden fields are not automatically included. Counts are computed over the category before query/filter application, with a separate matching count. The Rust core owns query semantics, matching, counts and ordering.
 
@@ -230,7 +230,7 @@ Collection defaults resolve from global `defaults`, the collection UI file, then
 }
 ```
 
-Embedded previews and their **Browse list** pages use the same resolved columns, sort, and filter configuration. `list.previewSize` controls preview rows (default 10, range 1–200); `pageSize` controls the full list. Preview columns are no longer capped at four. These overrides belong to that parent/list occurrence and do not alter the target collection elsewhere. They do not propagate across reference navigation into another record's child lists.
+Embedded previews and their **Browse list** pages use the same resolved columns, sort, and filter configuration. `list.previewSize` controls preview rows (default 10, range 1–200); `pageSize` controls the full list. Preview columns are no longer capped at four. Runtime choices are independent for each child table, survive a page reload through the URL, and carry into its Browse list page without changing stored configuration. These overrides belong to that parent/list occurrence and do not alter the target collection elsewhere. They do not propagate across reference navigation into another record's child lists.
 
 General assigned JSON documents now offer a typed preview and an **Edit** button in the document list, using the same draft controls, array actions, undo/redo, validation, and conflict-checked saves as records. Documents keep their assigned paths and have no record-ID controls. Arrays and scalar values are also supported at the document root. The dedicated `/settings` screen remains available.
 

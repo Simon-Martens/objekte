@@ -2414,7 +2414,7 @@ async fn child_list_overrides_are_local_and_used_by_preview_and_full_list() {
         state.editor.config().collection("notes").unwrap().ui["list"]["columns"],
         json!(["name", "count"])
     );
-    let preview = hierarchy::sections(&state.editor, "groups", "g", &actor).unwrap();
+    let preview = hierarchy::sections(&state.editor, "groups", "g", &actor, &HashMap::new()).unwrap();
     assert!(preview.contains("sort=count"));
     assert!(!preview.contains("sort=name"));
     let (status, html) = request(state.clone(), "GET", "/collections/notes?parent_collection=groups&parent_id=g&parent_field=children&filter.count.min=1", &cookie, &HashMap::new(), false).await;
@@ -3799,4 +3799,117 @@ async fn literal_case_matching_survives_navigation_and_show_all_resets_it() {
     assert_eq!(status, StatusCode::OK);
     assert!(partial.contains("<mark>First</mark> again"));
     assert!(partial.contains("data-case-toggle aria-label=\"Match case\" aria-pressed=\"true\""));
+}
+
+#[tokio::test]
+async fn every_embedded_table_has_independent_column_choices() {
+    let (temp, mut state, cookie, _) = hierarchy_fixture().await;
+    let root = temp.path().join("project");
+    let schema_path = root.join(".editor/objects.schema.json");
+    let mut schema: serde_json::Value =
+        serde_json::from_slice(&std::fs::read(&schema_path).unwrap()).unwrap();
+    for collection in schema["anyOf"].as_array_mut().unwrap() {
+        if collection["x-collection"] == "groups" {
+            collection["properties"]["related"] = collection["properties"]["children"].clone();
+            collection["properties"]["related"]["title"] = json!("Related notes");
+        }
+        if collection["x-collection"] == "notes" {
+            collection["properties"]["secret"] = json!({"type":"string","x-editor":"hidden"});
+        }
+    }
+    std::fs::write(&schema_path, schema.to_string()).unwrap();
+    Arc::get_mut(&mut state).unwrap().editor = Editor::open(&root).unwrap();
+    let original = state.editor.get("groups", "g").unwrap();
+    state
+        .editor
+        .save(
+            "groups",
+            "g",
+            json!({"name":"Group","children":["one"],"related":["one"]}),
+            Some(&original.revision),
+        )
+        .unwrap();
+    let revision = state.editor.get("groups", "g").unwrap().revision;
+    let config = std::fs::read(root.join(".editor/ui.json")).unwrap();
+    let base = "/collections/groups/records/g";
+    let (_, initial) = request(state.clone(), "GET", base, &cookie, &HashMap::new(), false).await;
+    assert_eq!(initial.matches("<table ").count(), 2);
+    assert_eq!(
+        initial
+            .matches("class=\"action-menu column-picker\"")
+            .count(),
+        2
+    );
+    assert!(initial.contains("id=\"columns-children-children\""));
+    assert!(initial.contains("id=\"columns-children-related\""));
+    let section = |html: &str, field: &str| -> String {
+        html.split(&format!("id=\"children-{field}\""))
+            .nth(1)
+            .unwrap()
+            .split("</section>")
+            .next()
+            .unwrap()
+            .to_owned()
+    };
+    let url = format!(
+        "{base}?child.children.columns=custom&child.children.column.count=1&child.related.columns=custom&child.related.column._id=1"
+    );
+    for partial in [false, true] {
+        let (status, html) = request(
+            state.clone(),
+            "GET",
+            &url,
+            &cookie,
+            &HashMap::new(),
+            partial,
+        )
+        .await;
+        assert_eq!(status, StatusCode::OK);
+        assert!(!html.contains("name=\"datastar\""));
+        assert!(!html.contains("&amp;datastar="));
+        let children = section(&html, "children");
+        let related = section(&html, "related");
+        assert!(children.contains("data-label=\"count\""));
+        assert!(!children.contains("data-label=\"Identifier\""));
+        assert!(related.contains("data-label=\"Identifier\""));
+        assert!(!related.contains("data-label=\"count\""));
+        // Updating either chooser retains the other table's selection.
+        assert!(children.contains("type=\"hidden\" name=\"child.related.column._id\" value=\"1\""));
+        assert!(
+            related.contains("type=\"hidden\" name=\"child.children.column.count\" value=\"1\"")
+        );
+        assert!(html.contains(
+            "data-url=\"/collections/groups/records/g?child%2Echildren%2Ecolumn%2Ecount=1"
+        ));
+        let browse = children
+            .split("href=\"")
+            .nth(1)
+            .unwrap()
+            .split('"')
+            .next()
+            .unwrap()
+            .replace("&amp;", "&");
+        let (_, full_list) = request(
+            state.clone(),
+            "GET",
+            &browse,
+            &cookie,
+            &HashMap::new(),
+            false,
+        )
+        .await;
+        assert!(full_list.contains("data-label=\"count\""));
+        assert!(!full_list.contains("data-label=\"Identifier\""));
+        assert!(full_list.contains("id=\"columns-collection\""));
+    }
+    // Hidden/unknown fields cannot be exposed, and clearing every checkbox
+    // keeps a usable Record column and the row's action buttons.
+    let (_, fallback) = request(state.clone(), "GET", &format!("{base}?child.children.columns=custom&child.children.column.secret=1&child.children.column.unknown=1"), &cookie, &HashMap::new(), false).await;
+    let children = section(&fallback, "children");
+    assert!(children.contains("data-label=\"Record\""));
+    assert!(!children.contains("data-label=\"secret\""));
+    assert!(!children.contains("type=\"checkbox\" name=\"child.children.column.secret\""));
+    assert!(children.contains("aria-label=\"Actions for First\""));
+    assert_eq!(state.editor.get("groups", "g").unwrap().revision, revision);
+    assert_eq!(std::fs::read(root.join(".editor/ui.json")).unwrap(), config);
 }

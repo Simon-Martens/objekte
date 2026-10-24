@@ -262,21 +262,16 @@ async fn collection(
 async fn record(
     State(state): App,
     Path((name, id)): Path<(String, String)>,
-    Query(query): Query<HashMap<String, String>>,
+    Query(mut query): Query<HashMap<String, String>>,
     headers: HeaderMap,
 ) -> Result<Response> {
     let actor = match page_actor(&state, &headers).await {
         Ok(a) => a,
         Err(r) => return Ok(r),
     };
+    query.remove("datastar");
     blocking(move || {
-        let html = views::record_at(
-            &state.editor,
-            &name,
-            &id,
-            &actor,
-            query.get("node").map(String::as_str).unwrap_or(""),
-        )?;
+        let html = views::record_at(&state.editor, &name, &id, &actor, &query)?;
         page(&state, &actor, &headers, html)
     })
     .await

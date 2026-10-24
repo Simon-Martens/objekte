@@ -2,6 +2,7 @@ pub mod list;
 pub(crate) mod markdown_source;
 pub(crate) mod metadata;
 pub(crate) mod preview;
+pub(crate) mod table;
 pub mod validation;
 use crate::templates::Template;
 use crate::{
@@ -338,15 +339,16 @@ pub(crate) fn record_kind(editor: &Editor, name: &str) -> Result<String> {
         .to_owned())
 }
 pub fn record(editor: &Editor, name: &str, id: &str, actor: &Actor) -> Result<String> {
-    record_at(editor, name, id, actor, "")
+    record_at(editor, name, id, actor, &std::collections::HashMap::new())
 }
 pub fn record_at(
     editor: &Editor,
     name: &str,
     id: &str,
     actor: &Actor,
-    path: &str,
+    params: &std::collections::HashMap<String, String>,
 ) -> Result<String> {
+    let path = params.get("node").map(String::as_str).unwrap_or("");
     editor.require_operation(name, "read")?;
     let doc = editor.get(name, id)?;
     let projected = editor.view_value(name, &doc.value)?;
@@ -356,11 +358,7 @@ pub fn record_at(
     let parent_links = editor.parent_links(name, id)?;
     Ok(RecordView {
         record_kind: record_kind(editor, name)?,
-        view_url: if path.is_empty() {
-            url.clone()
-        } else {
-            format!("{url}?node={}", encode(path))
-        },
+        view_url: table::query_url(&url, params),
         edit_link: format!("{}/edit?node={}", record_url(name, id), encode(path)),
         title: editor.label(name, &doc.value, id, "record")?,
         can_delete: actor.editable() && editor.allows(name, "delete"),
@@ -369,7 +367,7 @@ pub fn record_at(
         back: format!("/collections/{}", encode(name)),
         back_label: editor.config().collection(name)?.label.clone(),
         content,
-        children: crate::hierarchy::sections(editor, name, id, actor)?,
+        children: crate::hierarchy::sections(editor, name, id, actor, params)?,
         parents: crate::hierarchy::parents(editor, name, id)?,
         delete: format!("{url}/delete"),
         actor: actor.into(),
